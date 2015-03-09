@@ -1,7 +1,77 @@
-@(message: String)
+@(form: Form[User])
 
-@main("Welcome to Play") {
 
-    @play20.welcome(message, style = "Java")
+<html>
+    <head>
+        <title>PushMe | Sign up</title>
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+    </head>
+    <body>
+        	
+	<div class="container" style="margin-top:40px">
+		<div class="row">
+			<div class="col-sm-6 col-md-4 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<strong> Sign up</strong>
+									@if(form.hasGlobalErrors) {
+					    <p style="color:red;" class="error">
+					        @form.globalError.message
+					    </p>
+						}
+						@if(flash.contains("success")) {
+					    <p style="color:green;" class="success">
+					        @flash.get("success")
+					    </p>
+						}
+					</div>
+					<div class="panel-body">
+						@helper.form(routes.Application.createUser) {
+							<fieldset>								
+								<div class="row">
+									<div class="col-sm-12 col-md-10  col-md-offset-1 ">
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-envelope"></i>
+												</span> 
+												<input class="form-control" placeholder="Email" name="email" type="text" autofocus />
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-user"></i>
+												</span> 
+												<input class="form-control" placeholder="Name" name="name" type="text" />
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-lock"></i>
+												</span>
+												<input class="form-control" placeholder="Password" name="password" type="password" value="" />
+											</div>
+										</div>
+										<div class="form-group">
+											<input type="submit" class="btn btn-lg btn-primary btn-block" value="Create user" />
+										</div>
+									</div>
+								</div>
+							</fieldset>
+						}
+					</div>
+					<div class="panel-footer ">
+						Your user will be activated within a few seconds.
+					</div>
+                </div>
+			</div>
+		</div>
+	</div>
+    
+    </body>
+</html>
 
-}
