@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
     <title>Get Healthy With The Right Techniques</title>
     <link rel="shortcut icon" href="images/sintef-logo.gif" />
@@ -57,7 +60,7 @@
                     <li>
                         <a href="#" class="btn" 
 							data-toggle="modal" 
-							data-target="#registerModal">Register</a>
+							data-target="#registerModal1">Register</a>
                     </li>
                     <li>
                         <a href="main.html" class="btn" >Backdoor</a>
@@ -89,31 +92,33 @@
 				</div>
 			</div>
 		</div>
-		<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+		<form class="modal multi-step" id="registerModal1">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-					<h3 class="modal-title" id="myModalLabel">Register</h3>
+					<h3 class="modal-title step-1" data-step="1">Step 1</h3>
+					<h3 class="modal-title step-2" data-step="2">Step 2</h3>
 					</div>
-					<div class="modal-body">
-						<p><label for="username">Username:&nbsp;</label><input type="text" name="username" value=""
-								placeholder="Enter username" id="username">
-						</p>
-							<p><label for="password">Password:&nbsp;</label><input type="password" name="password"
-								value="" placeholder="Enter password" id="password">
-							</p>
-								<p><label for="repeatpassword">Password:&nbsp;</label><input type="password" name="password"
-									value="" placeholder="Repeat password" id="password">
-								</p>	
+					<div class="modal-body step step-1">
+               		 This is step 1.
 					</div>
+					<div class="modal-body step step-2">
+                	This is the final step
+            		</div>
 					<div class="modal-footer">
-						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-						<button class="btn btn-primary">Next</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               			<button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent()">Continue</button>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
+		<script src="multi-step-modal.js"></script>
+		<script>
+		sendEvent = function(sel, step) {
+		    $(sel).trigger('next.m.' + step);
+		}
+		</script>
     </nav>
 
     <!-- Header Carousel -->
