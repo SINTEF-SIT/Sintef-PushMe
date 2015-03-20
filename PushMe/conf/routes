@@ -14,8 +14,8 @@ POST    /login                      controllers.Application.authenticate()
 GET     /logout                     controllers.Application.logout()
 
 #Signup
-GET		/signup						controllers.Application.signup()
-POST	/signup						controllers.Application.createUser()
+GET		/signup						controllers.SignupController.signup()
+POST	/signup						controllers.SignupController.createUser()
 
 #UserActivities
 GET		/useractivity				controllers.Application.useractivity()
