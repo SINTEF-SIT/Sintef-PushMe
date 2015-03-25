@@ -11,7 +11,7 @@
 		    <th>Update</th>
 		  </tr>
 		    @for(ua <- useractivities) {
-		    @helper.form(routes.Application.updateUA(ua.id)) {
+		    @helper.form(routes.UserActivityController.updateUA(ua.id)) {
 		    <tr>
 		    <td>@ua.activity.name</td>
 		    <th>@ua.steps</th>
