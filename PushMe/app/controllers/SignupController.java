@@ -11,7 +11,7 @@ import play.data.*;
 import play.mvc.*;
 import models.*;
 import views.html.*;
-import play.libs.Mail
+//import play.libs.Mail;
 import static play.data.Form.form;
 
 
@@ -34,7 +34,7 @@ public class SignupController extends Controller {
             return redirect(routes.LoginController.login());
         }
     }
-    
+ /*   
     public void sendValidationEmail () {
     	SimpleEmail email = new SimpleEmail();
     	email.setFrom("pushMe@sintef.no");
@@ -53,4 +53,5 @@ public class SignupController extends Controller {
         for (int i = 0; i < 5; i++) {
             code[i] = alphabet.charAt(r.nextInt(alphabet.length()));
         } return code;
+*/
 }

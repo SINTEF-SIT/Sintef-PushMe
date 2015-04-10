@@ -1,6 +1,5 @@
 package controllers;
 
-import user.java
 
 import static play.data.Form.form;
 
@@ -15,8 +14,8 @@ import views.html.*;
 
 public class ProfileController {
 
-    public static Result profile() {
-        return ok(userinfo.render(Form.form(User.class)));
-    }
+//    public static Result profile() {
+//        return ok(userinfo.render(Form.form(User.class)));
+//    }
 	
 }
