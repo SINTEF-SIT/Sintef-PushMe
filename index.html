@@ -9,15 +9,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
     <title>Get Healthy With The Right Techniques</title>
     <link rel="shortcut icon" href="images/sintef-logo.gif" />
+    
+    <!-- Script -->
+    <script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 
     <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    
     <!-- Custom CSS -->
     <link href="css/pushme.css" rel="stylesheet">
 
@@ -30,6 +33,15 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    
+	<style>
+		.m-progress-bar {
+    	min-height: 1em;
+    	background: #c12d2d;
+    	width: 5%;
+		}
+	</style>
 
 </head>
 
@@ -60,10 +72,10 @@
                     <li>
                         <a href="#" class="btn" 
 							data-toggle="modal" 
-							data-target="#registerModal1">Register</a>
+							data-target="#demo-modal-3">Register</a>
                     </li>
                     <li>
-                        <a href="main.html" class="btn" >Backdoor</a>
+                        <a href="main.scala.html" class="btn" >Backdoor</a>
                     </li>
                 </ul>
             </div>
@@ -92,33 +104,95 @@
 				</div>
 			</div>
 		</div>
-		<form class="modal multi-step" id="registerModal1">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-					<h3 class="modal-title step-1" data-step="1">Step 1</h3>
-					<h3 class="modal-title step-2" data-step="2">Step 2</h3>
-					</div>
-					<div class="modal-body step step-1">
-               		 This is step 1.
-					</div>
-					<div class="modal-body step step-2">
-                	This is the final step
-            		</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               			<button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent()">Continue</button>
-					</div>
-				</div>
-			</div>
-		</form>
-		<script src="multi-step-modal.js"></script>
-		<script>
-		sendEvent = function(sel, step) {
-		    $(sel).trigger('next.m.' + step);
-		}
-		</script>
+	<form class="modal multi-step" id="demo-modal-3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title step-1" data-step="1">Step 1</h4>
+                <h4 class="modal-title step-2" data-step="2">Step 2</h4>
+                <h4 class="modal-title step-3" data-step="3">Step 3</h4>
+                <h4 class="modal-title step-4" data-step="4">Step 4</h4>
+                <h4 class="modal-title step-5" data-step="5">Final Step</h4>
+                <div class="m-progress">
+                    <div class="m-progress-bar-wrapper">
+                        <div class="m-progress-bar">
+                        </div>
+                    </div>
+                    <div class="m-progress-stats">
+                        <span class="m-progress-current">
+                        </span>
+                        /
+                        <span class="m-progress-total">
+                        </span>
+                    </div>
+                    <div class="m-progress-complete">
+                        Completed
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body step-1" data-step="1">
+                <p><label for="email">Email:&nbsp;</label><input type="text" name="email" value=""
+								placeholder="Enter email" id="email">
+						</p>
+				<p><label for="createPassword">Create Password:&nbsp;</label><input type="text" name="createPassword" value=""
+								placeholder="Create Password" id="createPassword">
+						</p>
+				<p><label for="reenterPassword">Reenter Password:&nbsp;</label><input type="reenterPassword" name="reenterPassword"
+								value="" placeholder="Reenter Password" id="reenterPassword">
+						</p>
+            </div>
+            <div class="modal-body step-2" data-step="2">
+                <p><label for="verificationCode">Verify your email:&nbsp;</label><input type="text" name="verificationCode" value=""
+								placeholder="Enter verificationcode" id="verificationCode">
+						</p>
+            </div>
+            <div class="modal-body step-3" data-step="3">
+                <p><label for="username">Username:&nbsp;</label><input type="text" name="username" value=""
+								placeholder="Enter username" id="username">
+						</p>
+				<p><label for="dateOfBirth">Date of birth:&nbsp;</label><input type="text" name="dateOfBirth" value=""
+								placeholder="Enter date of birth" id="dateOfBirth">
+						</p>
+				<p><label for="weight">Weight:&nbsp;</label><input type="weight" name="weight"
+								value="" placeholder="Enter weight" id="weight">
+						</p>
+				<p><label for="height">Height:&nbsp;</label><input type="height" name="height"
+								value="" placeholder="Enter height" id="height">
+						</p>
+				<p><label for="gender">Gender:&nbsp;</label><input type="gender" name="gender"
+								value="" placeholder="Select gender" id="gender">
+						</p>
+            </div>
+            <div class="modal-body step-4" data-step="4">
+                <p><label for="currentActivityLevel">Current Activity Level:&nbsp;</label><input type="currentActivityLevel" name="currentActivityLevel"
+								value="" placeholder="Enter Current Activity Level" id="currentActivityLevel">
+						</p>
+				<p><label for="wantedActivityLevel">Wanted Activity Level:&nbsp;</label><input type="wantedActivityLevel" name="wantedActivityLevel"
+								value="" placeholder="Enter Wanted Acitity Level" id="wantedActivityLevel">
+						</p>
+            </div>
+            <div class="modal-body step-5" data-step="5">
+                You are now registered.
+                Thanks for being my bitch.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent('#demo-modal-3', 2)">Continue</button>
+                <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 1)">Back</button>
+                <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 3)">Continue</button>
+                <button type="button" class="btn btn-primary step step-3" data-step="3" onclick="sendEvent('#demo-modal-3', 4)">Continue</button>
+                <button type="button" class="btn btn-primary step step-4" data-step="4" onclick="sendEvent('#demo-modal-3', 5)">Continue</button>
+            
+            </div>
+        </div>
+    </div>
+</form>
+<script src="js/multi-step-modal.js"></script>
+<script>
+sendEvent = function(sel, step) {
+    $(sel).trigger('next.m.' + step);
+}
+</script>
     </nav>
 
     <!-- Header Carousel -->
@@ -179,15 +253,7 @@
                     <div class="panel-body">
                         <p> 
                         	Behavior Change Technique, is a theory-based method for changing one or several psychological determinants of behavior such as a person's attitude or self-efficacy.
-                        	Such behavior change methods are used in behavior change interventions. 
-                        	Although of course attempts to influence people's attitude and other psychological determinants were much older, especially the definition developed in the late nineties yielded useful insights, in particular four important benefits:
                         </p>
-							<ol>
-								<li>It developed a generic, abstract vocabulary that facilitated discussion of the active ingredients of an intervention</li>
-								<li>It emphasized the distinction between behavior change methods and practical applications of these methods</li>
-								<li>It included the concept of 'parameters for effectiveness', important conditions for effectiveness often neglected</li>
-								<li>It drew attention to the fact that behavior change methods are influence specific determinants</li>
-							</ol>
                     </div>
                 </div>
             </div>
@@ -224,15 +290,7 @@
                 </div>
             </div>
         </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+	</div>
 
     <!-- Script to Activate the Carousel -->
     <script>
