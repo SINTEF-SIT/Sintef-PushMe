@@ -27,6 +27,7 @@ public class LoginController extends Controller {
 
     }
     
+    //A separete login view will be implemented later
     public static Result login() {
         return ok(login.render(Form.form(Login.class)));
     }
@@ -34,7 +35,7 @@ public class LoginController extends Controller {
     public static Result authenticate() {
         Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
         if (loginForm.hasErrors()) {
-            return badRequest(login.render(loginForm));
+            return badRequest(index.render(loginForm));
         } else {
             session().clear();
             session("email", loginForm.get().email);

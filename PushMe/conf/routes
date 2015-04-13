@@ -10,7 +10,7 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 #Login
 GET		/login						controllers.LoginController.login()
-POST    /login                      controllers.LoginController.authenticate()
+POST    /                      		controllers.LoginController.authenticate()
 GET     /logout                     controllers.LoginController.logout()
 
 #Signup
@@ -24,3 +24,6 @@ POST	/useractivity				controllers.UserActivityController.updateUA(id:Long)
 #User information
 GET		/userinfo					controllers.UserActivityController.userInfo()
 POST	/userinfo					controllers.UserActivityController.createUserInfo(email:String)
+
+#Dashboard
+GET	/dashboard						controllers.DashboardController.dashboard()
