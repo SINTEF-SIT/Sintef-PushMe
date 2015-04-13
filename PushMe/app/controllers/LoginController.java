@@ -40,7 +40,7 @@ public class LoginController extends Controller {
             session().clear();
             session("email", loginForm.get().email);
             return redirect(
-                routes.UserActivityController.useractivity()
+                routes.DashboardController.dashboard()
             );
         }
     }
