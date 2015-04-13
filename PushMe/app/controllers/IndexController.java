@@ -15,7 +15,7 @@ import views.html.*;
 public class IndexController extends Controller {
 
 	public static Result index() {
-        return ok(index.render(Form.form(Login.class)));
+        return ok(index.render(Form.form(Login.class), Form.form(User.class)));
     }
 
 }

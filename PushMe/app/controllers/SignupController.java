@@ -31,7 +31,7 @@ public class SignupController extends Controller {
             );
         } else {
             User.create(userForm.get());
-            return redirect(routes.LoginController.login());
+            return redirect(routes.IndexController.index());
         }
     }
  /*   

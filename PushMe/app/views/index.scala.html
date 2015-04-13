@@ -1,4 +1,4 @@
-@(form: Form[LoginController.Login])
+@(loginForm: Form[LoginController.Login], signupForm: Form[User])
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
     
 
     <title>Get Healthy With The Right Techniques</title>
-    <link rel="shortcut icon" href="images/sintef-logo.gif" />
+    <link rel="shortcut icon" href="@routes.Assets.at("images/sintef-logo.gif")" />
     
     <!-- Script -->
     <script src="@routes.Assets.at("javascripts/jquery.min.js")"></script>
@@ -83,7 +83,7 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
+        <!-- /Login -->
 		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -122,6 +122,7 @@
 				</div>
 			</div>
 		</div>
+		<!-- /Singup -->
 	<form class="modal multi-step" id="demo-modal-3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -148,46 +149,122 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-body step-1" data-step="1">
-                <p><label for="email">Email:&nbsp;</label><input type="text" name="email" value=""
-								placeholder="Enter email" id="email">
-						</p>
-				<p><label for="createPassword">Create Password:&nbsp;</label><input type="text" name="createPassword" value=""
-								placeholder="Create Password" id="createPassword">
-						</p>
-				<p><label for="reenterPassword">Reenter Password:&nbsp;</label><input type="reenterPassword" name="reenterPassword"
-								value="" placeholder="Reenter Password" id="reenterPassword">
-						</p>
+            <div class="modal-body step-1" data-step="1"><br>
+							<fieldset>								
+								<div class="row">
+									<div class="col-sm-12 col-md-10  col-md-offset-1 ">
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-envelope"></i>
+												</span> 
+												<input class="form-control" placeholder="Email" name="email" type="email" autofocus />
+											</div>
+										</div>										
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-lock"></i>
+												</span>
+												<input class="form-control" placeholder="Password" name="password" type="password" value="" />
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-lock"></i>
+												</span>
+												<input class="form-control" placeholder="Re-enter password" name=" re-enter password" type="password" value="" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+
             </div>
-            <div class="modal-body step-2" data-step="2">
-                <p><label for="verificationCode">Verify your email:&nbsp;</label><input type="text" name="verificationCode" value=""
-								placeholder="Enter verificationcode" id="verificationCode">
-						</p>
+            <div class="modal-body step-2" data-step="2"><br>
+							<fieldset>								
+								<div class="row">
+									<div class="col-sm-12 col-md-10  col-md-offset-1 ">
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-lock"></i>
+												</span> 
+												<input class="form-control" placeholder="Enter verificationcode" name="verification" type="text" autofocus />
+											</div>
+										<div>
+								</div>
+							</fieldset>
             </div>
-            <div class="modal-body step-3" data-step="3">
-                <p><label for="username">Username:&nbsp;</label><input type="text" name="username" value=""
-								placeholder="Enter username" id="username">
-						</p>
-				<p><label for="dateOfBirth">Date of birth:&nbsp;</label><input type="text" name="dateOfBirth" value=""
-								placeholder="Enter date of birth" id="dateOfBirth">
-						</p>
-				<p><label for="weight">Weight:&nbsp;</label><input type="weight" name="weight"
-								value="" placeholder="Enter weight" id="weight">
-						</p>
-				<p><label for="height">Height:&nbsp;</label><input type="height" name="height"
-								value="" placeholder="Enter height" id="height">
-						</p>
-				<p><label for="gender">Gender:&nbsp;</label><input type="gender" name="gender"
-								value="" placeholder="Select gender" id="gender">
-						</p>
+            <div class="modal-body step-3" data-step="3"><br>            
+            				<fieldset>								
+								<div class="row">
+									<div class="col-sm-12 col-md-10  col-md-offset-1 ">
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-user"></i>
+												</span> 
+												<input class="form-control" placeholder="Full name" name="name" type="text" autofocus />
+											</div>
+										</div>										
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-calendar"></i>
+												</span>
+												<input class="form-control" placeholder="Date of birth" name="dob" type="date" value="" />
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-text-height"></i>
+												</span>
+												<input class="form-control" placeholder="Weight in kg" name="weight" type="text" value="" />
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-text-height"></i>
+												</span>
+												<input class="form-control" placeholder="Height in cm" name="height" type="text" value="" />
+											</div>
+										</div>
+										Gender<br>
+										<div id="gender">
+										<input type="radio" name="animal" value="Cat" checked="checked"/>Male<br />
+                        				<input type="radio" name="animal" value="Dog" />Female<br />
+										</div>
+									</div>
+								</div>
+							</fieldset>          
             </div>
             <div class="modal-body step-4" data-step="4">
-                <p><label for="currentActivityLevel">Current Activity Level:&nbsp;</label><input type="currentActivityLevel" name="currentActivityLevel"
-								value="" placeholder="Enter Current Activity Level" id="currentActivityLevel">
-						</p>
-				<p><label for="wantedActivityLevel">Wanted Activity Level:&nbsp;</label><input type="wantedActivityLevel" name="wantedActivityLevel"
-								value="" placeholder="Enter Wanted Acitity Level" id="wantedActivityLevel">
-						</p>
+				<!-- Select current activity level -->
+				<div class="control-group">
+				  <label class="control-label" for="current_al">Current ActivityLevel</label>
+				  <div class="controls">
+				    <select name="current_al" class="input-medium" id="current_al">
+
+				      <option></option>
+
+				    </select>
+				  </div>
+				</div>
+				<!-- Select targeted activity level -->
+				<div class="control-group">
+				  <label class="control-label" for="target_al">Target ActivityLevel</label>
+				  <div class="controls">
+				    <select name="target_al" class="input-medium" id="target_al">
+
+				      <option></option>
+
+				    </select>
+				  </div>
+				</div>
             </div>
             <div class="modal-body step-5" data-step="5">
                 You are now registered.
