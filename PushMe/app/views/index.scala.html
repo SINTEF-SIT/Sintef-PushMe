@@ -2,35 +2,53 @@
 <html lang="en">
 
 <head>
-	<link rel="shortcut icon" href="@routes.Assets.at("images/sintef-logo.gif")">
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    
 
-    <title>PushMe</title>
+    <title>Get Healthy With The Right Techniques</title>
+    <link rel="shortcut icon" href="images/sintef-logo.gif" />
+    
+    <!-- Script -->
+    <script src="@routes.Assets.at("javascripts/jquery.min.js")"></script>
+	<script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+    <link href="@routes.Assets.at("stylesheets/bootstrap-theme.min.css")" rel="stylesheet">
+    <link href="@routes.Assets.at("stylesheets/bootstrap.min.css")" rel="stylesheet">
+    
     <!-- Custom CSS -->
-	<link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/pushme.css")">
+    <link href="@routes.Assets.at("stylesheets/pushme.css")" rel="stylesheet">
+
     <!-- Custom Fonts -->
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("fomts/font-awesome/css/font-awesome.min.css")">
+    <link href="@routes.Assets.at("fonts/font-awesome/css/font-awesome.min.css")" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via  -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    
+	<style>
+		.m-progress-bar {
+    	min-height: 1em;
+    	background: #c12d2d;
+    	width: 5%;
+		}
+	</style>
 
 </head>
 
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:#269966">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -41,23 +59,140 @@
                     <span class="icon-bar"></span>
                 </button>
 				<div style="margin-top:13px;">
-					<a href="/"><img src="@routes.Assets.at("images/sintef-logo-white.png")/"/></a>
+					<a href="index.html"><img src="@routes.Assets.at("images/sintef-logo-white.png")"/></a>
 				</div>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/login">Login</a>
+						<a href="#" class="btn" 
+							data-toggle="modal" 
+							data-target="#loginModal">Login</a>
                     </li>
                     <li>
-                        <a href="/signup">Register</a>
+                        <a href="#" class="btn" 
+							data-toggle="modal" 
+							data-target="#demo-modal-3">Register</a>
+                    </li>
+                    <li>
+                        <a href="main.scala.html" class="btn" >Backdoor</a>
                     </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
+		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+					<h3 class="modal-title" id="myModalLabel">Login</h3>
+					</div>
+					<div class="modal-body">
+						<p><label for="username">Username:&nbsp;</label><input type="text" name="username" value=""
+								placeholder="Enter username" id="username">
+						</p>
+							<p><label for="password">Password:&nbsp;</label><input type="password" name="password"
+								value="" placeholder="Enter password" id="password">
+							</p>
+					</div>
+					<div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+						<button class="btn btn-primary">Login</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	<form class="modal multi-step" id="demo-modal-3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title step-1" data-step="1">Step 1</h4>
+                <h4 class="modal-title step-2" data-step="2">Step 2</h4>
+                <h4 class="modal-title step-3" data-step="3">Step 3</h4>
+                <h4 class="modal-title step-4" data-step="4">Step 4</h4>
+                <h4 class="modal-title step-5" data-step="5">Final Step</h4>
+                <div class="m-progress">
+                    <div class="m-progress-bar-wrapper">
+                        <div class="m-progress-bar">
+                        </div>
+                    </div>
+                    <div class="m-progress-stats">
+                        <span class="m-progress-current">
+                        </span>
+                        /
+                        <span class="m-progress-total">
+                        </span>
+                    </div>
+                    <div class="m-progress-complete">
+                        Completed
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body step-1" data-step="1">
+                <p><label for="email">Email:&nbsp;</label><input type="text" name="email" value=""
+								placeholder="Enter email" id="email">
+						</p>
+				<p><label for="createPassword">Create Password:&nbsp;</label><input type="text" name="createPassword" value=""
+								placeholder="Create Password" id="createPassword">
+						</p>
+				<p><label for="reenterPassword">Reenter Password:&nbsp;</label><input type="reenterPassword" name="reenterPassword"
+								value="" placeholder="Reenter Password" id="reenterPassword">
+						</p>
+            </div>
+            <div class="modal-body step-2" data-step="2">
+                <p><label for="verificationCode">Verify your email:&nbsp;</label><input type="text" name="verificationCode" value=""
+								placeholder="Enter verificationcode" id="verificationCode">
+						</p>
+            </div>
+            <div class="modal-body step-3" data-step="3">
+                <p><label for="username">Username:&nbsp;</label><input type="text" name="username" value=""
+								placeholder="Enter username" id="username">
+						</p>
+				<p><label for="dateOfBirth">Date of birth:&nbsp;</label><input type="text" name="dateOfBirth" value=""
+								placeholder="Enter date of birth" id="dateOfBirth">
+						</p>
+				<p><label for="weight">Weight:&nbsp;</label><input type="weight" name="weight"
+								value="" placeholder="Enter weight" id="weight">
+						</p>
+				<p><label for="height">Height:&nbsp;</label><input type="height" name="height"
+								value="" placeholder="Enter height" id="height">
+						</p>
+				<p><label for="gender">Gender:&nbsp;</label><input type="gender" name="gender"
+								value="" placeholder="Select gender" id="gender">
+						</p>
+            </div>
+            <div class="modal-body step-4" data-step="4">
+                <p><label for="currentActivityLevel">Current Activity Level:&nbsp;</label><input type="currentActivityLevel" name="currentActivityLevel"
+								value="" placeholder="Enter Current Activity Level" id="currentActivityLevel">
+						</p>
+				<p><label for="wantedActivityLevel">Wanted Activity Level:&nbsp;</label><input type="wantedActivityLevel" name="wantedActivityLevel"
+								value="" placeholder="Enter Wanted Acitity Level" id="wantedActivityLevel">
+						</p>
+            </div>
+            <div class="modal-body step-5" data-step="5">
+                You are now registered.
+                Thanks for being my bitch.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent('#demo-modal-3', 2)">Continue</button>
+                <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 1)">Back</button>
+                <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 3)">Continue</button>
+                <button type="button" class="btn btn-primary step step-3" data-step="3" onclick="sendEvent('#demo-modal-3', 4)">Continue</button>
+                <button type="button" class="btn btn-primary step step-4" data-step="4" onclick="sendEvent('#demo-modal-3', 5)">Continue</button>
+            
+            </div>
+        </div>
+    </div>
+</form>
+<script src="@routes.Assets.at("javascripts/multi-step-modal.js")"></script>
+<script>
+sendEvent = function(sel, step) {
+    $(sel).trigger('next.m.' + step);
+}
+</script>
     </nav>
 
     <!-- Header Carousel -->
@@ -72,21 +207,21 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <div class="fill" style="background-image:url('@routes.Assets.at("images/dsc_5091-recovered-recovered.jpg")');"></div>
+                <div class="fill" style="background-image:url('@routes.Assets.at("images/slideb2.jpg")');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 1</h2>
+                    <h2>Get Healthy With The Right Techniques</h2>
                 </div>
             </div>
             <div class="item">
                 <div class="fill" style="background-image:url('@routes.Assets.at("images/cross-country.jpg")');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 2</h2>
+                    <h2>Improve Your Lifestyle</h2>
                 </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url('@routes.Assets.at("images/slideb2.jpg")');"></div>
+                <div class="fill" style="background-image:url('@routes.Assets.at("images/dsc_5091-recovered-recovered.jpg")');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 3</h2>
+                    <h2>Experience New Possibilities</h2>
                 </div>
             </div>
         </div>
@@ -113,11 +248,12 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> Behaviour Changing Techniques </h4>
+                        <h4><i class="fa fa-fw fa-check"></i> Behavior Changing Techniques </h4>
                     </div>
                     <div class="panel-body">
-                        <p>General info.</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
+                        <p> 
+                        	Behavior Change Technique, is a theory-based method for changing one or several psychological determinants of behavior such as a person's attitude or self-efficacy.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -128,7 +264,6 @@
                     </div>
                     <div class="panel-body">
                         <p>General info.</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -139,12 +274,12 @@
                     </div>
                     <div class="panel-body">
                         <p>General info.</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- /.row -->
+
         <hr>
 
         <!-- Footer -->
@@ -155,15 +290,7 @@
                 </div>
             </div>
         </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="@routes.Assets.at("javascripts/jquery.js")"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
+	</div>
 
     <!-- Script to Activate the Carousel -->
     <script>
