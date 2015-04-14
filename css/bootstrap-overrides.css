@@ -1,0 +1,519 @@
+@font-face
+{
+    font-family: 'dinbold';
+    src: url('../fonts/dinbold/din-bold-webfont.eot');
+    src: url('../fonts/dinbold/din-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/dinbold/din-bold-webfont.woff') format('woff'), url('../fonts/dinbold/din-bold-webfont.ttf') format('truetype'), url('../fonts/dinbold/din-bold-webfont.svg#dinbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'dinmedium';
+    src: url('../fonts/dinmedium/din-medium-webfont.eot');
+    src: url('../fonts/dinmedium/din-medium-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/dinmedium/din-medium-webfont.woff') format('woff'), url('../fonts/dinmedium/din-medium-webfont.ttf') format('truetype'), url('../fonts/dinmedium/din-medium-webfont.svg#dinbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.row-col-fixed-height
+{
+    overflow: hidden;
+}
+
+    .row-col-fixed-height [class^='col-']
+    {
+        margin-bottom: -99999px;
+        padding-bottom: 99999px;
+    }
+
+.marg-it[class^='col-']
+{
+    margin-top: 40px;
+}
+
+.marg-it.row
+{
+    margin-top: 40px;
+}
+
+body, body input, body textarea, body select, p, label.p-element
+{
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #464646;
+    font-size: 14px;
+}
+
+.oldie select, .oldie select option { /* IE can't handle styling of drop down lists (http://stackoverflow.com/questions/5551288/ies-select-boxes-closes-themselves-when-hovering) */
+    font-family:inherit; 
+    font-size:inherit;
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+a, .link {
+    color: #F38621;
+    text-decoration: underline;
+}
+a:hover, a:focus, .link:hover, .link:focus {
+    color: #B76319;
+    text-decoration: underline;
+}
+a.alert:hover {
+    color:inherit;
+}
+    a.btn
+    {
+        text-decoration: none;
+    }
+
+.btn
+{
+    color: #f7f7f7;
+    background-image: none;
+    border: none;
+    background-color: #353535;
+    border-bottom: 2px solid #000;
+    text-decoration: none;
+    /*margin-bottom: 20px;*/
+}
+
+.btn-sm
+{
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.btn:hover, .btn:active, .btn:focus
+{
+    background-color: #292929;
+    color: #fff;
+}
+
+.btn-inverse
+{
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    color: #181818;
+}
+
+    .btn-inverse:hover, .btn-inverse:active, .btn-inverse:focus
+    {
+        color: #000;
+        background-color: #EEE;
+        border: 1px solid #CCCCCC;
+    }
+
+.btn-warning
+{
+    background-color: #F4B220;
+    border-color: #E49B10;
+}
+
+    .btn-warning:hover, .btn-warning:active, .btn-warning:focus
+    {
+        background-color: #EBA207;
+    }
+
+.btn-success
+{
+    background-color: #96B031;
+    border-color: #546A15;
+}
+
+    .btn-success:hover, .btn-success:active, .btn-success:focus
+    {
+        background-color: #8AA031;
+    }
+
+.btn-danger
+{
+    background-color: #D9544F;
+    border-color: #BC2D2B;
+}
+
+    .btn-danger:hover, .btn-danger:active, .btn-danger:focus
+    {
+        background-color: #BD2E2A;
+    }
+
+.btn-default.disabled
+{
+    background-color: rgb(53, 53, 53)!important;
+    border-color: #000!important;
+}
+
+
+h1, h2, h3, h4, h5, h6, label, p {
+    color: #464646;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'dinmedium';
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+h1 { font-size: 2.286em; line-height: 2.125em; padding-bottom: 25px; }
+h2 { font-size: 1.714em; line-height: 1.329em; padding-bottom: 15px; }
+h3 { font-size: 1.457em; line-height: 1.625em; padding-bottom: 15px; }
+h4 { font-size: 1.183em; line-height: 1.429em; }
+h5 { font-size: 1em; }
+h6 { font-size: 1em; }
+
+h1.line-below { margin-bottom: 25px; }
+h2.line-below { margin-bottom: 15px; }
+h3.line-below { margin-bottom: 15px; }
+.line-below {
+    border-bottom: solid 1px #464646;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+}
+
+h1.first {
+    margin-top: 30px;
+}
+
+.btn.margin-bottom { margin-bottom: 20px; }
+
+
+label
+{
+    font-size: 1.000em;
+}
+
+.lead
+{
+    font-size: 1.143em;
+    line-height: 1.714em;
+}
+
+p
+{
+    font-size: 1em;
+    line-height: 1.571em;
+    /*padding-bottom: 25px;*/
+}
+
+.alert p
+{
+    padding-bottom: 0;
+}
+
+label.p-element, a.p-element
+{
+    line-height: 1.571em;
+    font-size: 0.85em;
+}
+
+.ui-dialog p
+{
+    font-size: 0.85em;
+}
+
+.extra-info
+{
+    font-size: 0.857em;
+    line-height: 1.286em;
+}
+
+.badge
+{
+    color: #464646;
+    background-color: #f7f7f7;
+    border: 1px solid #CCCBD0;
+}
+
+.badge-inverse
+{
+    color: #f7f7f7;
+    background-color: #464646;
+}
+
+.dropdown-menu
+{
+    left: auto;
+    right: 0;
+    border-radius: 0;
+    top: 38%;
+    border: none;
+    border-top: #EF6C14 solid 3px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.175);
+}
+
+.user-settings-dropdown .dropdown-menu {
+        left: auto;
+    right: 0;
+    border-radius: 0;
+    border: none;
+    border-top: #EF6C14 solid 3px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.175);
+    top: 46px;
+    width: 97%;
+}
+.user-settings #language-dropdown-settings {
+    border: 1px solid #bbb;
+-ms-border-radius: 7px;
+border-radius: 7px;
+padding: 6px;
+margin-right: 6px;
+color: #464646;
+    background: #fff;
+    width: 100%;
+}
+
+
+
+    .dropdown-menu li
+    {
+        width: 100%;
+    }
+
+    .dropdown-menu.inner a
+    {
+        text-decoration: none;
+    }
+
+.tooltip-inner
+{
+    max-width: 250px;
+}
+
+a.collapsable
+{
+    display: block;
+    text-decoration: none;
+}
+
+.alert.alert-info a
+{
+    color: #2a6496;
+}
+
+    .alert.alert-info a:hover
+    {
+        color: #18228C;
+    }
+
+
+
+.alternative-background-content
+{
+    /*background-color: #F6F6F6;*/
+    padding-top: 25px;
+    padding-bottom: 0px;
+}
+
+/*** TABS ****/
+
+.nav-tabs
+{
+    border-bottom: none;
+}
+
+.tab-container
+{
+    background-color: #F6F6F6;
+}
+
+.tappa-tabs .tab-content,
+.tappa-tab-content
+{
+    background-color: #F6F6F6;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.tappa-tabs .bg-bubble {
+    background: url('http://content.tappaservice.com/tappa/common/bg-bubbles.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.tappa-tabs ul.nav-tabs li,
+#content ul.tappa-nav-tabs li
+{
+    padding: 0;
+    margin: 0;
+}
+
+    .tappa-tabs ul.nav-tabs li a,
+    #content ul.tappa-nav-tabs li a
+    {
+        font-family: 'dinmedium';
+        text-decoration: none;
+        border: 1px solid #E7E7E7;
+        background-color: #fff;
+        color: #353535;
+        margin: 0;
+        padding: 10px 30px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+    }
+    
+    .tappa-tabs ul.nav-tabs li.active a,
+    #content ul.tappa-nav-tabs li.active a
+    {
+        background-color: #F6F6F6;
+        border: 1px solid #E7E7E7;
+        border-bottom: 0;
+    }
+    
+    .tappa-tabs ul.nav-tabs li a:hover,
+    #content ul.tappa-nav-tabs li a:hover
+    {
+        background-color: #F6F6F6;
+    }
+
+
+.modal .modal-header
+{
+    background-color: #f5f5f5;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-topright: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+/*** END OF TABS ****/
+
+/*** CMS SLIDER ****/
+#tappa-carousel
+{
+    background-color: #F0EBE5;
+}
+
+    #tappa-carousel .carousel-caption
+    {
+        position: static;
+    }
+
+    #tappa-carousel ol.carousel-indicators
+    {
+        bottom: 0!important;
+        margin-bottom: 0!important;
+        padding-left: 0!important;
+        margin-left: -30%!important;
+    }
+
+        #tappa-carousel ol.carousel-indicators li
+        {
+            width: 20px;
+            height: 20px;
+            margin: 3px;
+            border: 2px solid #fff;
+        }
+
+            #tappa-carousel ol.carousel-indicators li.active
+            {
+                width: 21px;
+                height: 21px;
+                margin: 3px;
+                background-color: #F3861F;
+            }
+
+    #tappa-carousel .carousel-inner, #tappa-carousel .carousel-inner .item
+    {
+        height: 100%;
+    }
+
+    #tappa-carousel .carousel-control.left
+    {
+        background-image: none!important;
+    }
+
+    #tappa-carousel .carousel-control.right
+    {
+        background-image: none!important;
+    }
+/*** END OF SLIDER ****/
+
+/* ADVERTISE SLIDER */
+.carousel-puff
+{
+    background-color: #E8E1D7 !important;
+}
+
+    .carousel-puff, .carousel-puff p
+    {
+        font-family: 'Open Sans' !important;
+    }
+/* END OF ADVERTISE SLIDER*/
+/* PROGRESS BAR */
+.progress-bar-success
+{
+    background-color: #96B031;
+}
+
+
+.modal .panel-title a
+{
+    text-decoration: none;
+}
+
+.tooltip
+{
+    z-index: 1200;
+}
+
+
+@media (min-width: 768px) {
+    .btn-block-sm {
+        display: block;
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+@media (min-width: 992px) {
+    .btn-block-md {
+        display: block;
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .modal-lg {
+        width: 900px;
+    }
+}
+@media (min-width: 1200px) {
+    .btn-block-lg {
+        display: block;
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+/* XS */
+@media only screen and (max-width: 768px) {
+    .btn-block-xs-only {
+        display: block;
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .text-left-xs { text-align: left !important; }
+
+    .user-settings-dropdown .dropdown-toggle {
+        font-size: 12px !important;
+    }
+
+    .user-settings-dropdown .selected-flag {
+        width: 20px !important;
+    }
+    .user-settings-dropdown .dropdown-menu li a {
+        font-size: 10px !important;
+    }
+}
+
+
+.alert-warning p { color: #c09853; }
+.alert-danger p { color: #b94a48; }
+.alert-info p { color: #3a87ad; }
+.alert-success p { color: #468847; }

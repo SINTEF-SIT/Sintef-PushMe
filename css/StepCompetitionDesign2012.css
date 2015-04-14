@@ -1,0 +1,1758 @@
+
+
+.tabs-right
+{
+    width: 270px;
+    float: right;
+    padding-left: 10px;
+}
+
+.tabs-left
+{
+    width: 650px;
+    float: left;
+    padding-right: 10px;
+}
+
+.maincolumn .half
+{
+    width: 295px;
+    float: left;
+}
+
+.sidecolumn .box
+{
+    margin-bottom: 40px;
+}
+
+.sidecolumn .article-sidecolumn .box
+{
+    border-bottom: 1px solid #dadada;
+}
+
+.main-header img, .side-header img, .header-icon {
+    margin-top: -5px;
+}
+.main-header, .side-header
+{
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+img.profile-small
+{
+    width: 24px;
+    height: 30px;
+}
+
+.addthis_toolbox
+{
+    margin: 5px;
+}
+
+
+.page-didyouknow
+{
+    color: #63790D;
+}
+/* jquery ui overrides */
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active
+{
+    font-weight: bold;
+}
+
+.ui-state-selected, .ui-state-selected .ui-state-default, .ui-state-selected .ui-state-highlight.ui-state-active
+{
+    /*background:url("images/ui-bg_glass_55_ffeb99_1x400.png") repeat-x scroll 50% 50% #FFEB99;*/
+    background: #F4A23F;
+    color: #fff;
+}
+
+.jMonthCalendar .ui-state-highlight a
+{
+    border: 1px solid #F4A23F;
+}
+
+.ui-slider .ui-state-default
+{
+    background-color: #4b86d1;
+    background-image: none;
+    border: none;
+}
+
+.ui-labeledslider
+{
+    margin-bottom: 25px;
+}
+
+    .ui-labeledslider .ui-slider-label
+    {
+        color: #222;
+        font-size: 10px;
+        text-transform: uppercase;
+    }
+
+
+
+.companyimage-logo,
+.companyimage-sponsor
+{
+    background-color: #fff;
+    text-align: center;
+}
+
+.companyimage-logo
+{
+    border-bottom: solid 1px #eee;
+    padding: 10px;
+}
+
+.companyimage-sponsor
+{
+    margin-top: 20px;
+}
+
+
+/* ----- Steps ------ */
+.maincolumn input
+{
+    margin-right: 5px;
+}
+
+
+/*#activitiesbytag li {
+    display:inline;
+    font-family: arial;
+    font-size: 12px;
+    margin-right: 3px;
+}*/
+
+table.activities tbody tr
+{
+    height: 80px;
+}
+
+table.activities tbody td
+{
+    vertical-align: middle;
+}
+
+    table.activities tbody td.name
+    {
+        width: 480px;
+        white-space: normal;
+    }
+
+table.activities input.ActivityTxt
+{
+    padding: 2px;
+    font-size: 16px;
+}
+
+
+table.activities tbody td.name img
+{
+    vertical-align: middle;
+}
+
+table.activities tbody td.name strong
+{
+    font-size: 13px;
+}
+
+table.activities tbody td.name em
+{
+    font-size: 11px;
+    display: block;
+}
+
+table.activities tbody td.intensity
+{
+    width: 300px;
+}
+
+    table.activities tbody td.intensity ol
+    {
+        position: relative;
+        top: 1.3em;
+        width: 100%;
+    }
+
+        table.activities tbody td.intensity ol li
+        {
+            position: absolute;
+            overflow: visible;
+            color: #666;
+        }
+
+            table.activities tbody td.intensity ol li .ui-slider-label
+            {
+                position: absolute;
+                display: block;
+            }
+
+            table.activities tbody td.intensity ol li .slider-tick
+            {
+                position: absolute;
+                left: 0;
+                height: .8em;
+                top: -1.3em;
+                border: 0;
+                border-left: 1px solid #DADADA;
+            }
+
+table.activities tbody td.form
+{
+    padding-left: 50px;
+    width: 200px;
+}
+
+table.activities tbody tr.favorite
+{
+    background-color: #fdeb92;
+}
+
+    table.activities tbody tr.favorite:nth-child(odd)
+    {
+        background-color: #f8f7c6;
+    }
+
+table.activities tbody tr.fav-header
+{
+    background-color: #f9f7c6;
+    height: auto;
+}
+
+.ui-state-selected.star a.ui-state-default {
+	background:url('/global/icons/star.png') no-repeat center left !important;
+}
+.cal-minutes .ui-state-selected.star a.ui-state-default {
+	background:url('/global/icons/star_minutes.png') no-repeat center left !important;
+}
+.stepsperminute
+{
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+    .stepsperminute.singel
+    {
+        font-style: normal;
+        font-size: 18px;
+        font-weight: normal;
+        margin-bottom: 0;
+    }
+/*#activitysearch {
+    width: 235px;
+}*/
+
+/*#activitysearch, #add-steps {
+    height: 65px;
+    padding: 10px;
+    float: left;
+}*/
+
+/*#activitysearch input.text, #add-steps input.textbox {
+    width: 140px;
+}*/
+
+#activitysearch .showAllActivities
+{
+    font-size: 11px;
+    margin-top: 8px;
+}
+
+step-background .button
+{
+    display: inline-block;
+    vertical-align: baseline!important;
+    line-height: normal;
+}
+
+#AllActivities
+{
+    width: 640px;
+}
+
+.loading
+{
+    background-image: url('/global/images/ajax-loader.gif');
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.sickDayReport
+{
+    margin-left: 6px;
+    margin-right: 5px;
+}
+
+.maincolumn .step-background
+{
+    background-image: url('/global/images/step-input.jpg');
+    background-repeat: no-repeat;
+    background-position: left top;
+    padding: 10px;
+    margin-top: 41px;
+    overflow: hidden;
+}
+
+.maincolumn .stepsonly
+{
+    background-image: url('/global/images/steps-only.jpg');
+}
+
+.maincolumn .activitiesonly
+{
+    background-image: url('/global/images/activities-only.jpg');
+}
+
+/*#add-steps {
+    width: 320px;
+    margin-right: 30px;
+}*/
+#stepprofile
+{
+    margin-bottom: 10px;
+}
+
+    #stepprofile table.standard tfoot tr
+    {
+        background-color: #FDEB92;
+    }
+/* ----- Steps End ----- */
+
+
+/* ------------ Messages ------------ */
+ul.messages
+{
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+
+    ul.messages li
+    {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        position: relative;
+    }
+
+        ul.messages li:nth-child(even)
+        {
+            background: #FAFAFA;
+        }
+
+        ul.messages li:nth-child(odd)
+        {
+            background: #fff;
+        }
+
+    ul.messages img
+    {
+        float: left;
+    }
+
+    ul.messages p
+    {
+        padding-bottom: 5px;
+    }
+
+    ul.messages li.unread p.message-from, ul.messages li.unread p.message-header
+    {
+        font-weight: bold;
+    }
+
+    /*ul.messages li div.message-preview {
+    padding-left:30px;
+    width: 215px;
+}*/
+
+    ul.messages li div.delete
+    {
+        position: absolute;
+        top: 30px;
+        right: 15px;
+    }
+
+.message-box
+{
+    padding-top: 10px;
+}
+
+.message-signature
+{
+    font-size: 0.85em;
+    font-weight: bold;
+    border-top: 1px solid #eee;
+    padding: 5px 0;
+}
+
+#teamCheckboxes input, #teamCheckboxes label
+{
+    margin: 5px;
+}
+
+#message-recipients
+{
+    font-weight: bold;
+}
+
+
+/* ------------ co2 ------------ */
+.co2-transports
+{
+    border: 1px solid #C8DB8C;
+    background-color: #E8EDCF;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+ul.transport li.transport-Airplane
+{
+    background-position: 0 0;
+}
+
+ul.transport li.transport-Bus
+{
+    background-position: 0 -130px;
+}
+
+ul.transport li.transport-CarTaxi
+{
+    background-position: 0 -260px;
+}
+
+ul.transport li.transport-Carpooling
+{
+    background-position: 0 -390px;
+}
+
+ul.transport li.transport-EnvironmentallyFriendlyCarTaxi
+{
+    background-position: 0 -520px;
+}
+
+ul.transport li.transport-Subway
+{
+    background-position: 0 -650px;
+}
+
+ul.transport li.transport-Train
+{
+    background-position: 0 -780px;
+}
+
+ul.transport li.transport-TramCablecar
+{
+    background-position: 0 -910px;
+}
+
+ul.transport li.transport-WalkingCycling
+{
+    background-position: 0 -1040px;
+}
+
+ul.transport li.transport-AirplaneShortDistance
+{
+    background-position: 0 -1170px;
+}
+
+ul.transport li.transport-BusShortDistance
+{
+    background-position: 0 -1300px;
+}
+
+ul.transport li.transport-FerryFast
+{
+    background-position: 0 -1430px;
+}
+
+ul.transport li.transport-FerrySlow
+{
+    background-position: 0 -1560px;
+}
+
+ul.transport li
+{
+    background: transparent url("/inside/stepcompetition/co2/images/co2sprite-gray.jpg") no-repeat top left;
+    display: inline-block;
+    width: 125px;
+    height: 140px;
+    margin: 5px;
+    position: relative;
+}
+
+    ul.transport li:hover, li.selected-transport
+    {
+        background-image: url("/inside/stepcompetition/co2/images/co2sprite.jpg")!important;
+    }
+
+        /*.co2-caption {
+    position: absolute;
+    bottom: 0;
+    height: 15px;
+    padding: 5px;
+    background-color: #EAF0D6;
+    width: 100%;
+    font-size: 11px;
+    overflow: hidden;
+    white-space: nowrap;
+}*/
+
+        li.selected-transport div.co2-caption
+        {
+            background-color: #F4A23F;
+        }
+
+            li.selected-transport div.co2-caption h3
+            {
+                color: #fff;
+            }
+
+table.co2-statistics img
+{
+    vertical-align: middle;
+}
+
+table.co2-statistics tr td
+{
+    padding: 5px;
+}
+
+    table.co2-statistics tr td.strong
+    {
+        font-weight: bold;
+    }
+
+.monthchooser
+{
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: "Museo500", "trebuchet ms";
+    font-size: 17px;
+}
+
+    .monthchooser input
+    {
+        margin-top: 5px;
+    }
+
+.calendaraddedco2 a
+{
+    background: #D5E4A3 !important;
+}
+
+/* ------------ settings ------------ */
+
+#settings legend
+{
+    font-size: 1.2em;
+    line-height: 2em;
+}
+
+#settings.maincolumn .box
+{
+    border: 1px solid #efefef;
+    padding: 15px;
+    margin: 10px 0 30px 0;
+}
+
+#settings h2
+{
+    padding-bottom: 0;
+}
+
+#settings fieldset.save
+{
+    margin-top: 30px;
+}
+
+    #settings fieldset.save label
+    {
+        font-weight: normal;
+    }
+
+#settings fieldset li
+{
+    clear: both;
+    display: block;
+    margin: 0 0 .75em;
+    padding: 0;
+}
+
+#settings fieldset p
+{
+    clear: both;
+}
+
+#settings label
+{
+    display: block;
+    float: left;
+    margin-right: 10px;
+    text-align: right;
+    line-height: 33px;
+}
+#settings .checkbox-inside input {
+    width: auto;
+}
+#settings label:after {
+	content: ':';
+}
+
+#settings .date select,
+#settings .checkbox input
+{
+    width: auto;
+}
+
+#settings fieldset li.checkbox
+{
+    margin: 0 0 1.5em;
+}
+
+#settings .checkbox input
+{
+    margin: 3px 5px 3px 212px;
+    float: left;
+}
+
+#settings .checkbox label
+{
+    display: block;
+    float: left;
+    line-height: 1.6;
+    text-align: left;
+    width: 250px;
+}
+
+    #settings .checkbox label:after
+    {
+        content: '';
+    }
+
+    #settings .checkbox label label
+    {
+        margin: 0;
+    }
+
+#settings .infobox
+{
+    background-color: #ffeb99;
+    border: solid 1px #f4e075;
+    color: #363636;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 600px;
+}
+
+#settings .save label,
+#settings .save input,
+#settings .save span
+{
+    text-align: left;
+}
+
+#settings .buttons
+{
+    padding: 10px 0 0 208px;
+    margin-bottom: 20px;
+}
+
+#settings .statustext
+{
+    color: #0a0;
+    display: block;
+    font-weight: bold;
+}
+
+#Summary table thead tr th
+{
+    text-align: left;
+    width: 49%;
+}
+
+    #Summary table thead tr th.empty
+    {
+        width: auto;
+    }
+
+
+
+/* LiveGood */
+.livegood ul#activities li
+{
+    border: solid 1px #DDD;
+    background-color: white;
+    padding: 10px;
+}
+
+    .livegood ul#activities li:nth-child(even)
+    {
+        background-color: #EEE;
+    }
+
+    .livegood ul#activities li a
+    {
+        float: right;
+    }
+
+.livegood .button
+{
+    margin: 5px;
+}
+
+
+/* startpage */
+/*.shadow-bottom-fullwidth
+{
+    height:27px;
+    background:transparent url("/global/images_structure/design2012/shadow-down-fullwidth.png") no-repeat center top;
+}*/
+#flashmap-container
+{
+    border-top: solid 1px #DFDFDF;
+}
+
+    #flashmap-container, #flashmap-container .flashmap-wrapper
+    {
+        overflow: hidden;
+    }
+
+        #flashmap-container .flashmap-wrapper
+        {
+            border-left: solid 1px #DFDFDF;
+            border-right: solid 1px #DFDFDF;
+        }
+
+        #flashmap-container .flashmap-buttons
+        {
+            height: 42px;
+            line-height: 42px;
+            background: transparent url("/global/images_structure/design2012/map_bottom_bg.png") repeat-x left top;
+            border: solid 1px #DFDFDF;
+        }
+
+            #flashmap-container .flashmap-buttons .info
+            {
+                padding: 0 10px;
+                float: left;
+                border-right: solid 1px #DFDFDF;
+                height: 100%;
+                cursor: default;
+            }
+
+            #flashmap-container .flashmap-buttons .lock
+            {
+                padding: 0 10px;
+                float: right;
+                border-left: solid 1px #DFDFDF;
+                cursor: pointer;
+            }
+
+            #flashmap-container .flashmap-buttons .managemap
+            {
+                padding: 0 10px;
+                float: right;
+                border-left: solid 1px #DFDFDF;
+            }
+
+            #flashmap-container .flashmap-buttons .info img
+            {
+                margin-left: 5px;
+            }
+
+            #flashmap-container .flashmap-buttons .lock img
+            {
+                margin-left: 5px;
+            }
+
+#compliment_form
+{
+    margin-top: 20px;
+}
+
+#competitioninfo
+{
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    border-bottom: solid 1px #DFDFDF;
+    height: 40px;
+    line-height: 40px;
+}
+
+    #competitioninfo .competitioninfo-daysleft
+    {
+        float: right;
+        padding: 0 20px;
+        background: transparent url('/global/images_structure/design2012/days_left_bg.png') repeat-x left top;
+        border-left: solid 1px #DFDFDF;
+    }
+
+    #competitioninfo h1
+    {
+        float: left;
+        margin-right: 10px;
+    }
+
+    #competitioninfo h5
+    {
+        float: left;
+        margin-right: 20px;
+        padding: 0 20px;
+    }
+
+.toplist-dialog .toplist-holder
+{
+    margin-bottom: 20px;
+}
+
+.myteam .team-header h2
+{
+    float: left;
+    margin-right: 10px;
+}
+
+.myteam .team-message
+{
+    float: left;
+    margin-top: 5px;
+}
+
+.myteam .list
+{
+    white-space: nowrap;
+}
+
+
+.toplist-holder table.list thead
+{
+    font-size: 13px;
+    border-bottom: 1px solid #dadada;
+}
+
+.statistics img
+{
+    margin-bottom: 50px;
+}
+
+.statistics h4
+{
+    font-weight: bold;
+    color: #000;
+}
+
+/* Newsticker */
+#newsticker
+{
+    width: 100%;
+    color: #404040;
+    overflow: hidden;
+    background: transparent url("/global/images_structure/design2012/newsticker_bg.png") repeat-x left top;
+    border-right: solid 1px #E5E5E5;
+}
+
+#tickerLeft
+{
+    float: left;
+    height: 78px;
+    width: 22px;
+    background-image: url("/global/images_structure/design2012/newsticker.png");
+    text-indent: -99999px;
+}
+
+    #tickerLeft h3
+    {
+        color: #5D8500;
+        font: 13px Georgia;
+        text-decoration: none;
+        line-height: 72px;
+        text-align: center;
+    }
+
+#newsticker ul
+{
+    border-bottom: none;
+    margin-left: 20px;
+    height: 78px;
+}
+
+    #newsticker ul li.newsticker-loading
+    {
+        height: 45px;
+        padding-top: 27px;
+        padding-left: 20px;
+    }
+
+    #newsticker ul li
+    {
+        height: 26px;
+        line-height: 26px;
+        padding-left: 10px;
+    }
+
+        #newsticker ul li:last-child
+        {
+            border-bottom: none;
+        }
+
+        #newsticker ul li img
+        {
+            margin: 0 10px 0 5px;
+        }
+
+
+/* Pedometer */
+.pedometer img.stepcounter
+{
+    margin: 0 20px 20px 0;
+    float: left;
+}
+
+.pedometer table.pedometer-price tr td
+{
+    padding: 3px;
+}
+
+.pedometer table.pedometer-price
+{
+    margin-bottom: 10px;
+}
+
+.pedometer #pedometer-form label
+{
+    width: 110px;
+    float: left;
+}
+
+.pedometer #pedometer-form label, .pedometer #pedometer-form input
+{
+    margin-bottom: 13px;
+}
+
+#pedometer-form
+{
+    margin-left: 5px;
+}
+
+/* team-events list */
+ul#teamevents
+{
+    float: left;
+    width: 610px;
+    border: 1px solid #E7E7E7;
+}
+
+    ul#teamevents li
+    {
+        background: #FBFBFB url(/inside/usercontrols/newsticker/images/newsticker_row_bg.jpg) repeat-x;
+        height: 43px;
+        padding: 5px 10px;
+        border-bottom: 1px solid #E7E7E7;
+    }
+
+        ul#teamevents li .clock
+        {
+            margin: 0 10px 0 5px;
+        }
+
+#teamevents .event
+{
+}
+
+#teamevents .event-date
+{
+    float: left;
+    margin-right: 10px;
+}
+
+#teamevents .event-text
+{
+}
+
+#teamevents .hideLink
+{
+    float: right;
+}
+
+#teamevents .AccountAddCO2EventType
+{
+    background-color: #cdf5b9;
+}
+
+#teamevents .addthis_toolbox
+{
+    float: right;
+    padding: 3px;
+}
+
+    #teamevents .addthis_toolbox a
+    {
+        color: #0b4994;
+        font-weight: normal;
+    }
+/* your team */
+#team div.your-team
+{
+    margin-bottom: 30px;
+}
+/*#team .accordion-header h3 {
+    margin-left: 30px;
+    color: white;
+    line-height: 30px;
+}
+
+#team .accordion h3 {
+    display: inline;
+}*/
+
+#team .accordion img.Questionmark
+{
+    margin-left: 10px;
+    vertical-align: baseline;
+}
+
+#team .leader
+{
+    font-weight: bold;
+}
+
+#team .team-buttons
+{
+    margin: 5px 0;
+    clear: both;
+    float: right;
+}
+
+    #team .team-buttons a
+    {
+        color: #FF9205;
+        margin: 0 5px;
+    }
+
+#team .accordion-header
+{
+    background: #F4A23F;
+    border: solid 1px #DADADA;
+}
+
+#team .accordion-content
+{
+    padding: 0 !important;
+    margin: 0!important;
+}
+
+    #team .accordion-content table
+    {
+        border: none;
+    }
+
+
+/* toplists */
+.toplistwrapper
+{
+    float: left;
+    white-space: nowrap;
+}
+
+    .toplistwrapper thead
+    {
+        display: none;
+    }
+
+.toplist-inner h5.value
+{
+    float: right;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    padding-top: 4px;
+}
+
+.toplist .toplisthead
+{
+    margin-bottom: 5px;
+}
+
+.toplistwrapper .toplisthead img
+{
+    float: left;
+    margin-right: 5px;
+}
+
+.toplist .list
+{
+    width: 100%;
+}
+
+.toplist .hideoverflow
+{
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.toplist table
+{
+    border-bottom: solid 1px #eee;
+    width: 100%;
+}
+
+    .toplist table td, .toplist table th
+    {
+        padding: 3px 5px;
+        vertical-align: middle;
+    }
+
+        .toplist table td.name
+        {
+            width: 100%;
+        }
+
+        .toplist table td.value
+        {
+            text-align: right;
+        }
+
+    .toplist table th
+    {
+        font-weight: bold;
+    }
+
+.toplist .showall
+{
+    padding: 10px 0px;
+    /*text-align: right;*/
+}
+
+.toplist img.Questionmark
+{
+    float: right;
+    margin: 4px 5px 0 0;
+    padding: 0;
+    border-style: none;
+}
+
+.toplist .showall a
+{
+    color: #fff;
+}
+
+/* Statistics */
+
+ul.statisticslist
+{
+    overflow: hidden;
+}
+
+    ul.statisticslist li
+    {
+        margin-bottom: 10px;
+        padding-left: 25px;
+    }
+
+        ul.statisticslist li.shoesitem, ul.statisticslist li.stepstatiticsvalue
+        {
+            background: url('/global/icons/tappa/icon-shoes.png') no-repeat left center;
+        }
+        ul.statisticslist li.minutesstatiticsvalue
+        {
+            background: url('/global/icons/time.png') no-repeat left center;
+        }
+        ul.statisticslist li.pointsstatiticsvalue
+        {
+            background: url('/global/icons/star.png') no-repeat left center;
+        }
+
+        ul.statisticslist li.earthitem
+        {
+            background: url('/global/icons/tappa/icon-earth.png') no-repeat left center;
+        }
+
+        ul.statisticslist li.statisticsshare
+        {
+            padding-left: 0px;
+        }
+
+            ul.statisticslist li.statisticsshare .addthis_toolbox
+            {
+                margin: 0;
+            }
+
+/* Forum */
+
+.forum textarea
+{
+    height: 150px;
+    font: 11px verdana;
+    padding: 2px;
+}
+
+.forum table
+{
+    width: 100%;
+}
+
+.forum .pagenav
+{
+    text-align: center;
+    margin: 15px 0;
+}
+
+.forum .help
+{
+    margin-bottom: 20px;
+}
+
+.forum .paging
+{
+    margin: 5px;
+    text-align: center;
+}
+
+.newthread
+{
+    margin-bottom: 20px;
+}
+
+
+/* ----- FAQ -----*/
+
+ul.faq-categories li.submenu
+{
+    padding-left: 15px;
+}
+
+table.faq-rating
+{
+    margin-bottom: 10px;
+}
+
+    table.faq-rating tr, table.faq-rating tr td
+    {
+        border: none!important;
+    }
+
+.faq-questions li
+{
+    margin: 5px 0;
+}
+
+.faq-questions a
+{
+    color: #353535;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+    .faq-questions a:hover
+    {
+        text-decoration: underline;
+    }
+
+
+/* ----- Food -----*/
+
+.maincolumn.food #search
+{
+    margin: 30px 0;
+}
+
+    .maincolumn.food #search label
+    {
+        display: block;
+    }
+
+.maincolumn.food #foodsearch
+{
+    margin: 5px 0;
+}
+
+.maincolumn.food ul#foodcategories li
+{
+    margin: 5px 0;
+}
+
+.maincolumn.food td.q
+{
+    width: 75px;
+}
+
+.maincolumn.food input.foodQuantity
+{
+    float: left;
+    width: 30px;
+}
+
+.foodprofile dl dd
+{
+    margin-bottom: 20px;
+}
+
+.foodprofile dl dt
+{
+    padding: 10px;
+    background-color: #F4A23F;
+    border: 1px solid #ddd;
+    color: #fff;
+    cursor: pointer;
+}
+
+.foodprofile .edit
+{
+    display: none;
+}
+
+#foodlist kcal-bubble title
+{
+    display: block;
+}
+
+
+.dayscale table
+{
+    margin: 15px 0;
+}
+
+#browse
+{
+    float: left;
+    width: 220px;
+}
+
+
+.foodimage
+{
+    border: 1px solid #000;
+}
+/*CopyFood*/
+#fromCalendar, #toCalendar
+{
+    width: 265px;
+    margin: 0 auto;
+}
+
+.copy-food
+{
+    float: left;
+    width: 430px;
+    margin: 10px;
+}
+
+#copyfood-info
+{
+    clear: both;
+    margin: 20px 0;
+    text-align: center;
+}
+
+    #copyfood-info h3
+    {
+        display: inline;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+
+/* coach */
+
+.jCal
+{
+    width: 224px;
+    height: 21px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.jCalMo
+{
+    width: 224px;
+    float: left;
+    overflow: visible;
+    height: 100%;
+    padding-right: 2px;
+    padding-left: 2px;
+    white-space: nowrap;
+}
+
+.jCal .month, .jCal .monthSelect, .jCal .monthName, .jCal .monthYear
+{
+    line-height: 16px;
+    height: 16px;
+    text-align: center;
+    vertical-align: bottom;
+    font-family: Tahoma;
+    font-size: 8pt;
+    color: #000000;
+    cursor: pointer;
+    float: left;
+}
+
+.jCal .monthName
+{
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: right;
+}
+
+.jCal .monthYear
+{
+    float: right;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: left;
+}
+
+.jCal .monthSelect
+{
+    background: #EEE url(eeGrad2.gif) bottom repeat-x;
+}
+
+.jCal .monthSelector
+{
+    position: absolute;
+}
+
+.jCal .monthSelectorShadow
+{
+    position: absolute;
+    background: #808080;
+    padding: 0px;
+}
+
+.jCal .monthNameHover
+{
+    background: #EDEDED url(double-arrow-vert.gif) center left no-repeat;
+    color: #808080;
+}
+
+.jCal .monthYearHover
+{
+    background: #EDEDED url(double-arrow-vert.gif) center right no-repeat;
+    color: #808080;
+}
+
+.jCal .monthSelectHover
+{
+    background: #069;
+    color: #FFF;
+}
+
+.jCalMo .dow, .jCalMo .day, .jCalMo .pday, .jCalMo .aday, .jCalMo .overDay, .jCalMo .invday, .jCalMo .selectedDay
+{
+    width: 30px;
+    font-family: Tahoma;
+    font-size: 8pt;
+    color: #000000;
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    border-left: 1px solid #EEE;
+    text-align: center;
+    cursor: default;
+    float: left;
+}
+
+.jCalMo .dow
+{
+    background: #EEE url(eeGrad.gif) bottom repeat-x;
+    border-bottom: 0px;
+}
+
+.jCalMo .day, .jCalMo .invday
+{
+    height: 30px;
+    text-align: center;
+}
+
+.jCalMo .day
+{
+    cursor: pointer;
+    background: #FFF;
+}
+
+.jCalMo .invday
+{
+    color: #808080;
+    background: #eeeeee;
+    text-decoration: line-through;
+}
+
+.jCalMo .pday, .jCalMo .aday
+{
+    height: 30px;
+    background: #e3e3e3;
+    color: #CCC;
+}
+
+.jCalMo .selectedDay
+{
+    color: #FFF;
+    background: rgb(0, 143, 214);
+}
+
+.jCalMo .overDay
+{
+    color: #FFF;
+    background: rgb(0, 102, 153);
+}
+
+.jCal .left
+{
+    background: url(/global/icons/arrow_left.png) center center no-repeat;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+    float: left;
+}
+
+.jCal .right
+{
+    background: url(/global/icons/arrow_right.png) center center no-repeat;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+    float: right;
+}
+
+.jCalMask, .jCalMove
+{
+    position: absolute;
+    overflow: hidden;
+}
+
+.CoachActivityStatistik
+{
+    height: 25px;
+    width: 188px;
+    background-image: url(/inside/usercontrols/coach/images/percent_bg.gif);
+}
+
+    .CoachActivityStatistik .fill
+    {
+        height: 19px;
+        background-image: url(/inside/usercontrols/coach/images/percent_blue.gif);
+    }
+
+        .CoachActivityStatistik .fill.success
+        {
+            background-image: url(/inside/usercontrols/coach/images/percent_green.gif);
+        }
+
+            .CoachActivityStatistik .fill.success span
+            {
+                font-weight: bold;
+            }
+
+        .CoachActivityStatistik .fill span
+        {
+            color: #222222;
+            padding-left: 5px;
+            line-height: 1.6;
+        }
+
+/* COOKIES */
+#cookieDialog ul
+{
+    list-style-type: square;
+    margin-bottom: 10px;
+}
+
+#cookieDialog li
+{
+    margin-left: 15px;
+    list-style-type: square;
+}
+
+/* AWARDS */
+.award_badges .award
+{
+    display: block;
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    margin: 0;
+    padding: 2px 10px !important;
+}
+
+    .award_badges .award img
+    {
+        vertical-align: middle;
+        display: inline;
+        margin: -5px 2px 0 0;
+    }
+
+    .award_badges .award span
+    {
+        display: inline;
+        font-weight: bold;
+    }
+
+.blockUI .awards
+{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+    .blockUI .awards img
+    {
+        vertical-align: middle;
+        padding-bottom: 5px;
+    }
+
+
+
+/* guide */
+* html #guide-wrapper
+{ /*\*/
+    position: absolute;
+    top: expression((440 + (ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop)) + 'px');
+    right: expression((20 + (ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft)) + 'px'); /**/
+}
+
+#foo > #guide-wrapper
+{
+    position: fixed;
+    top: 480px;
+    right: 20px;
+}
+
+#guide-wrapper
+{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    text-align: center;
+}
+
+#guide
+{
+    position: relative;
+    text-align: left;
+    margin: 0px auto;
+    width: 90%;
+    max-width: 1100px;
+    background-color: #f1f4e5;
+    background-image: linear-gradient(bottom, rgb(231,235,212) 45%, rgb(241,244,229) 70%);
+    background-image: -o-linear-gradient(bottom, rgb(231,235,212) 45%, rgb(241,244,229) 70%);
+    background-image: -moz-linear-gradient(bottom, rgb(231,235,212) 45%, rgb(241,244,229) 70%);
+    background-image: -webkit-linear-gradient(bottom, rgb(231,235,212) 45%, rgb(241,244,229) 70%);
+    background-image: -ms-linear-gradient(bottom, rgb(231,235,212) 45%, rgb(241,244,229) 70%);
+    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.45, rgb(231,235,212)), color-stop(0.7, rgb(241,244,229)) );
+    padding: 20px 30px 10px;
+    border: 1px solid #CCC;
+    border-bottom: none;
+    color: #000;
+    -moz-border-top-left-radius: 6px;
+    border-top-left-radius: 6px;
+    -moz-border-top-right-radius: 6px;
+    border-top-right-radius: 6px;
+    -webkit-box-shadow: 0px -1px 20px -2px #595959;
+    box-shadow: 0px -1px 20px -2px #595959;
+}
+    /*#guide h3 {
+    color: #FF9205;
+}*/
+    #guide .buttons
+    {
+        margin-top: 10px;
+        overflow: hidden;
+    }
+
+    #guide .button
+    {
+        margin-right: 20px;
+    }
+
+    #guide .guide-content
+    {
+        overflow: auto;
+        height: 300px;
+    }
+
+        #guide .guide-content h3
+        {
+            font-weight: bold;
+        }
+
+    #guide .toolbar
+    {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+/*#guide .toolbar input {
+	margin-right: 15px;
+	margin-left: 10px;
+}*/
+/* ARTICLE */
+.article-read
+{
+    border-top: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+}
+
+/* BMI POPUP */
+#bmi-popup
+{
+    z-index: 5000;
+}
+
+/* SUMMARY STARTPAGE */
+
+    .summary-box, .summary-box p, .summary-box h4
+    {
+        color: #6E6E6E;
+    }
+
+        .summary-box h4.alt
+        {
+            color: #96B031;
+        }
+
+        .summary-box h3 {
+            padding: 0;
+        }
+td.value span
+{
+    background-color: #E5E5E5;
+    padding: 0px 6px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    color: #6F6F6F;
+}
+
+tr.me td.value span, tr.focus td.value span
+{
+    background-color: #F06F1C;
+    color: #fff;
+}
+
+.summary-box input.days-left-counter
+{
+    font-size: 24px !important;
+}
+
+.summary-box .badge-box .badge-wrap span {
+    font-weight: normal;
+    font-size: 25px;
+}
+
+/* PROGRESSBAR VERSUS */
+.name-box {
+    width: 15px; 
+    height: 15px;
+    margin-right: 5px;
+}
+.name-of-versus-bar {
+    padding-bottom: 15px;
+}
+
+
+/* END OF PROGRESSBAR VERSUS*/
+
+
+.myteam .tooltip .tooltip-inner { background-color: #ffffff; border: solid 1px #CCC; }
+.myteam .tooltip .tooltip-arrow { border-top-color: #CCC; }
+.toplist .tooltip{ white-space: normal; }
