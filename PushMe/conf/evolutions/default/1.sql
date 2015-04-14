@@ -18,6 +18,12 @@ create table activity_level (
   constraint pk_activity_level primary key (id))
 ;
 
+create table tips (
+  tip_number                integer auto_increment not null,
+  tip                       varchar(255),
+  constraint pk_tips primary key (tip_number))
+;
+
 create table user (
   email                     varchar(255) not null,
   name                      varchar(255),
@@ -72,6 +78,8 @@ SET FOREIGN_KEY_CHECKS=0;
 drop table activity;
 
 drop table activity_level;
+
+drop table tips;
 
 drop table user;
 

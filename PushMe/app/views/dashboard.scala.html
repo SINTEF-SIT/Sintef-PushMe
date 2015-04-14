@@ -1,35 +1,62 @@
-@(user: User)
+@(user: User, tips: List[Tips])
 
-@main(user, "Dashboard | PushMe"){
-
-
-    
-    
+@main(user, "Dashboard | PushMe") {
+	
      <div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper" style="background-color:#FFFFFF">
+     	<!-- Sidebar -->
+        <div id="sidebar-wrapper" style="background-color:#EEEEEE">
         </div>
         <!-- /#page-content-wrapper -->
- 	<div class="container"> 
+ 		<div class="container"> 
    			<!-- <object type="text/html" data="ActivityConverterRegister.html" width="800px" height="600px" style="overflow:auto;">
     		</object> -->
-     </div>
+    	</div>
         <!-- /.row -->
 
         <hr>
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Sintef 2015</p>
-                </div>
-            </div>
-        </footer>
+    </div>
+     
+    <!-- Container auto-aligns carousel -->
+	<div class = "container">    
+		<div id="tip-carousel" class="carousel slide" data-ride="carousel">
+	    	<div class="row">
+		        <div class="col-xs-offset-3 col-xs-6">
+		            <div class="carousel-inner">
+		                <div class="item active">
+		                	<div class="carousel-content">
+		        	    	       	<div>
+		                    	       	<h4>Welcome to the Dashboard</h4>
+		                    	   	</div>
+		                	</div>
+		                </div>
+		                @for(t <- tips) {
+		          	     	<div class="item">
+		            	       	<div class="carousel-content">
+		        	    	       	<div>
+		        	    	       		<h5>Easy tips for a healthy lifestyle:</h5>
+		                    	       	<h4>@t.tip</h4>
+		                    	   	</div>
+		                  		</div>
+		                  	</div>
+		                }
+	            	</div>
+	        	</div>
+	    	</div>
+    		<!-- Controls -->
+    		<a class="left carousel-control" href="#tip-carousel" data-slide="prev">
+    			<span class="glyphicon glyphicon-chevron-left"></span>
+  			</a>
+ 			<a class="right carousel-control" href="#tip-carousel" data-slide="next">
+    			<span class="glyphicon glyphicon-chevron-right"></span>
+  			</a>
 
-    </div>
-    </div>
+		</div>
+	</div>
+	
+	<hr>
+	    
     <!-- /#wrapper -->
 
     <!-- jQuery -->
@@ -50,7 +77,31 @@
     <!-- Script to Activate the Carousel -->
     <script>
     $('.carousel').carousel({
-        interval: 5000 //changes the speed
+        interval: 10000 //changes the speed
     })
+	</script>
+	
+	<!-- Script to align tip carousel -->
+	<script>
+    setCarouselHeight('#tip-carousel');
+
+    function setCarouselHeight(id)
+    {
+        var slideHeight = [];
+        $(id+' .item').each(function()
+        {
+            // add all slide heights to an array
+            slideHeight.push($(this).height());
+        });
+
+        // find the tallest item
+        max = Math.max.apply(null, slideHeight);
+
+        // set the slide's height
+        $(id+' .carousel-content').each(function()
+        {
+            $(this).css('height',max+'px');
+        });
+    }
     </script>
 }

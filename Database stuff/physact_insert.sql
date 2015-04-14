@@ -2,6 +2,7 @@ DELETE FROM user_activity;
 DELETE FROM user;
 DELETE FROM activity;
 DELETE FROM activity_level;
+DELETE FROM tips;
 
 INSERT INTO user VALUES ("embugge@hotmail.com","erik","secret");
 INSERT INTO user VALUES ("bob@hotmail.com","bob","secret");
@@ -19,3 +20,11 @@ INSERT INTO user_activity VALUES (5,"bob@hotmail.com","skating",3,1500,111111111
 INSERT INTO activity_level VALUES (1,1,"Low");
 INSERT INTO activity_level VALUES (2,2,"Med");
 INSERT INTO activity_level VALUES (3,3,"High");
+
+INSERT INTO tips VALUES(1, "Pick the parking-spot the farthest away from the shop.");
+INSERT INTO tips VALUES(2, "Take a detour while walking to your buss.");
+INSERT INTO tips VALUES(3, "Use the stairs!");
+INSERT INTO tips VALUES(4, "Pushups/situps(get up) during tv commercials.");
+INSERT INTO tips VALUES(5, "Go to the store if possible.");
+INSERT INTO tips VALUES(6, "Use your bike!");
+INSERT INTO tips VALUES(7, "Walk to work.");
