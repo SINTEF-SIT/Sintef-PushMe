@@ -18,5 +18,7 @@ public class DashboardController extends Controller {
         return ok(dashboard.render(User.find.byId(request().username()), Tips.all()));
     }
 
-	
+	public void updateMorris(User user) {
+		
+	};
 }
