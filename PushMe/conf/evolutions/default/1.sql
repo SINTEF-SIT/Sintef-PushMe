@@ -42,9 +42,11 @@ create table user_activity (
 ;
 
 create table user_steps (
+  id                        integer auto_increment not null,
   belongs_to_email          varchar(255),
   steps                     double,
-  date                      datetime)
+  date                      datetime,
+  constraint pk_user_steps primary key (id))
 ;
 
 create table userinformation (
