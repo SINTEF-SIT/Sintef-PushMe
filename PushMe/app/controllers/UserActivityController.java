@@ -3,6 +3,7 @@ package controllers;
 import static play.data.Form.form;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import play.*;
@@ -72,14 +73,41 @@ public class UserActivityController extends Controller {
     	return user_us;
     }
     
-    //Adds steps recorded with a pedometer
-    public static Result updateUA(Long id){
-    	Form<UserActivity> newForm = form(UserActivity.class).bindFromRequest();
-    	Form<UserActivity> oldForm = form(UserActivity.class).fill(UserActivity.find.byId(id));
-        oldForm.get().steps += newForm.get().steps;
-        oldForm.get().save();
+    //Register an activity
+    public static Result createUserActivity(String user, String activity_name){
+    	Form<UserActivity> newUA = form(UserActivity.class).bindFromRequest();
+    	if(newUA.hasErrors()) {
+            return badRequest(
+                    views.html.useractivity.render(
+                			User.find.byId(request().username()), 
+                			findUseractivities(),
+                			Activity.all(),
+                			newUA, stepCounter()));
+        } else {
+        //Multiply the minutes with the correct step factor, according to the intensity
+        if(newUA.get().intensity == 1){
+        	newUA.get().steps = newUA.get().steps * newUA.get().activity.low_intensity;
+        }else if(newUA.get().intensity == 2){
+        	newUA.get().steps = newUA.get().steps * newUA.get().activity.medium_intensity;
+        }else if(newUA.get().intensity == 3){
+        	newUA.get().steps = newUA.get().steps * newUA.get().activity.high_intensity;
+        }
+        List<User> users = User.all();
+    	for(int i = 0; i<users.size();i++){
+    		if(users.get(i).email==user){
+    			newUA.get().belongsTo = users.get(i);
+    			}
+    		}
+        List<Activity> activities = Activity.all();
+    	for(int i = 0; i<activities.size();i++){
+    		if(activities.get(i).name==activity_name){
+    			newUA.get().activity = activities.get(i);
+    			}
+    		}
+        UserActivity.save(newUA.get());
         return redirect(routes.UserActivityController.useractivity());
-    }
+        }
+        }
     
     //Count total amount of steps
     public static double stepCounter(){
@@ -93,6 +121,5 @@ public class UserActivityController extends Controller {
     		totalSteps += us.get(i).steps;
     	}
         return totalSteps;
-    }
-    
+    }        
 }

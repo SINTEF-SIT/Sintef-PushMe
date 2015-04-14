@@ -19,7 +19,7 @@ POST	/signup						controllers.SignupController.createUser()
 
 #UserActivities
 GET		/useractivity				controllers.UserActivityController.useractivity()
-POST	/useractivity				controllers.UserActivityController.updateUA(id:Long)
+POST	/useractivity				controllers.UserActivityController.createUserActivity(user:String,activity:String)
 
 #User information
 GET		/userinfo					controllers.UserActivityController.userInfo()
