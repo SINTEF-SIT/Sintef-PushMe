@@ -45,7 +45,7 @@ public class UserActivityController extends Controller {
     			User.find.byId(request().username()), 
     			findUseractivities(),
     			Activity.all(),
-    			Form.form(UserActivity.class)));
+    			Form.form(UserActivity.class), stepCounter()));
     }
 
     public static List<UserActivity> findUseractivities(){
@@ -60,6 +60,19 @@ public class UserActivityController extends Controller {
     	return user_ua;
     }
     
+    public static List<UserSteps> findPedoRecordings(){
+    	User user = User.find.byId(request().username());
+    	List<UserSteps> us = UserSteps.all();
+    	List<UserSteps> user_us = new ArrayList<UserSteps>();
+    	for(int i=0;i<us.size();i++){
+    		if(us.get(i).belongsTo.email.equals(user.email)){
+    			user_us.add(us.get(i));
+    		}
+    	}
+    	return user_us;
+    }
+    
+    //Adds steps recorded with a pedometer
     public static Result updateUA(Long id){
     	Form<UserActivity> newForm = form(UserActivity.class).bindFromRequest();
     	Form<UserActivity> oldForm = form(UserActivity.class).fill(UserActivity.find.byId(id));
@@ -67,4 +80,19 @@ public class UserActivityController extends Controller {
         oldForm.get().save();
         return redirect(routes.UserActivityController.useractivity());
     }
+    
+    //Count total amount of steps
+    public static double stepCounter(){
+    	double totalSteps = 0;
+    	List<UserActivity> ua = findUseractivities();
+    	List<UserSteps> us = findPedoRecordings();
+    	for(int i = 0;i<ua.size();i++){
+    		totalSteps += ua.get(i).steps;
+    	}
+    	for(int i = 0;i<us.size();i++){
+    		totalSteps += us.get(i).steps;
+    	}
+        return totalSteps;
+    }
+    
 }

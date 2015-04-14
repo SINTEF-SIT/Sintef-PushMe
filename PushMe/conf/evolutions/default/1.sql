@@ -5,7 +5,9 @@
 
 create table activity (
   name                      varchar(255) not null,
-  step_factor               integer,
+  low_intensity             integer,
+  medium_intensity          integer,
+  high_intensity            integer,
   constraint pk_activity primary key (name))
 ;
 
@@ -27,8 +29,16 @@ create table user_activity (
   id                        integer auto_increment not null,
   belongs_to_email          varchar(255),
   activity_name             varchar(255),
+  intensity                 integer,
   steps                     double,
+  date                      datetime,
   constraint pk_user_activity primary key (id))
+;
+
+create table user_steps (
+  belongs_to_email          varchar(255),
+  steps                     double,
+  date                      datetime)
 ;
 
 create table userinformation (
@@ -48,8 +58,10 @@ alter table user_activity add constraint fk_user_activity_belongsTo_1 foreign ke
 create index ix_user_activity_belongsTo_1 on user_activity (belongs_to_email);
 alter table user_activity add constraint fk_user_activity_activity_2 foreign key (activity_name) references activity (name) on delete restrict on update restrict;
 create index ix_user_activity_activity_2 on user_activity (activity_name);
-alter table userinformation add constraint fk_userinformation_belongsTo_3 foreign key (belongs_to_email) references user (email) on delete restrict on update restrict;
-create index ix_userinformation_belongsTo_3 on userinformation (belongs_to_email);
+alter table user_steps add constraint fk_user_steps_belongsTo_3 foreign key (belongs_to_email) references user (email) on delete restrict on update restrict;
+create index ix_user_steps_belongsTo_3 on user_steps (belongs_to_email);
+alter table userinformation add constraint fk_userinformation_belongsTo_4 foreign key (belongs_to_email) references user (email) on delete restrict on update restrict;
+create index ix_userinformation_belongsTo_4 on userinformation (belongs_to_email);
 
 
 
@@ -64,6 +76,8 @@ drop table activity_level;
 drop table user;
 
 drop table user_activity;
+
+drop table user_steps;
 
 drop table userinformation;
 

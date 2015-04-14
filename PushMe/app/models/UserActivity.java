@@ -1,9 +1,10 @@
 package models;
 
-import java.util.List;
-import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.*;
 import play.db.ebean.*;
-import com.avaje.ebean.*;
+import play.data.validation.Constraints.*;
+import javax.persistence.*;
 
 @Entity
 public class UserActivity extends Model {
@@ -14,14 +15,18 @@ public class UserActivity extends Model {
     public User belongsTo;
     @ManyToOne
     public Activity activity;
+    public int intensity;
     public double steps;
+    public Date date;
 
     
-    public UserActivity(int id, User belongsTo, Activity activity, double steps) {
+    public UserActivity(int id, User belongsTo, Activity activity, int intensity, double steps, Date date) {
       this.id = id;
       this.belongsTo = belongsTo;
       this.activity = activity;
+      this.intensity = intensity;
       this.steps = steps;
+      this.date = date;
     }
 
     public static Finder<Long,UserActivity> find = new Finder<Long,UserActivity>(
