@@ -1,8 +1,10 @@
 DELETE FROM user_activity;
+DELETE FROM user_steps;
 DELETE FROM user;
 DELETE FROM activity;
 DELETE FROM activity_level;
 DELETE FROM tips;
+
 
 INSERT INTO user VALUES ("embugge@hotmail.com","erik","secret");
 INSERT INTO user VALUES ("bob@hotmail.com","bob","secret");

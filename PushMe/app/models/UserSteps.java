@@ -21,9 +21,9 @@ public class UserSteps extends Model {
     
     public UserSteps(int id, User belongsTo, double steps, Date date) {
     	this.id = id;
-      this.belongsTo = belongsTo;
-      this.steps = steps;
-      this.date = date;
+    	this.belongsTo = belongsTo;
+    	this.steps = steps;
+    	this.date = date;
     }
 
     public static Finder<Long,UserSteps> find = new Finder<Long,UserSteps>(

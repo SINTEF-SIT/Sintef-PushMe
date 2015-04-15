@@ -19,8 +19,8 @@ POST	/signup						controllers.SignupController.createUser()
 
 #UserActivities
 GET		/useractivity				controllers.UserActivityController.useractivity()
-POST	/useractivity				controllers.UserActivityController.createUserActivity(email:String,activity_name:String)
-POST	/useractivity				controllers.UserActivityController.updateSteps()
+POST	/activityreg				controllers.UserActivityController.createUserActivity(a:String)
+POST	/stepreg					controllers.UserActivityController.addSteps()
 
 #User information
 GET		/userinfo					controllers.UserActivityController.userInfo()

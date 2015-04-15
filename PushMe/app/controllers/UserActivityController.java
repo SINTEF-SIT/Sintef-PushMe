@@ -3,6 +3,8 @@ package controllers;
 import static play.data.Form.form;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -43,10 +45,8 @@ public class UserActivityController extends Controller {
     
     @Security.Authenticated(Secured.class)
     public static Result useractivity(){
-    	User user = User.find.byId(request().username());
-//    	Form<UserSteps> userStepsForm = form(UserSteps.class).fill(UserSteps.find.byId(null));
     	return ok(useractivity.render(
-    			user, 
+    			User.find.byId(request().username()), 
     			findUseractivities(),
     			Activity.all(),
     			Form.form(UserSteps.class),
@@ -54,6 +54,19 @@ public class UserActivityController extends Controller {
     			stepCounter()));
     }
 
+    public static Activity findActivityByName(String name){
+    	List<Activity> activities = Activity.all();
+    	Activity activity = null;
+    	for(int i=0;i<activities.size();i++){
+    		if(activities.get(i).name.equals(name)){
+    			activity = activities.get(i);
+    			break;
+    		}
+    	}
+    	return activity;
+    }
+    
+    @Security.Authenticated(Secured.class)
     public static List<UserActivity> findUseractivities(){
     	User user = User.find.byId(request().username());
     	List<UserActivity> ua = UserActivity.all();
@@ -66,6 +79,7 @@ public class UserActivityController extends Controller {
     	return user_ua;
     }
     
+    @Security.Authenticated(Secured.class)
     public static List<UserSteps> findPedoRecordings(){
     	User user = User.find.byId(request().username());
     	List<UserSteps> us = UserSteps.all();
@@ -79,9 +93,9 @@ public class UserActivityController extends Controller {
     }
     
     //Add steps from pedometer
-    public static Result updateSteps(){
+    @Security.Authenticated(Secured.class)
+    public static Result addSteps(){
     	Form<UserSteps> newSteps = form(UserSteps.class).bindFromRequest();
-    	Form<UserSteps> oldSteps = form(UserSteps.class).fill(UserSteps.find.byId(null));
     	if(newSteps.hasErrors()) {
             return badRequest(
                     views.html.useractivity.render(
@@ -92,29 +106,26 @@ public class UserActivityController extends Controller {
                 			Form.form(UserActivity.class), 
                 			stepCounter()));
         }else{
-
-            oldSteps.get().steps += newSteps.get().steps;
-            oldSteps.get().save();
+        	Timestamp date = new Timestamp(newSteps.get().date.getTime());
+        	newSteps.get().date = date;
+        	newSteps.get().belongsTo = User.find.byId(request().username());
+        	UserSteps.save(newSteps.get());
             return redirect(routes.UserActivityController.useractivity());
         }
         }
     
     //Register an activity
-    public static Result createUserActivity(String email, String activity_name){
+    @Security.Authenticated(Secured.class)
+    public static Result createUserActivity(String a){
     	Form<UserActivity> newUA = form(UserActivity.class).bindFromRequest();
     	Timestamp date = new Timestamp(newUA.get().date.getTime());
     	newUA.get().date = date;
+        newUA.get().belongsTo = User.find.byId(request().username());
+        newUA.get().activity = findActivityByName(a);
     	if(newUA.hasErrors()) {
-            return badRequest(
-                    views.html.useractivity.render(
-                			User.find.byId(request().username()), 
-                			findUseractivities(),
-                			Activity.all(),
-                			Form.form(UserSteps.class),
-                			newUA, stepCounter()));
+    		return redirect(routes.IndexController.index());
         } else {
-            newUA.get().belongsTo = User.find.byId("embugge@hotmail.com");
-            newUA.get().activity = Activity.find.byId("sailing");
+
         //Multiply the minutes with the correct step factor, according to the intensity
         if(newUA.get().intensity == 1){
         	newUA.get().steps = newUA.get().steps * newUA.get().activity.low_intensity;
@@ -127,8 +138,9 @@ public class UserActivityController extends Controller {
         return redirect(routes.UserActivityController.useractivity());
         }
         }
-    
+
     //Count total amount of steps
+    @Security.Authenticated(Secured.class)
     public static double stepCounter(){
     	double totalSteps = 0;
     	List<UserActivity> ua = findUseractivities();

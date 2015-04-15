@@ -1,11 +1,8 @@
 package models;
 
-import java.sql.Timestamp;
 import java.util.*;
 import play.db.ebean.*;
-import play.data.validation.Constraints.*;
 import javax.persistence.*;
-import play.*;
 
 @Entity
 public class UserActivity extends Model {
