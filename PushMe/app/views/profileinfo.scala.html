@@ -1,9 +1,6 @@
-@(user: User, profile: List[Profileinformation], al: List[ActivityLevel], profileinfoForm: Form[Profileinformation])
+@(user: User, userinfo: Userinformation, userForm: Form[User], userinfoForm: Form[Userinformation], al:List[ActivityLevel])
 
 @main(user,"Profile info") {
-
-@helper.form(routes.Application.createProfileInfo(user.email)){
-<fieldset>
 
 <!-- Form Name -->
 
@@ -16,11 +13,11 @@
             </label>
     <h1>Edit Profile</h1>
 
-    <form class="form-horizontal" role="form">
+@helper.form(routes.ProfileController.updateUserInfo()){
           <div class="form-group">
             <label class="col-lg-3 control-label">Name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="Alex Wethal"  
+              <input class="form-control" type="text" value="@userinfo.name" name="name"  
                 id="username" autocomplete="off" required
                 data-bv-notempty-message="The firstname and last name of the user is required">
             </div>
@@ -29,7 +26,13 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">Weight(in kgs):</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="50">
+              <input class="form-control" type="text" value="@userinfo.weight" name="weight">
+            </div>
+          </div>            
+           <div class="form-group">
+            <label class="col-lg-3 control-label">Height(in cm):</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="@userinfo.height" name="height">
             </div>
           </div>
             <div class="control-group">
@@ -53,10 +56,17 @@
                     </div>
                   </div>
 
+            <div class="col-md-8">
+              <input class="btn btn-primary" type="submit" value="Save Changes">
+            </div>
+
+
+}
+@helper.form(routes.ProfileController.updateUser()){
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="alex@hotmail.com">
+              <input class="form-control" type="text" value="@user.email">
             </div>
           </div>
 
@@ -69,25 +79,25 @@
           <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" value="1234">
+              <input class="form-control" type="password" value="@user.password" name="password">
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Confirm password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" value="1234">
+              <input class="form-control" type="password" value="@user.password">
             </div>
           </div>
                     <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input class="btn btn-primary" type="button" value="Save Changes">
+              <input class="btn btn-primary" type="submit" value="Save Changes">
               <span></span>
-              <input class="btn btn-default" type="reset" value="Cancel">
+              <a href="/dashboard"><input class="btn btn-default" value="Cancel"></a>
             </div>
           </div>
-        </form>
       </div>
   </div>
 </div>
-<hr>
+}
+}
