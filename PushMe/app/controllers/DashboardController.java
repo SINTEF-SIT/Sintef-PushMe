@@ -15,7 +15,10 @@ public class DashboardController extends Controller {
 	
 	@Security.Authenticated(Secured.class)
 	public static Result dashboard() {
-        return ok(dashboard.render(User.find.byId(request().username())));
+        return ok(dashboard.render(User.find.byId(request().username()), Tips.all()));
     }
 
+	public void updateMorris(User user) {
+		
+	};
 }

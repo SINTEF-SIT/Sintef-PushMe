@@ -11,20 +11,23 @@ import javax.persistence.*;
 @Entity
 public class UserSteps extends Model {
 
+	@Id
+	public int id;
 	@ManyToOne
     public User belongsTo;
     public double steps;
     public Date date;
 
     
-    public UserSteps(User belongsTo, double steps, Date date) {
-      this.belongsTo = belongsTo;
-      this.steps = steps;
-      this.date = date;
+    public UserSteps(int id, User belongsTo, double steps, Date date) {
+    	this.id = id;
+    	this.belongsTo = belongsTo;
+    	this.steps = steps;
+    	this.date = date;
     }
 
-    public static Finder<String,UserSteps> find = new Finder<String,UserSteps>(
-        String.class, UserSteps.class
+    public static Finder<Long,UserSteps> find = new Finder<Long,UserSteps>(
+        Long.class, UserSteps.class
     ); 
     
     public static List<UserSteps> all() {

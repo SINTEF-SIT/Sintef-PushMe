@@ -19,11 +19,12 @@ POST	/signup						controllers.SignupController.createUser()
 
 #UserActivities
 GET		/useractivity				controllers.UserActivityController.useractivity()
-POST	/useractivity				controllers.UserActivityController.createUserActivity(user:String,activity:String)
+POST	/activityreg				controllers.UserActivityController.createUserActivity(a:String)
+POST	/stepreg					controllers.UserActivityController.addSteps()
 
 #User information
 GET		/userinfo					controllers.UserActivityController.userInfo()
 POST	/userinfo					controllers.UserActivityController.createUserInfo(email:String)
 
 #Dashboard
-GET	/dashboard						controllers.DashboardController.dashboard()
+GET		/dashboard					controllers.DashboardController.dashboard()
