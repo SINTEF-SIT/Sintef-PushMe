@@ -2,8 +2,6 @@
 
 @main(user,"Profile info") {
 
-<!-- Form Name -->
-
 <legend>Profile Information</legend>
 
 <div class="container">
@@ -11,27 +9,20 @@
     <h1>Edit Profile</h1>
 
 @helper.form(routes.ProfileController.updateUserInfo()){
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Name:</label>
-            <div class="col-lg-8">
+
+            <label class="control-label">Name:</label>
+
               <input class="form-control" type="text" value="@userinfo.name" name="name"  
                 id="username" autocomplete="off" required
                 data-bv-notempty-message="The firstname and last name of the user is required">
-            </div>
-          </div>
-         
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Weight(in kgs):</label>
-            <div class="col-lg-8">
+       
+            <label class="control-label">Weight(in kgs):</label>
               <input class="form-control" type="text" value="@userinfo.weight" name="weight">
-            </div>
-          </div>            
-           <div class="form-group">
-            <label class="col-lg-3 control-label">Height(in cm):</label>
-            <div class="col-lg-8">
+            
+            <label class="control-label">Height(in cm):</label>
+
               <input class="form-control" type="text" value="@userinfo.height" name="height">
-            </div>
-          </div>
+
             <div class="control-group">
              <label class="control-label" for="current_al">Current ActivityLevel</label>
                <div class="controls">
@@ -51,50 +42,26 @@
                         }
                       </select>
                     </div>
-                  </div>
-
-            <div class="col-md-8">
+                  </div><br>
+                  
               <input class="btn btn-primary" type="submit" value="Save Changes">
-            </div>
+
 
 
 }
 @helper.form(routes.ProfileController.updateUser()){
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="@user.email">
-            </div>
-          </div>
 
-          <div class="form-group">
-            <label class="col-md-3 control-label">Username:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="text" value="ale">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
-            <div class="col-md-8">
+
+            <label class="control-label">Password:</label>
               <input class="form-control" type="password" value="@user.password" name="password">
-            </div>
-          </div>
-          <div class="form-group">
+
             <label class="col-md-3 control-label">Confirm password:</label>
-            <div class="col-md-8">
               <input class="form-control" type="password" value="@user.password">
-            </div>
-          </div>
-                    <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
+
+            <label class="control-label"></label>
               <input class="btn btn-primary" type="submit" value="Save Changes">
               <span></span>
               <a href="/dashboard"><input class="btn btn-default" value="Cancel"></a>
-            </div>
-          </div>
-      </div>
-  </div>
 </div>
 }
 }

@@ -21,7 +21,8 @@ public class UserActivityController extends Controller {
     public static Result userInfo() {
     return ok(views.html.userinfo.render(User.find.byId(request().username()),Userinformation.all(), ActivityLevel.all(), Form.form(Userinformation.class)));
     }
-    
+
+    @Security.Authenticated(Secured.class)
     public static Result createUserInfo(String email) {
     Form<Userinformation> filledForm = Form.form(Userinformation.class).bindFromRequest();    
     if(filledForm.hasErrors()) {
@@ -33,11 +34,7 @@ public class UserActivityController extends Controller {
                 		);
     } else {
     	List<User> users = User.all();
-    	for(int i = 0; i<users.size();i++){
-    		if(users.get(i).email==email){
-    			filledForm.get().belongsTo = users.get(i);
-    			}
-    		}    	
+    	filledForm.get().belongsTo = User.find.byId(request().username());
         Userinformation.create(filledForm.get());
         return redirect(routes.IndexController.index());
     	}

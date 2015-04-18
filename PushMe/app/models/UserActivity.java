@@ -1,7 +1,10 @@
 package models;
 
 import java.util.*;
+
+import play.data.validation.Constraints.Required;
 import play.db.ebean.*;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,8 +16,11 @@ public class UserActivity extends Model {
     public User belongsTo;
     @ManyToOne
     public Activity activity;
+    @Required
     public int intensity;
+    @Required
     public double steps;
+    @Required
     public Date date;
 
     
