@@ -2038,7 +2038,7 @@ html, body, form, table, fieldset, .icon-unreadcount{
 }*/
 /*h1, h2, h3, h4, h5 p { padding-bottom: 10px; }*/
 
-h1,caption{ font-size: 26px;color: #96B031;}
+h1,caption{ font-size: 26px;color: #269966;}
 h2{ font-size: 16px;;color: #595959;}
 h2.alt{ color: #96B031;}
 h3{ font-size: 14px;color: #595959;margin-bottom: 10px;}
@@ -2551,6 +2551,52 @@ button.button:disabled, input.button:disabled, a.button:disabled {
 	-moz-opacity:0.5;
 	-khtml-opacity:0.5;
 	opacity:0.5;
+}
+
+.btn-meny {
+  color: #269966;
+  background-color: #269966;
+  border-color: #269966;
+}
+.btn-meny:hover,
+.btn-meny:focus,
+.btn-meny.focus,
+.btn-meny:active,
+.btn-meny.active,
+.open > .dropdown-toggle.btn-meny {
+  color: #269966;
+  background-color: #269966;
+  border-color: #269966;
+}
+.btn-meny:active,
+.btn-meny.active,
+.open > .dropdown-toggle.btn-default {
+  background-image: none;
+}
+.btn-meny.disabled,
+.btn-meny[disabled],
+fieldset[disabled] .btn-meny,
+.btn-meny.disabled:hover,
+.btn-meny[disabled]:hover,
+fieldset[disabled] .btn-meny:hover,
+.btn-meny.disabled:focus,
+.btn-meny[disabled]:focus,
+fieldset[disabled] .btn-meny:focus,
+.btn-meny.disabled.focus,
+.btn-meny[disabled].focus,
+fieldset[disabled] .btn-meny.focus,
+.btn-meny.disabled:active,
+.btn-meny[disabled]:active,
+fieldset[disabled] .btn-meny:active,
+.btn-meny.disabled.active,
+.btn-meny[disabled].active,
+fieldset[disabled] .btn-meny.active {
+  background-color: #269966;
+  border-color: #269966;
+}
+.btn-meny .badge {
+  color: #269966;
+  background-color: #269966;
 }
 
 /*a.backbutton {
