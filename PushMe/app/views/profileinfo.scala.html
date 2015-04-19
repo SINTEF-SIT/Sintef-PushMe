@@ -70,6 +70,13 @@
 @helper.form(routes.ProfileController.updateUser()){
 
 			<br>
+            <label class="control-label">Email:</label>
+              <input disabled class="form-control" type="email" value="@user.email" name="email">
+              
+             <br>
+            <label class="control-label">Name:</label>
+              <input class="form-control" type="text" value="@user.name" name="name">
+			<br>
             <label class="control-label">Password:</label>
               <input class="form-control" type="password" value="@user.password" name="password">
 			<br>
