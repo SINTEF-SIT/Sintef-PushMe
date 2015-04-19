@@ -30,6 +30,6 @@ POST	/userinfo					controllers.UserActivityController.createUserInfo(email:Strin
 GET		/dashboard					controllers.DashboardController.dashboard()
 
 #Profile
-GET     /profile                    controllers.ProfileController.profile()
+GET     /profile					controllers.ProfileController.profile()
 POST    /updateuser					controllers.ProfileController.updateUser()
 POST	/updateuserinfo				controllers.ProfileController.updateUserInfo()

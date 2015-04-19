@@ -46,6 +46,10 @@ public class Userinformation extends Model {
     public static void create(Userinformation userinfo) {
         userinfo.save();
     }
+    
+    public static void update(Userinformation userinfo) {
+        update(userinfo);
+    }
 
     public static void delete(Long id) {
         find.ref(id).delete();
