@@ -10,6 +10,24 @@
 
 @helper.form(routes.ProfileController.updateUserInfo()){
 
+        <!-- Public Profile -->
+        <div class="column two-thirds">
+            <dl class="form edit-profile-avatar">
+  				<dt><label for="upload-profile-picture">Profile picture</label></dt>
+  					<dd class="avatar-upload-container clearfix">
+    					<img alt="" class="avatar left" data-user="" height="200" src="" width="200" />
+    	<div class="avatar-upload">
+      		<a href="#" class="btn">
+       			 <label for="upload-profile-picture">
+        			Upload new picture
+          				<input id="upload-profile-picture" type="file" class="manual-file-chooser js-manual-file-chooser js-avatar-field">
+        		</label>
+      		</a>
+    	</div> <!-- /.avatar-upload -->
+  					</dd>
+			</dl>
+		</div>
+
             <label class="control-label">Name:</label>
 			<br>
               <input class="form-control" type="text" value="@userinfo.name" name="name"  
