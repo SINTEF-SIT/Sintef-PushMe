@@ -29,9 +29,10 @@ function setCarouselHeight(id) {
 }
 
 /*Donut chart*/
-$.getScript('http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js',function(){
-$.getScript('http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.0/morris.min.js',function(){
-      Morris.Donut({
+$.getScript('https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js',function(){
+$.getScript('https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js',function(){
+
+	Morris.Donut({
         element: 'user_activity-donut',
         data: [
          {label: "Jogging", value: 50},
@@ -39,7 +40,8 @@ $.getScript('http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.0/morris.min.js
          {label: "Walking", value: 15}
         ]
       });
-      Morris.Donut({
+      
+	Morris.Donut({
         element: 'global_activity-donut',
         data: [
          {label: "Jogging", value: 30},
@@ -47,5 +49,21 @@ $.getScript('http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.0/morris.min.js
          {label: "Walking", value: 65}
         ]
       });
+      
+	Morris.Line({
+		element: 'line-example',
+		  data: [
+		    { y: '2006', a: 100, b: 90 },
+		    { y: '2009', a: 4,  b: 65 },
+		    { y: '2008', a: 50,  b: 40 },
+		    { y: '2009', a: 75,  b: 65 },
+		    { y: '2010', a: 50,  b: 40 },
+		    { y: '2011', a: 75,  b: 65 },
+		    { y: '2012', a: 100, b: 90 }
+		  ],
+		  xkey: 'y',
+		  ykeys: ['a', 'b'],
+		  labels: ['Series A', 'Series B']
+	});
 });
 });

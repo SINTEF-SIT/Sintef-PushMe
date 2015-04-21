@@ -4,3 +4,33 @@
 /*Donut chart*/
 .morris-hover{position:absolute;z-index:1000}.morris-hover.morris-default-style{border-radius:10px;padding:6px;color:#666;background:rgba(255,255,255,0.8);border:solid 2px rgba(230,230,230,0.8);font-family:sans-serif;font-size:12px;text-align:center}.morris-hover.morris-default-style .morris-hover-row-label{font-weight:bold;margin:0.25em 0}
 .morris-hover.morris-default-style .morris-hover-point{white-space:nowrap;margin:0.1em 0}
+
+/*Steps tab*/
+.tab-box .panel-heading > .nav-tabs {
+    float: right;
+    margin-top: -2px;
+    display: inline-block;
+    border-bottom: 0;
+}
+.tab-box .panel-heading > .nav-tabs > li > a {
+    border: 0;
+    padding: 6px 7px;
+}
+@media (min-width: 444px) {
+    .tab-box .panel-heading > .nav-tabs > li > a {
+        padding: 6px 15px;
+    }
+}
+.tab-box .panel-heading > .nav-tabs > li.active > a {
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-bottom: 0;
+    border-top: 1px solid #7c1c1d;
+    background: #fff;
+}
+.panel.panel-default > .panel-heading h3 {
+    display: inline-block;
+}
+svg {
+    width: 100% !important;
+}
