@@ -133,37 +133,50 @@
 	
 	<!-- Overview panels -->
 	<div class = "container">
-		<!-- Goal Panel -->	
-		<div class="panel panel-default"; style="width: 30%; float: right; margin: 1%">
-	    	<div class="panel-heading"><h3>Goals</h3>
-	    	</div>
-	    	<div class="panel-body"><br><br><br><br><h4>Fill with goals!</h4><br><br><br><br>
-			</div>
-		</div>
-		<!-- Recent activities -->	
-		<div class="panel panel-default"; style="width: 30%; float: right; margin: 1%">
-	    	<div class="panel-heading"><h3>Your recent activities</h3>
-	    	</div>
-	    	<div class="panel-body"><br><br><br><br><h4>Went for a walk -> 75min</h4><br><br><br><br>
-			</div>
-		</div>
-		<!-- Leaderboard -->	
-		<div class="panel panel-default"; style="width: 30%; float: right; margin: 1%">
-	    	<div class="panel-heading"><h3>Leaderboards</h3>
-	    	</div>
-	    	<div class="panel-body"><br><br><br><br><h4>Fill the leaderboards!</h4><br><br><br><br>
-			</div>
-		</div>
-	</div>
+	<!-- Goal Panel -->	
+	           <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-bullseye"></i> Goals </h4>
+                    </div>
+                    <div class="panel-body" style="height: 110px">
+                        <p> 
+                        	Fill with goals!
+                        </p>
+                    </div>
+                </div>
+            </div>
+    <!-- Recent activities -->	
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-bicycle"></i> Your recent activities </h4>
+                    </div>
+                    <div class="panel-body" style="height: 110px">
+                        <p>
+                        	Went for a walk -> 75 min
+                        </p>
+                    </div>
+                </div>
+            </div>
+    <!-- Leaderboard -->	 
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-trophy"></i> Leaderboards </h4>
+                    </div>
+                    <div class="panel-body" style="height: 110px">
+                        <p>
+                        	Fill the leaderboards
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 	
 	<hr>    
     <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="@routes.Assets.at("javascripts/jquery.js")"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
     
 	<!-- Dashboard javascript -->
     <script src="@routes.Assets.at("javascripts/dashboard.js")"></script>
