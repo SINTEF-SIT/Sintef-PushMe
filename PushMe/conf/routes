@@ -28,6 +28,7 @@ POST	/userinfo					controllers.UserActivityController.createUserInfo(email:Strin
 
 #Dashboard
 GET		/dashboard					controllers.DashboardController.dashboard()
+POST	/dailyBar					controllers.DashboardController.generateDailyBar()
 
 #Profile
 GET     /profile					controllers.ProfileController.profile()

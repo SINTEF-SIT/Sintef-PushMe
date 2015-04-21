@@ -5,6 +5,7 @@ import static play.data.Form.form;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import play.*;
@@ -17,8 +18,20 @@ public class DashboardController extends Controller {
 	
 	@Security.Authenticated(Secured.class)
 	public static Result dashboard() {
-        return ok(dashboard.render(User.find.byId(request().username()), Tips.all()));
+        return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), 0.0));
     }
+	
+	@Security.Authenticated(Secured.class)
+	public static Result generateDailyBar(){
+		double dailySteps = 10;
+		Form<UserActivity> filledForm = form(UserActivity.class).bindFromRequest();
+		Date date = filledForm.get().date;
+		List<UserActivity> ua = UserActivity.all();
+		if(ua.get(5).date == date){
+			dailySteps = ua.get(5).steps;
+		}
+		return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), dailySteps));
+	}
 	
     @Security.Authenticated(Secured.class)
     public static List<UserActivity> getUserActivities(){
