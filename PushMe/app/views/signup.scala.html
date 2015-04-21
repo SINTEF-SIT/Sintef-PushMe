@@ -1,4 +1,4 @@
-@(form: Form[User])
+@(form: Form[User], al:List[ActivityLevel])
 
 
 <html>
@@ -39,15 +39,7 @@
 												</span> 
 												<input class="form-control" placeholder="Email" name="email" type="email" autofocus />
 											</div>
-										</div>
-										<div class="form-group">
-											<div class="input-group">
-												<span class="input-group-addon">
-													<i class="glyphicon glyphicon-user"></i>
-												</span> 
-												<input class="form-control" placeholder="Name" name="name" type="text" />
-											</div>
-										</div>
+										</div>										
 										<div class="form-group">
 											<div class="input-group">
 												<span class="input-group-addon">
@@ -56,6 +48,77 @@
 												<input class="form-control" placeholder="Password" name="password" type="password" value="" />
 											</div>
 										</div>
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-lock"></i>
+												</span>
+												<input class="form-control" placeholder="Re-enter password" name=" re-enter password" type="password" value="" />
+											</div>
+										</div>
+									</div>
+									
+									<div class="col-sm-12 col-md-10  col-md-offset-1 ">
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-user"></i>
+												</span> 
+												<input class="form-control" placeholder="Full name" name="name" type="text" autofocus />
+											</div>
+										</div>										
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-calendar"></i>
+												</span>
+												<input class="form-control" placeholder="Date of birth" name="dob" type="date" value="" />
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-text-height"></i>
+												</span>
+												<input class="form-control" placeholder="Weight in kg" name="weight" type="text" value="" />
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-text-height"></i>
+												</span>
+												<input class="form-control" placeholder="Height in cm" name="height" type="text" value="" />
+											</div>
+										</div>
+										Gender<br>
+										<div id="gender">
+										<input type="radio" name="gender" value="Male" checked="checked"/>Male<br />
+                        				<input type="radio" name="gender" value="Female" />Female<br />
+										</div>
+									</div>
+									
+								<div class="form-group">
+								  <label class="control-label" for="current_al">Current ActivityLevel</label>
+								  <div class="controls">
+								    <select name="current_al" class="input-medium" id="current_al">
+							    	@for(level <- al){
+								      <option>@level.description</option>
+								  		}
+								    </select>
+								  </div>
+								</div>
+								<!-- Select targeted activity level -->
+								<div class="form-group">
+								  <label class="control-label" for="target_al">Target ActivityLevel</label>
+								  <div class="controls">
+								    <select name="target_al" class="input-medium" id="target_al">
+							    	@for(level <- al){
+								      <option>@level.description</option>
+								  		}
+								    </select>
+								  </div>
+								</div>
 										<div class="form-group">
 											<input type="submit" class="btn btn-lg btn-primary btn-block" value="Create user" />
 										</div>

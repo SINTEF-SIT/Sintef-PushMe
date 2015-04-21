@@ -7,9 +7,7 @@
 <div class="container">
 
     <h1>Profile information</h1>
-
-@helper.form(routes.ProfileController.updateUserInfo()){
-
+    
         <!-- Public Profile -->
         <div class="column two-thirds">
             <dl class="form edit-profile-avatar">
@@ -27,7 +25,7 @@
   					</dd>
 			</dl>
 		</div>
-
+@helper.form(routes.ProfileController.updateUserInfo()){
             <label class="control-label">Name:</label>
 			<br>
               <input class="form-control" type="text" value="@userinfo.name" name="name"  

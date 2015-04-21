@@ -20,14 +20,14 @@ public class SignupController extends Controller {
 	
 	
     public static Result signup() {
-        return ok(signup.render(Form.form(User.class)));
+        return ok(signup.render(Form.form(User.class), ActivityLevel.all()));
     }
     
     public static Result createUser() {
         Form<User> userForm = Form.form(User.class).bindFromRequest();
         if(userForm.hasErrors()) {
             return badRequest(
-                    views.html.signup.render(userForm)
+                    views.html.signup.render(userForm, ActivityLevel.all())
             );
         } else {
             User.create(userForm.get());

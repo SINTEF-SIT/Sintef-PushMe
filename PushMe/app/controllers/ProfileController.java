@@ -49,11 +49,7 @@ public static User findUser(){
 {
 	User current_user = findUser();
 	Form<User> filledForm = Form.form(User.class).bindFromRequest();
-
-	filledForm.get().email = current_user.email;
-	filledForm.get().name = current_user.name;
 	User.create(filledForm.get());
-
 	return redirect(routes.DashboardController.dashboard());
 }
 
@@ -63,7 +59,7 @@ public static Result updateUserInfo(){
 	User currentUser = findUser();
 	filledForm.get().belongsTo = currentUser;
 	filledForm.get().id = findUserInfo().id;
-	Userinformation.update(filledForm.get());;
+	filledForm.get().save();
 	return redirect(routes.ProfileController.profile());
 }
 }

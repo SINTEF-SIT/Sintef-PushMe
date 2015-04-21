@@ -26,8 +26,14 @@ create table tips (
 
 create table user (
   email                     varchar(255) not null,
-  name                      varchar(255),
   password                  varchar(255),
+  name                      varchar(255),
+  dob                       datetime,
+  weight                    integer,
+  height                    integer,
+  gender                    varchar(255),
+  current_al                varchar(255),
+  target_al                 varchar(255),
   constraint pk_user primary key (email))
 ;
 
