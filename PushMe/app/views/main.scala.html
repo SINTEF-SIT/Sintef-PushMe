@@ -19,6 +19,10 @@
 	    <link href="@routes.Assets.at("fonts/font-awesome/css/font-awesome.min.css")" rel="stylesheet" type="text/css">
 		<!-- Dashboard CSS -->
 		<link href="@routes.Assets.at("stylesheets/dashboard.css")" rel="stylesheet">
+		<!-- jQuery -->
+    	<script src="@routes.Assets.at("javascripts/jquery.js")"></script>
+		<!-- Bootstrap Core JavaScript -->
+ 	   	<script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
 	    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	    <!--[if lt IE 9]>
@@ -49,7 +53,7 @@
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul class="nav navbar-nav navbar-right">
 	                	<li>
-	                		<a href="#" style="font-weight:900; text-transform: capitalize; text-decoration: underline">@user.name</a>
+	                		<a href="profile" style="font-weight:900; text-transform: capitalize; text-decoration: underline">@user.name</a>
 	                	</li>
 	                    <li>
 							<a href="useractivity" class="btn-meny" >Activity Converter</a>
@@ -58,7 +62,7 @@
 	                        <a href="dashboard" class="btn-meny" >Statistics</a>
 	                    </li>
 	                    <li>
-	                        <a href="/logout" class="btn-meny" >Logout</a>
+	                        <a href="logout" class="btn-meny" >Logout</a>
 	                    </li>
 	                </ul>
 	            </div>

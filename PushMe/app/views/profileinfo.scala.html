@@ -2,27 +2,63 @@
 
 @main(user,"Profile info") {
 
-<legend>Profile Information</legend>
+<link href="@routes.Assets.at("stylesheets/pushme.css")" rel="stylesheet">
 
 <div class="container">
 
-    <h1>Edit Profile</h1>
+    <h1>Profile information</h1>
 
 @helper.form(routes.ProfileController.updateUserInfo()){
 
-            <label class="control-label">Name:</label>
+        <!-- Public Profile -->
+        <div class="column two-thirds">
+            <dl class="form edit-profile-avatar">
+  				<dt><label for="upload-profile-picture">Profile picture</label></dt>
+  					<dd class="avatar-upload-container clearfix">
+    					<img alt="" class="avatar left" data-user="" height="200" src="" width="200" />
+    	<div class="avatar-upload">
+      		<a href="#" class="btn">
+       			 <label for="upload-profile-picture">
+        			Upload new picture
+          				<input id="upload-profile-picture" type="file" class="manual-file-chooser js-manual-file-chooser js-avatar-field">
+        		</label>
+      		</a>
+    	</div> <!-- /.avatar-upload -->
+  					</dd>
+			</dl>
+		</div>
 
+            <label class="control-label">Name:</label>
+			<br>
               <input class="form-control" type="text" value="@userinfo.name" name="name"  
                 id="username" autocomplete="off" required
                 data-bv-notempty-message="The firstname and last name of the user is required">
-       
+       		<br>
             <label class="control-label">Weight(in kgs):</label>
-              <input class="form-control" type="text" value="@userinfo.weight" name="weight">
-            
+              <input class="form-control2" type="text" value="@userinfo.weight" name="weight">
+            <br>
             <label class="control-label">Height(in cm):</label>
-
-              <input class="form-control" type="text" value="@userinfo.height" name="height">
-
+			<br>
+              <input class="form-control2" type="text" value="@userinfo.height" name="height">
+              <br>
+              <div class="control-group">
+			  <label class="control-label" for="gender">Gender</label>
+			  <div class="controls">
+			    <select name="gender" class="input-medium" id="current_al">
+			      <option>male</option>
+			      <option>female</option>
+			  	</select>
+			  </div>
+			</div>
+			<br>
+			<div class="control-group">
+			  <label class="control-label" for="Birth Date">Birth date</label>
+			  <div class="controls">
+			    <input name="dob" class="input-medium" id="Birth date" type="date" placeholder="DD/MM/YYYY">
+			    
+			  </div>
+			</div>
+			<br>
             <div class="control-group">
              <label class="control-label" for="current_al">Current ActivityLevel</label>
                <div class="controls">
@@ -33,6 +69,7 @@
               </select>
            </div>
         </div>
+        <br>
               <div class="control-group">
                 <label class="control-label" for="target_al">Target ActivityLevel</label>
                     <div class="controls">
@@ -42,22 +79,28 @@
                         }
                       </select>
                     </div>
-                  </div><br>
-                  
+                  </div><br>    
               <input class="btn btn-primary" type="submit" value="Save Changes">
-
+				<br>
 
 
 }
 @helper.form(routes.ProfileController.updateUser()){
 
-
+			<br>
+            <label class="control-label">Email:</label>
+              <input disabled class="form-control" type="email" value="@user.email" name="email">
+              
+             <br>
+            <label class="control-label">Name:</label>
+              <input class="form-control" type="text" value="@user.name" name="name">
+			<br>
             <label class="control-label">Password:</label>
               <input class="form-control" type="password" value="@user.password" name="password">
-
-            <label class="col-md-3 control-label">Confirm password:</label>
+			<br>
+            <label class="control-label">Confirm password:</label>
               <input class="form-control" type="password" value="@user.password">
-
+			<br>
             <label class="control-label"></label>
               <input class="btn btn-primary" type="submit" value="Save Changes">
               <span></span>
@@ -65,3 +108,6 @@
 </div>
 }
 }
+
+    
+
