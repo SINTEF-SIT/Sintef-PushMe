@@ -23,11 +23,11 @@ public class DashboardController extends Controller {
 	
 	@Security.Authenticated(Secured.class)
 	public static Result generateDailyBar(){
-		double dailySteps = 10;
+		double dailySteps = -1.0;
 		Form<UserActivity> filledForm = form(UserActivity.class).bindFromRequest();
 		Date date = filledForm.get().date;
 		List<UserActivity> ua = UserActivity.all();
-		if(ua.get(5).date == date){
+		if(ua.get(5).date.equals(date)){
 			dailySteps = ua.get(5).steps;
 		}
 		return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), dailySteps));
