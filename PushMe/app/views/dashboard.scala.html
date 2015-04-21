@@ -1,4 +1,4 @@
-@(user: User, tips: List[Tips])
+@(user: User, tips: List[Tips], dailySteps:Double)
 
 @main(user, "Dashboard | PushMe") {
 	
@@ -97,9 +97,12 @@
 		        <div class="tab-content">
 		            <div id="today-tab" class="tab-pane active">
 		                <div class="row">
-
+		                	@helper.form(routes.DashboardController.generateDailyBar()) {
+							<input type="date" name="date" />
 						<!-- TODO: Fill dayli progression bar -->
-						
+						<input type="submit" />
+						}
+						@dailySteps
 		                </div>
 		            </div>
 		            <div id="week-tab" class="tab-pane">
