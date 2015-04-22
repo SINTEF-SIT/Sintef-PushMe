@@ -1,6 +1,13 @@
 @(user: User, useractivities: List[UserActivity], activities: List[Activity], pedoForm: Form[UserSteps], uaForm: Form[UserActivity], stepCounter: Double)
 
 @main(user, "Register Activities | PushMe"){
+<div class="container" style="width:20%;float:left; position:relative;">
+	<div class="col-md-4">
+	<div id="datepicker"></div>
+	</div>
+</div>
+<div class="container"style="width:80%;float:left; position:relative;">
+	<div class="col-md-8">
 
 <div class="wrapper" style="margin-left:20%;margin-right:20%">
 
@@ -42,4 +49,6 @@
 		    }
 		</table>
 		</div>
+	</div>
+</div>
 }
