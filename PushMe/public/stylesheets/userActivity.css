@@ -1,0 +1,22 @@
+/* Button Master */
+#buttons {margin: 0 40px;}
+
+#buttons > div, #buttons > a {
+display: inline-block;
+border: 2px solid #555;
+border-radius: 6px;
+padding: 3px 6px;
+margin: 5px 10px;
+}
+
+/* Buttons */
+
+div.button1:hover, a.button1:hover {
+background: #555;
+color: #e9967a;
+}
+
+div.button2:hover, a.button2:hover {
+background: #e9967a;
+color: #fff;
+}

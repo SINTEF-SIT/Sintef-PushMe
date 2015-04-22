@@ -29,8 +29,8 @@ function setCarouselHeight(id) {
 }
 
 /*Donut chart*/
-$.getScript('public/javasripts/raphael-min.js',function(){
-$.getScript('public/javascript/morris.min.js',function(){
+$.getScript('https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js',function(){
+$.getScript('https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js',function(){
 
 	Morris.Donut({
         element: 'user_activity-donut',
