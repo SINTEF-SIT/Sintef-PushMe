@@ -1,4 +1,4 @@
-@(loginForm: Form[LoginController.Login], signupForm: Form[User])
+@(loginForm: Form[LoginController.Login], signupForm: Form[User], al:List[ActivityLevel])
 
 <!DOCTYPE html>
 <html lang="en">
@@ -114,7 +114,7 @@
 			</div>
 		</div>
 		<!-- /Singup -->
-	<form class="modal multi-step" id="demo-modal-3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	<div class="modal multi-step" id="demo-modal-3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -139,9 +139,13 @@
                         Completed
                     </div>
                 </div>
+            
             </div>
+            @helper.form(routes.SignupController.createUser) {
+            
             <div class="modal-body step-1" data-step="1"><br>
-							<fieldset>								
+            
+								
 								<div class="row">
 									<div class="col-sm-12 col-md-10  col-md-offset-1 ">
 										<div class="form-group">
@@ -165,16 +169,14 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-lock"></i>
 												</span>
-												<input class="form-control" placeholder="Re-enter password" name=" re-enter password" type="password" value="" />
+												<input class="form-control" placeholder="Re-enter password" name="" type="password" value="" />
 											</div>
 										</div>
 									</div>
 								</div>
-							</fieldset>
 
             </div>
-            <div class="modal-body step-2" data-step="2"><br>
-							<fieldset>								
+            <div class="modal-body step-2" data-step="2"><br>						
 								<div class="row">
 									<div class="col-sm-12 col-md-10  col-md-offset-1 ">
 										<div class="form-group">
@@ -182,14 +184,12 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-lock"></i>
 												</span> 
-												<input class="form-control" placeholder="Enter verificationcode" name="verification" type="text" autofocus />
+												<input class="form-control" placeholder="Enter verificationcode" name="" type="text" autofocus />
 											</div>
 										<div>
 								</div>
-							</fieldset>
             </div>
-            <div class="modal-body step-3" data-step="3"><br>            
-            				<fieldset>								
+            <div class="modal-body step-3" data-step="3"><br>
 								<div class="row">
 									<div class="col-sm-12 col-md-10  col-md-offset-1 ">
 										<div class="form-group">
@@ -230,38 +230,37 @@
                         				<input type="radio" name="gender" value="Female" />Female<br />
 										</div>
 									</div>
-								</div>
-							</fieldset>          
+								</div>        
             </div>
             <div class="modal-body step-4" data-step="4">
-				<!-- Select current activity level -->
-				<div class="control-group">
-				  <label class="control-label" for="current_al">Current ActivityLevel</label>
-				  <div class="controls">
-				    <select name="current_al" class="input-medium" id="current_al">
-
-				      <option></option>
-
-				    </select>
-				  </div>
-				</div>
-				<!-- Select targeted activity level -->
-				<div class="control-group">
-				  <label class="control-label" for="target_al">Target ActivityLevel</label>
-				  <div class="controls">
-				    <select name="target_al" class="input-medium" id="target_al">
-
-				      <option></option>
-
-				    </select>
-				  </div>
-				</div>
+				<!-- Select current activity level -->									
+								<div class="form-group">
+								  <label class="control-label" for="current_al">Current ActivityLevel</label>
+								  <div class="controls">
+								    <select name="current_al" class="input-medium" id="current_al">
+							    	@for(level <- al){
+								      <option>@level.description</option>
+								  		}
+								    </select>
+								  </div>
+								</div>
+								<!-- Select targeted activity level -->
+								<div class="form-group">
+								  <label class="control-label" for="target_al">Target ActivityLevel</label>
+								  <div class="controls">
+								    <select name="target_al" class="input-medium" id="target_al">
+							    	@for(level <- al){
+								      <option>@level.description</option>
+								  		}
+								    </select>
+								  </div>
+								</div>
             </div>
             <div class="modal-body step-5" data-step="5">
                 You are now registered.
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-default" data-dismiss="modal" value="Submit"/>
                 <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent('#demo-modal-3', 2)">Continue</button>
                 <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 1)">Back</button>
                 <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 3)">Continue</button>
@@ -269,9 +268,12 @@
                 <button type="button" class="btn btn-primary step step-4" data-step="4" onclick="sendEvent('#demo-modal-3', 5)">Continue</button>
             
             </div>
+            
+            }
+            
         </div>
     </div>
-</form>
+
 <script src="@routes.Assets.at("javascripts/multi-step-modal.js")"></script>
 <script>
 sendEvent = function(sel, step) {
