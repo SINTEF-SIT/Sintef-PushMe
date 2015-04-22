@@ -1,54 +1,45 @@
 @(user: User, useractivities: List[UserActivity], activities: List[Activity], pedoForm: Form[UserSteps], uaForm: Form[UserActivity], stepCounter: Double)
 
 @main(user, "Register Activities | PushMe"){
-<div class="container" style="width:20%;float:left; position:relative;">
-	<div class="col-md-4">
-	<div id="datepicker"></div>
-	</div>
+
+<div class="wrapper" style="margin-right:20%">
+
+	<br><p style="font-weight:bold;">Total step count: <div style="color:red; font-size:2em;">@stepCounter</div></p>
+
+	<h3>Register your steps here</h3>
+	@helper.form(routes.UserActivityController.addSteps()){
+	<input name="date" type="date" value="" style="height:30px;" />
+	<input type ="text" name="steps" style="height:30px;" placeholder="Steps"/>
+	<input type="submit" value="Add" style="height:30px;" />
+	}
+
+	<h3>Register your activities here</h3>
+	<table class="table-striped table-condensed table-hover">
+		<tr>
+	  		<th>Date</th>
+	    	<th>Activity</th>
+	    	<th>Minutes</th>
+	    	<th>Intensity</th>
+	    	<th>Update</th>
+	  	</tr>
+	    @for(a <- activities) {
+	   	@helper.form(routes.UserActivityController.createUserActivity(a.name)) {
+	    	<tr>
+	    		<td><input name="date" type="date" value="" /></td>
+	    		<td>@a.name</td>
+	    		<td><input type="text" name="steps" value="" placeholder="Lenght of activity"/></td>
+	    		<td><input type="range" min="1" max="3" name="intensity" style="width:300px" onchange="showValue(this.value)"/>
+	    			<span id="range">2</span>
+					<script type="text/javascript">
+						function showValue(newValue) {
+							document.getElementById("range").innerHTML=newValue;
+						}
+					</script>
+				</td>
+	    		<td style="border: none;"><input type="submit" name="register activity" value="Update" style=" height: 40px;"></td>
+	    	</tr>
+	    }}
+	</table>
 </div>
-<div class="container"style="width:80%;float:left; position:relative;">
-	<div class="col-md-8">
 
-<div class="wrapper" style="margin-left:20%;margin-right:20%">
-
-<br><p style="font-weight:bold;">Total step count: <div style="color:red; font-size:2em;">@stepCounter</div></p>
-
-<h3>Register your steps here</h3>
-@helper.form(routes.UserActivityController.addSteps()){
-<input name="date" type="date" value="" style="height:30px;" />
-<input type ="text" name="steps" style="height:30px;" placeholder="Steps"/>
-<input type="submit" value="Add" style="height:30px;" />
-				}
-
-<h3>Register your activities here</h3>
-<table class="table-striped table-condensed table-hover">
-		  <tr>
-		  	<th>Date</th>
-		    <th>Activity</th>
-		    <th>Minutes</th>
-		    <th>Intensity</th>
-		    <th>Update</th>
-		  </tr>
-		    @for(a <- activities) {
-		    @helper.form(routes.UserActivityController.createUserActivity(a.name)) {
-		    <tr>
-		    <td><input name="date" type="date" value="" /></td>
-		    <td>@a.name</td>
-		    <td><input type="text" name="steps" value="" placeholder="Lenght of activity"/></td>
-		    <td><input type="range" min="1" max="3" name="intensity" style="width:300px" onchange="showValue(this.value)"/>
-		    <span id="range">2</span>
-				<script type="text/javascript">
-					function showValue(newValue)
-					{
-					document.getElementById("range").innerHTML=newValue;
-					}
-				</script></td>
-		    <td style="border: none;"><input type="submit" name="register activity" value="Update" style=" height: 40px;"></td>
-		    </tr>
-		    }
-		    }
-		</table>
-		</div>
-	</div>
-</div>
 }
