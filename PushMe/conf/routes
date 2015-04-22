@@ -30,5 +30,5 @@ POST	/dailyBar					controllers.DashboardController.generateDailyBar()
 GET     /profile					controllers.ProfileController.profile()
 POST    /updateuser					controllers.ProfileController.updateUser()
 
-#Javascript
-GET		/JavascriptRouting			controller.JavascriptRouting.route()
+#Calendar
+GET		/calendar					controllers.CalendarController.calendar()
