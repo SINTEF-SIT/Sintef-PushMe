@@ -44,3 +44,4 @@ Temporary Items
 .project
 PushMe/conf/application.conf
 *.sql
+PushMe/conf/evolutions/default/1.sql
