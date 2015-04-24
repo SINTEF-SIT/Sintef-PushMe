@@ -3,24 +3,26 @@
 @main(user, "Dashboard | PushMe") {
     
 <!-- Container auto-aligns carousel -->
-<br><div class = "container">    
+<br><div class = "container col-sm-12 col-md-12 col-lg-12">    
 	<div id="tip-carousel" class="carousel slide" data-ride="carousel">
     	<div class="row">
-	        <div class="col-xs-offset-3 col-xs-6">
+	        <div class="col-md-8 col-md-offset-4 col-xs-offset-3" style="text-align:center";>
 	            <div class="carousel-inner">
 	                <div class="item active">
 	                	<div class="carousel-content" style="height: 64px">
 	        	    		<div>
-	                    		<h4>Welcome to the Dashboard</h4>
+	                    		<h4><b>Welcome to the Dashboard</b></h4>
 	                    	</div>
 	                	</div>
 	                </div>
 	                @for(t <- tips) {
 	          	     	<div class="item">
-	            	       	<div class="carousel-content">
+	            	       	<div class="carousel-content" style="height: 64px">
 	        	    	       	<div>
-	        	    	       		<h5>Tips for a healthy lifestyle:</h5>
-	                    	       	<h4>@t.tip</h4>
+	        	    	       	
+	        	    	       		<h5><b>Tips for a healthy lifestyle:</b></h5>
+	                    	       	<h4><i>@t.tip</i></h4>
+	                    	    
 	                    	   	</div>
 	                  		</div>
 	                  	</div>
@@ -64,7 +66,7 @@
 <hr>
 
 <!-- Step count progress bars -->
-<div class ="container">
+<div class ="container col-sm-12 col-md-12 col-lg-12">
 	<div id="monitor" class="panel panel-default tab-box">
 	    <div class="panel-heading" style="height: 60px">
 		     <h3 class="panel-title" style = "margin-bottom: 5px">
@@ -83,7 +85,7 @@
 	    <div class="panel-body">
 	        <div class="tab-content">
 	            <div id="today-tab" class="tab-pane active">
-	                <div class="row">
+	                <div class="row" style="margin-left: 10px">
 	                	@helper.form(routes.DashboardController.generateDailyBar()) {
 						<input type="date" name="date" />
 					<!-- TODO: Fill dayli progression bar -->
@@ -115,7 +117,7 @@
 <hr>
 
 <!-- Overview panels -->
-<div class = "container">
+<div class = "container col-sm-12 col-md-12 col-lg-12">
 <!-- Goal Panel -->	
            <div class="col-md-4">
                <div class="panel panel-default">
@@ -156,7 +158,6 @@
             	</div>
         	</div>
     	</div>
-
 
 <hr>    
    <!-- /#wrapper -->
