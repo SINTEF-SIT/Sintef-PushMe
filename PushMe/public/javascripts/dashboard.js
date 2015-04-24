@@ -51,7 +51,7 @@ $.getScript('https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.j
       });
       
 	Morris.Line({
-		element: 'line-example',
+		element: 'step_count-line',
 		  data: [
 		    { y: '2006', a: 100, b: 90 },
 		    { y: '2009', a: 4,  b: 65 },
