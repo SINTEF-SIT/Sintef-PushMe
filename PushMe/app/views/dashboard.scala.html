@@ -1,183 +1,171 @@
 @(user: User, tips: List[Tips], dailySteps:Double)
 
 @main(user, "Dashboard | PushMe") {
-	
-	<div class = "container">
-    	<div id="wrapper">
-
-        <!-- /#page-content-wrapper -->
- 		<div class="container"> 
-   			<!-- <object type="text/html" data="ActivityConverterRegister.html" width="800px" height="600px" style="overflow:auto;">
-    		</object> -->
+    
+<!-- Container auto-aligns carousel -->
+<br><div class = "container">    
+	<div id="tip-carousel" class="carousel slide" data-ride="carousel">
+    	<div class="row">
+	        <div class="col-xs-offset-3 col-xs-6">
+	            <div class="carousel-inner">
+	                <div class="item active">
+	                	<div class="carousel-content" style="height: 64px">
+	        	    		<div>
+	                    		<h4>Welcome to the Dashboard</h4>
+	                    	</div>
+	                	</div>
+	                </div>
+	                @for(t <- tips) {
+	          	     	<div class="item">
+	            	       	<div class="carousel-content">
+	        	    	       	<div>
+	        	    	       		<h5>Tips for a healthy lifestyle:</h5>
+	                    	       	<h4>@t.tip</h4>
+	                    	   	</div>
+	                  		</div>
+	                  	</div>
+	                }
+            	</div>
+        	</div>
     	</div>
-        <!-- /.row -->
-    </div>
-    </div>
-    
-    <!-- Container auto-aligns carousel -->
-	<br><div class = "container">    
-		<div id="tip-carousel" class="carousel slide" data-ride="carousel">
-	    	<div class="row">
-		        <div class="col-xs-offset-3 col-xs-6">
-		            <div class="carousel-inner">
-		                <div class="item active">
-		                	<div class="carousel-content" style="height: 64px">
-		        	    	       	<div>
-		                    	       	<h4>Welcome to the Dashboard</h4>
-		                    	   	</div>
-		                	</div>
-		                </div>
-		                @for(t <- tips) {
-		          	     	<div class="item">
-		            	       	<div class="carousel-content">
-		        	    	       	<div>
-		        	    	       		<h5>Tips for a healthy lifestyle:</h5>
-		                    	       	<h4>@t.tip</h4>
-		                    	   	</div>
-		                  		</div>
-		                  	</div>
-		                }
-	            	</div>
-	        	</div>
-	    	</div>
-    		<!-- Controls -->
-    		<a class="left carousel-control" href="#tip-carousel" data-slide="prev">
-    			<span class="glyphicon glyphicon-chevron-left"></span>
-  			</a>
- 			<a class="right carousel-control" href="#tip-carousel" data-slide="next">
-    			<span class="glyphicon glyphicon-chevron-right"></span>
-  			</a>
+   		<!-- Controls -->
+   		<a class="left carousel-control" href="#tip-carousel" data-slide="prev">
+   			<span class="glyphicon glyphicon-chevron-left"></span>
+ 		</a>
+		<a class="right carousel-control" href="#tip-carousel" data-slide="next">
+   			<span class="glyphicon glyphicon-chevron-right"></span>
+ 		</a>
 
-		</div>
 	</div>
-	
-	<hr>
-	
-	<!-- Morris donuts -->
-	<div class = "container">
-		<div class="col-sm-6">
-			<div class="col-md-12">
-			    <h3>Your activities!</h3>  
-			</div>
-			<div class="col-md-12">
-				<div id="user_activity-donut" class = "graph" ></div>
-			</div>
-		</div>
-		<div class="col-sm-6">
-			<div class="col-md-12">
-				<h3>What others do!</h3>  
-			</div>
-			<div class="col-md-12">
-				<div id="global_activity-donut" class = "graph" ></div>
-			</div>
-		</div>
-	</div>
-		
-	<hr>
-	
-	<!-- Step count progress bars -->
-	<div class ="container">
-		<div id="monitor" class="panel panel-default tab-box">
-		    <div class="panel-heading" style="height: 60px">
-			     <h3 class="panel-title" style = "margin-bottom: 5px">
-			        <i class="fa fa-flag"></i>
-			        Steps count
-			    </h3>
-			    <ul class="nav nav-tabs">
-			        <!-- Today tab -->
-			        <li class="active"> <a href="#today-tab" data-toggle="tab" data-identifier="line, donut">Today</a></li>
-			        <!-- This week tab -->
-			        <li> <a href="#week-tab" data-toggle="tab" data-identifier="bar1">This week</a></li>
-		            <!-- Past 30 days tab -->
-		            <li> <a href="#month-tab" data-toggle="tab" data-identifier="bar1">Past 30 days</a></li>
-		        </ul>
-		    </div>
-		    <div class="panel-body">
-		        <div class="tab-content">
-		            <div id="today-tab" class="tab-pane active">
-		                <div class="row">
-		                	@helper.form(routes.DashboardController.generateDailyBar()) {
-							<input type="date" name="date" />
-						<!-- TODO: Fill dayli progression bar -->
-						<input type="submit" />
-						}
-						@dailySteps
-		                </div>
-		            </div>
-		            <div id="week-tab" class="tab-pane">
-		                <div class="row">
-		               
-		               		<div id="line-example"></div>
-		                <!-- TODO: Fill in weekly progress bar -->
-		                
-		                </div>
-		            </div>
-		            <div id="month-tab" class="tab-pane">
-		                <div class="row">
-		               
-		                <!-- TODO: Fill in past 30 days progress bar -->
-		                
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-	</div>
-	
-	<hr>
-	
-	<!-- Overview panels -->
-	<div class = "container">
-	<!-- Goal Panel -->	
-	           <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-bullseye"></i> Goals </h4>
-                    </div>
-                    <div class="panel-body" style="height: 110px">
-                        <p> 
-                        	Fill with goals!
-                        </p>
-                    </div>
-                </div>
-            </div>
-    <!-- Recent activities -->	
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-bicycle"></i> Your recent activities </h4>
-                    </div>
-                    <div class="panel-body" style="height: 110px">
-                        <p>
-                        	Went for a walk -> 75 min
-                        </p>
-                    </div>
-                </div>
-            </div>
-    <!-- Leaderboard -->	 
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-trophy"></i> Leaderboards </h4>
-                    </div>
-                    <div class="panel-body" style="height: 110px">
-                        <p>
-                        	Fill the leaderboards
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+</div>
 
+<hr>
+
+<!-- Morris donuts -->
+<div class = "container">
+	<div class="col-sm-6">
+		<div class="col-md-12">
+		    <h3>Your activities!</h3>  
+		</div>
+		<div class="col-md-12">
+			<div id="user_activity-donut" class = "graph" ></div>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="col-md-12">
+			<h3>What others do!</h3>  
+		</div>
+		<div class="col-md-12">
+			<div id="global_activity-donut" class = "graph" ></div>
+		</div>
+	</div>
+</div>
 	
-	<hr>    
-    <!-- /#wrapper -->
-    
-	<!-- Dashboard javascript -->
-    <script src="@routes.Assets.at("javascripts/dashboard.js")"></script>
-    
-    <!-- Progress bar js -->
-    <script src="@routes.Assets.at("javascripts/multi-step-modal.js")"></script>
+<hr>
+
+<!-- Step count progress bars -->
+<div class ="container">
+	<div id="monitor" class="panel panel-default tab-box">
+	    <div class="panel-heading" style="height: 60px">
+		     <h3 class="panel-title" style = "margin-bottom: 5px">
+		        <i class="fa fa-flag"></i>
+		        Steps count
+		    </h3>
+		    <ul class="nav nav-tabs">
+		        <!-- Today tab -->
+		        <li class="active"> <a href="#today-tab" data-toggle="tab" data-identifier="line, donut">Today</a></li>
+		        <!-- This week tab -->
+		        <li> <a href="#week-tab" data-toggle="tab" data-identifier="bar1">This week</a></li>
+	            <!-- Past 30 days tab -->
+	            <li> <a href="#month-tab" data-toggle="tab" data-identifier="bar1">Past 30 days</a></li>
+	        </ul>
+	    </div>
+	    <div class="panel-body">
+	        <div class="tab-content">
+	            <div id="today-tab" class="tab-pane active">
+	                <div class="row">
+	                	@helper.form(routes.DashboardController.generateDailyBar()) {
+						<input type="date" name="date" />
+					<!-- TODO: Fill dayli progression bar -->
+					<input type="submit" />
+					}
+					@dailySteps
+	                </div>
+	            </div>
+	            <div id="week-tab" class="tab-pane">
+	                <div class="row">
+	               
+	               		<div id="line-example"></div>
+	                <!-- TODO: Fill in weekly progress bar -->
+	                
+	                </div>
+	            </div>
+	            <div id="month-tab" class="tab-pane">
+	                <div class="row">
+	               
+	                <!-- TODO: Fill in past 30 days progress bar -->
+	                
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<hr>
+
+<!-- Overview panels -->
+<div class = "container">
+<!-- Goal Panel -->	
+           <div class="col-md-4">
+               <div class="panel panel-default">
+                   <div class="panel-heading">
+                       <h4><i class="fa fa-fw fa-bullseye"></i> Goals </h4>
+                   </div>
+                   <div class="panel-body" style="height: 110px">
+                       <p> 
+                       	Fill with goals!
+                       </p>
+                   </div>
+               </div>
+           </div>
+   			<!-- Recent activities -->	
+           <div class="col-md-4">
+               <div class="panel panel-default">
+                   <div class="panel-heading">
+                       <h4><i class="fa fa-fw fa-bicycle"></i> Your recent activities </h4>
+                   </div>
+                   <div class="panel-body" style="height: 110px">
+                       <p>
+                       	Went for a walk -> 75 min
+                       </p>
+                   </div>
+               </div>
+			</div>
+   			<!-- Leaderboard -->	 
+			<div class="col-md-4">
+            	<div class="panel panel-default">
+                	<div class="panel-heading">
+                   		<h4><i class="fa fa-fw fa-trophy"></i> Leaderboards </h4>
+                	</div>
+                	<div class="panel-body" style="height: 110px">
+                    	<p>
+                       		Fill the leaderboards
+                    	</p>
+                	</div>
+            	</div>
+        	</div>
+    	</div>
+
+
+<hr>    
+   <!-- /#wrapper -->
+   
+<!-- Dashboard javascript -->
+   <script src="@routes.Assets.at("javascripts/dashboard.js")"></script>
+   
+   <!-- Progress bar js -->
+   <script src="@routes.Assets.at("javascripts/multi-step-modal.js")"></script>
 <!--
 
 //-->

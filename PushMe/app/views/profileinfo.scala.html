@@ -1,8 +1,7 @@
-@(user: User, userinfo: Userinformation, userForm: Form[User], userinfoForm: Form[Userinformation], al:List[ActivityLevel])
+@(user: User, userForm: Form[User], al:List[ActivityLevel])
 
 @main(user,"Profile info") {
 
-<link href="@routes.Assets.at("stylesheets/pushme.css")" rel="stylesheet">
 
 <div class="container">
 
@@ -25,19 +24,29 @@
   					</dd>
 			</dl>
 		</div>
-@helper.form(routes.ProfileController.updateUserInfo()){
+		
+@helper.form(routes.ProfileController.updateUser()){
+
+            <label class="control-label">Email:</label>
+              <input disabled class="form-control" type="email" value="@user.email" name="email">              
+             <br>
+            <label class="control-label">Password:</label>
+              <input class="form-control" type="password" value="@user.password" name="password">
+			<br>
+            <label class="control-label">Confirm password:</label>
+              <input class="form-control" type="password" value="@user.password">
             <label class="control-label">Name:</label>
 			<br>
-              <input class="form-control" type="text" value="@userinfo.name" name="name"  
+              <input class="form-control" type="text" value="@user.name" name="name"  
                 id="username" autocomplete="off" required
                 data-bv-notempty-message="The firstname and last name of the user is required">
        		<br>
             <label class="control-label">Weight(in kgs):</label>
-              <input class="form-control2" type="text" value="@userinfo.weight" name="weight">
+              <input class="form-control2" type="text" value="@user.weight" name="weight">
             <br>
             <label class="control-label">Height(in cm):</label>
 			<br>
-              <input class="form-control2" type="text" value="@userinfo.height" name="height">
+              <input class="form-control2" type="text" value="@user.height" name="height">
               <br>
               <div class="control-group">
 			  <label class="control-label" for="gender">Gender</label>
@@ -52,7 +61,7 @@
 			<div class="control-group">
 			  <label class="control-label" for="Birth Date">Birth date</label>
 			  <div class="controls">
-			    <input name="dob" class="input-medium" id="Birth date" type="date" placeholder="DD/MM/YYYY">
+			    <input name="dob" class="input-medium" id="Birth date" type="date" placeholder="YYYY-MM-DD">
 			    
 			  </div>
 			</div>
@@ -77,27 +86,9 @@
                         }
                       </select>
                     </div>
-                  </div><br>    
-              <input class="btn btn-primary" type="submit" value="Save Changes">
-				<br>
-
-
-}
-@helper.form(routes.ProfileController.updateUser()){
+                  </div>
 
 			<br>
-            <label class="control-label">Email:</label>
-              <input disabled class="form-control" type="email" value="@user.email" name="email">
-              
-             <br>
-            <label class="control-label">Name:</label>
-              <input class="form-control" type="text" value="@user.name" name="name">
-			<br>
-            <label class="control-label">Password:</label>
-              <input class="form-control" type="password" value="@user.password" name="password">
-			<br>
-            <label class="control-label">Confirm password:</label>
-              <input class="form-control" type="password" value="@user.password">
 			<br>
             <label class="control-label"></label>
               <input class="btn btn-primary" type="submit" value="Save Changes">

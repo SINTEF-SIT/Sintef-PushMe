@@ -23,14 +23,18 @@ public class DashboardController extends Controller {
 	
 	@Security.Authenticated(Secured.class)
 	public static Result generateDailyBar(){
-		double dailySteps = -1.0;
+		double dailySteps = 0.0;
 		Form<UserActivity> filledForm = form(UserActivity.class).bindFromRequest();
 		Date date = filledForm.get().date;
-		List<UserActivity> ua = UserActivity.all();
-		if(ua.get(5).date.equals(date)){
-			dailySteps = ua.get(5).steps;
-		}
-		return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), dailySteps));
+		List<UserActivity> ua = UserActivityController.findUseractivities();
+		for (UserActivity activity: ua) {
+			if(activity.date.equals(date))
+				dailySteps += activity.steps;
+		} List<UserSteps> us = UserActivityController.findPedoRecordings();
+		for (UserSteps step: us) {
+			if(step.date.equals(date))
+				dailySteps += step.steps;
+		} return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), dailySteps));
 	}
 	
     @Security.Authenticated(Secured.class)

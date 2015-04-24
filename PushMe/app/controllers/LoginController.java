@@ -35,7 +35,7 @@ public class LoginController extends Controller {
     public static Result authenticate() {
         Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
         if (loginForm.hasErrors()) {
-            return badRequest(index.render(loginForm, Form.form(User.class)));
+            return badRequest(index.render(loginForm, Form.form(User.class), ActivityLevel.all()));
         } else {
             session().clear();
             session("email", loginForm.get().email);

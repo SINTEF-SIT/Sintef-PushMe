@@ -17,28 +17,6 @@ import views.html.*;
 
 public class UserActivityController extends Controller {
 
-    @Security.Authenticated(Secured.class)
-    public static Result userInfo() {
-    return ok(views.html.userinfo.render(User.find.byId(request().username()),Userinformation.all(), ActivityLevel.all(), Form.form(Userinformation.class)));
-    }
-
-    @Security.Authenticated(Secured.class)
-    public static Result createUserInfo(String email) {
-    Form<Userinformation> filledForm = Form.form(Userinformation.class).bindFromRequest();    
-    if(filledForm.hasErrors()) {
-        return badRequest(
-                views.html.userinfo.render(User.find.byId(request().username()),
-                		Userinformation.all(), 
-                		ActivityLevel.all(), 
-                		filledForm)
-                		);
-    } else {
-    	List<User> users = User.all();
-    	filledForm.get().belongsTo = User.find.byId(request().username());
-        Userinformation.create(filledForm.get());
-        return redirect(routes.IndexController.index());
-    	}
-    }
     
     @Security.Authenticated(Secured.class)
     public static Result useractivity(){

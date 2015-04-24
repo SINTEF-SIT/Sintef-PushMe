@@ -22,10 +22,6 @@ GET		/useractivity				controllers.UserActivityController.useractivity()
 POST	/activityreg				controllers.UserActivityController.createUserActivity(a:String)
 POST	/stepreg					controllers.UserActivityController.addSteps()
 
-#User information
-GET		/userinfo					controllers.UserActivityController.userInfo()
-POST	/userinfo					controllers.UserActivityController.createUserInfo(email:String)
-
 #Dashboard
 GET		/dashboard					controllers.DashboardController.dashboard()
 POST	/dailyBar					controllers.DashboardController.generateDailyBar()
@@ -33,7 +29,6 @@ POST	/dailyBar					controllers.DashboardController.generateDailyBar()
 #Profile
 GET     /profile					controllers.ProfileController.profile()
 POST    /updateuser					controllers.ProfileController.updateUser()
-POST	/updateuserinfo				controllers.ProfileController.updateUserInfo()
 
 #Calendar
 GET		/calendar					controllers.CalendarController.calendar()

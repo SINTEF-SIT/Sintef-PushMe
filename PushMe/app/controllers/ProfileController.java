@@ -17,26 +17,11 @@ public class ProfileController extends Controller {
 
  @Security.Authenticated(Secured.class)
  public static Result profile() {
- return ok(views.html.profileinfo.render(findUser(), 
-		 findUserInfo(), 
-		 Form.form(User.class), 
-		 Form.form(Userinformation.class), 
+ return ok(views.html.profileinfo.render(findUser(),
+		 Form.form(User.class),
 		 ActivityLevel.all()));
     }
 
-@Security.Authenticated(Secured.class)
-public static Userinformation findUserInfo(){
- 	User loggedOnUser = findUser();
-	List<Userinformation> allUserinfo = Userinformation.all();
-	Userinformation userinfo = null;
-	
-	for(int i=0;i<allUserinfo.size();i++){
-		if(allUserinfo.get(i).belongsTo.equals(loggedOnUser)){
-			userinfo = allUserinfo.get(i);	
-	}
-}
-	return userinfo;
-}
 
 @Security.Authenticated(Secured.class)
 public static User findUser(){
@@ -45,22 +30,11 @@ public static User findUser(){
 }
 
  @Security.Authenticated(Secured.class)
- public static Result updateUser()
-{
+ public static Result updateUser(){
 	User current_user = findUser();
 	Form<User> filledForm = Form.form(User.class).bindFromRequest();
 	User.create(filledForm.get());
 	return redirect(routes.DashboardController.dashboard());
-}
-
-@Security.Authenticated(Secured.class)
-public static Result updateUserInfo(){
-	Form<Userinformation> filledForm = Form.form(Userinformation.class).bindFromRequest();
-	User currentUser = findUser();
-	filledForm.get().belongsTo = currentUser;
-	filledForm.get().id = findUserInfo().id;
-	filledForm.get().save();
-	return redirect(routes.ProfileController.profile());
 }
 }
 
