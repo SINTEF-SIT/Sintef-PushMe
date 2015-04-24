@@ -76,41 +76,43 @@
 		        Steps count
 		    </h3>
 		    <ul class="nav nav-tabs">
-		        <!-- Today tab -->
-		        <li class="active"> <a href="#today-tab" data-toggle="tab" data-identifier="line, donut">Today</a></li>
-		        <!-- This week tab -->
-		        <li> <a href="#week-tab" data-toggle="tab" data-identifier="bar1">This week</a></li>
-	            <!-- Past 30 days tab -->
-	            <li> <a href="#month-tab" data-toggle="tab" data-identifier="bar1">Past 30 days</a></li>
+		        <!-- Week tab -->
+		        <li class="active"> <a href="#week-tab" data-toggle="tab" data-identifier="line">Week</a></li>
+		        <!-- Month tab -->
+		        <li> <a href="#month-tab" data-toggle="tab" data-identifier="bar2">Month</a></li>
+	            <!-- Year -->
+	            <li> <a href="#year-tab" data-toggle="tab" data-identifier="bar3">Year</a></li>
 	        </ul>
 	    </div>
 	    <div class="panel-body">
 	        <div class="tab-content">
-	            <div id="today-tab" class="tab-pane active">
+	            <div id="week-tab" class="tab-pane active">
 	                <div class="row" style="margin-left: 10px">
 	                	@helper.form(routes.DashboardController.generateDailyBar()) {
 						<input type="date" name="date" />
-					<!-- TODO: Fill dayli progression bar -->
+
 					<input type="submit" />
-					}
-					<div id="step_count-line" class = "graph" ></div>
-					@dailySteps
+					} @dailySteps
+					
+					<div id="week_step-line" class = "graph" ></div>
+					
 	                </div>
+	            
 	            </div>
-	            <div id="week-tab" class="tab-pane">
-	                <div class="row">
-	               
-	               		<div id="line-example"></div>
-	                <!-- TODO: Fill in weekly progress bar -->
+	            <div id="month-tab" class="tab-pane active">
+	                <div class="row" style="margin-left: 10px">
+	                
+	                <div id="month_step-line" class = "graph" ></div>
 	                
 	                </div>
 	            </div>
-	            <div id="month-tab" class="tab-pane">
-	                <div class="row">
+	            
+	            <div id="year-tab" class="tab-pane active">
+	                <div class="row" style="margin-left: 10px">
 	               
-	                <!-- TODO: Fill in past 30 days progress bar -->
+	               		<div id="year_step-line" class = "graph" ></div>
 	                
-	                </div>
+	               	</div>
 	            </div>
 	        </div>
 	    </div>
