@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class UserActivityController extends Controller {
     public static Result useractivity(){
     	return ok(useractivity.render(
     			User.find.byId(request().username()), 
-    			findUseractivities(),
+    			findUserActivities(),
     			Activity.all(),
     			Form.form(UserSteps.class),
     			Form.form(UserActivity.class), 
@@ -42,7 +43,7 @@ public class UserActivityController extends Controller {
     }
     
     @Security.Authenticated(Secured.class)
-    public static List<UserActivity> findUseractivities(){
+    public static List<UserActivity> findUserActivities(){
     	User user = User.find.byId(request().username());
     	List<UserActivity> ua = UserActivity.all();
     	List<UserActivity> user_ua = new ArrayList<UserActivity>();
@@ -75,7 +76,7 @@ public class UserActivityController extends Controller {
             return badRequest(
                     views.html.useractivity.render(
                 			User.find.byId(request().username()), 
-                			findUseractivities(),
+                			findUserActivities(),
                 			Activity.all(),
                 			newSteps,
                 			Form.form(UserActivity.class), 
@@ -87,7 +88,7 @@ public class UserActivityController extends Controller {
         	UserSteps.save(newSteps.get());
             return redirect(routes.UserActivityController.useractivity());
         }
-        }
+    }
     
     //Register an activity
     @Security.Authenticated(Secured.class)
@@ -118,7 +119,7 @@ public class UserActivityController extends Controller {
     @Security.Authenticated(Secured.class)
     public static double stepCounter(){
     	double totalSteps = 0;
-    	List<UserActivity> ua = findUseractivities();
+    	List<UserActivity> ua = findUserActivities();
     	List<UserSteps> us = findPedoRecordings();
     	for(int i = 0;i<ua.size();i++){
     		totalSteps += ua.get(i).steps;
@@ -129,7 +130,56 @@ public class UserActivityController extends Controller {
         return totalSteps;
     }
     
-    public static void giveTrophy() {
+    public static boolean trophyGained(User user) {
+    	List<Trophy> trophies = Trophy.userTrophies(user);
     	
+    	//TODO: Check if trophy is already given
+    	return false;
+    }
+    
+    public static void updateUserTrophies(User user, Date date) {
+    	List<Goal> goals = Goal.all();
+    	List<UserActivity> userActivities = findUserActivities();
+    	List<UserSteps> userSteps = findPedoRecordings();
+    	Calendar cal = Calendar.getInstance();
+    	int month = cal.get(Calendar.MONTH);
+    	while (cal.get(Calendar.DAY_OF_WEEK) > cal.getFirstDayOfWeek()) {
+    	    cal.add(Calendar.DATE, -1);
+    	}
+    	double weekSteps = 0;
+    	double monthSteps = 0;
+    	for(UserActivity ua: userActivities) {
+			if (ua.date.after(cal.getTime())) {
+				cal.add(Calendar.DATE, 7);
+				if (ua.date.before(cal.getTime())) 
+					weekSteps += ua.steps;
+				cal.add(Calendar.DATE, -7);
+			} if (ua.date.getMonth() == month) {
+				monthSteps += ua.steps;
+			}
+		}
+    	for(UserSteps us: userSteps) {
+    		if (us.date.after(cal.getTime())) {
+				cal.add(Calendar.DATE, 7);
+				if (us.date.before(cal.getTime())) 
+					weekSteps += us.steps;
+				cal.add(Calendar.DATE, -7);
+			} if (us.date.getMonth() == month) {
+				monthSteps += us.steps;
+			}
+		}
+    	for (Goal g: goals) {
+    		if (g.activityLevel.description == user.current_al) {
+    			if (g.type == "week") {
+    				if (g.steps <= weekSteps && !trophyGained(user)) {
+    					Trophy.createTrophy(1, "THISISADESCRIPTION", cal.getTime(), cal.getTime(), user);
+    				}
+    			} else if (g.type == "month") {
+    				if (g.steps <= monthSteps && !trophyGained(user)) {
+    					Trophy.createTrophy(2, "THISISAMONTHLYDESCRIPTION", cal.getTime(), cal.getTime(), user);
+    				}
+    			} 
+    		}
+    	}
     }
 }

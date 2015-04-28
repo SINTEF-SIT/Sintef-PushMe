@@ -6,7 +6,9 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import play.*;
 import play.data.*;
@@ -18,7 +20,7 @@ public class DashboardController extends Controller {
 	
 	@Security.Authenticated(Secured.class)
 	public static Result dashboard() {
-        return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), 0.0, getGoals()));
+        return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), 0.0 /*, getGoals(), updateLeaderboards()*/));
     }
 	
 	@Security.Authenticated(Secured.class)
@@ -26,7 +28,7 @@ public class DashboardController extends Controller {
 		double dailySteps = 0.0;
 		Form<UserActivity> filledForm = form(UserActivity.class).bindFromRequest();
 		Date date = filledForm.get().date;
-		List<UserActivity> ua = UserActivityController.findUseractivities();
+		List<UserActivity> ua = UserActivityController.findUserActivities();
 		for (UserActivity activity: ua) {
 			if(activity.date.equals(date))
 				dailySteps += activity.steps;
@@ -34,7 +36,7 @@ public class DashboardController extends Controller {
 		for (UserSteps step: us) {
 			if(step.date.equals(date))
 				dailySteps += step.steps;
-		} return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), dailySteps, getGoals()));
+		} return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), dailySteps /*, getGoals() */));
 	}
 	
     @Security.Authenticated(Secured.class)
@@ -89,6 +91,15 @@ public class DashboardController extends Controller {
     	return steps;
     }
     
+    public static Map<User, Integer> updateLeaderboards() {
+    	List<User> users = User.all();
+    	Map<User, Integer> leaderboard = new HashMap<User, Integer>();
+    	List<Trophy> trophies = Trophy.all();
+    	
+    	return leaderboard;
+    }
+    
+    
 	public void updateMorris(User user) {
 		//TODO: Update donut with the users activities
 		//TODO: Update donut with everyone elses activities
@@ -100,36 +111,14 @@ public class DashboardController extends Controller {
 		//TODO: Update monthly progression bar with steps vs goal
 	}
 	
-	public void createWeekGoal() {
-		User user = User.find.byId(request().username());
-		Goal goal = new Goal();
-		goal.belongsTo = user;
-		goal.steps = 70000; //TODO: add ActivityLevel
-		Calendar cal = Calendar.getInstance();
-		goal.start = cal.getTime();
-		cal.add(Calendar.DATE, 7);
-		goal.end = cal.getTime();
-	}
-	
-	public void createMonthGoal() {
-		User user = User.find.byId(request().username());
-		Goal goal = new Goal();
-		goal.belongsTo = user;
-		goal.steps = 300000; //TODO add activityLevel
-		Calendar cal = Calendar.getInstance();
-		cal.set(cal.YEAR, cal.MONTH, 1);
-		goal.start = cal.getTime();
-		cal.set(cal.YEAR, cal.MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
-		goal.end = cal.getTime();
-	}
-	
-	public static List<Goal> getGoals() {
+/*	public static List<Goal> getGoals() {
 		User user = User.find.byId(request().username());
     	List<Goal> goals = Goal.all();
-    	List<Goal> userGoals = new ArrayList<Goal>();
+    	List<Goal> userGoals = new ArrayList<Goal>();			TODO: reworked
     	for(Goal g: goals){
     		if(g.belongsTo.email.equals(user.email))
     			userGoals.add(g);
     	} return userGoals;
 	}
+*/
 }
