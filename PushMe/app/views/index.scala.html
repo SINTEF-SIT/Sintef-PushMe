@@ -38,6 +38,22 @@
     	width: 5%;
 		}
 	</style>
+	
+	<script type="text/javascript">
+		// Using jQuery.
+		
+		$(function() {
+		    $('form').each(function() {
+		        $(this).find('input').keypress(function(e) {
+		            // Enter pressed?
+		            if(e.which == 10 || e.which == 13) {
+		                this.form.submit();
+		            }
+		        });
+		
+		    });
+		});
+	</script>
 
 </head>
 
@@ -117,6 +133,7 @@
 	<div class="modal multi-step" id="demo-modal-3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
+        @helper.form(routes.SignupController.createUser()) {
             <div class="modal-header">
                 <h4 class="modal-title step-1" data-step="1">Step 1</h4>
                 <h4 class="modal-title step-2" data-step="2">Step 2</h4>
@@ -178,7 +195,7 @@
 						</span> 
 						<input class="form-control" placeholder="Verification code" name="" type="text" autofocus />
 					</div>
-				</div>	
+				</div>
 
             </div>
 	      	<div class="modal-body step-3" data-step="3">         
@@ -254,10 +271,10 @@
                 <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 3)">Continue</button>
                 <button type="button" class="btn btn-primary step step-3" data-step="3" onclick="sendEvent('#demo-modal-3', 4)">Continue</button>
                 <button type="button" class="btn btn-primary step step-4" data-step="4" onclick="sendEvent('#demo-modal-3', 5)">Continue</button>
-                <button type="button" class="btn btn-primary step step-5" data-step="5">Submit</button>
-            
+                <input type="submit" class="btn btn-primary step step-5" data-step="5" value="Submit">
             </div>
         </div>
+        }
     </div>
     </div>
 
