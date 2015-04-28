@@ -103,4 +103,24 @@ public class DashboardController extends Controller {
 		//TODO: Update weekly progression bar with steps vs goal
 		//TODO: Update monthly progression bar with steps vs goal
 	}
+	
+	public void createWeekGoal(User user) {
+		Goal goal = new Goal();
+		goal.belongsTo = user;
+		goal.steps = user.current_al.level * 5000;
+		Calendar cal = Calendar.getInstance();
+		goal.start = cal.getTime();
+		cal.add(Calendar.DATE, 7);
+		goal.end = cal.getTime();
+	}
+	
+	public void createMonthGoal(User user) {
+		Goal goal = new Goal();
+		goal.belongsTo = user;
+		goal.steps = user.current_al.level * 5000;
+		Calendar cal = Calendar.getInstance();
+		goal.start = cal.getTime();
+		cal.add(Calendar.DATE, 30);
+		goal.end = cal.getTime();
+	}
 }
