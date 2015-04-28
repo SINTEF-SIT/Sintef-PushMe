@@ -38,6 +38,23 @@
     	width: 5%;
 		}
 	</style>
+	
+	<script type="text/javascript">
+		// Using jQuery.
+		
+		$(function() {
+		    $('form').each(function() {
+		        $(this).find('input').keypress(function(e) {
+		            // Enter pressed?
+		            if(e.which == 10 || e.which == 13) {
+		                this.form.submit();
+		            }
+		        });
+		
+		        $(this).find('input[type=submit]').hide();
+		    });
+		});
+	</script>
 
 </head>
 
@@ -178,7 +195,7 @@
 						</span> 
 						<input class="form-control" placeholder="Verification code" name="" type="text" autofocus />
 					</div>
-				</div>	
+				</div>
 
             </div>
 	      	<div class="modal-body step-3" data-step="3">         
@@ -254,8 +271,7 @@
                 <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 3)">Continue</button>
                 <button type="button" class="btn btn-primary step step-3" data-step="3" onclick="sendEvent('#demo-modal-3', 4)">Continue</button>
                 <button type="button" class="btn btn-primary step step-4" data-step="4" onclick="sendEvent('#demo-modal-3', 5)">Continue</button>
-                <button type="button" class="btn btn-primary step step-5" data-step="5">Submit</button>
-            
+                <button type="button" class="btn btn-primary step step-5" data-step="5" value="Submit">          
             </div>
         </div>
     </div>
