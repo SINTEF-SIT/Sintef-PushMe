@@ -112,7 +112,7 @@ public class UserActivityController extends Controller {
         UserActivity.save(newUA.get());
         return redirect(routes.UserActivityController.useractivity());
         }
-        }
+    }
 
     //Count total amount of steps
     @Security.Authenticated(Secured.class)
@@ -127,5 +127,9 @@ public class UserActivityController extends Controller {
     		totalSteps += us.get(i).steps;
     	}
         return totalSteps;
-    }        
+    }
+    
+    public static void giveTrophy() {
+    	
+    }
 }

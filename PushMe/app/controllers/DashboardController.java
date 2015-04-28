@@ -18,7 +18,7 @@ public class DashboardController extends Controller {
 	
 	@Security.Authenticated(Secured.class)
 	public static Result dashboard() {
-        return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), 0.0));
+        return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), 0.0, getGoals()));
     }
 	
 	@Security.Authenticated(Secured.class)
@@ -34,33 +34,29 @@ public class DashboardController extends Controller {
 		for (UserSteps step: us) {
 			if(step.date.equals(date))
 				dailySteps += step.steps;
-		} return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), dailySteps));
+		} return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), dailySteps, getGoals()));
 	}
 	
     @Security.Authenticated(Secured.class)
     public static List<UserActivity> getUserActivities(){
     	User user = User.find.byId(request().username());
-    	List<UserActivity> ua = UserActivity.all();
-    	List<UserActivity> user_ua = new ArrayList<UserActivity>();
-    	for(int i=0;i<ua.size();i++){
-    		if(ua.get(i).belongsTo.email.equals(user.email)){
-    			user_ua.add(ua.get(i));
-    		}
-    	}
-    	return user_ua;
+    	List<UserActivity> uas = UserActivity.all();
+    	List<UserActivity> userUas = new ArrayList<UserActivity>();
+    	for(UserActivity ua: uas){
+    		if(ua.belongsTo.email.equals(user.email))
+    			userUas.add(ua);
+    	} return userUas;
     }
     
     @Security.Authenticated(Secured.class)
     public static List<UserActivity> getGlobalActivities(){
     	User user = User.find.byId(request().username());
-    	List<UserActivity> ua = UserActivity.all();
-    	List<UserActivity> user_ua = new ArrayList<UserActivity>();
-    	for(int i=0;i<ua.size();i++){
-    		if(ua.get(i).belongsTo.email.equals(user.email)){
-    			user_ua.add(ua.get(i));
-    		}
-    	}
-    	return user_ua;
+    	List<UserActivity> uas = UserActivity.all();
+    	List<UserActivity> userUas = new ArrayList<UserActivity>();
+    	for(UserActivity ua: uas){
+    		if(ua.belongsTo.email.equals(user.email))
+    			userUas.add(ua);
+    	} return userUas;
     }
     
     @Security.Authenticated(Secured.class)
@@ -104,23 +100,36 @@ public class DashboardController extends Controller {
 		//TODO: Update monthly progression bar with steps vs goal
 	}
 	
-	public void createWeekGoal(User user) {
+	public void createWeekGoal() {
+		User user = User.find.byId(request().username());
 		Goal goal = new Goal();
 		goal.belongsTo = user;
-		goal.steps = user.current_al.level * 5000;
+		goal.steps = 70000; //TODO: add ActivityLevel
 		Calendar cal = Calendar.getInstance();
 		goal.start = cal.getTime();
 		cal.add(Calendar.DATE, 7);
 		goal.end = cal.getTime();
 	}
 	
-	public void createMonthGoal(User user) {
+	public void createMonthGoal() {
+		User user = User.find.byId(request().username());
 		Goal goal = new Goal();
 		goal.belongsTo = user;
-		goal.steps = user.current_al.level * 5000;
+		goal.steps = 300000; //TODO add activityLevel
 		Calendar cal = Calendar.getInstance();
+		cal.set(cal.YEAR, cal.MONTH, 1);
 		goal.start = cal.getTime();
-		cal.add(Calendar.DATE, 30);
+		cal.set(cal.YEAR, cal.MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
 		goal.end = cal.getTime();
+	}
+	
+	public static List<Goal> getGoals() {
+		User user = User.find.byId(request().username());
+    	List<Goal> goals = Goal.all();
+    	List<Goal> userGoals = new ArrayList<Goal>();
+    	for(Goal g: goals){
+    		if(g.belongsTo.email.equals(user.email))
+    			userGoals.add(g);
+    	} return userGoals;
 	}
 }
