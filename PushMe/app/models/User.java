@@ -20,20 +20,9 @@ public class User extends Model {
     public int weight;
     public int height;
     public String gender;
-    public ActivityLevel current_al;
+    public String current_al;
     public String target_al;
     
-    public User(String email, String password, String name, Date dob, int weight, int height, String gender, ActivityLevel current_al, String target_al) {
-      this.email = email;
-      this.password = password;
-      this.name = name;
-      this.dob = dob;
-      this.weight = weight;
-      this.height = height;
-      this.gender = gender;
-      this.current_al = current_al;
-      this.target_al = target_al;
-    }
 
     public static Finder<String,User> find = new Finder<String,User>(
         String.class, User.class
@@ -47,8 +36,9 @@ public class User extends Model {
         user.save();
     }
         
-    public static void update(User user) {
-        user.update();
+    public static String update(String id, User user) {
+        user.update((Object)id);
+        return ("Your profile has been updated");
     }
     
     public static User authenticate(String email, String password) {

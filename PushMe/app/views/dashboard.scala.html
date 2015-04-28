@@ -75,47 +75,41 @@
 		        <i class="fa fa-flag"></i>
 		        Steps count
 		    </h3>
-		    <ul class="nav nav-tabs">
+		    <ul class="nav nav-tabs" role="tablist">
 		        <!-- Week tab -->
-		        <li class="active"> <a href="#week-tab" data-toggle="tab" data-identifier="line">Week</a></li>
+		        <li class="active"> <a href="#week-tab" role="tab" data-toggle="tab">Week</a></li>
 		        <!-- Month tab -->
-		        <li> <a href="#month-tab" data-toggle="tab" data-identifier="bar2">Month</a></li>
+		        <li> <a href="#month-tab" role="tab" data-toggle="tab">Month</a></li>
 	            <!-- Year -->
-	            <li> <a href="#year-tab" data-toggle="tab" data-identifier="bar3">Year</a></li>
+	            <li> <a href="#year-tab" role="tab" data-toggle="tab">Year</a></li>
 	        </ul>
 	    </div>
-	    <div class="panel-body">
+	   
 	        <div class="tab-content">
-	            <div id="week-tab" class="tab-pane active">
-	                <div class="row" style="margin-left: 10px">
-	                	@helper.form(routes.DashboardController.generateDailyBar()) {
-						<input type="date" name="date" />
-
-					<input type="submit" />
-					} @dailySteps
+	            <div id="week-tab" role="tabpanel" class="tab-pane active">
+	                <div class="row" style="margin: 10px">
 					
 					<div id="week_step-line" class = "graph" ></div>
 					
 	                </div>
 	            
 	            </div>
-	            <div id="month-tab" class="tab-pane active">
-	                <div class="row" style="margin-left: 10px">
+	            <div id="month-tab" role="tabpanel" class="tab-pane">
+	                <div class="row" style="margin: 10px">
 	                
 	                <div id="month_step-line" class = "graph" ></div>
 	                
 	                </div>
 	            </div>
 	            
-	            <div id="year-tab" class="tab-pane active">
-	                <div class="row" style="margin-left: 10px">
+	            <div id="year-tab" role="tabpanel" class="tab-pane">
+	                <div class="row" style="margin: 10px">
 	               
 	               		<div id="year_step-line" class = "graph" ></div>
 	                
 	               	</div>
 	            </div>
 	        </div>
-	    </div>
 	</div>
 </div>
 
