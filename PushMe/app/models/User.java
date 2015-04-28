@@ -20,10 +20,10 @@ public class User extends Model {
     public int weight;
     public int height;
     public String gender;
-    public String current_al;
+    public ActivityLevel current_al;
     public String target_al;
     
-    public User(String email, String password, String name, Date dob, int weight, int height, String gender, String current_al, String target_al) {
+    public User(String email, String password, String name, Date dob, int weight, int height, String gender, ActivityLevel current_al, String target_al) {
       this.email = email;
       this.password = password;
       this.name = name;
