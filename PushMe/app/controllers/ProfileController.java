@@ -33,7 +33,7 @@ public static User findUser(){
  public static Result updateUser(){
 	User current_user = findUser();
 	Form<User> filledForm = Form.form(User.class).bindFromRequest();
-	User.update(current_user.email, current_user);
+	User.update(current_user.email, filledForm.get());
 	return redirect(routes.DashboardController.dashboard());
 }
 }
