@@ -10,6 +10,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.time.DateUtils;
+
 import play.*;
 import play.data.*;
 import play.mvc.*;
@@ -84,8 +86,10 @@ public class UserActivityController extends Controller {
         }else{
         	Timestamp date = new Timestamp(newSteps.get().date.getTime());
         	newSteps.get().date = date;
-        	newSteps.get().belongsTo = User.find.byId(request().username());
+        	User user = User.find.byId(request().username());
+        	newSteps.get().belongsTo = user;
         	UserSteps.save(newSteps.get());
+        	updateUserTrophies(user);
             return redirect(routes.UserActivityController.useractivity());
         }
     }
@@ -96,7 +100,8 @@ public class UserActivityController extends Controller {
     	Form<UserActivity> newUA = form(UserActivity.class).bindFromRequest();
     	Timestamp date = new Timestamp(newUA.get().date.getTime());
     	newUA.get().date = date;
-        newUA.get().belongsTo = User.find.byId(request().username());
+    	User user = User.find.byId(request().username());
+        newUA.get().belongsTo = user;
         newUA.get().activity = findActivityByName(a);
     	if(newUA.hasErrors()) {
     		return redirect(routes.IndexController.index());
@@ -111,6 +116,7 @@ public class UserActivityController extends Controller {
         	newUA.get().steps = newUA.get().steps * newUA.get().activity.high_intensity;
         }
         UserActivity.save(newUA.get());
+        updateUserTrophies(user);
         return redirect(routes.UserActivityController.useractivity());
         }
     }
@@ -130,14 +136,16 @@ public class UserActivityController extends Controller {
         return totalSteps;
     }
     
-    public static boolean trophyGained(User user) {
+    public static boolean trophyGained(User user, Date date) {
     	List<Trophy> trophies = Trophy.userTrophies(user);
-    	
-    	//TODO: Check if trophy is already given
+    	for (Trophy trophy: trophies) {
+    		if(DateUtils.isSameDay(trophy.endDate, date))
+    			return true;
+    	}
     	return false;
     }
     
-    public static void updateUserTrophies(User user, Date date) {
+    public static void updateUserTrophies(User user) {
     	List<Goal> goals = Goal.all();
     	List<UserActivity> userActivities = findUserActivities();
     	List<UserSteps> userSteps = findPedoRecordings();
@@ -154,7 +162,7 @@ public class UserActivityController extends Controller {
 				if (ua.date.before(cal.getTime())) 
 					weekSteps += ua.steps;
 				cal.add(Calendar.DATE, -7);
-			} if (ua.date.getMonth() == month) {
+			} if (ua.date.getMonth() == month) {		//TODO: Dont compare month, compare date
 				monthSteps += ua.steps;
 			}
 		}
@@ -164,19 +172,22 @@ public class UserActivityController extends Controller {
 				if (us.date.before(cal.getTime())) 
 					weekSteps += us.steps;
 				cal.add(Calendar.DATE, -7);
-			} if (us.date.getMonth() == month) {
+			} if (us.date.getMonth() == month) {		//TODO: Dont compare month, compare date
 				monthSteps += us.steps;
 			}
 		}
     	for (Goal g: goals) {
     		if (g.activityLevel.description == user.current_al) {
     			if (g.type == "week") {
-    				if (g.steps <= weekSteps && !trophyGained(user)) {
-    					Trophy.createTrophy(1, "THISISADESCRIPTION", cal.getTime(), cal.getTime(), user);
+    				cal.add(Calendar.DATE, 7);
+    				if (g.steps <= weekSteps && !trophyGained(user, cal.getTime())) {
+    					Trophy.createTrophy(1, "Week trophy: " + cal.toString(), cal.getTime(), user);
     				}
     			} else if (g.type == "month") {
-    				if (g.steps <= monthSteps && !trophyGained(user)) {
-    					Trophy.createTrophy(2, "THISISAMONTHLYDESCRIPTION", cal.getTime(), cal.getTime(), user);
+    				cal = Calendar.getInstance();
+					cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+    				if (g.steps <= monthSteps && !trophyGained(user, cal.getTime())) {
+    					Trophy.createTrophy(2, "Month trophy" + cal.toString(), cal.getTime(), user);
     				}
     			} 
     		}

@@ -20,7 +20,7 @@ public class DashboardController extends Controller {
 	
 	@Security.Authenticated(Secured.class)
 	public static Result dashboard() {
-        return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), 0.0 /*, getGoals(), updateLeaderboards()*/));
+        return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), 0.0 /*, getGoals()*/, updateLeaderboards()));
     }
 	
 	@Security.Authenticated(Secured.class)
@@ -36,7 +36,7 @@ public class DashboardController extends Controller {
 		for (UserSteps step: us) {
 			if(step.date.equals(date))
 				dailySteps += step.steps;
-		} return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), dailySteps /*, getGoals() */));
+		} return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), dailySteps /*, getGoals() */, updateLeaderboards()));
 	}
 	
     @Security.Authenticated(Secured.class)
@@ -95,7 +95,11 @@ public class DashboardController extends Controller {
     	List<User> users = User.all();
     	Map<User, Integer> leaderboard = new HashMap<User, Integer>();
     	List<Trophy> trophies = Trophy.all();
-    	
+    	for (User user: users) {
+    		leaderboard.put(user, 0);
+    	} for (Trophy trophy: trophies) {
+    		leaderboard.put(trophy.user, leaderboard.get(trophy.user) + trophy.points);
+    	}
     	return leaderboard;
     }
     

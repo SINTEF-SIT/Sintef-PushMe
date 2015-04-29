@@ -16,7 +16,6 @@ public class Trophy extends Model {
 	public int trophy_number;
 	public int points;
 	public String description;
-	public Date startDate;
 	public Date endDate;
 	@ManyToOne
 	public User user;
@@ -41,11 +40,10 @@ public class Trophy extends Model {
         return userTrophies;
     }
     
-    public static void createTrophy(int points, String description, Date startDate, Date endDate, User user) {
+    public static void createTrophy(int points, String description, Date endDate, User user) {
     	Trophy trophy = new Trophy();
     	trophy.points = points;
     	trophy.description = description;
-    	trophy.startDate = startDate;
     	trophy.endDate = endDate;
     	trophy.user = user;
     	trophy.save();

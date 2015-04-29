@@ -1,11 +1,11 @@
 DELETE FROM user_activity;
 DELETE FROM user_steps;
 DELETE FROM goal;
+DELETE FROM trophy;
 DELETE FROM user;
 DELETE FROM activity;
 DELETE FROM activity_level;
 DELETE FROM tips;
-DELETE FROM trophy;
 
 INSERT INTO activity VALUES ("Aerobics",115,145,190);
 INSERT INTO activity VALUES ("Badminton",100,150,170);
@@ -90,7 +90,7 @@ INSERT INTO activity_level VALUES (3,3,"High");
 
 INSERT INTO user VALUES ("admin@admin", "123", "123", 20000101010101, 123, 123, "male", "low", "low");
 
-INSERT INTO trophy VALUES (1, 1, "Week trophy, 28.04.2015", 20150428000000, 20150502000000, "admin@admin");
+INSERT INTO trophy VALUES (1, 1, "Week trophy, 12.04.2015", 20150428000000, "admin@admin");
 
 INSERT INTO goal VALUES (1, 45000, 20150425000000, 20150502000000, "week");
 INSERT INTO goal VALUES (2, 900000, 20150401000000, 20150430000000, "month");

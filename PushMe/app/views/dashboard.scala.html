@@ -1,4 +1,4 @@
-@(user: User, tips: List[Tips], dailySteps:Double)
+@(user: User, tips: List[Tips], dailySteps:Double, leaderboard: Map[User, Integer])
 
 @main(user, "Dashboard | PushMe") {
     
@@ -150,9 +150,9 @@
                    		<h4><i class="fa fa-fw fa-trophy"></i> Leaderboard </h4>
                 	</div>
                 	<div class="panel-body" style="height: 110px">
-                    	<p>
-                       		1. Robin Nordlien 2302013 steps
-                    	</p>
+                       	@for((leaderboardUser, score) <- leaderboard) {
+                       	<h4><i>@leaderboardUser.name	@score</i></h4>
+                       	}
                 	</div>
             	</div>
         	</div>
