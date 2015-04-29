@@ -1,4 +1,4 @@
-@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal])
+@(user: User, tips: List[Tips], dailySteps:Double)
 
 @main(user, "Dashboard | PushMe") {
     
@@ -125,10 +125,7 @@
                    </div>
                    <div class="panel-body" style="height: 110px">
                        <p> 
-                       	@for(goal<- goals) {
-                       		@goal.steps
-                       		<br>
-                       	}
+                       	Goals!
                        </p>
                    </div>
                </div>

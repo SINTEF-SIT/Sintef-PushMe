@@ -5,6 +5,7 @@ DELETE FROM user;
 DELETE FROM activity;
 DELETE FROM activity_level;
 DELETE FROM tips;
+DELETE FROM trophy;
 
 INSERT INTO activity VALUES ("Aerobics",115,145,190);
 INSERT INTO activity VALUES ("Badminton",100,150,170);
@@ -87,12 +88,14 @@ INSERT INTO activity_level VALUES (1,1,"Low");
 INSERT INTO activity_level VALUES (2,2,"Med");
 INSERT INTO activity_level VALUES (3,3,"High");
 
-INSERT INTO user VALUES ("admin@admin", "123", "123", 20000101010101, 123, 123, "male", "low");
+INSERT INTO user VALUES ("admin@admin", "123", "123", 20000101010101, 123, 123, "male", "low", "low");
 
-INSERT INTO goal VALUES (1, 45000, 20150425000000, 20150502000000, "admin@admin");
-INSERT INTO goal VALUES (2, 900000, 20150401000000, 20150430000000, "admin@admin");
-INSERT INTO goal VALUES (3, 45000, 20150501000000, 20150531000000, "admin@admin");
-INSERT INTO goal VALUES (4, 55000, 20150410000000, 20150417000000, "admin@admin");
+INSERT INTO trophy VALUES (1, 1, "Week trophy, 28.04.2015", 20150428000000, 20150502000000, "admin@admin");
+
+INSERT INTO goal VALUES (1, 45000, 20150425000000, 20150502000000, "week");
+INSERT INTO goal VALUES (2, 900000, 20150401000000, 20150430000000, "month");
+INSERT INTO goal VALUES (3, 45000, 20150501000000, 20150531000000, "month");
+INSERT INTO goal VALUES (4, 55000, 20150410000000, 20150417000000, "week");
 
 INSERT INTO tips VALUES(1, "Pick the parking-spot the farthest away from the shop.");
 INSERT INTO tips VALUES(2, "Take a detour while walking to your buss.");
