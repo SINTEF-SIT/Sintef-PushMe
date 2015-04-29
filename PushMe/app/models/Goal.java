@@ -22,7 +22,7 @@ public class Goal extends Model {
 	public Date start;
 	public Date end;
 	public String type;
-	@ManyToMany
+	@ManyToOne
 	public ActivityLevel activityLevel;
 	
     public static Finder<Long,Goal> find = new Finder<Long,Goal>(
