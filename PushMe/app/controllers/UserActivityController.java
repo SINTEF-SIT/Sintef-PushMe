@@ -150,7 +150,9 @@ public class UserActivityController extends Controller {
     	List<UserActivity> userActivities = findUserActivities();
     	List<UserSteps> userSteps = findPedoRecordings();
     	Calendar cal = Calendar.getInstance();
-    	int month = cal.get(Calendar.MONTH);
+		cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+    	Date monthCheckDate = cal.getTime();
+    	cal = Calendar.getInstance();
     	while (cal.get(Calendar.DAY_OF_WEEK) > cal.getFirstDayOfWeek()) {
     	    cal.add(Calendar.DATE, -1);
     	}
@@ -162,9 +164,8 @@ public class UserActivityController extends Controller {
 				if (ua.date.before(cal.getTime())) 
 					weekSteps += ua.steps;
 				cal.add(Calendar.DATE, -7);
-			} if (ua.date.getMonth() == month) {		//TODO: Dont compare month, compare date
+			} if (DateUtils.isSameDay(ua.date, monthCheckDate))
 				monthSteps += ua.steps;
-			}
 		}
     	for(UserSteps us: userSteps) {
     		if (us.date.after(cal.getTime())) {
@@ -172,9 +173,8 @@ public class UserActivityController extends Controller {
 				if (us.date.before(cal.getTime())) 
 					weekSteps += us.steps;
 				cal.add(Calendar.DATE, -7);
-			} if (us.date.getMonth() == month) {		//TODO: Dont compare month, compare date
+			} if (DateUtils.isSameDay(us.date, monthCheckDate))
 				monthSteps += us.steps;
-			}
 		}
     	for (Goal g: goals) {
     		if (g.activityLevel.description == user.current_al) {
