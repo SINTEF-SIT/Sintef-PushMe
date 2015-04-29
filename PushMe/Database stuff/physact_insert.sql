@@ -85,12 +85,15 @@ INSERT INTO activity VALUES ("Yoga",0,100,0);
 INSERT INTO activity VALUES ("Zumba",0,130,0);
 
 INSERT INTO activity_level VALUES (1,1,"Low");
-INSERT INTO activity_level VALUES (2,2,"Med");
+INSERT INTO activity_level VALUES (2,2,"Medium");
 INSERT INTO activity_level VALUES (3,3,"High");
 
-INSERT INTO user VALUES ("admin@admin", "123", "123", 20000101010101, 123, 123, "male", "low", "low");
+INSERT INTO user VALUES ("admin@admin", "123", "Admin", 20000101010101, 123, 123, "male", "low", "low");
+INSERT INTO user VALUES ("user@user", "123", "User", 20000102010101, 321, 321, "female", "medium", "high");
 
-INSERT INTO trophy VALUES (1, 1, "Week trophy, 12.04.2015", 20150428000000, "admin@admin");
+INSERT INTO trophy VALUES (1, 1, "Week trophy: 12.04.2015", 20150428000000, "admin@admin");
+INSERT INTO trophy VALUES (2, 2, "Month trophy: 12.04.2015", 20150228000000, "admin@admin");
+INSERT INTO trophy VALUES (3, 2, "Month trophy: 12.04.2015", 20150528000000, "user@user");
 
 INSERT INTO goal VALUES (1, 45000, 20150425000000, 20150502000000, "week", 1);
 INSERT INTO goal VALUES (2, 90000, 20150401000000, 20150430000000, "month", 1);
