@@ -44,13 +44,13 @@
 		$(function () {
 		    $("#datepicker").datepicker({
 		        inline: true,
+		        dateFormat: 'yy-mm-dd',
 		        onSelect: function () {
-		            $('#date').val(this.value)
+		            $('.date').val(this.value)
 		        }
 		    });
 		});
 		
-
 		</script>
 
 	    
@@ -101,8 +101,7 @@
 				<div id="datepicker"></div>
 				
 				<br>
-				<input id="date">
-				
+				<input class="date"/>
 				<br>
 				
 				<div class="panel panel-default">
@@ -111,7 +110,7 @@
                 	</div>
                 	<div class="panel-body" style="height: 140px;">
                     	<p>
-                       		1. Robin Nordlien 2302013 steps
+                       		1. Bugge 2302013 steps
                     	</p>
                 	</div>
             	</div>
