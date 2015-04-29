@@ -177,17 +177,17 @@ public class UserActivityController extends Controller {
 				monthSteps += us.steps;
 		}
     	for (Goal g: goals) {
-    		if (g.activityLevel.description.equals(user.current_al)) {
+    		if (g.activityLevel.description.trim().equals(user.current_al.trim())) {
     			if (g.type.equals("week")) {
     				cal.add(Calendar.DATE, 7);
     				if (g.steps <= weekSteps && !trophyGained(user, cal.getTime())) {
-    					Trophy.createTrophy(1, "Week trophy: " + cal.toString(), cal.getTime(), user);
+    					Trophy.createTrophy(1, "Week trophy: " + cal.getTime().toString(), cal.getTime(), user);
     				}
     			} if (g.type.equals("month") ) {
     				cal = Calendar.getInstance();
 					cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
     				if (g.steps <= monthSteps && !trophyGained(user, cal.getTime())) {
-    					Trophy.createTrophy(2, "Month trophy: " + cal.toString(), cal.getTime(), user);
+    					Trophy.createTrophy(2, "Month trophy: " + cal.getTime().toString(), cal.getTime(), user);
     				}
     			} 
     		}

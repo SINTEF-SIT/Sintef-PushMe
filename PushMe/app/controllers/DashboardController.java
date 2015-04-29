@@ -20,7 +20,8 @@ public class DashboardController extends Controller {
 	
 	@Security.Authenticated(Secured.class)
 	public static Result dashboard() {
-        return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), 0.0 /*, getGoals()*/, updateLeaderboards()));
+		User user = User.find.byId(request().username());
+        return ok(dashboard.render(user, Tips.all(), 0.0 , getGoals(user), updateLeaderboards()));
     }
 	
 	@Security.Authenticated(Secured.class)
@@ -36,7 +37,8 @@ public class DashboardController extends Controller {
 		for (UserSteps step: us) {
 			if(step.date.equals(date))
 				dailySteps += step.steps;
-		} return ok(dashboard.render(User.find.byId(request().username()), Tips.all(), dailySteps /*, getGoals() */, updateLeaderboards()));
+		} User user = User.find.byId(request().username());
+		return ok(dashboard.render(user, Tips.all(), dailySteps , getGoals(user) , updateLeaderboards()));
 	}
 	
     @Security.Authenticated(Secured.class)
@@ -103,6 +105,14 @@ public class DashboardController extends Controller {
     	return leaderboard;
     }
     
+    public static List<Goal> getGoals(User user) {
+    	List<Goal> goals = Goal.all();
+    	List<Goal> userGoals = new ArrayList<Goal>();
+    	for (Goal goal: goals) {
+    		if (user.current_al.trim().equals(goal.activityLevel.description.trim()));
+    			userGoals.add(goal);
+    	} return userGoals;
+    }
     
 	public void updateMorris(User user) {
 		//TODO: Update donut with the users activities

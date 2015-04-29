@@ -88,8 +88,8 @@ INSERT INTO activity_level VALUES (1,1,"Low");
 INSERT INTO activity_level VALUES (2,2,"Medium");
 INSERT INTO activity_level VALUES (3,3,"High");
 
-INSERT INTO user VALUES ("admin@admin", "123", "Admin", 20000101010101, 123, 123, "male", "low", "low");
-INSERT INTO user VALUES ("user@user", "123", "User", 20000102010101, 321, 321, "female", "medium", "high");
+INSERT INTO user VALUES ("admin@admin", "123", "Admin", 20000101010101, 123, 123, "male", "Low", "Low");
+INSERT INTO user VALUES ("user@user", "123", "User", 20000102010101, 321, 321, "female", "Medium", "High");
 
 INSERT INTO trophy VALUES (1, 1, "Week trophy: 12.04.2015", 20150428000000, "admin@admin");
 INSERT INTO trophy VALUES (2, 2, "Month trophy: 12.04.2015", 20150228000000, "admin@admin");

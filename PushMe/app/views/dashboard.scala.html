@@ -1,4 +1,4 @@
-@(user: User, tips: List[Tips], dailySteps:Double, leaderboard: Map[User, Integer])
+@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer])
 
 @main(user, "Dashboard | PushMe") {
     
@@ -123,10 +123,10 @@
                    <div class="panel-heading">
                        <h4><i class="fa fa-fw fa-bullseye"></i> Goals </h4>
                    </div>
-                   <div class="panel-body" style="height: 110px">
-                       <p> 
-                       	Goals!
-                       </p>
+                   <div class="panel-body" style="height: 110px"> 
+                   @for(goal <- goals) {
+                  		<p>Your goal this @user.current_al @goal.activityLevel.description is @goal.steps</p>
+                   }
                    </div>
                </div>
            </div>
