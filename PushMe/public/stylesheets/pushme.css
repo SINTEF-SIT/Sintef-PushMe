@@ -3321,3 +3321,9 @@ button.search:active, input.search:active, a.search:active {
 .ui-widget {
     font-size: 14px !important;
 }
+
+/*Calendar styling*/
+.ui-datepicker { 
+	font-size:12.7pt !important
+	}
+

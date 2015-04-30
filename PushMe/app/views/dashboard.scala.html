@@ -1,6 +1,6 @@
-@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer])
+@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity])
 
-@main(user, "Dashboard | PushMe") {
+@main(user, "Dashboard | PushMe", activities) {
     
 <!-- Container auto-aligns carousel -->
 <br>
@@ -123,10 +123,11 @@
                    <div class="panel-heading">
                        <h4><i class="fa fa-fw fa-bullseye"></i> Goals </h4>
                    </div>
-                   <div class="panel-body" style="height: 110px"> 
+                   <div class="panel-body"> 
                    @for(goal <- goals) {
-                  		<p>Your goal this @user.current_al @goal.activityLevel.description is @goal.steps</p>
+                  		<p>Your activity level is @goal.activityLevel.description and your goal this week/month is @goal.steps</p>
                    }
+                   <br>
                    </div>
                </div>
            </div>
@@ -136,9 +137,29 @@
                    <div class="panel-heading">
                        <h4><i class="fa fa-fw fa-bicycle"></i> Your recent activities </h4>
                    </div>
-                   <div class="panel-body" style="height: 110px">
+                   <div class="panel-body">
                        <p>
-                       	Went for a walk -> 75 min
+                       	
+						<table class="table-striped table-condensed table-hover">
+							<tr>
+								<th>Date</th>
+						    	<th>Activity</th>
+						    	<th>Steps</th>
+						    	<th></th>
+						  	</tr>
+						    @for(a <- activities) {
+						   	@helper.form(routes.DashboardController.deleteUA(a.id)) {
+						    	<tr>
+						    		<td style="width:30%">@a.date.format("dd MMM")</td>
+						    		<td style="width:30%">@a.activity.name</td>
+						    		<td style="width:30%">@a.steps</td>
+						    		<td>
+						    		<button type="submit" style="background-color:#FF6666"><i class="fa fa-trash-o"></i></button>
+						    		</td>
+						    		</tr>
+						    }}
+						</table>
+
                        </p>
                    </div>
                </div>
@@ -149,10 +170,11 @@
                 	<div class="panel-heading">
                    		<h4><i class="fa fa-fw fa-trophy"></i> Leaderboard </h4>
                 	</div>
-                	<div class="panel-body" style="height: 110px">
+                	<div class="panel-body" >
                        	@for((leaderboardUser, score) <- leaderboard) {
                        	<h4><i>@leaderboardUser.name	@score</i></h4>
                        	}
+                       	<br>
                 	</div>
             	</div>
         	</div>

@@ -20,8 +20,8 @@ public class DashboardController extends Controller {
 	
 	@Security.Authenticated(Secured.class)
 	public static Result dashboard() {
-		User user = User.find.byId(request().username());
-        return ok(dashboard.render(user, Tips.all(), 0.0 , getGoals(user), updateLeaderboards()));
+		User user = ProfileController.findUser();
+        return ok(dashboard.render(user, Tips.all(), 0.0 , getGoals(user), updateLeaderboards(), getRecentUA()));
     }
 	
 	@Security.Authenticated(Secured.class)
@@ -38,7 +38,7 @@ public class DashboardController extends Controller {
 			if(step.date.equals(date))
 				dailySteps += step.steps;
 		} User user = User.find.byId(request().username());
-		return ok(dashboard.render(user, Tips.all(), dailySteps , getGoals(user) , updateLeaderboards()));
+		return ok(dashboard.render(user, Tips.all(), dailySteps , getGoals(user) , updateLeaderboards(), getRecentUA()));
 	}
 	
     @Security.Authenticated(Secured.class)
@@ -112,6 +112,16 @@ public class DashboardController extends Controller {
     		if (user.current_al.trim().equals(goal.activityLevel.description.trim()));
     			userGoals.add(goal);
     	} return userGoals;
+    }
+    
+    public static List<UserActivity> getRecentUA() {
+    	List<UserActivity> activities = UserActivityController.findUserActivities(); 	
+    	return activities;
+    }
+    
+    public static Result deleteUA(Long id) {
+    	UserActivity.find.ref(id).delete();
+    	return dashboard();
     }
     
 	public void updateMorris(User user) {

@@ -1,4 +1,4 @@
-@(user: User, title: String)(content: Html)
+@(user: User, title: String, activities: List[UserActivity])(content: Html)
 		
 <!DOCTYPE html>
 <html lang="en">
@@ -38,9 +38,22 @@
 	        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    <![endif]-->
-	    
 	    <!-- Calendar Script -->
 		<script>
+		/*Setting current date as default*/
+		 $(document).ready(function(year, month, day) {
+			 var d = new Date();
+
+			 var month = d.getMonth()+1;
+			 var day = d.getDate();
+
+			 var output = d.getFullYear() + '-' +
+			     (month<10 ? '0' : '') + month + '-' +
+			     (day<10 ? '0' : '') + day;
+			 
+				$('.date').val(output)
+			});		
+		/*Use date checked in the calendar*/
 		$(function () {
 		    $("#datepicker").datepicker({
 		        inline: true,
@@ -98,12 +111,38 @@
 	    <br>
 	    <br>
 	    <div class="col-sm-2 col-md-2 col-lg-2" style="margin-top:13px;">
-				<div id="datepicker"></div>
+	    
+				<div id="datepicker"></div>		
+						
+				<br>
+            	<div class="panel panel-default">
+                	<div class="panel-heading">
+                   		<h4><i class="fa fa-fw fa-cycle"></i> Recent Activities </h4>
+                	</div>
+                	<div class="panel-body">
+                    	<p>
+                       	<table class="table-striped table-condensed table-hover">
+							<tr>
+								<th>Date</th>
+						    	<th>Activity</th>
+						    	<th>Steps</th>
+						    	<th></th>
+						  	</tr>
+						    @for(a <- activities) {
+						   	@helper.form(routes.DashboardController.deleteUA(a.id)) {
+						    	<tr>
+						    		<td style="width:30%">@a.date.format("dd MMM")</td>
+						    		<td style="width:30%">@a.activity.name</td>
+						    		<td style="width:30%">@a.steps</td>
+						    		<td>
+						    		<button type="submit" style="background-color:#FF6666"><i class="fa fa-trash-o"></i></button>
+						    		</td>
+						    		</tr>
+						    }}
+						</table>
+                	</div>
+            	</div>
 				
-				<br>
-				<input class="date"/>
-				<br>
-				<p>
 				<div class="panel panel-default">
                 	<div class="panel-heading">
                    		<h4><i class="fa fa-fw fa-trophy"></i> Leaderboard </h4>

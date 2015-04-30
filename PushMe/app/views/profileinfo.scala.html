@@ -1,6 +1,6 @@
-@(user: User, userForm: Form[User], al:List[ActivityLevel])
+@(user: User, userForm: Form[User], al:List[ActivityLevel], activities: List[UserActivity])
 
-@main(user,"Profile info") {
+@main(user,"Profile info", activities) {
 
 
 <div class="container">

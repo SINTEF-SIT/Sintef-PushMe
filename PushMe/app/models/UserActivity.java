@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class UserActivity extends Model {
 	
 	@Id
-	public int id;
+	public Long id;
     @ManyToOne
     public User belongsTo;
     @ManyToOne
@@ -24,7 +24,7 @@ public class UserActivity extends Model {
     public Date date;
 
     
-    public UserActivity(int id, User belongsTo, Activity activity, int intensity, double steps, Date date) {
+    public UserActivity(Long id, User belongsTo, Activity activity, int intensity, double steps, Date date) {
       this.id = id;
       this.belongsTo = belongsTo;
       this.activity = activity;
