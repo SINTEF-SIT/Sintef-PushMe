@@ -92,25 +92,30 @@
                    		<h4><i class="fa fa-fw fa-bicycle"></i> Recent Activities </h4>
                 	</div>
                 	<div class="panel-body">
-                       	<table class="table-striped table-condensed table-hover">
-							<tr>
-								<th>Date</th>
-						    	<th>Activity</th>
-						    	<th>Steps</th>
-						    	<th></th>
-						  	</tr>
-						    @for(a <- activities) {
-						   	@helper.form(routes.DashboardController.deleteUA(a.id)) {
-						    	<tr>
-						    		<td style="width:30%">@a.date.format("dd MMM")</td>
-						    		<td style="width:30%">@a.activity.name</td>
-						    		<td style="width:30%">@a.steps</td>
-						    		<td>
-						    		<button type="submit" style="background-color:#FF6666"><i class="fa fa-trash-o"></i></button>
-						    		</td>
-						    		</tr>
-						    }}
-						</table>
+                	@if(activities.isEmpty) {
+					  No activities registered yet <i class="fa fa-smile-o fa-spin"></i>
+					} else {
+                      	<table class="table-striped table-condensed table-hover">
+						<tr>
+							<th>Date</th>
+					    	<th>Activity</th>
+					    	<th>Steps</th>
+					    	<th></th>
+					  	</tr>
+					    @for(a <- activities) {
+					   	@helper.form(routes.DashboardController.deleteUA(a.id)) {
+					    	<tr>
+					    		<td style="width:30%">@a.date.format("dd MMM")</td>
+					    		<td style="width:30%">@a.activity.name</td>
+					    		<td style="width:30%">@a.steps</td>
+					    		<td>
+					    		<button type="submit" style="background-color:#FF6666"><i class="fa fa-trash-o"></i></button>
+					    		</td>
+					    		</tr>
+					    }}
+					</table>
+					}
+
                 	</div>
             	</div>
 				
