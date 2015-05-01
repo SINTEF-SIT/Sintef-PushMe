@@ -3315,9 +3315,6 @@ button.search:active, input.search:active, a.search:active {
 }
 
 
-
-
-
 .ui-widget {
     font-size: 14px !important;
 }
@@ -3327,3 +3324,30 @@ button.search:active, input.search:active, a.search:active {
 	font-size:13.4pt !important
 	}
 
+
+/*Input range slider*/
+input[type="range"]{
+    background: #ffffff;
+    width: 130px;
+    height: 6px;
+    -webkit-appearance: none;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -webkit-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 1px 1px 0px rgba(255, 255, 255, 0.13);
+    -moz-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 1px 1px 0px rgba(255, 255, 255, 0.13);
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 1px 1px 0px rgba(255, 255, 255, 0.13);
+}
+
+input[type="range"]::-webkit-slider-thumb{
+   -webkit-appearance:none !important;  
+   width:25px;
+   height:15px;
+   -webkit-appearance: none;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border:1px solid black;
+
+    background: #269966;
+ }
