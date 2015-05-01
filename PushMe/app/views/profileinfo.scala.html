@@ -73,23 +73,25 @@
              <label class="control-label" for="current_al">Current ActivityLevel</label>
                <div class="controls">
                  <select name="current_al" class="input-medium" id="current_al">
-                 @for(level <- al){
-                  <option>@level.description</option>
-                }
+	                 @for(level <- al){
+	                 @if(level.description==user.current_al){<option selected>@level.description</option>}
+	                 @if(level.description!=user.current_al){<option>@level.description</option>}               
+	                }
               </select>
            </div>
         </div>
         <br>
-              <div class="control-group">
-                <label class="control-label" for="target_al">Target ActivityLevel</label>
-                    <div class="controls">
-                      <select name="target_al" class="input-medium" id="target_al">
-                        @for(level <- al){
-                          <option>@level.description</option>
-                        }
-                      </select>
-                    </div>
-                  </div>
+		<div class="control-group">
+		  <label class="control-label" for="target_al">Target ActivityLevel</label>
+		      <div class="controls">
+		        <select name="target_al" class="input-medium" id="target_al">
+				   @for(level <- al){
+				   @if(level.description==user.target_al){<option selected>@level.description</option>}
+				   @if(level.description!=user.target_al){<option>@level.description</option>}                 
+				  }
+				</select>
+			</div>
+		</div>
 
 			<br>
 			<br>
