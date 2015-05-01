@@ -30,7 +30,7 @@
 	    		@if(a.low_intensity==0) {
 				  <input type="hidden" name="intensity" value="2"/><label>@a.medium_intensity</label> steps/min
 				} else {
-					<input type="range" name="rangeInput" min="1" max="3" value="1" onchange="updateTextInput(this.value,@a.low_intensity,@a.medium_intensity,@a.high_intensity, '@a.name')">
+					<input type="range" name="intensity" min="1" max="3" value="1" onchange="updateTextInput(this.value,@a.low_intensity,@a.medium_intensity,@a.high_intensity, '@a.name')">
 					<label id="@a.name">@a.low_intensity</label> steps/min
 				}
 				</td>
