@@ -50,8 +50,14 @@
 			  <label class="control-label" for="gender">Gender</label>
 			  <div class="controls">
 			    <select name="gender" class="input-medium" id="current_al">
-			      <option>male</option>
-			      <option>female</option>
+			    @if(user.gender=="male"){
+			    <option selected>male</option>
+			    <option>female</option>
+			    }
+			    @if(user.gender=="female"){
+			    <option>male</option>
+			    <option selected>female</option>
+			    }
 			  	</select>
 			  </div>
 			</div>
