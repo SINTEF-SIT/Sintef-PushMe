@@ -16,11 +16,11 @@ body {
 }
 
 .form-control { 
-	display: block; width: 400px; height: 30px; 
+	display: block; max-width: 400px; height: 30px; 
 }
 
 .form-control2 { 
-	display: block; width: 100px; height: 30px;
+	display: block; max-width: 100px; height: 30px;
 }
 
 .img-portfolio {
@@ -3324,6 +3324,6 @@ button.search:active, input.search:active, a.search:active {
 
 /*Calendar styling*/
 .ui-datepicker { 
-	font-size:12.7pt !important
+	font-size:13.4pt !important
 	}
 

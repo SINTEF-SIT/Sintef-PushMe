@@ -1,6 +1,6 @@
 @(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity])
 
-@main(user, "Dashboard | PushMe", activities) {
+@main(user, "Dashboard | PushMe", activities, leaderboard) {
     
 <!-- Container auto-aligns carousel -->
 <br>
@@ -125,7 +125,7 @@
                    </div>
                    <div class="panel-body"> 
                    @for(goal <- goals) {
-                  		<p>Your activity level is @goal.activityLevel.description and your goal this week/month is @goal.steps</p>
+                  		<p>Goal for period @goal.start.format("dd MMM") to @goal.end.format("dd MMM") is <label>@goal.steps</label></p>
                    }
                    <br>
                    </div>
@@ -138,8 +138,7 @@
                        <h4><i class="fa fa-fw fa-bicycle"></i> Your recent activities </h4>
                    </div>
                    <div class="panel-body">
-                       <p>
-                       	
+                   
 						<table class="table-striped table-condensed table-hover">
 							<tr>
 								<th>Date</th>
@@ -170,11 +169,19 @@
                 	<div class="panel-heading">
                    		<h4><i class="fa fa-fw fa-trophy"></i> Leaderboard </h4>
                 	</div>
-                	<div class="panel-body" >
-                       	@for((leaderboardUser, score) <- leaderboard) {
-                       	<h4><i>@leaderboardUser.name	@score</i></h4>
-                       	}
-                       	<br>
+                	<div class="panel-body" >                	
+                		<table class="table-striped table-condensed table-hover">
+							<tr>
+								<th>Username</th>
+						    	<th>Trophies</th>
+						  	</tr>
+						    @for((leaderboardUser, score) <- leaderboard) {
+						    	<tr>
+						    		<td style="width:30%">@leaderboardUser.name</td>
+						    		<td style="width:30%">@score x<i class="fa fa-fw fa-trophy"></i></td>
+						    		</tr>
+						    }
+						</table>
                 	</div>
             	</div>
         	</div>

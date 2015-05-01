@@ -1,4 +1,4 @@
-@(user: User, title: String, activities: List[UserActivity])(content: Html)
+@(user: User, title: String, activities: List[UserActivity], leaderboard: Map[User, Integer])(content: Html)
 		
 <!DOCTYPE html>
 <html lang="en">
@@ -110,17 +110,16 @@
 	    <br>
 	    <br>
 	    <br>
-	    <div class="col-sm-2 col-md-2 col-lg-2" style="margin-top:13px;">
+	    <div class="col-sm-3 col-md-3 col-lg-3" style="margin-top:13px;">
 	    
 				<div id="datepicker"></div>		
 						
 				<br>
             	<div class="panel panel-default">
                 	<div class="panel-heading">
-                   		<h4><i class="fa fa-fw fa-cycle"></i> Recent Activities </h4>
+                   		<h4><i class="fa fa-fw fa-bicycle"></i> Recent Activities </h4>
                 	</div>
                 	<div class="panel-body">
-                    	<p>
                        	<table class="table-striped table-condensed table-hover">
 							<tr>
 								<th>Date</th>
@@ -148,16 +147,25 @@
                    		<h4><i class="fa fa-fw fa-trophy"></i> Leaderboard </h4>
                 	</div>
                 	<div class="panel-body" style="height: 140px;">
-                    	<p>
-                       		1. Bugge 2302013 steps
-                    	</p>
+                		<table class="table-striped table-condensed table-hover">
+							<tr>
+								<th>Username</th>
+						    	<th>Trophies</th>
+						  	</tr>
+						    @for((leaderboardUser, score) <- leaderboard) {
+						    	<tr>
+						    		<td style="width:40%">@leaderboardUser.name</td>
+						    		<td style="width:40%">@score x<i class="fa fa-fw fa-trophy"></i></td>
+						    		</tr>
+						    }
+						</table>
                 	</div>
             	</div>
 		</div>
 		
 		
 
-	    <div class="col-sm-8 col-md-8 col-lg-8 col-lg-offset-1">
+	    <div class="col-sm-7 col-md-7 col-lg-7 col-lg-offset-1">
 			@content
       	</div>
         <!-- Footer -->

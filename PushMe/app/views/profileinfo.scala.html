@@ -1,13 +1,12 @@
-@(user: User, userForm: Form[User], al:List[ActivityLevel], activities: List[UserActivity])
+@(user: User, userForm: Form[User], al:List[ActivityLevel], activities: List[UserActivity], leaderboard: Map[User, Integer])
 
-@main(user,"Profile info", activities) {
+@main(user,"Profile info", activities, leaderboard) {
 
 
 <div class="container">
 
     <h1>Profile information</h1>
-    
-        <!-- Public Profile -->
+ <!-- 
         <div class="column two-thirds">
             <dl class="form edit-profile-avatar">
   				<dt><label for="upload-profile-picture">Profile picture</label></dt>
@@ -20,10 +19,9 @@
           				<input id="upload-profile-picture" type="file" class="manual-file-chooser js-manual-file-chooser js-avatar-field">
         		</label>
       		</a>
-    	</div> <!-- /.avatar-upload -->
   					</dd>
 			</dl>
-		</div>
+		</div>  -->
 		
 @helper.form(routes.ProfileController.updateUser()){
 
@@ -61,8 +59,7 @@
 			<div class="control-group">
 			  <label class="control-label" for="Birth Date">Birth date</label>
 			  <div class="controls">
-			    <input name="dob" class="input-medium" id="Birth date" type="date" placeholder="YYYY-MM-DD">
-			    
+			    <input name="dob" class="input-medium" id="Birth date" type="date" placeholder="YYYY-MM-DD" value="@user.dob.format("yyyy-MM-dd")">			    
 			  </div>
 			</div>
 			<br>
@@ -91,9 +88,9 @@
 			<br>
 			<br>
             <label class="control-label"></label>
-              <input class="btn btn-primary" type="submit" value="Save Changes">
+              <input style="width:120px" class="btn btn-primary" type="submit" value="Save Changes">
               <span></span>
-              <a href="/dashboard"><input class="btn btn-default" value="Cancel"></a>
+              <a href="/dashboard"><input style="width:120px" class="btn btn-default" value="Cancel"></a>
 </div>
 }
 }

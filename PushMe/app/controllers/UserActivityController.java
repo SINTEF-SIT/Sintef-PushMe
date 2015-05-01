@@ -29,7 +29,8 @@ public class UserActivityController extends Controller {
     			Activity.all(),
     			Form.form(UserSteps.class),
     			Form.form(UserActivity.class), 
-    			stepCounter()));
+    			stepCounter(),
+    			DashboardController.updateLeaderboards()));
     }
 
     public static Activity findActivityByName(String name){
@@ -82,7 +83,8 @@ public class UserActivityController extends Controller {
                 			Activity.all(),
                 			newSteps,
                 			Form.form(UserActivity.class), 
-                			stepCounter()));
+                			stepCounter(),
+                			DashboardController.updateLeaderboards()));
         }else{
         	Timestamp date = new Timestamp(newSteps.get().date.getTime());
         	newSteps.get().date = date;

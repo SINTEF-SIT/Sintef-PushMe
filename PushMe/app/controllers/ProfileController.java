@@ -20,7 +20,8 @@ public class ProfileController extends Controller {
  return ok(views.html.profileinfo.render(findUser(),
 		 Form.form(User.class),
 		 ActivityLevel.all(),
-		 DashboardController.getUserActivities()));
+		 DashboardController.getUserActivities(),
+		 DashboardController.updateLeaderboards()));
     }
 
 
