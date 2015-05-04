@@ -1,17 +1,17 @@
-@(user: User, useractivities: List[UserActivity], activities: List[Activity], pedoForm: Form[UserSteps], uaForm: Form[UserActivity], stepCounter: Double)
+@(user: User, useractivities: List[UserActivity], activities: List[Activity], pedoForm: Form[UserSteps], uaForm: Form[UserActivity], stepCounter: Double, leaderboard: Map[User, Integer])
 
-@main(user, "Register Activities | PushMe"){
+@main(user, "Register Activities | PushMe", useractivities, leaderboard){
 
-	<br><p style="font-weight:bold;">Total step count: <div style="color:red; font-size:2em;">@stepCounter</div></p>
+<!-- 	<br><p style="font-weight:bold;">Total step count: <div style="color:red; font-size:2em;">@stepCounter</div></p>  -->
 
-	<h3>Register your steps here</h3>
+	<h1>Register your steps</h1>
 	@helper.form(routes.UserActivityController.addSteps()){
 	<input type="hidden" name="date" class="date" style="height:30px;" />
 	<input type ="text" name="steps" style="height:30px;" placeholder="Steps"/>
 	<input type="submit" value="Add" style="height:30px;" />
 	}
-
-	<h3>Register your activities here</h3>
+	<br>
+	<h1>Register your activities</h1>
 	<table class="table-striped table-condensed table-hover">
 		<tr>
 	  		<th></th>
@@ -25,8 +25,14 @@
 	    	<tr>
 	    		<td><input class="date" name="date" type="hidden" style="width:120px" /></td>
 	    		<td>@a.name</td>
-	    		<td><input type="text" name="steps" value="" placeholder="Lenght of activity" style="width:100px"/></td>
-	    		<td><input type="range" min="1" max="3" name="intensity" style="width:100px"/>
+	    		<td><input type="text" name="steps" value="" placeholder="Duration" style="width:55px;"></td>
+	    		<td >
+	    		@if(a.low_intensity==0) {
+				  <input type="hidden" name="intensity" value="2"/><label>@a.medium_intensity</label> steps/min
+				} else {
+				<label id="@a.name">@a.low_intensity</label> steps/min
+					<input type="range" name="intensity" min="1" max="3" value="1" onchange="updateTextInput(this.value,@a.low_intensity,@a.medium_intensity,@a.high_intensity, '@a.name')">
+				}
 				</td>
 	    		<td style="border: none;"><input type="submit" name="register activity" value="Update" style=" height: 40px;"></td>
 	    	</tr>

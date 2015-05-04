@@ -1,4 +1,4 @@
-@(user: User, title: String)(content: Html)
+@(user: User, title: String, activities: List[UserActivity], leaderboard: Map[User, Integer])(content: Html)
 		
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +26,7 @@
  	   	<script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
  	   	 <!-- Calendar Javascripts -->
 		<script src="@routes.Assets.at("javascripts/jquery-ui-1.9.2.custom.js")"></script>
+		<!-- Div javascripts for the project -->
 		<script src="@routes.Assets.at("javascripts/pushme.js")"></script>
 		<!-- Dashboard javascript -->
    		<script src="@routes.Assets.at("javascripts/dashboard.js")"></script>
@@ -37,23 +38,7 @@
 	    <!--[if lt IE 9]>
 	        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	    <![endif]-->
-	    
-	    <!-- Calendar Script -->
-		<script>
-		$(function () {
-		    $("#datepicker").datepicker({
-		        inline: true,
-		        dateFormat: 'yy-mm-dd',
-		        onSelect: function () {
-		            $('.date').val(this.value)
-		        }
-		    });
-		});
-		
-		</script>
-
-	    
+	    <![endif]-->	    
 	</head>
 	
 	<body>
@@ -97,28 +82,67 @@
 	    <br>
 	    <br>
 	    <br>
-	    <div class="col-sm-2 col-md-2 col-lg-2" style="margin-top:13px;">
-				<div id="datepicker"></div>
+	    <div class="col-sm-3 col-md-3 col-lg-3" style="margin-top:13px;">
+	    
+				<div id="datepicker"></div>		
+						
+				<br>
+            	<div class="panel panel-default">
+                	<div class="panel-heading">
+                   		<h4><i class="fa fa-fw fa-bicycle"></i> Recent Activities </h4>
+                	</div>
+                	<div class="panel-body">
+                	@if(activities.isEmpty) {
+					  No activities registered yet <i class="fa fa-smile-o fa-spin"></i>
+					} else {
+                      	<table class="table-striped table-condensed table-hover">
+						<tr>
+							<th>Date</th>
+					    	<th>Activity</th>
+					    	<th>Steps</th>
+					    	<th></th>
+					  	</tr>
+					    @for(a <- activities) {
+					   	@helper.form(routes.DashboardController.deleteUA(a.id)) {
+					    	<tr>
+					    		<td style="width:30%">@a.date.format("dd MMM")</td>
+					    		<td style="width:30%">@a.activity.name</td>
+					    		<td style="width:30%">@a.steps</td>
+					    		<td>
+					    		<button type="submit" style="background-color:#FF6666"><i class="fa fa-trash-o"></i></button>
+					    		</td>
+					    		</tr>
+					    }}
+					</table>
+					}
+
+                	</div>
+            	</div>
 				
-				<br>
-				<input class="date"/>
-				<br>
-				<p>
 				<div class="panel panel-default">
                 	<div class="panel-heading">
                    		<h4><i class="fa fa-fw fa-trophy"></i> Leaderboard </h4>
                 	</div>
                 	<div class="panel-body" style="height: 140px;">
-                    	<p>
-                       		1. Bugge 2302013 steps
-                    	</p>
+                		<table class="table-striped table-condensed table-hover">
+							<tr>
+								<th>Username</th>
+						    	<th>Trophies</th>
+						  	</tr>
+						    @for((leaderboardUser, score) <- leaderboard) {
+						    	<tr>
+						    		<td style="width:40%">@leaderboardUser.name</td>
+						    		<td style="width:40%">@score x<i class="fa fa-fw fa-trophy"></i></td>
+						    		</tr>
+						    }
+						</table>
                 	</div>
             	</div>
 		</div>
 		
 		
 
-	    <div class="col-sm-8 col-md-8 col-lg-8 col-lg-offset-1">
+	    <div class="col-sm-7 col-md-7 col-lg-7 col-lg-offset-1">
 			@content
       	</div>
         <!-- Footer -->
