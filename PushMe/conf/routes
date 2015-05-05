@@ -19,13 +19,13 @@ POST	/signup						controllers.SignupController.createUser()
 
 #UserActivities
 GET		/useractivity				controllers.UserActivityController.useractivity()
-POST	/activityreg				controllers.UserActivityController.createUserActivity(a:String)
+POST	/useractivity/save/:a		controllers.UserActivityController.createUserActivity(a:String)
 POST	/stepreg					controllers.UserActivityController.addSteps()
 
 #Dashboard
 GET		/dashboard					controllers.DashboardController.dashboard()
 POST	/dailyBar					controllers.DashboardController.generateDailyBar()
-POST	/deleteUA					controllers.DashboardController.deleteUA(id:Long)
+POST	/useractivity/delete/:id	controllers.DashboardController.deleteUA(id:Long)
 
 #Profile
 GET     /profile					controllers.ProfileController.profile()
@@ -33,3 +33,6 @@ POST    /updateuser					controllers.ProfileController.updateUser()
 
 #Calendar
 GET		/calendar					controllers.CalendarController.calendar()
+
+#Javascript router
+GET     /assets/javascripts/routes	controllers.JavascriptRoutes.javascriptRoutes()
