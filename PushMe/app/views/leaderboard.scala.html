@@ -1,0 +1,22 @@
+@(user: User, leaderboard: Map[User, Integer], activities:List[UserActivity])
+@main(user, "Leaderboard | PushMe", activities, leaderboard) {
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4><i class="fa fa-fw fa-trophy"></i> Leaderboard </h4>
+	</div>
+		<div class="panel-body" >                	
+			<table class="table-striped table-condensed table-hover">
+				<tr>
+					<th>Username</th>
+					<th>Trophies</th>
+				</tr>
+					@for((leaderboardUser, score) <- leaderboard) {
+						<tr>
+							<td style="width:30%">@leaderboardUser.name</td>
+							<td style="width:30%">@score x<i class="fa fa-fw fa-trophy"></i></td>
+						 </tr>
+							}
+			</table>
+    	</div>
+</div>
+}
