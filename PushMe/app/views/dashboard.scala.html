@@ -1,4 +1,4 @@
-@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity])
+@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity], morrisDonut: Map[String, Double])
 
 @main(user, "Dashboard | PushMe", activities, leaderboard) {
     
@@ -52,15 +52,8 @@
 		    <h3>Your activities!</h3>  
 		</div>
 		<div class="col-md-10">
+
 			<div id="user_activity-donut" class = "graph" ></div>
-		</div>
-	</div>
-	<div class="col-sm-5">
-		<div class="col-md-10">
-			<h3>What others do!</h3>  
-		</div>
-		<div class="col-md-10">
-			<div id="global_activity-donut" class = "graph" ></div>
 		</div>
 	</div>
 </div>
