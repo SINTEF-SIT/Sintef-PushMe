@@ -13,7 +13,7 @@ import models.*;
 import views.html.*;
 
 public class CalendarController extends Controller {
-	
+	@Security.Authenticated(Secured.class)
 	public static Result calendar() {
         return ok(calendar.render());
     }

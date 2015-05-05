@@ -36,3 +36,6 @@ GET		/calendar					controllers.CalendarController.calendar()
 
 #Javascript router
 GET     /assets/javascripts/routes	controllers.JavascriptRoutes.javascriptRoutes()
+
+#Leaderboard
+GET		/leaderboard				controllers.LeaderboardController.leaderboard()

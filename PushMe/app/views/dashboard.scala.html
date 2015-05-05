@@ -1,4 +1,4 @@
-@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity])
+@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity], morrisDonut: Map[String, Double])
 
 @main(user, "Dashboard | PushMe", activities, leaderboard) {
     
@@ -11,7 +11,7 @@
 	        <div class="col-md-8 col-md-offset-4 col-xs-offset-3" style="text-align:center">
 	            <div class="carousel-inner">
 	                <div class="item active">
-	                	<div class="carousel-content" style="height: 64px">
+	                	<div class="carousel-content"  style="height: 64px">
 	        	    		<div>
 	                    		<h4><b>Welcome to the Dashboard</b></h4>
 	                    	</div>
@@ -19,7 +19,7 @@
 	                </div>
 	                @for(t <- tips) {
 	          	     	<div class="item">
-	            	       	<div class="carousel-content" style="height: 64px">
+	            	       	<div class="carousel-content"  style="height: 64px">
 	        	    	       	<div>
 	        	    	       	
 	        	    	       		<h5><b>Tips for a healthy lifestyle:</b></h5>
@@ -52,15 +52,8 @@
 		    <h3>Your activities!</h3>  
 		</div>
 		<div class="col-md-10">
+
 			<div id="user_activity-donut" class = "graph" ></div>
-		</div>
-	</div>
-	<div class="col-sm-5">
-		<div class="col-md-10">
-			<h3>What others do!</h3>  
-		</div>
-		<div class="col-md-10">
-			<div id="global_activity-donut" class = "graph" ></div>
 		</div>
 	</div>
 </div>
@@ -182,6 +175,10 @@
 						    		</tr>
 						    }
 						</table>
+						<br>
+						<form action="/leaderboard">
+    							<input type="submit" value="Complete ranking" style="height: 30px; text-align: center; margin-left: auto; margin-right: auto; display: block;">
+    					</form>
                 	</div>
             	</div>
         	</div>

@@ -21,7 +21,7 @@ public class DashboardController extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result dashboard() {
 		User user = ProfileController.findUser();
-        return ok(dashboard.render(user, Tips.all(), 0.0 , getGoals(user), updateLeaderboards(), getRecentUA()));
+        return ok(dashboard.render(user, Tips.all(), 0.0 , getGoals(user), updateLeaderboards(), getRecentUA(), updateMorris()));
     }
 	
 	@Security.Authenticated(Secured.class)
@@ -38,7 +38,7 @@ public class DashboardController extends Controller {
 			if(step.date.equals(date))
 				dailySteps += step.steps;
 		} User user = User.find.byId(request().username());
-		return ok(dashboard.render(user, Tips.all(), dailySteps , getGoals(user) , updateLeaderboards(), getRecentUA()));
+		return ok(dashboard.render(user, Tips.all(), dailySteps , getGoals(user) , updateLeaderboards(), getRecentUA(), updateMorris()));
 	}
 	
     @Security.Authenticated(Secured.class)
@@ -124,9 +124,16 @@ public class DashboardController extends Controller {
     	return dashboard();
     }
     
-	public void updateMorris(User user) {
-		//TODO: Update donut with the users activities
-		//TODO: Update donut with everyone elses activities
+	public static Map<String, Double> updateMorris() {
+		Map<String, Double> morris = new HashMap<String, Double>();
+		List<UserActivity> userActivities = getUserActivities();
+		for (UserActivity userActivity: userActivities) {
+			if (morris.containsKey(userActivity.activity.name))
+				morris.put(userActivity.activity.name, morris.get(userActivity.activity.name) + userActivity.steps);
+			else
+				morris.put(userActivity.activity.name, userActivity.steps);
+		}
+		return morris;
 	}
 	
 	public void updateStepProgressionBar() {
