@@ -33,3 +33,6 @@ POST    /updateuser					controllers.ProfileController.updateUser()
 
 #Calendar
 GET		/calendar					controllers.CalendarController.calendar()
+
+#Leaderboard
+GET		/leaderboard				controllers.LeaderboardController.leaderboard()
