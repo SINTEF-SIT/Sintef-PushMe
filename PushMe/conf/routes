@@ -39,3 +39,6 @@ GET     /assets/javascripts/routes	controllers.JavascriptRoutes.javascriptRoutes
 
 #Leaderboard
 GET		/leaderboard				controllers.LeaderboardController.leaderboard()
+
+#Change language
+POST	/lang/:lang							controllers.LanguageController.changeLanguage(lang:String)
