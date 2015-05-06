@@ -90,6 +90,27 @@ INSERT INTO activity_level VALUES (3,3,"High");
 
 INSERT INTO user VALUES ("test@test", "123", "Test", 20000101010101, 123, 123, "male", "Low", "Low");
 INSERT INTO user VALUES ("user@user", "123", "User", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("a@bruker", "123", "Mr. A", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("b@bruker", "123", "Mr. B", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("c@bruker", "123", "Mr. C", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("d@bruker", "123", "Mr. D", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("e@bruker", "123", "Mr. E", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("f@bruker", "123", "Mr. F", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("g@bruker", "123", "Mr. G", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("h@bruker", "123", "Mr. H", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("i@bruker", "123", "Mr. I", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("j@bruker", "123", "Mr. J", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("k@bruker", "123", "Mr. K", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("l@bruker", "123", "Mr. L", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("m@bruker", "123", "Mr. M", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("n@bruker", "123", "Mr. N", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("o@bruker", "123", "Mr. O", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("p@bruker", "123", "Mr. P", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("q@bruker", "123", "Mr. Q", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("r@bruker", "123", "Mr. R", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("s@bruker", "123", "Mr. S", 20000102010101, 321, 321, "female", "Medium", "High");
+INSERT INTO user VALUES ("t@bruker", "123", "Mr. T", 20000102010101, 321, 321, "female", "Medium", "High");
+
 
 INSERT INTO trophy VALUES (1, 1, "Week trophy: 12.04.2015", 20150428000000, "test@test");
 INSERT INTO trophy VALUES (2, 2, "Month trophy: 12.04.2015", 20150228000000, "test@test");
