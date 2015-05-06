@@ -5,10 +5,14 @@ import static play.data.Form.form;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import play.*;
 import play.data.*;
@@ -102,8 +106,26 @@ public class DashboardController extends Controller {
     	} for (Trophy trophy: trophies) {
     		leaderboard.put(trophy.user, leaderboard.get(trophy.user) + trophy.points);
     	}
-    	return leaderboard;
+    	LeaderboardComparator comp = new LeaderboardComparator(leaderboard);
+    	TreeMap<User, Integer> sortedLeaderboard = new TreeMap<User, Integer>(comp);
+    	sortedLeaderboard.putAll(leaderboard);
+    	return sortedLeaderboard;
     }
+
+static class LeaderboardComparator implements Comparator<User> {
+	Map<User, Integer> board;
+	
+	public LeaderboardComparator(Map<User, Integer> board) {
+		this.board = board;
+	}
+	
+	public int compare(User a, User b) {
+		if (board.get(a) >= board.get(b))
+			return -1;
+		else
+			return 1;
+	}
+}
     
     public static List<Goal> getGoals(User user) {
     	List<Goal> goals = Goal.all();
