@@ -34,7 +34,7 @@ $.getScript('https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.j
 
 		Morris.Donut({
 	        element: 'user_activity-donut',
-	        data: [{label: "Jogging", value: 5}]
+	        data: [{label: "Running", value: 9000}]
 	      });
      
 		Morris.Line({
