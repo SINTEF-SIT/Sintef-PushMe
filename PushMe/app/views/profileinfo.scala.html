@@ -1,6 +1,6 @@
-@(user: User, userForm: Form[User], al:List[ActivityLevel], activities: List[UserActivity], leaderboard: Map[User, Integer])
+@(user: User, userForm: Form[User], al:List[ActivityLevel], activities: List[UserActivity], leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer])
 
-@main(user,"Profile | PushMe", activities, leaderboard) {
+@main(user,"Profile | PushMe", activities, leaderboard, topLeaderboard) {
 
 
 <div class="container">

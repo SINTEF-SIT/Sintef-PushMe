@@ -18,7 +18,8 @@ public class LeaderboardController extends Controller {
 		User loggedOnUser = User.find.byId(request().username());
         return ok(leaderboard.render(loggedOnUser,
        		 DashboardController.updateLeaderboards(),
-    		 DashboardController.getUserActivities()));
+    		 DashboardController.getUserActivities(),
+    		 DashboardController.getTopLeaderboard(DashboardController.updateLeaderboards())));
     }
 
 }

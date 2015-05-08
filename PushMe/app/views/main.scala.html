@@ -1,4 +1,4 @@
-@(user: User, title: String, activities: List[UserActivity], leaderboard: Map[User, Integer])(content: Html)
+@(user: User, title: String, activities: List[UserActivity], leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer])(content: Html)
 		
 <!DOCTYPE html>
 <html lang="en">
@@ -130,7 +130,7 @@
 								<th>Username</th>
 						    	<th>Trophies</th>
 						  	</tr>
-						    @for((leaderboardUser, score) <- leaderboard) {
+						    @for((leaderboardUser, score) <- topLeaderboard) {
 						    	<tr>
 						    		<td style="width:30%">@leaderboardUser.name</td>
 						    		<td style="width:30%">@score x<i class="fa fa-fw fa-trophy"></i></td>

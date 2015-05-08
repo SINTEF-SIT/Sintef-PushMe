@@ -1,5 +1,5 @@
-@(user: User, leaderboard: Map[User, Integer], activities:List[UserActivity])
-@main(user, "Leaderboard | PushMe", activities, leaderboard) {
+@(user: User, leaderboard: Map[User, Integer], activities:List[UserActivity], topLeaderboard: Map[User, Integer])
+@main(user, "Leaderboard | PushMe", activities, leaderboard, topLeaderboard) {
 <br>
 <div class="panel panel-default">
 	<div class="panel-heading">

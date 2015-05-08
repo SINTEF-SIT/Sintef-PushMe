@@ -1,6 +1,6 @@
-@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity], morrisDonut: Map[String, Double])
+@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity], morrisDonut: Map[String, Double], topLeaderboard: Map[User, Integer])
 
-@main(user, "Dashboard | PushMe", activities, leaderboard) {
+@main(user, "Dashboard | PushMe", activities, leaderboard, topLeaderboard) {
     
 <!-- Container auto-aligns carousel -->
 <br>
@@ -162,7 +162,7 @@
 								<th>Username</th>
 						    	<th>Trophies</th>
 						  	</tr>
-						    @for((leaderboardUser, score) <- leaderboard) {
+						    @for((leaderboardUser, score) <- topLeaderboard) {
 						    	<tr>
 						    		<td style="width:30%">@leaderboardUser.name</td>
 						    		<td style="width:30%">@score x<i class="fa fa-fw fa-trophy"></i></td>

@@ -25,7 +25,8 @@ public class DashboardController extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result dashboard() {
 		User user = ProfileController.findUser();
-        return ok(dashboard.render(user, Tips.all(), 0.0 , getGoals(user), updateLeaderboards(), getRecentUA(), updateMorris()));
+		TreeMap<User, Integer> leaderboard = updateLeaderboards();
+        return ok(dashboard.render(user, Tips.all(), 0.0 , getGoals(user), leaderboard, getRecentUA(), updateMorris(), getTopLeaderboard(leaderboard)));
     }
 	
 	@Security.Authenticated(Secured.class)
@@ -42,7 +43,8 @@ public class DashboardController extends Controller {
 			if(step.date.equals(date))
 				dailySteps += step.steps;
 		} User user = User.find.byId(request().username());
-		return ok(dashboard.render(user, Tips.all(), dailySteps , getGoals(user) , updateLeaderboards(), getRecentUA(), updateMorris()));
+		TreeMap<User, Integer> leaderboard = updateLeaderboards();
+		return ok(dashboard.render(user, Tips.all(), dailySteps , getGoals(user) , leaderboard, getRecentUA(), updateMorris(), getTopLeaderboard(leaderboard)));
 	}
 	
     @Security.Authenticated(Secured.class)
@@ -97,7 +99,21 @@ public class DashboardController extends Controller {
     	return steps;
     }
     
-    public static Map<User, Integer> updateLeaderboards() {
+    public static TreeMap<User, Integer> getTopLeaderboard(Map<User, Integer> leaderboard) {
+    	Map<User, Integer> topLeaderboard = new HashMap<User, Integer>();
+    	int i = 0;
+    	for (Map.Entry<User, Integer> entry: leaderboard.entrySet()) {
+    		topLeaderboard.put(entry.getKey(), entry.getValue());
+    		if(i++ >= 4)
+    			break;
+    	}
+    	LeaderboardComparator comp = new LeaderboardComparator(topLeaderboard);
+    	TreeMap<User, Integer> sortedLeaderboard = new TreeMap<User, Integer>(comp);
+    	sortedLeaderboard.putAll(topLeaderboard);
+    	return sortedLeaderboard;
+    }
+    
+    public static TreeMap<User, Integer> updateLeaderboards() {
     	List<User> users = User.all();
     	Map<User, Integer> leaderboard = new HashMap<User, Integer>();
     	List<Trophy> trophies = Trophy.all();

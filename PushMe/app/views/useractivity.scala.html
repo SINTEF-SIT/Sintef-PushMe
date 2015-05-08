@@ -1,6 +1,6 @@
-@(user: User, useractivities: List[UserActivity], activities: List[Activity], pedoForm: Form[UserSteps], uaForm: Form[UserActivity], stepCounter: Double, leaderboard: Map[User, Integer])
+@(user: User, useractivities: List[UserActivity], activities: List[Activity], pedoForm: Form[UserSteps], uaForm: Form[UserActivity], stepCounter: Double, leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer])
 
-@main(user, "Register Activities | PushMe", useractivities, leaderboard){
+@main(user, "Register Activities | PushMe", useractivities, leaderboard, topLeaderboard){
 
 <!-- 	<br><p style="font-weight:bold;">Total step count: <div style="color:red; font-size:2em;">@stepCounter</div></p>  -->
 
