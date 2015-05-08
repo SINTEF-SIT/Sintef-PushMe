@@ -87,8 +87,16 @@
 							data-toggle="modal" 
 							data-target="#demo-modal-3">Register</a>
                     </li>
+                    <li>
+                    <br>
+                    <div>@helper.form(routes.LanguageController.changeLanguage("no")){<button type="submit" style="border: 0; background: transparent">&nbsp;&nbsp;&nbsp;<img src="@routes.Assets.at("images/norwegian.png")" height= 15px; width= 20px; alt="submit" /></button>}</div>
+                    </li>
+                    <li>
+                    <br>
+                    <div>@helper.form(routes.LanguageController.changeLanguage("en")){<button type="submit" style="border: 0; background: transparent">&nbsp;<img src="@routes.Assets.at("images/english.png")" height= 15px; width= 20px; alt="submit" /></button>}</div>
+                    </li>
                 </ul>
-            </div>
+             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /Login -->
@@ -372,9 +380,7 @@ sendEvent = function(sel, step) {
         <!-- Footer -->
         <footer>
                 <div style="margin-left:auto;margin-right:auto;text-align:center">
-                    Copyright &copy; Sintef 2015
-		            <div>@helper.form(routes.LanguageController.changeLanguage("no")){<button type="submit" style="border: 0; background: transparent"><img src="@routes.Assets.at("images/norwegian.png")" width="50" height="30" alt="submit" /></button>}</div>
-		            <div>@helper.form(routes.LanguageController.changeLanguage("en")){<button type="submit" style="border: 0; background: transparent"><img src="@routes.Assets.at("images/english.png")" width="50" height="30" alt="submit" /></button>}</div>            
+                    Copyright &copy; Sintef 2015            
                 </div>
         </footer>
 	</div>
