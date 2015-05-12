@@ -162,32 +162,16 @@ static class LeaderboardComparator implements Comparator<User> {
     	return dashboard();
     }
     
-	public static Map<String, Double> updateMorris() {
-		Map<String, Double> morris = new HashMap<String, Double>();
+	public static HashMap<String, Integer> updateMorris() {
+		HashMap<String, Integer> morris = new HashMap<String, Integer>();
 		List<UserActivity> userActivities = getUserActivities();
 		for (UserActivity userActivity: userActivities) {
+			Double steps = userActivity.steps;
 			if (morris.containsKey(userActivity.activity.name))
-				morris.put(userActivity.activity.name, morris.get(userActivity.activity.name) + userActivity.steps);
+				morris.put(userActivity.activity.name, morris.get(userActivity.activity.name) + steps.intValue());
 			else
-				morris.put(userActivity.activity.name, userActivity.steps);
+				morris.put(userActivity.activity.name, steps.intValue());
 		}
 		return morris;
 	}
-	
-	public void updateStepProgressionBar() {
-		//TODO: Update dayli progression bar with steps vs goal
-		//TODO: Update weekly progression bar with steps vs goal
-		//TODO: Update monthly progression bar with steps vs goal
-	}
-	
-/*	public static List<Goal> getGoals() {
-		User user = User.find.byId(request().username());
-    	List<Goal> goals = Goal.all();
-    	List<Goal> userGoals = new ArrayList<Goal>();			TODO: reworked
-    	for(Goal g: goals){
-    		if(g.belongsTo.email.equals(user.email))
-    			userGoals.add(g);
-    	} return userGoals;
-	}
-*/
 }

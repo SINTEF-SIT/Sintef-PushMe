@@ -1,4 +1,4 @@
-@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity], morrisDonut: Map[String, Double], topLeaderboard: Map[User, Integer])
+@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity], morrisDonut: Map[String, Integer], topLeaderboard: Map[User, Integer])
 @import play.i18n._
 @main(user, "Dashboard | PushMe", activities, leaderboard, topLeaderboard) {
     
@@ -179,4 +179,74 @@
     	</div>
 <hr>    
 
+<script type="text/javascript">
+$.getScript('https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js',function(){
+$.getScript('https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js',function(){
+
+	var donutData = [];
+	var weekLineData = [];
+	var monthLineData = [];
+	var yearLineData = [];
+	
+	@for((activity, steps) <- morrisDonut) {
+		donutData.push({label: activity, value: steps});
+	}
+	var i = 0;
+	@for(i <- 0 to 1) {
+		weekLineData.push({ y: '2006', a: 1, b: 7 });
+		weekLineData.push({ y: '2007', a: 2,  b: 6 });
+		weekLineData.push({ y: '2008', a: 3,  b: 5 });
+		weekLineData.push({ y: '2009', a: 4,  b: 4 });
+		weekLineData.push({ y: '2010', a: 5,  b: 3 });
+		weekLineData.push({ y: '2011', a: 6,  b: 2 });
+		weekLineData.push({ y: '2012', a: 7, b: 1 });
+	}
+	
+		Morris.Donut({
+	        element: 'user_activity-donut',
+	        data: donutData
+	    });
+		
+		Morris.Line({
+			element: 'week_step-line',
+			  data: weekLineData,
+			  xkey: 'y',
+			  ykeys: ['a', 'b'],
+			  labels: ['Series A', 'Series B']
+		});
+ 
+		Morris.Line({
+			element: 'month_step-line',
+			  data: [
+			    { y: '2006', a: 100, b: 1 },
+			    { y: '2007', a: 4,  b: 2 },
+			    { y: '2008', a: 50,  b: 3 },
+			    { y: '2009', a: 75,  b: 65 },
+			    { y: '2010', a: 50,  b: 32 },
+			    { y: '2011', a: 75,  b: 12 },
+			    { y: '2012', a: 100, b: 5 }
+			  ],
+			  xkey: 'y',
+			  ykeys: ['a', 'b'],
+			  labels: ['Series A', 'Series B']
+		});
+ 
+		Morris.Line({
+			element: 'year_step-line',
+			  data: [
+			    { y: '2006', a: 1, b: 90 },
+			    { y: '2007', a: 3,  b: 65 },
+			    { y: '2008', a: 8,  b: 40 },
+			    { y: '2009', a: 16,  b: 65 },
+			    { y: '2010', a: 24,  b: 40 },
+			    { y: '2011', a: 38,  b: 65 },
+			    { y: '2012', a: 51, b: 90 }
+			  ],
+			  xkey: 'y',
+			  ykeys: ['a', 'b'],
+			  labels: ['Series A', 'Series B']
+		});
+});
+});
+</script>
 }
