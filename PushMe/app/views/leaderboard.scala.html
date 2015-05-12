@@ -1,16 +1,17 @@
 @(user: User, leaderboard: Map[User, Integer], activities:List[UserActivity], topLeaderboard: Map[User, Integer])
+@import play.i18n._
 @main(user, "Leaderboard | PushMe", activities, leaderboard, topLeaderboard) {
 <br>
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h4><i class="fa fa-fw fa-trophy"></i> Leaderboard </h4>
+		<h4><i class="fa fa-fw fa-trophy"></i> @Messages.get("main.lboard") </h4>
 	</div>
 		<div class="panel-body" >                	
 			<table class="table-striped table-condensed table-hover">
 				<tr>
-					<th>Username</th>
-					<th>Trophies</th>
-					<th>Average Steps</th>
+					<th>@Messages.get("main.uname")</th>
+					<th>@Messages.get("dash.trophies")</th>
+					<th>@Messages.get("dash.avgsteps")</th>
 				</tr>
 					@for((leaderboardUser, score) <- leaderboard) {
 						<tr>

@@ -1,5 +1,5 @@
 @(user: User, title: String, activities: List[UserActivity], leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer])(content: Html)
-		
+@import play.i18n._		
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,13 +65,13 @@
 	                		<a href="profile" style="font-weight:900; text-transform: capitalize; text-decoration: underline">@user.name</a>
 	                	</li>
 	                    <li>
-							<a href="useractivity" class="btn-meny" >Activity Converter</a>
+							<a href="useractivity" class="btn-meny" >@Messages.get("main.actconv")</a>
 	                    </li>
 	                    <li>
-	                        <a href="dashboard" class="btn-meny" >Statistics</a>
+	                        <a href="dashboard" class="btn-meny" >@Messages.get("main.stats")</a>
 	                    </li>
 	                    <li>
-	                        <a href="logout" class="btn-meny" >Logout</a>
+	                        <a href="logout" class="btn-meny" >@Messages.get("main.logout")</a>
 	                    </li>
                     	<li>
                     	<br>
@@ -98,17 +98,17 @@
 				<br>
             	<div class="panel panel-default">
                 	<div class="panel-heading">
-                   		<h4><i class="fa fa-fw fa-bicycle"></i> Recent Activities </h4>
+                   		<h4><i class="fa fa-fw fa-bicycle"></i> @Messages.get("main.dayact") </h4>
                 	</div>
                 	<div class="panel-body">
                 	@if(activities.isEmpty) {
-					  No activities registered yet <i class="fa fa-smile-o fa-spin"></i>
+					  @Messages.get("main.noact") <i class="fa fa-smile-o fa-spin"></i>
 					} else {
                       	<table class="table-striped table-condensed table-hover">
 						<tr>
-							<th>Date</th>
-					    	<th>Activity</th>
-					    	<th>Steps</th>
+							<th>@Messages.get("main.date")</th>
+					    	<th>@Messages.get("main.act")</th>
+					    	<th>@Messages.get("main.steps")</th>
 					    	<th></th>
 					  	</tr>
 					    @for(a <- activities) {
@@ -130,12 +130,12 @@
 				
 				<div class="panel panel-default">
                 	<div class="panel-heading">
-                   		<h4><i class="fa fa-fw fa-trophy"></i> Leaderboard </h4>
+                   		<h4><i class="fa fa-fw fa-trophy"></i> @Messages.get("main.lboard") </h4>
                 	</div>
                 	<div class="panel-body">
                 		<table class="table-striped table-condensed table-hover">
 							<tr>
-								<th>Username</th>
+								<th>@Messages.get("main.uname")</th>
 						    	<th>Trophies</th>
 						  	</tr>
 						    @for((leaderboardUser, score) <- topLeaderboard) {
@@ -147,7 +147,7 @@
 						</table>
 						<br>
 						<form action="leaderboard">
-    							<input type="submit" value="Complete ranking" style="height: 30px; text-align: center; margin-left: auto; margin-right: auto; display: block;">
+    							<button type="submit" style="height: 30px; text-align: center; margin-left: auto; margin-right: auto; display: block;">@Messages.get("dash.comprank")</button>
 						</form>
                 	</div>
             	</div>

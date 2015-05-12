@@ -1,11 +1,11 @@
 @(user: User, userForm: Form[User], al:List[ActivityLevel], activities: List[UserActivity], leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer])
-
+@import play.i18n._
 @main(user,"Profile | PushMe", activities, leaderboard, topLeaderboard) {
 
 
 <div class="container">
 
-    <h1>Profile information</h1>
+    <h1>@Messages.get("profile.title")</h1>
  <!-- 
         <div class="column two-thirds">
             <dl class="form edit-profile-avatar">
@@ -25,29 +25,29 @@
 		
 @helper.form(routes.ProfileController.updateUser()){
 
-            <label class="control-label">Email:</label>
+            <label class="control-label">@Messages.get("profile.email"):</label>
               <input disabled class="form-control" type="email" value="@user.email" name="email">              
              <br>
-            <label class="control-label">Password:</label>
+            <label class="control-label">@Messages.get("profile.pass"):</label>
               <input class="form-control" type="password" value="@user.password" name="password">
 			<br>
-            <label class="control-label">Confirm password:</label>
+            <label class="control-label">@Messages.get("profile.confpass"):</label>
               <input class="form-control" type="password" value="@user.password">
-            <label class="control-label">Name:</label>
+            <label class="control-label">@Messages.get("profile.name"):</label>
 			<br>
               <input class="form-control" type="text" value="@user.name" name="name"  
                 id="username" autocomplete="off" required
                 data-bv-notempty-message="The firstname and last name of the user is required">
        		<br>
-            <label class="control-label">Weight(in kgs):</label>
+            <label class="control-label">@Messages.get("profile.weight"):</label>
               <input class="form-control2" type="text" value="@user.weight" name="weight">
             <br>
-            <label class="control-label">Height(in cm):</label>
+            <label class="control-label">@Messages.get("profile.height"):</label>
 			<br>
               <input class="form-control2" type="text" value="@user.height" name="height">
               <br>
               <div class="control-group">
-			  <label class="control-label" for="gender">Gender</label>
+			  <label class="control-label" for="gender">@Messages.get("profile.gender")</label>
 			  <div class="controls">
 			    <select name="gender" class="input-medium" id="current_al">
 			    @if(user.gender=="male"){
@@ -63,14 +63,14 @@
 			</div>
 			<br>
 			<div class="control-group">
-			  <label class="control-label" for="Birth Date">Birth date</label>
+			  <label class="control-label" for="Birth Date">@Messages.get("profile.dob")</label>
 			  <div class="controls">
 			    <input name="dob" class="input-medium" id="Birth date" type="date" placeholder="YYYY-MM-DD" value="@user.dob.format("yyyy-MM-dd")">			    
 			  </div>
 			</div>
 			<br>
             <div class="control-group">
-             <label class="control-label" for="current_al">Current ActivityLevel</label>
+             <label class="control-label" for="current_al">@Messages.get("index.currentact")</label>
                <div class="controls">
                  <select name="current_al" class="input-medium" id="current_al">
 	                 @for(level <- al){
@@ -82,7 +82,7 @@
         </div>
         <br>
 		<div class="control-group">
-		  <label class="control-label" for="target_al">Target ActivityLevel</label>
+		  <label class="control-label" for="target_al">@Messages.get("index.taract")</label>
 		      <div class="controls">
 		        <select name="target_al" class="input-medium" id="target_al">
 				   @for(level <- al){
@@ -96,9 +96,9 @@
 			<br>
 			<br>
             <label class="control-label"></label>
-              <input style="width:120px" class="btn btn-primary" type="submit" value="Save Changes">
+              <button style="width:120px" class="btn btn-primary" type="submit">@Messages.get("profile.savechanges")</button>
               <span></span>
-              <a href="/dashboard"><input style="width:120px" class="btn btn-default" value="Cancel"></a>
+              <a href="/dashboard"><button style="width:120px" class="btn btn-default" >@Messages.get("profile.cancel")</button></a>
 </div>
 }
 }

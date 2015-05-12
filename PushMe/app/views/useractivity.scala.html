@@ -1,5 +1,5 @@
 @(user: User, useractivities: List[UserActivity], activities: List[Activity], pedoForm: Form[UserSteps], uaForm: Form[UserActivity], stepCounter: Double, leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer])
-
+@import play.i18n._
 @main(user, "Register Activities | PushMe", useractivities, leaderboard, topLeaderboard){
 
 <!-- 	<br><p style="font-weight:bold;">Total step count: <div style="color:red; font-size:2em;">@stepCounter</div></p>  -->
@@ -11,14 +11,14 @@
 	<input type="submit" value="Add" style="height:30px;" />
 	}
 	<br>
-	<h1>Register your activities</h1>
+	<h1>@Messages.get("useract.regact")</h1>
 	<table class="table-striped table-condensed table-hover">
 		<tr>
 	  		<th></th>
-	    	<th>Activity</th>
-	    	<th>Minutes</th>
-	    	<th>Intensity</th>
-	    	<th>Update</th>
+	    	<th>@Messages.get("main.act")</th>
+	    	<th>@Messages.get("useract.min")</th>
+	    	<th>@Messages.get("useract.int")</th>
+	    	<th>@Messages.get("useract.update")</th>
 	  	</tr>
 	    @for(a <- activities) {
 	   	@helper.form(routes.UserActivityController.createUserActivity(a.name)) {
@@ -28,9 +28,9 @@
 	    		<td><input type="text" name="steps" value="" placeholder="Duration" style="width:55px;"></td>
 	    		<td >
 	    		@if(a.low_intensity==0) {
-				  <input type="hidden" name="intensity" value="2"/><label>@a.medium_intensity</label> steps/min
+				  <input type="hidden" name="intensity" value="2"/><label>@a.medium_intensity</label> @Messages.get("useract.stepmin")
 				} else {
-				<label id="@a.name">@a.low_intensity</label> steps/min
+				<label id="@a.name">@a.low_intensity</label> @Messages.get("useract.stepmin")
 					<input type="range" name="intensity" min="1" max="3" value="1" onchange="updateTextInput(this.value,@a.low_intensity,@a.medium_intensity,@a.high_intensity, '@a.name')">
 				}
 				</td>
