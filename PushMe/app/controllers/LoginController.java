@@ -7,6 +7,7 @@ import java.util.List;
 
 import play.*;
 import play.data.*;
+import play.data.validation.Constraints.Required;
 import play.mvc.*;
 import models.*;
 import views.html.*;
@@ -14,8 +15,9 @@ import views.html.*;
 public class LoginController extends Controller {
 
     public static class Login {
-
+        @Required
         public String email;
+        @Required
         public String password;
         
         public String validate() {
@@ -35,7 +37,7 @@ public class LoginController extends Controller {
     public static Result authenticate() {
         Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
         if (loginForm.hasErrors()) {
-            return badRequest(index.render(loginForm, Form.form(User.class), ActivityLevel.all()));
+            return badRequest(login.render(loginForm));
         } else {
             session().clear();
             session("email", loginForm.get().email);

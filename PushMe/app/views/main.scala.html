@@ -73,14 +73,6 @@
 	                    <li>
 	                        <a href="logout" class="btn-meny" >@Messages.get("main.logout")</a>
 	                    </li>
-                    	<li>
-                    	<br>
-                    		<div>@helper.form(routes.LanguageController.changeLanguage("no")){<button type="submit" style="border: 0; background: transparent">&nbsp;<img src="@routes.Assets.at("images/norwegian.png")" height= 15px; width= 20px; alt="submit" /></button>}</div>
-                    	</li>
-                    	<li>
-                    	<br>
-                    		<div>@helper.form(routes.LanguageController.changeLanguage("en")){<button type="submit" style="border: 0; background: transparent">&nbsp;<img src="@routes.Assets.at("images/english.png")" height= 15px; width= 20px; alt="submit" /></button>}</div>
-                    	</li>
 	                </ul>
 	            </div>
 	          </div>
@@ -136,7 +128,7 @@
                 		<table class="table-striped table-condensed table-hover">
 							<tr>
 								<th>@Messages.get("main.uname")</th>
-						    	<th>Trophies</th>
+						    	<th>@Messages.get("dash.trophies")</th>
 						  	</tr>
 						    @for((leaderboardUser, score) <- topLeaderboard) {
 						    	<tr>
@@ -162,7 +154,7 @@
         <footer>
             <div class="footer">
                 <div class="col-lg-12" style="text-align:center">
-                    <p>Copyright &copy; Sintef 2015</p>
+                    <p>&copy; Sintef 2015</p>
                 </div>
             </div>
         </footer>
