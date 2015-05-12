@@ -116,7 +116,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-user"></i>
 												</span> 
-												<input class="form-control" placeholder="Email" name="email" type="email" autofocus>
+												<input class="form-control" placeholder="@Messages.get("profile.email")" name="email" type="email" autofocus>
 											</div>
 										</div>
 										<div class="form-group">
@@ -124,7 +124,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-lock"></i>
 												</span>
-												<input class="form-control" placeholder="Password" name="password" type="password" value="">
+												<input class="form-control" placeholder="@Messages.get("profile.pass")" name="password" type="password" value="">
 											</div>
 										</div>
 									</div>
@@ -174,7 +174,7 @@
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-envelope"></i>
 						</span> 
-						<input class="form-control" placeholder="Email" name="email" type="email" autofocus />
+						<input class="form-control" placeholder="@Messages.get("profile.email")" name="email" type="email" autofocus />
 					</div>
 				</div>										
 				<div class="form-group">
@@ -182,7 +182,7 @@
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-lock"></i>
 						</span>
-						<input class="form-control" placeholder="Password" name="password" type="password" value="" />
+						<input class="form-control" placeholder="@Messages.get("profile.pass")" name="password" type="password" value="" />
 					</div>
 				</div>
 				<div class="form-group">
@@ -190,7 +190,7 @@
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-lock"></i>
 						</span>
-						<input class="form-control" placeholder="Re-enter password" name=" re-enter password" type="password" value="" />
+						<input class="form-control" placeholder="@Messages.get("profile.repass")" name=" re-enter password" type="password" value="" />
 					</div>
 				</div>
 			
@@ -202,7 +202,7 @@
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-envelope"></i>
 						</span> 
-						<input class="form-control" placeholder="Verification code" name="" type="text" autofocus />
+						<input class="form-control" placeholder="@Messages.get("profile.vercode")" name="" type="text" autofocus />
 					</div>
 				</div>
 
@@ -214,7 +214,7 @@
 							<span class="input-group-addon">
 								<i class="glyphicon glyphicon-user"></i>
 							</span> 
-							<input class="form-control" placeholder="Full name" name="name" type="text" autofocus />
+							<input class="form-control" placeholder="@Messages.get("profile.fname")" name="name" type="text" autofocus />
 						</div>
 					</div>										
 					<div class="form-group">
@@ -222,7 +222,7 @@
 							<span class="input-group-addon">
 								<i class="glyphicon glyphicon-calendar"></i>
 							</span>
-							<input class="form-control" placeholder="Date of birth" name="dob" type="date" value="" />
+							<input class="form-control" placeholder="@Messages.get("profile.dob")" name="dob" type="date" value="" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -230,7 +230,7 @@
 							<span class="input-group-addon">
 								<i class="glyphicon glyphicon-text-height"></i>
 							</span>
-							<input class="form-control" placeholder="Weight in kg" name="weight" type="text" value="" />
+							<input class="form-control" placeholder="@Messages.get("profile.weight")" name="weight" type="text" value="" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -238,13 +238,13 @@
 							<span class="input-group-addon">
 								<i class="glyphicon glyphicon-text-height"></i>
 							</span>
-							<input class="form-control" placeholder="Height in cm" name="height" type="text" value="" />
+							<input class="form-control" placeholder="@Messages.get("profile.height")" name="height" type="text" value="" />
 						</div>
 					</div>
-					Gender<br>
+					@Messages.get("profile.gender")<br>
 					<div id="gender">
-					<input type="radio" name="gender" value="Male" checked="checked"/>@Messages.get("index.male")<br />
-	                <input type="radio" name="gender" value="Female" />@Messages.get("index.female")<br />
+					<input type="radio" name="gender" value="Male" checked="checked"/> @Messages.get("index.male")<br />
+	                <input type="radio" name="gender" value="Female" /> @Messages.get("index.female")<br />
 					</div>
 				
             </div>
@@ -380,7 +380,7 @@ sendEvent = function(sel, step) {
         <!-- Footer -->
         <footer>
                 <div style="margin-left:auto;margin-right:auto;text-align:center">
-                    Copyright &copy; Sintef 2015            
+                    &copy; Sintef 2015            
                 </div>
         </footer>
 	</div>
