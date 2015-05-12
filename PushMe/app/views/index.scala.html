@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">    
 
-    <title>Get Healthy With The Right Techniques</title>
+    <title>@Messages.get("index.title")</title>
     <link rel="shortcut icon" href="@routes.Assets.at("images/sintef-logo.gif")" />    
     <!-- Script -->
     <script src="@routes.Assets.at("javascripts/jquery.min.js")"></script>
@@ -66,12 +66,12 @@
                     <li>
 						<a href="#" class="btn-meny" 
 							data-toggle="modal" 
-							data-target="#loginModal">Login</a>
+							data-target="#loginModal">@Messages.get("index.login")</a>
                     </li>
                     <li>
                         <a href="#" class="btn-meny" 
 							data-toggle="modal" 
-							data-target="#demo-modal-3">Register</a>
+							data-target="#demo-modal-3">@Messages.get("index.register")</a>
                     </li>
                     <li>
                     <br>
@@ -91,7 +91,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-					<h3 class="modal-title" id="myModalLabel">Login</h3>
+					<h3 class="modal-title" id="myModalLabel">@Messages.get("index.login")</h3>
 					</div>
 					@helper.form(routes.LoginController.authenticate) {
 							<br><fieldset>								
@@ -117,8 +117,8 @@
 								</div>
 							</fieldset>						
 					<div class="modal-footer">
-						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-						<input type="submit"  class="btn btn-primary" value="Login">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">@Messages.get("index.close")</button>
+						<button type="submit"  class="btn btn-primary">@Messages.get("index.login")</button>
 						}
 					</div>
 				</div>
@@ -130,11 +130,11 @@
         <div class="modal-content">
         @helper.form(routes.SignupController.createUser()) {
             <div class="modal-header">
-                <h4 class="modal-title step-1" data-step="1">Step 1</h4>
-                <h4 class="modal-title step-2" data-step="2">Step 2</h4>
-                <h4 class="modal-title step-3" data-step="3">Step 3</h4>
-                <h4 class="modal-title step-4" data-step="4">Step 4</h4>
-                <h4 class="modal-title step-5" data-step="5">Final Step</h4>
+                <h4 class="modal-title step-1" data-step="1">@Messages.get("index.step1")</h4>
+                <h4 class="modal-title step-2" data-step="2">@Messages.get("index.step2")</h4>
+                <h4 class="modal-title step-3" data-step="3">@Messages.get("index.step3")</h4>
+                <h4 class="modal-title step-4" data-step="4">@Messages.get("index.step4")</h4>
+                <h4 class="modal-title step-5" data-step="5">@Messages.get("index.finalstep")</h4>
                 <div class="m-progress">
                     <div class="m-progress-bar-wrapper">
                         <div class="m-progress-bar">
@@ -148,7 +148,7 @@
                         </span>
                     </div>
                     <div class="m-progress-complete">
-                        Completed
+                        @Messages.get("index.completed")
                     </div>
                 </div>
             
@@ -229,14 +229,15 @@
 					</div>
 					Gender<br>
 					<div id="gender">
-					<input type="radio" name="gender" value="male" checked="checked"/>male<br />
-	                <input type="radio" name="gender" value="female" />female<br />
+
+					<input type="radio" name="gender" value="male" checked="checked"/>@Messages.get("index.male")<br />
+	                <input type="radio" name="gender" value="female" />@Messages.get("index.female")<br />
 					</div>
 				
             </div>
 			<div class="modal-body step-4" data-step="4">
 			<div class="form-group">
-				  <label class="control-label" for="current_al">Current ActivityLevel</label>
+				  <label class="control-label" for="current_al">@Messages.get("index.currentact")</label>
 				  <div class="controls">
 				    <select name="current_al" class="input-medium" id="current_al">
 			    	@for(level <- al){
@@ -247,7 +248,7 @@
 			</div>
 				<!-- Select targeted activity level -->
 			<div class="form-group">
-			  <label class="control-label" for="target_al">Target ActivityLevel</label>
+			  <label class="control-label" for="target_al">@Messages.get("index.taract")</label>
 			  <div class="controls">
 			    <select name="target_al" class="input-medium" id="target_al">
 		    	@for(level <- al){
@@ -258,15 +259,15 @@
 			</div>
 			</div>
             <div class="modal-body step-5" data-step="5" style="text-align: center;">
-                Good job! Click Submit and your account will be registered.
+                @Messages.get("index.doneregister")
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" >Cancel</button>
-                <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent('#demo-modal-3', 2)">Continue</button>
-                <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 3)">Continue</button>
-                <button type="button" class="btn btn-primary step step-3" data-step="3" onclick="sendEvent('#demo-modal-3', 4)">Continue</button>
-                <button type="button" class="btn btn-primary step step-4" data-step="4" onclick="sendEvent('#demo-modal-3', 5)">Continue</button>
-                <input type="submit" class="btn btn-primary step step-5" data-step="5" value="Submit">
+                <button type="button" class="btn btn-default" data-dismiss="modal" >@Messages.get("index.cancel")</button>
+                <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent('#demo-modal-3', 2)">@Messages.get("index.continue")</button>
+                <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 3)">@Messages.get("index.continue")</button>
+                <button type="button" class="btn btn-primary step step-3" data-step="3" onclick="sendEvent('#demo-modal-3', 4)">@Messages.get("index.continue")</button>
+                <button type="button" class="btn btn-primary step step-4" data-step="4" onclick="sendEvent('#demo-modal-3', 5)">@Messages.get("index.continue")</button>
+                <button type="submit" class="btn btn-primary step step-5" data-step="5" >@Messages.get("index.submit")</button>
             </div>
         </div>
         }
@@ -319,17 +320,17 @@ sendEvent = function(sel, step) {
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    @Messages.get("index.title")
+                    @Messages.get("index.welcome")
                 </h1>
             </div>
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> Behavior Changing Techniques </h4>
+                        <h4><i class="fa fa-fw fa-check"></i> @Messages.get("index.bct") </h4>
                     </div>
                     <div class="panel-body" style="height: 110px">
                         <p> 
-                        	Behavior Change Technique, is a theory-based method for changing one or several psychological determinants of behavior such as a person's attitude or self-efficacy.
+                        	@Messages.get("index.bctinfo")
                         </p>
                     </div>
                 </div>
@@ -337,11 +338,11 @@ sendEvent = function(sel, step) {
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i> Free to Use </h4>
+                        <h4><i class="fa fa-fw fa-gift"></i> @Messages.get("index.free2use")</h4>
                     </div>
                     <div class="panel-body" style="height: 110px">
                         <p>
-                        	PushMe is a free to use software, created to help the everyday person.
+                        	@Messages.get("index.free2useinfo")
                         </p>
                     </div>
                 </div>
@@ -349,11 +350,11 @@ sendEvent = function(sel, step) {
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i> Easy to Use </h4>
+                        <h4><i class="fa fa-fw fa-compass"></i> @Messages.get("index.easy")</h4>
                     </div>
                     <div class="panel-body" style="height: 110px">
                         <p>
-                        	Our concept is based on steps for the soul purpose of making your goal easier to reach. We convert your activities into steps and add them to your daily tally to make it measureable.
+                        	@Messages.get("index.easyinfo")
                         </p>
                     </div>
                 </div>
