@@ -7,7 +7,7 @@
 	<h1>Register your steps</h1>
 	@helper.form(routes.UserActivityController.addSteps()){
 	<input type="hidden" name="date" class="date" style="height:30px;" />
-	<input type ="text" name="steps" style="height:30px;" placeholder="Steps"/>
+	<input type ="text" name="steps" style="height:30px;" placeholder="@Messages.get("main.steps")"/>
 	<button type="submit" style="height:30px;">@Messages.get("useract.add")</button>
 	}
 	<br>
@@ -25,7 +25,7 @@
 	    	<tr>
 	    		<td><input class="date" name="date" type="hidden" style="width:120px" /></td>
 	    		<td>@a.name</td>
-	    		<td><input type="text" name="steps" value="" placeholder="Duration" style="width:55px;"></td>
+	    		<td><input type="text" name="steps" value="" placeholder="@Messages.get("useract.dur")" style="width:55px;"></td>
 	    		<td >
 	    		@if(a.low_intensity==0) {
 				  <input type="hidden" name="intensity" value="2"/><label>@a.medium_intensity</label> @Messages.get("useract.stepmin")
