@@ -1,4 +1,4 @@
-index.title=Bli Sunn Med De Riktige Teknikkene
+index.title=PushMe
 index.login=Logg inn
 index.register=Registrer
 index.close=Lukk
