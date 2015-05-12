@@ -355,7 +355,7 @@ table thead { font-size: 13px; }
 
 
 p { padding-bottom: 10px;line-height: 19px; }
-a, .ui-widget .ui-widget-content a { color: #FF9205; font-style: normal;text-decoration: underline;	}
+a, .ui-widget .ui-widget-content a { color: #FF9205; font-style: normal;	}
 a.button, .ui-widget .ui-widget-content a.button { text-decoration: none; }
 a:hover, .ui-widget .ui-widget-content a:hover { text-decoration: none; }
 a.go {display: block;background: url("/global/images_structure/design2012/link-go.png") no-repeat right center;padding-right: 20px;	}
