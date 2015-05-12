@@ -40,21 +40,7 @@
 		}
 	</style>
 	
-	<script type="text/javascript">
-		// Using jQuery.
-		
-		$(function() {
-		    $('form').each(function() {
-		        $(this).find('input').keypress(function(e) {
-		            // Enter pressed?
-		            if(e.which == 10 || e.which == 13) {
-		                this.form.submit();
-		            }
-		        });
-		
-		    });
-		});
-	</script>
+
 
 </head>
 
@@ -182,7 +168,9 @@
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-lock"></i>
 						</span>
-						<input class="form-control" placeholder="@Messages.get("profile.pass")" name="password" type="password" value="" />
+
+						<input class="form-control" placeholder="@Messages.get("profile.pass")" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" type="password" value="" required onchange="form.re-enter password.pattern = this.value;">
+
 					</div>
 				</div>
 				<div class="form-group">
@@ -190,7 +178,9 @@
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-lock"></i>
 						</span>
-						<input class="form-control" placeholder="@Messages.get("profile.repass")" name=" re-enter password" type="password" value="" />
+
+						<input class="form-control" placeholder="@Messages.get("profile.repass")"   name=" re-enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Please enter the same Password as above" type="password" value="" required />
+
 					</div>
 				</div>
 			
@@ -214,7 +204,9 @@
 							<span class="input-group-addon">
 								<i class="glyphicon glyphicon-user"></i>
 							</span> 
-							<input class="form-control" placeholder="@Messages.get("profile.fname")" name="name" type="text" autofocus />
+
+							<input class="form-control" placeholder="@Messages.get("profile.fname")" name="name" type="text" autofocus required />
+
 						</div>
 					</div>										
 					<div class="form-group">
@@ -222,7 +214,9 @@
 							<span class="input-group-addon">
 								<i class="glyphicon glyphicon-calendar"></i>
 							</span>
-							<input class="form-control" placeholder="@Messages.get("profile.dob")" name="dob" type="date" value="" />
+
+							<input class="form-control" placeholder="@Messages.get("profile.dob")" name="dob" type="date" pattern="\d{4}-\d{1,2}-\d{1,2}" value="" required />
+
 						</div>
 					</div>
 					<div class="form-group">
@@ -230,7 +224,9 @@
 							<span class="input-group-addon">
 								<i class="glyphicon glyphicon-text-height"></i>
 							</span>
-							<input class="form-control" placeholder="@Messages.get("profile.weight")" name="weight" type="text" value="" />
+
+							<input class="form-control" placeholder="@Messages.get("profile.weight")" name="weight" type="text" value="" required />
+
 						</div>
 					</div>
 					<div class="form-group">
@@ -238,13 +234,17 @@
 							<span class="input-group-addon">
 								<i class="glyphicon glyphicon-text-height"></i>
 							</span>
-							<input class="form-control" placeholder="@Messages.get("profile.height")" name="height" type="text" value="" />
+
+							<input class="form-control" placeholder="@Messages.get("profile.height")" name="height" type="text" value="" required />
+
 						</div>
 					</div>
 					@Messages.get("profile.gender")<br>
 					<div id="gender">
-					<input type="radio" name="gender" value="Male" checked="checked"/> @Messages.get("index.male")<br />
-	                <input type="radio" name="gender" value="Female" /> @Messages.get("index.female")<br />
+
+					<input type="radio" name="gender" value="male" checked="checked"/>@Messages.get("index.male")<br />
+	                <input type="radio" name="gender" value="female" />@Messages.get("index.female")<br />
+
 					</div>
 				
             </div>
