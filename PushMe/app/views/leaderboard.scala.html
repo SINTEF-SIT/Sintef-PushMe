@@ -1,4 +1,4 @@
-@(user: User, leaderboard: Map[User, Integer], activities:List[UserActivity], topLeaderboard: Map[User, Integer])
+@(user: User, leaderboard: Map[User, Integer], activities:List[UserActivity], topLeaderboard: Map[User, Integer], averageSteps: Map[User, Integer])
 @import play.i18n._
 @main(user, "Leaderboard | PushMe", activities, leaderboard, topLeaderboard) {
 <br>
@@ -9,15 +9,18 @@
 		<div class="panel-body" >                	
 			<table class="table-striped table-condensed table-hover">
 				<tr>
+					<th>@Messages.get("leaderboard.rank")</th>
 					<th>@Messages.get("main.uname")</th>
 					<th>@Messages.get("dash.trophies")</th>
 					<th>@Messages.get("dash.avgsteps")</th>
+
 				</tr>
 					@for((leaderboardUser, score) <- leaderboard) {
 						<tr>
+							<td>Id</td>
 							<td style="width:100%">@leaderboardUser.name</td>
 							<td style="width:100%">@score x<i class="fa fa-fw fa-trophy"></i></td>
-							<td style="widht:100%">Average Steps Here</td>
+							<td style="widht:100%">@averageSteps(leaderboardUser)</td>
 						 </tr>
 							}
 			</table>

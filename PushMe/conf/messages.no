@@ -63,3 +63,4 @@ useract.min=Minutter
 useract.int=Intensitet
 useract.update=Oppdater
 useract.stepmin=Skritt/min
+leaderboard.rank=Rangering

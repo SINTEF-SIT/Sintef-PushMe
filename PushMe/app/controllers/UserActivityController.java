@@ -61,8 +61,32 @@ public class UserActivityController extends Controller {
     }
     
     @Security.Authenticated(Secured.class)
+    public static List<UserActivity> findUserActivities(User user){
+    	List<UserActivity> ua = UserActivity.all();
+    	List<UserActivity> user_ua = new ArrayList<UserActivity>();
+    	for(int i=0;i<ua.size();i++){
+    		if(ua.get(i).belongsTo.email.equals(user.email)){
+    			user_ua.add(ua.get(i));
+    		}
+    	}
+    	return user_ua;
+    }
+    
+    @Security.Authenticated(Secured.class)
     public static List<UserSteps> findPedoRecordings(){
     	User user = User.find.byId(request().username());
+    	List<UserSteps> us = UserSteps.all();
+    	List<UserSteps> user_us = new ArrayList<UserSteps>();
+    	for(int i=0;i<us.size();i++){
+    		if(us.get(i).belongsTo.email.equals(user.email)){
+    			user_us.add(us.get(i));
+    		}
+    	}
+    	return user_us;
+    }
+    
+    @Security.Authenticated(Secured.class)
+    public static List<UserSteps> findPedoRecordings(User user){
     	List<UserSteps> us = UserSteps.all();
     	List<UserSteps> user_us = new ArrayList<UserSteps>();
     	for(int i=0;i<us.size();i++){
