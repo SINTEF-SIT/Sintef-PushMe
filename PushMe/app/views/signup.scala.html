@@ -45,7 +45,8 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-lock"></i>
 												</span>
-												<input class="form-control" placeholder="Password" name="password" type="password" value="" />
+												<input class="form-control" placeholder="Password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" type="password" value="" required 
+												onchange="form.re-enter password.pattern = this.value;" />
 											</div>
 										</div>
 										<div class="form-group">
@@ -53,7 +54,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-lock"></i>
 												</span>
-												<input class="form-control" placeholder="Re-enter password" name=" re-enter password" type="password" value="" />
+												<input class="form-control" placeholder="Re-enter password" name=" re-enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Please enter the same Password as above" type="password" value="" required />
 											</div>
 										</div>
 									</div>
@@ -64,7 +65,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-user"></i>
 												</span> 
-												<input class="form-control" placeholder="Full name" name="name" type="text" autofocus />
+												<input class="form-control" placeholder="Full name" name="name" type="text" autofocus required />
 											</div>
 										</div>										
 										<div class="form-group">
@@ -72,7 +73,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-calendar"></i>
 												</span>
-												<input class="form-control" placeholder="Date of birth" name="dob" type="date" value="" />
+												<input class="form-control" placeholder="Date of birth(yyyy-MM-dd)" name="dob" type="date" pattern="\d{4}-\d{1,2}-\d{1,2}" value="" required />
 											</div>
 										</div>
 										<div class="form-group">
@@ -80,7 +81,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-text-height"></i>
 												</span>
-												<input class="form-control" placeholder="Weight in kg" name="weight" type="text" value="" />
+												<input class="form-control" placeholder="Weight in kg" name="weight" type="text" value="" required />
 											</div>
 										</div>
 										<div class="form-group">
@@ -88,13 +89,13 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-text-height"></i>
 												</span>
-												<input class="form-control" placeholder="Height in cm" name="height" type="text" value="" />
+												<input class="form-control" placeholder="Height in cm" name="height" type="text" value="" required/>
 											</div>
 										</div>
 										Gender<br>
 										<div id="gender">
-										<input type="radio" name="gender" value="Male" checked="checked"/>Male<br />
-                        				<input type="radio" name="gender" value="Female" />Female<br />
+										<input type="radio" name="gender" value="male" checked="checked"/>male<br />
+                        				<input type="radio" name="gender" value="female" />female<br />
 										</div>
 									</div>
 									
