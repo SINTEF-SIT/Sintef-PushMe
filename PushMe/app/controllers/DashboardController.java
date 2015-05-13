@@ -174,4 +174,15 @@ static class LeaderboardComparator implements Comparator<User> {
 		}
 		return morris;
 	}
+	
+	public static List<Integer> updateWeeklyLine() {
+		List<Integer> graphData = new ArrayList<Integer>();
+		for (int i = 0; i < 7; i++) {
+			graphData.add(0);
+		}
+		List<UserActivity> userActivities = getUserActivities();
+		List<UserSteps> userSteps = UserActivityController.findPedoRecordings();
+		//for ()
+		return graphData;
+	}
 }
