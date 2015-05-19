@@ -124,16 +124,15 @@
 						    	<th></th>
 						  	</tr>
 						    @for(a <- activities) {
-						   	@helper.form(routes.DashboardController.deleteUA(a.id)) {
 						    	<tr>
 						    		<td style="width:30%">@a.date.format("dd MMM")</td>
 						    		<td style="width:30%">@a.activity.name</td>
 						    		<td style="width:30%">@a.steps</td>
 						    		<td>
-						    		<button type="submit" style="background-color:#FF6666"><i class="fa fa-trash-o"></i></button>
+						    		<button onclick="deleteUA(@a.id)" style="background-color:#FF6666"><i class="fa fa-trash-o"></i></button>
 						    		</td>
 						    		</tr>
-						    }}
+						    }
 						</table>
 
                        </p>
