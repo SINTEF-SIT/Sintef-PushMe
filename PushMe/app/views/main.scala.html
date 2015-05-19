@@ -40,6 +40,15 @@
 	        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    <![endif]-->	    
+	
+	<script type="text/javascript">
+	function deleteUA(id){
+		$.post("/useractivity/delete/"+id, function( data ) {
+			});
+		location.reload();
+	}
+	</script>
+	
 	</head>
 	
 	<body>
@@ -104,16 +113,15 @@
 					    	<th></th>
 					  	</tr>
 					    @for(a <- activities) {
-					   	@helper.form(routes.DashboardController.deleteUA(a.id)) {
 					    	<tr>
 					    		<td style="width:30%">@a.date.format("dd MMM")</td>
 					    		<td style="width:30%">@a.activity.name</td>
 					    		<td style="width:30%">@a.steps</td>
 					    		<td>
-					    		<button type="submit" style="background-color:#FF6666"><i class="fa fa-trash-o"></i></button>
+					    		<button style="background-color:#FF6666" onclick="deleteUA(@a.id)"><i class="fa fa-trash-o"></i></button>
 					    		</td>
 					    		</tr>
-					    }}
+					    }
 					</table>
 					}
 
