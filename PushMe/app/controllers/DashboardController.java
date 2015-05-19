@@ -160,7 +160,7 @@ static class LeaderboardComparator implements Comparator<User> {
     
     public static Result deleteUA(Long id) {
     	UserActivity.find.ref(id).delete();
-    	return dashboard();
+    	return controllers.UserActivityController.useractivity();
     }
     
 	public static HashMap<String, Integer> updateMorris() {
