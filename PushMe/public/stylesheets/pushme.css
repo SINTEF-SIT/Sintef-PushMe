@@ -69,11 +69,6 @@ header.carousel .fill {
     font-style: italic;
 }
 
-/* Footer Styles */
-
-footer {
-    margin: 50px 0;
-}
 
 /* Responsive Styles */
 
@@ -740,3 +735,12 @@ a:hover {
   -moz-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
 }
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 100px;
+}
+
