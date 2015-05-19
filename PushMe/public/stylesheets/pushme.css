@@ -697,17 +697,18 @@ a:hover {
   text-decoration: underline;
 }
 
-.pagination {
+.cd-pagination {
   height: 36px;
   margin-left: 0;
   margin-bottom: 18px;
   text-align: center;
+  display: inline-block;
 }
  
-.pagination li {
+.cd-pagination li {
   display: inline;
 }
-.pagination a {
+.cd-pagination a {
   float: left;
   padding: 0 14px;
   line-height: 34px;
@@ -715,28 +716,28 @@ a:hover {
   border: 1px solid #ddd;
   border-left-width: 0;
 }
-.pagination a:hover,
-.pagination .active a {
+.cd-pagination a:hover,
+.cd-pagination .active a {
   background-color: #2DAF75;
 }
-.pagination .active a {
+.cd-pagination .active a {
   color: #fff;
   cursor: default;
 }
-.pagination .disabled span,
-.pagination .disabled a,
-.pagination .disabled a:hover {
+.cd-pagination .disabled span,
+.cd-pagination .disabled a,
+.cd-pagination .disabled a:hover {
   color: #2DAF75;
   background-color: #ddd;
   cursor: default;
 }
-.pagination li:first-child a {
+.cd-pagination li:first-child a {
   border-left-width: 1px;
   -webkit-border-radius: 3px 0 0 3px;
   -moz-border-radius: 3px 0 0 3px;
   border-radius: 3px 0 0 3px;
 }
-.pagination li:last-child a {
+.cd-pagination li:last-child a {
   -webkit-border-radius: 0 3px 3px 0;
   -moz-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
