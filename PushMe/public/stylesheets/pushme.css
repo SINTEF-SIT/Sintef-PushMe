@@ -679,6 +679,12 @@ input[type="range"]::-webkit-slider-thumb{
 
     background: #269966;
  }
+ 
+ /* Sticky footer styles*/
+ 
+#footer {
+  height: 100px;
+}
 
  /*Pagination ranking*/
  
@@ -734,13 +740,5 @@ a:hover {
   -webkit-border-radius: 0 3px 3px 0;
   -moz-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-
-/* Set the fixed height of the footer here */
-#footer {
-  height: 100px;
 }
 
