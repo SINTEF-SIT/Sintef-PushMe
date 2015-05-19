@@ -27,3 +27,4 @@ function setCarouselHeight(id) {
         $(this).css('height',max+'px');
     });
 }
+

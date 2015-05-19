@@ -1,4 +1,4 @@
-@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity], morrisDonut: Map[String, Integer], topLeaderboard: Map[User, Integer])
+@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity], morrisDonut: Map[String, Integer], topLeaderboard: Map[User, Integer], monthLineData: List[Integer], yearLineData: List[Integer])
 @import play.i18n._
 @main(user, "Dashboard | PushMe", activities, leaderboard, topLeaderboard) {
     
@@ -63,24 +63,14 @@
 		        @Messages.get("dash.stepsc")
 		    </h3>
 		    <ul class="nav nav-tabs" role="tablist">
-		        <!-- Week tab -->
-		        <li class="active"> <a href="#week-tab" role="tab" data-toggle="tab">@Messages.get("dash.week")</a></li>
 		        <!-- Month tab -->
-		        <li> <a href="#month-tab" role="tab" data-toggle="tab">@Messages.get("dash.month")</a></li>
+		        <li class="active"> <a href="#month-tab" role="tab" data-toggle="tab">@Messages.get("dash.month")</a></li>
 	            <!-- Year -->
 	            <li> <a href="#year-tab" role="tab" data-toggle="tab">@Messages.get("dash.year")</a></li>
 	        </ul>
 	    </div>
 	   
 	        <div class="tab-content">
-	            <div id="week-tab" role="tabpanel" class="tab-pane active">
-	                <div class="row" style="margin: 10px">
-					
-					<div id="week_step-line" class = "graph" ></div>
-					
-	                </div>
-	            
-	            </div>
 	            <div id="month-tab" role="tabpanel" class="tab-pane active">
 	                <div class="row" style="margin: 10px">
 	                
@@ -134,16 +124,15 @@
 						    	<th></th>
 						  	</tr>
 						    @for(a <- activities) {
-						   	@helper.form(routes.DashboardController.deleteUA(a.id)) {
 						    	<tr>
 						    		<td style="width:30%">@a.date.format("dd MMM")</td>
 						    		<td style="width:30%">@a.activity.name</td>
 						    		<td style="width:30%">@a.steps</td>
 						    		<td>
-						    		<button type="submit" style="background-color:#FF6666"><i class="fa fa-trash-o"></i></button>
+						    		<button onclick="deleteUA(@a.id)" style="background-color:#FF6666"><i class="fa fa-trash-o"></i></button>
 						    		</td>
 						    		</tr>
-						    }}
+						    }
 						</table>
 
                        </p>
@@ -184,7 +173,6 @@ $.getScript('https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js
 $.getScript('https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js',function(){
 
 	var donutData = [];
-	var weekLineData = [];
 	var monthLineData = [];
 	var yearLineData = [];
 	
@@ -192,60 +180,34 @@ $.getScript('https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.j
 		donutData.push({label: '@activity', value: @steps});
 	}
 	
-	var i = 0;
-	@for(i <- 0 to 1) {
-		weekLineData.push({ y: '2006', a: 1, b: 7 });
-		weekLineData.push({ y: '2007', a: 2,  b: 6 });
-		weekLineData.push({ y: '2008', a: 3,  b: 5 });
-		weekLineData.push({ y: '2009', a: 4,  b: 4 });
-		weekLineData.push({ y: '2010', a: 5,  b: 3 });
-		weekLineData.push({ y: '2011', a: 6,  b: 2 });
-		weekLineData.push({ y: '2012', a: 7, b: 1 });
+	@for(steps <- monthLineData) {
+		monthLineData.push({ y: '@monthLineData.indexOf(steps)', a: @steps, b: 10000 });
 	}
 	
+	@for(steps <- yearLineData) {
+		yearLineData.push({ y: '@yearLineData.indexOf(steps)', a: @steps, b: 10000*12 });
+	}
 		Morris.Donut({
 	        element: 'user_activity-donut',
 	        data: donutData
 	    });
-		
-		Morris.Line({
-			element: 'week_step-line',
-			  data: weekLineData,
-			  xkey: 'y',
-			  ykeys: ['a', 'b'],
-			  labels: ['Series A', 'Series B']
-		});
  
 		Morris.Line({
 			element: 'month_step-line',
-			  data: [
-			    { y: '2006', a: 100, b: 1 },
-			    { y: '2007', a: 4,  b: 2 },
-			    { y: '2008', a: 50,  b: 3 },
-			    { y: '2009', a: 75,  b: 65 },
-			    { y: '2010', a: 50,  b: 32 },
-			    { y: '2011', a: 75,  b: 12 },
-			    { y: '2012', a: 100, b: 5 }
-			  ],
+			  data: monthLineData,
 			  xkey: 'y',
 			  ykeys: ['a', 'b'],
-			  labels: ['Series A', 'Series B']
+			  labels: ['Steps achieved', 'Goal'],
+			  lineColors: ['#f660ab', '#4b0082']
 		});
  
 		Morris.Line({
 			element: 'year_step-line',
-			  data: [
-			    { y: '2006', a: 1, b: 90 },
-			    { y: '2007', a: 3,  b: 65 },
-			    { y: '2008', a: 8,  b: 40 },
-			    { y: '2009', a: 16,  b: 65 },
-			    { y: '2010', a: 24,  b: 40 },
-			    { y: '2011', a: 38,  b: 65 },
-			    { y: '2012', a: 51, b: 90 }
-			  ],
+			  data: yearLineData,
 			  xkey: 'y',
 			  ykeys: ['a', 'b'],
-			  labels: ['Series A', 'Series B']
+			  labels: ['Steps achieved', 'Goal'],
+			  lineColors: ['#f660ab', '#4b0082']
 		});
 });
 });
