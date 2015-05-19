@@ -17,7 +17,7 @@
 				</tr>
 					@for((leaderboardUser, score) <- leaderboard) {
 						<tr>
-							<td>Id</td>
+							<td>rank</td>
 							<td style="width:100%">@leaderboardUser.name</td>
 							<td style="width:100%">@score x<i class="fa fa-fw fa-trophy"></i></td>
 							<td style="widht:100%">@averageSteps(leaderboardUser)</td>

@@ -3,6 +3,7 @@ package controllers;
 import static play.data.Form.form;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -26,7 +27,7 @@ public class DashboardController extends Controller {
 	public static Result dashboard() {
 		User user = ProfileController.findUser();
 		TreeMap<User, Integer> leaderboard = updateLeaderboards();
-        return ok(dashboard.render(user, Tips.all(), 0.0 , getGoals(user), leaderboard, getRecentUA(), updateMorris(), getTopLeaderboard(leaderboard)));
+        return ok(dashboard.render(user, Tips.all(), 0.0 , getGoals(user), leaderboard, getRecentUA(), updateMorris(), getTopLeaderboard(leaderboard), updateMonthLine(), updateYearLine()));
     }
 	
 	@Security.Authenticated(Secured.class)
@@ -44,7 +45,7 @@ public class DashboardController extends Controller {
 				dailySteps += step.steps;
 		} User user = User.find.byId(request().username());
 		TreeMap<User, Integer> leaderboard = updateLeaderboards();
-		return ok(dashboard.render(user, Tips.all(), dailySteps , getGoals(user) , leaderboard, getRecentUA(), updateMorris(), getTopLeaderboard(leaderboard)));
+		return ok(dashboard.render(user, Tips.all(), dailySteps , getGoals(user) , leaderboard, getRecentUA(), updateMorris(), getTopLeaderboard(leaderboard), updateMonthLine(), updateYearLine()));
 	}
 	
     @Security.Authenticated(Secured.class)
@@ -175,14 +176,57 @@ static class LeaderboardComparator implements Comparator<User> {
 		return morris;
 	}
 	
-	public static List<Integer> updateWeeklyLine() {
+	public static List<Integer> updateMonthLine() {
 		List<Integer> graphData = new ArrayList<Integer>();
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < 30; i++) {
 			graphData.add(0);
 		}
 		List<UserActivity> userActivities = getUserActivities();
 		List<UserSteps> userSteps = UserActivityController.findPedoRecordings();
-		//for ()
+		Calendar calendar = Calendar.getInstance();
+		for (int i = 0; i < 30; i++) {
+			SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
+			for (UserActivity ua: userActivities) {
+				if (fmt.format(calendar.getTime()).equals(fmt.format(ua.date))) {
+					Double s = ua.steps;
+					graphData.set(29 - i, graphData.get(29 - i) + s.intValue());
+				}
+			}
+			for (UserSteps us: userSteps) {
+				if (fmt.format(calendar.getTime()).equals(fmt.format(us.date))) {
+					Double s = us.steps;
+					graphData.set(29 - i, graphData.get(29 - i) + s.intValue());
+				}
+			}
+			calendar.add(Calendar.DAY_OF_YEAR, -1);
+		}
+		return graphData;
+	}
+	
+	public static List<Integer> updateYearLine() {
+		List<Integer> graphData = new ArrayList<Integer>();
+		for (int i = 0; i < 12; i++) {
+			graphData.add(0);
+		}
+		List<UserActivity> userActivities = getUserActivities();
+		List<UserSteps> userSteps = UserActivityController.findPedoRecordings();
+		Calendar calendar = Calendar.getInstance();
+		for (int i = 0; i < 12; i++) {
+			SimpleDateFormat fmt = new SimpleDateFormat("yyyyMM");
+			for (UserActivity ua: userActivities) {
+				if (fmt.format(calendar.getTime()).equals(fmt.format(ua.date))) {
+					Double s = ua.steps;
+					graphData.set(11 - i, graphData.get(11 - i) + s.intValue());
+				}
+			}
+			for (UserSteps us: userSteps) {
+				if (fmt.format(calendar.getTime()).equals(fmt.format(us.date))) {
+					Double s = us.steps;
+					graphData.set(11 - i, graphData.get(11 - i) + s.intValue());
+				}
+			}
+			calendar.add(Calendar.MONTH, -1);
+		}
 		return graphData;
 	}
 }
