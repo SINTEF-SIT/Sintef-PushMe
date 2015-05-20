@@ -39,16 +39,22 @@ public class Goal extends Model {
     }
 
     
-	public void createWeekGoal() {
+	public void createWeekGoal(String activityLevel) {
 		Goal goal = new Goal();
 		goal.steps = 70000; //TODO: add ActivityLevel
 		Calendar cal = Calendar.getInstance();
 		goal.start = cal.getTime();
 		cal.add(Calendar.DATE, 7);
 		goal.end = cal.getTime();
+		for (ActivityLevel al: ActivityLevel.all()) {
+			if(al.description == activityLevel) {
+				goal.activityLevel =  al;
+				break;
+			}
+		}
 	}
 	
-	public void createMonthGoal() {
+	public void createMonthGoal(String activityLevel) {
 		Goal goal = new Goal();
 		goal.steps = 300000; //TODO add activityLevel
 		Calendar cal = Calendar.getInstance();
@@ -56,5 +62,11 @@ public class Goal extends Model {
 		goal.start = cal.getTime();
 		cal.set(cal.YEAR, cal.MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
 		goal.end = cal.getTime();
+		for (ActivityLevel al: ActivityLevel.all()) {
+			if(al.description == activityLevel) {
+				goal.activityLevel =  al;
+				break;
+			}
+		}
 	}
 }

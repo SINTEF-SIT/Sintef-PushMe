@@ -181,11 +181,11 @@ $.getScript('https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.j
 	}
 	
 	@for(steps <- monthLineData) {
-		monthLineData.push({ y: '@monthLineData.indexOf(steps)', a: @steps, b: 10000 });
+		monthLineData.push({ y: '@monthLineData.indexOf(steps)', a: @steps, b: @goals(0).steps });
 	}
 	
 	@for(steps <- yearLineData) {
-		yearLineData.push({ y: '@yearLineData.indexOf(steps)', a: @steps, b: 10000*12 });
+		yearLineData.push({ y: '@yearLineData.indexOf(steps)', a: @steps, b: @goals(1).steps });
 	}
 		Morris.Donut({
 	        element: 'user_activity-donut',
