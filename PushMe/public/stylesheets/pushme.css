@@ -719,9 +719,11 @@ a:hover {
 .cd-pagination a:hover,
 .cd-pagination .active a {
   background-color: #2DAF75;
+  color: #fff;
 }
 .cd-pagination .active a {
   color: #fff;
+  background-color: #2DAF75;
   cursor: default;
 }
 .cd-pagination .disabled span,
