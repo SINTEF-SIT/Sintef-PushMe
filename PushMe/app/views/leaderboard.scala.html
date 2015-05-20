@@ -1,5 +1,6 @@
-@(user: User, leaderboard: Map[User, Integer], activities:List[UserActivity], topLeaderboard: Map[User, Integer], averageSteps: Map[User, Integer], counter: Integer)
+@(user: User, leaderboard: Map[User, Integer], activities:List[UserActivity], topLeaderboard: Map[User, Integer], averageSteps: Map[User, Integer])
 @import play.i18n._
+@import java.math.BigInteger; var counter=0
 @main(user, "Leaderboard | PushMe", activities, leaderboard, topLeaderboard) {
 <br>
 <div class="panel panel-default">
@@ -17,7 +18,7 @@
 				</tr>
 					@for((leaderboardUser, score) <- leaderboard) {
 						<tr>
-							<td>@{counter}</td>
+							<td>@{counter+=1;counter}</td>
 							<td style="width:100%">@leaderboardUser.name</td>
 							<td style="width:100%">@score x<i class="fa fa-fw fa-trophy"></i></td>
 							<td style="widht:100%">@averageSteps(leaderboardUser)</td>
