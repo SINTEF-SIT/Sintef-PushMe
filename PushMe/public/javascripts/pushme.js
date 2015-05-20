@@ -29,3 +29,21 @@ $(function () {
        }
    });
 });
+
+/*Call on function to delete user-activity*/
+function deleteUA(id){
+	$.post("/useractivity/delete/"+id, function( data ) {
+		});
+	location.reload();
+}
+
+/*Numbering table*/
+function table(){
+	var table = document.getElementsByTagName('table')[0],
+	  rows = table.getElementsByTagName('tr'),
+	  text = 'textContent' in document ? 'textContent' : 'innerText';
+
+	for (var i = 0, len = rows.length; i < len; i++) {
+	  rows[i].children[0][text] = i + ': ' + rows[i].children[0][text];
+	}
+}
