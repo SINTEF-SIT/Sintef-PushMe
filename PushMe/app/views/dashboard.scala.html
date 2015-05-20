@@ -1,5 +1,6 @@
 @(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity], morrisDonut: Map[String, Integer], topLeaderboard: Map[User, Integer], monthLineData: List[Integer], yearLineData: List[Integer])
 @import play.i18n._
+@import java.math.BigInteger
 @main(user, "Dashboard | PushMe", activities, leaderboard, topLeaderboard) {
     
 <!-- Container auto-aligns carousel -->
@@ -181,7 +182,7 @@ $.getScript('https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.j
 	}
 	
 	@for(steps <- monthLineData) {
-		monthLineData.push({ y: '@monthLineData.indexOf(steps)', a: @steps, b: @goals(0).steps });
+		monthLineData.push({ y: '@monthLineData.indexOf(steps)', a: @steps, b: @{goals(0).steps/7} });
 	}
 	
 	@for(steps <- yearLineData) {
