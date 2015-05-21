@@ -28,6 +28,7 @@ main.stats=Dashboard
 main.logout=Logout
 main.dayact=Daily Activities
 main.noact=No activities registered
+main.nopedo=No pedometer-recordings registered
 main.date=Date
 main.act=Activity
 main.steps=Steps

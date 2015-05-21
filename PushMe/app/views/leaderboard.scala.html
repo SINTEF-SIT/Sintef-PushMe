@@ -1,7 +1,7 @@
-@(user: User, leaderboard: Map[User, Integer], activities:List[UserActivity], topLeaderboard: Map[User, Integer], averageSteps: Map[User, Integer])
+@(user: User, leaderboard: Map[User, Integer], activities:List[UserActivity], userSteps: List[UserSteps], topLeaderboard: Map[User, Integer], averageSteps: Map[User, Integer])
 @import play.i18n._
 @import java.math.BigInteger; var counter=0
-@main(user, "Leaderboard | PushMe", activities, leaderboard, topLeaderboard) {
+@main(user, "Leaderboard | PushMe", activities, userSteps, leaderboard, topLeaderboard) {
 <br>
 <div class="panel panel-default">
 	<div class="panel-heading">

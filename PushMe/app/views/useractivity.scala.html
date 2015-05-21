@@ -1,13 +1,13 @@
-@(user: User, useractivities: List[UserActivity], activities: List[Activity], pedoForm: Form[UserSteps], uaForm: Form[UserActivity], stepCounter: Double, leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer])
+@(user: User, useractivities: List[UserActivity], userSteps: List[UserSteps], activities: List[Activity], pedoForm: Form[UserSteps], uaForm: Form[UserActivity], stepCounter: Double, leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer])
 @import play.i18n._
-@main(user, "Register Activities | PushMe", useractivities, leaderboard, topLeaderboard){
+@main(user, "Register Activities | PushMe", useractivities, userSteps, leaderboard, topLeaderboard){
 
 <!-- 	<br><p style="font-weight:bold;">Total step count: <div style="color:red; font-size:2em;">@stepCounter</div></p>  -->
 
 	<h1>Register your steps</h1>
 	@helper.form(routes.UserActivityController.addSteps()){
 	<input type="hidden" name="date" class="date" style="height:30px;" />
-	<input type ="text" name="steps" style="height:30px;" placeholder="@Messages.get("main.steps")"/>
+	<input type ="number" name="steps" style="height:30px;" placeholder="@Messages.get("main.steps")" required />
 	<button type="submit" style="height:30px;">@Messages.get("useract.add")</button>
 	}
 	<br>

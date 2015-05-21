@@ -1,4 +1,4 @@
-@(user: User, title: String, activities: List[UserActivity], leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer])(content: Html)
+@(user: User, title: String, activities: List[UserActivity], userSteps: List[UserSteps], leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer])(content: Html)
 @import play.i18n._		
 <!DOCTYPE html>
 <html lang="en">
@@ -94,6 +94,29 @@
                    		<h4><i class="fa fa-fw fa-bicycle"></i> @Messages.get("main.dayact") </h4>
                 	</div>
                 	<div class="panel-body">
+                	@if(userSteps.isEmpty) {
+					  @Messages.get("main.nopedo") <i class="fa fa-smile-o fa-spin"></i><br><hr>
+					} else {
+                      	<table id="daily-pedo-table" class="table-striped table-condensed table-hover">
+						<tr>
+							<th>@Messages.get("main.date")</th>							
+					    	<th>@Messages.get("main.act")</th>
+					    	<th>@Messages.get("main.steps")</th>
+					    	<th></th>
+					  	</tr>
+					    @for(a <- userSteps) {
+					    	<tr>
+					    		<td style="width:20%"><div class="pedo-@a.date.format("yyyy-MM-dd") daily-pedo">@a.date.format("dd MMM")</div></td>
+					    		<td style="width:40%">Walking</td>
+					    		<td style="width:30%">@a.steps</td>
+					    		<td>
+					    		<button style="background-color:#FF6666" onclick="deletePedo(@a.id)"><i class="fa fa-trash-o"></i></button>
+					    		</td>
+					    		</tr>
+					    }
+					</table>
+					<hr>
+					}
                 	@if(activities.isEmpty) {
 					  @Messages.get("main.noact") <i class="fa fa-smile-o fa-spin"></i>
 					} else {
@@ -106,8 +129,8 @@
 					  	</tr>
 					    @for(a <- activities) {
 					    	<tr>
-					    		<td style="width:30%"><label class="@a.date.format("yyyy-MM-dd") daily-activity">@a.date.format("dd MMM")</label></td>
-					    		<td style="width:30%">@a.activity.name</td>
+					    		<td style="width:20%"><div class="@a.date.format("yyyy-MM-dd") daily-activity">@a.date.format("dd MMM")</div></td>
+					    		<td style="width:40%">@a.activity.name</td>
 					    		<td style="width:30%">@a.steps</td>
 					    		<td>
 					    		<button style="background-color:#FF6666" onclick="deleteUA(@a.id)"><i class="fa fa-trash-o"></i></button>
@@ -119,7 +142,6 @@
 
                 	</div>
             	</div>
-				<div id="daily-activity-table">test</div>
 				<div class="panel panel-default">
                 	<div class="panel-heading">
                    		<h4><i class="fa fa-fw fa-trophy"></i> @Messages.get("main.lboard") </h4>

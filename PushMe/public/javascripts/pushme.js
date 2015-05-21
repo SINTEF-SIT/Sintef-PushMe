@@ -17,8 +17,10 @@ $(document).ready(function(year, month, day) {
 	     (day<10 ? '0' : '') + day;
 	 
 		$('.date').val(output),
-		$('tbody tr:has(label.daily-activity)').hide(),
-		$('tbody tr:has(label.'+ output +')').show()
+		$('tbody tr:has(div.daily-activity)').hide(),
+		$('tbody tr:has(div.'+ output +')').show(),
+		$('tbody tr:has(div.daily-pedo)').hide(),
+		$('tbody tr:has(div.pedo-'+ output +')').show()
 });	
 
 /*Use date checked in the calendar*/
@@ -29,8 +31,10 @@ $(function () {
 		onSelect: function () {
 			date = this.value,
 			$('.date').val(this.value),
-			$('tbody tr:has(label.daily-activity)').hide(),
-			$('tbody tr:has(label.'+ date +')').show();
+			$('tbody tr:has(div.daily-activity)').hide(),
+			$('tbody tr:has(div.'+ date +')').show(),
+			$('tbody tr:has(div.daily-pedo)').hide(),
+			$('tbody tr:has(div.pedo-'+ date +')').show();
 			totalRow = $('#daily-activity-table tr:visible').length;
 			if(totalRow == 1){
 				//TODO: Hide table header when all rows are hidden
@@ -42,6 +46,13 @@ $(function () {
 /*Call on function to delete user-activity*/
 function deleteUA(id){
 	$.post("/useractivity/delete/"+id, function( data ) {
+		});
+	location.reload();
+}
+
+/*Call on function to delete pedometer recording*/
+function deletePedo(id){
+	$.post("/usersteps/delete/"+id, function( data ) {
 		});
 	location.reload();
 }

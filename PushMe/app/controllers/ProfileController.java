@@ -21,6 +21,7 @@ public class ProfileController extends Controller {
 		 Form.form(User.class),
 		 ActivityLevel.all(),
 		 DashboardController.getUserActivities(),
+		 UserActivityController.findPedoRecordings(),
 		 DashboardController.updateLeaderboards(),
  		 DashboardController.getTopLeaderboard(DashboardController.updateLeaderboards())));
     }

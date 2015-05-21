@@ -1,7 +1,7 @@
-@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity], morrisDonut: Map[String, Integer], topLeaderboard: Map[User, Integer], monthLineData: List[Integer], yearLineData: List[Integer])
+@(user: User, tips: List[Tips], dailySteps:Double, goals: List[Goal], leaderboard: Map[User, Integer], activities: List[UserActivity], userSteps: List[UserSteps], morrisDonut: Map[String, Integer], topLeaderboard: Map[User, Integer], monthLineData: List[Integer], yearLineData: List[Integer])
 @import play.i18n._
 @import java.math.BigInteger
-@main(user, "Dashboard | PushMe", activities, leaderboard, topLeaderboard) {
+@main(user, "Dashboard | PushMe", activities, userSteps, leaderboard, topLeaderboard) {
     
 <!-- Container auto-aligns carousel -->
 <br>

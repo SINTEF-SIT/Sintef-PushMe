@@ -26,6 +26,7 @@ public class UserActivityController extends Controller {
     	return ok(useractivity.render(
     			User.find.byId(request().username()), 
     			findUserActivities(),
+    			UserActivityController.findPedoRecordings(),
     			Activity.all(),
     			Form.form(UserSteps.class),
     			Form.form(UserActivity.class), 
@@ -106,6 +107,7 @@ public class UserActivityController extends Controller {
                     views.html.useractivity.render(
                 			User.find.byId(request().username()), 
                 			findUserActivities(),
+                			UserActivityController.findPedoRecordings(),
                 			Activity.all(),
                 			newSteps,
                 			Form.form(UserActivity.class), 

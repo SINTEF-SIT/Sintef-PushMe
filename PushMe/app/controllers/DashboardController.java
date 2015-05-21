@@ -27,7 +27,7 @@ public class DashboardController extends Controller {
 	public static Result dashboard() {
 		User user = ProfileController.findUser();
 		TreeMap<User, Integer> leaderboard = updateLeaderboards();
-        return ok(dashboard.render(user, Tips.all(), 0.0 , getGoals(user), leaderboard, getRecentUA(), updateMorris(), getTopLeaderboard(leaderboard), updateMonthLine(), updateYearLine()));
+        return ok(dashboard.render(user, Tips.all(), 0.0 , getGoals(user), leaderboard, getRecentUA(), UserActivityController.findPedoRecordings(), updateMorris(), getTopLeaderboard(leaderboard), updateMonthLine(), updateYearLine()));
     }
 	
 	@Security.Authenticated(Secured.class)
@@ -45,7 +45,7 @@ public class DashboardController extends Controller {
 				dailySteps += step.steps;
 		} User user = User.find.byId(request().username());
 		TreeMap<User, Integer> leaderboard = updateLeaderboards();
-		return ok(dashboard.render(user, Tips.all(), dailySteps , getGoals(user) , leaderboard, getRecentUA(), updateMorris(), getTopLeaderboard(leaderboard), updateMonthLine(), updateYearLine()));
+		return ok(dashboard.render(user, Tips.all(), dailySteps , getGoals(user) , leaderboard, getRecentUA(), UserActivityController.findPedoRecordings(), updateMorris(), getTopLeaderboard(leaderboard), updateMonthLine(), updateYearLine()));
 	}
 	
     @Security.Authenticated(Secured.class)
@@ -181,6 +181,11 @@ static class LeaderboardComparator implements Comparator<User> {
     
     public static Result deleteUA(Long id) {
     	UserActivity.find.ref(id).delete();
+    	return controllers.UserActivityController.useractivity();
+    }
+    
+    public static Result deletePedo(Long id) {
+    	UserSteps.find.ref(id).delete();
     	return controllers.UserActivityController.useractivity();
     }
     

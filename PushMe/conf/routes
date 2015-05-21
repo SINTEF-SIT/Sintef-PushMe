@@ -21,6 +21,7 @@ POST	/signup						controllers.SignupController.createUser()
 GET		/useractivity				controllers.UserActivityController.useractivity()
 POST	/useractivity/save/:a		controllers.UserActivityController.createUserActivity(a:String)
 POST	/useractivity/delete/:id	controllers.DashboardController.deleteUA(id:Long)
+POST	/usersteps/delete/:id		controllers.DashboardController.deletePedo(id:Long)
 POST	/stepreg					controllers.UserActivityController.addSteps()
 
 #Dashboard

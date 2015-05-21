@@ -22,6 +22,7 @@ public class LeaderboardController extends Controller {
         return ok(leaderboard.render(loggedOnUser,
        		 DashboardController.updateLeaderboards(),
     		 DashboardController.getUserActivities(),
+    		 UserActivityController.findPedoRecordings(),
     		 DashboardController.getTopLeaderboard(DashboardController.updateLeaderboards()),
     		 getAverageSteps()));
     }

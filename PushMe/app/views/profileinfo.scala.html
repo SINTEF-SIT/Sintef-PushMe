@@ -1,6 +1,6 @@
-@(user: User, userForm: Form[User], al:List[ActivityLevel], activities: List[UserActivity], leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer])
+@(user: User, userForm: Form[User], al:List[ActivityLevel], activities: List[UserActivity], userSteps: List[UserSteps], leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer])
 @import play.i18n._
-@main(user,"Profile | PushMe", activities, leaderboard, topLeaderboard) {
+@main(user,"Profile | PushMe", activities, userSteps, leaderboard, topLeaderboard) {
 
 
 <div class="container">
