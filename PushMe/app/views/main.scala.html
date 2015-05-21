@@ -106,7 +106,7 @@
 					  	</tr>
 					    @for(a <- activities) {
 					    	<tr>
-					    		<td style="width:30%">@a.date.format("dd MMM")</td>
+					    		<td style="width:30%"><label class="@a.date.format("yyyy-MM-dd") daily-activity">@a.date.format("dd MMM")</label></td>
 					    		<td style="width:30%">@a.activity.name</td>
 					    		<td style="width:30%">@a.steps</td>
 					    		<td>

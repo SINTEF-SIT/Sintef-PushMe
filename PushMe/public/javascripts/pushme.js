@@ -17,17 +17,23 @@ $(document).ready(function(year, month, day) {
 	     (month<10 ? '0' : '') + month + '-' +
 	     (day<10 ? '0' : '') + day;
 	 
-		$('.date').val(output)
-	});		
+		$('.date').val(output),
+		$('tbody tr:has(label.daily-activity)').hide(),
+		$('tbody tr:has(label.'+ output +')').show()
+});		
 /*Use date checked in the calendar*/
 $(function () {
-   $("#datepicker").datepicker({
-       inline: true,
-       dateFormat: 'yy-mm-dd',
-       onSelect: function () {
-           $('.date').val(this.value)
-       }
-   });
+	
+	$("#datepicker").datepicker({
+		inline: true,
+		dateFormat: 'yy-mm-dd',
+		onSelect: function () {
+			date = 'label.' + this.value,
+			$('.date').val(this.value),
+			$('tbody tr:has(label.daily-activity)').hide(),
+			$('tbody tr:has('+ date +')').show()
+			}
+	});
 });
 
 /*Call on function to delete user-activity*/
