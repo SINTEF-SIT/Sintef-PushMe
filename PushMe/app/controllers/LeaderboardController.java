@@ -23,8 +23,7 @@ public class LeaderboardController extends Controller {
        		 DashboardController.updateLeaderboards(),
     		 DashboardController.getUserActivities(),
     		 DashboardController.getTopLeaderboard(DashboardController.updateLeaderboards()),
-    		 getAverageSteps(),
-    		 1));
+    		 getAverageSteps()));
     }
 	
 	public static Double getAverageUserSteps(User user) {
