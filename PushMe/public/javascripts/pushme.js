@@ -7,9 +7,8 @@ function updateTextInput(val, low, med, high, name) {
 }
 
 /*Setting current date as default*/
-$(document).ready(function(year, month, day) {
+$(document).ready(function(year, month, day) {	
 	 var d = new Date();
-
 	 var month = d.getMonth()+1;
 	 var day = d.getDate();
 
@@ -20,18 +19,22 @@ $(document).ready(function(year, month, day) {
 		$('.date').val(output),
 		$('tbody tr:has(label.daily-activity)').hide(),
 		$('tbody tr:has(label.'+ output +')').show()
-});		
+});	
+
 /*Use date checked in the calendar*/
-$(function () {
-	
+$(function () {	
 	$("#datepicker").datepicker({
 		inline: true,
 		dateFormat: 'yy-mm-dd',
 		onSelect: function () {
-			date = 'label.' + this.value,
+			date = this.value,
 			$('.date').val(this.value),
 			$('tbody tr:has(label.daily-activity)').hide(),
-			$('tbody tr:has('+ date +')').show()
+			$('tbody tr:has(label.'+ date +')').show();
+			totalRow = $('#daily-activity-table tr:visible').length;
+			if(totalRow == 1){
+				//TODO: Hide table header when all rows are hidden
+			}
 			}
 	});
 });
@@ -41,15 +44,4 @@ function deleteUA(id){
 	$.post("/useractivity/delete/"+id, function( data ) {
 		});
 	location.reload();
-}
-
-/*Numbering table*/
-function table(){
-	var table = document.getElementsByTagName('table')[0],
-	  rows = table.getElementsByTagName('tr'),
-	  text = 'textContent' in document ? 'textContent' : 'innerText';
-
-	for (var i = 0, len = rows.length; i < len; i++) {
-	  rows[i].children[0][text] = i + ': ' + rows[i].children[0][text];
-	}
 }

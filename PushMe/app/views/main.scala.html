@@ -97,7 +97,7 @@
                 	@if(activities.isEmpty) {
 					  @Messages.get("main.noact") <i class="fa fa-smile-o fa-spin"></i>
 					} else {
-                      	<table class="table-striped table-condensed table-hover">
+                      	<table id="daily-activity-table" class="table-striped table-condensed table-hover">
 						<tr>
 							<th>@Messages.get("main.date")</th>
 					    	<th>@Messages.get("main.act")</th>
@@ -119,7 +119,7 @@
 
                 	</div>
             	</div>
-				
+				<div id="daily-activity-table">test</div>
 				<div class="panel panel-default">
                 	<div class="panel-heading">
                    		<h4><i class="fa fa-fw fa-trophy"></i> @Messages.get("main.lboard") </h4>

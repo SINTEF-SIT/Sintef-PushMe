@@ -25,7 +25,7 @@
 	    	<tr>
 	    		<td><input class="date" name="date" type="hidden" style="width:120px" /></td>
 	    		<td>@a.name</td>
-	    		<td><input type="text" name="steps" value="" placeholder="@Messages.get("useract.dur")" style="width:55px;"></td>
+	    		<td><input type="number" name="steps" value="" placeholder="@Messages.get("useract.dur")" style="max-width:70px;" required></td>
 	    		<td >
 	    		@if(a.low_intensity==0) {
 				  <input type="hidden" name="intensity" value="2"/><label>@a.medium_intensity</label> @Messages.get("useract.stepmin")
