@@ -21,7 +21,6 @@ POST	/signup						controllers.SignupController.createUser()
 GET		/useractivity				controllers.UserActivityController.useractivity()
 POST	/useractivity/save/:a		controllers.UserActivityController.createUserActivity(a:String)
 POST	/useractivity/delete/:id	controllers.DashboardController.deleteUA(id:Long)
-POST	/usersteps/delete/:id		controllers.DashboardController.deletePedo(id:Long)
 POST	/stepreg					controllers.UserActivityController.addSteps()
 
 #Dashboard
@@ -42,7 +41,7 @@ GET		/leaderboard				controllers.LeaderboardController.leaderboard()
 #Change language
 POST	/lang/:lang					controllers.LanguageController.changeLanguage(lang:String)
 
+GET 	/email 						controllers.MailController.sendEmail()
+
 #Admin
 GET		/adminStatistics			controllers.AdminController.adminStatistics()
-GET		/survey						controllers.AdminController.survey()
-GET		/findUser					controllers.AdminController.findUser()
