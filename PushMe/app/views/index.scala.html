@@ -152,6 +152,7 @@
                 </div>
             
             </div>
+            <!-- Registermodal step 1 -->
 			<div class="modal-body step-1" data-step="1">
 	
 				<div class="form-group">
@@ -184,6 +185,7 @@
 				</div>
 			
 			</div>
+			<!-- Registermodal step 2 -->
             <div class="modal-body step-2" data-step="2">
 
 				<div class="form-group">
@@ -196,6 +198,7 @@
 				</div>
 
             </div>
+            <!-- Registermodal step 3 -->
 	      	<div class="modal-body step-3" data-step="3">         
 	          
 					<div class="form-group">
@@ -247,6 +250,7 @@
 					</div>
 				
             </div>
+            <!-- Registermodal step 4 -->
 			<div class="modal-body step-4" data-step="4">
 			<div class="form-group">
 				  <label class="control-label" for="current_al">@Messages.get("index.currentact")</label>
@@ -270,9 +274,11 @@
 			  </div>
 			</div>
 			</div>
+			<!-- Registermodal step 5 -->
             <div class="modal-body step-5" data-step="5" style="text-align: center;">
                 @Messages.get("index.doneregister")
             </div>
+            <!-- Buttons for the registermodal -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" >@Messages.get("index.cancel")</button>
                 <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent('#demo-modal-3', 2)">@Messages.get("index.continue")</button>
@@ -285,7 +291,8 @@
         }
     </div>
     </div>
-
+    
+<!-- Script for the register modal -->
 <script src="@routes.Assets.at("javascripts/multi-step-modal.js")"></script>
 <script>
 sendEvent = function(sel, step) {
@@ -293,6 +300,7 @@ sendEvent = function(sel, step) {
 }
 </script>
     </nav>
+    <!-- Navbar end/ -->
 
     <!-- Header Carousel -->
     <header id="myCarousel" class="carousel slide" style="margin-top: 50px">
@@ -303,7 +311,7 @@ sendEvent = function(sel, step) {
             <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
 
-        <!-- Wrapper for slides -->
+        <!-- Pictures for the carousel -->
         <div class="carousel-inner">
             <div class="item active">
                 <div class="fill" style="background-image:url('@routes.Assets.at("images/slideb2.jpg")');"></div>
@@ -316,7 +324,7 @@ sendEvent = function(sel, step) {
             </div>
         </div>
 
-        <!-- Controls -->
+        <!-- Controls for the picturecarousel -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="icon-prev"></span>
         </a>
@@ -377,11 +385,13 @@ sendEvent = function(sel, step) {
         <hr>
         
         <!-- Footer -->
+        
         <div id="footer">
       		<div class="container" style="text-align: center">
         		<p class="text-muted credit">&copy;PushMe 2015</p>
         		<p>Developed by: NTNU, IT2901. Emil, Erik, Itishree, Ivar and Robin.</p>
         		<p>
+        		<!-- Insert links to twitter, facebook, instagram and email -->
         		<i class="fa fa-fw fa-twitter fa-2x"></i>
         		<i class="fa fa-fw fa-facebook fa-2x"></i>
         		<i class="fa fa-fw fa-instagram fa-2x"></i>
