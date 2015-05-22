@@ -63,13 +63,16 @@
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul class="nav navbar-nav navbar-right">
 	                	<li>
-	                		<a onmouseover="this.style.backgroundColor='';this.style.backgroundColor='#2DAF75'" onmouseout="this.style.color='white';this.style.backgroundColor=''" href="profile" style="color:white;font-weight:900; text-transform: capitalize;">@user.name</a>
+	                		<a onmouseover="this.style.backgroundColor='';this.style.backgroundColor='#2DAF75'" onmouseout="this.style.color='white';this.style.backgroundColor=''" href="dashboard" class="btn-meny" style="color:white;" >@Messages.get("main.stats")</a>
 	                	</li>
 	                    <li>
 							<a onmouseover="this.style.backgroundColor='';this.style.backgroundColor='#2DAF75'" onmouseout="this.style.color='white';this.style.backgroundColor=''" href="useractivity" class="btn-meny" style="color:white;" >@Messages.get("main.actconv")</a>
 	                    </li>
 	                    <li>
-	                        <a onmouseover="this.style.backgroundColor='';this.style.backgroundColor='#2DAF75'" onmouseout="this.style.color='white';this.style.backgroundColor=''" href="dashboard" class="btn-meny" style="color:white;" >@Messages.get("main.stats")</a>
+							<a onmouseover="this.style.backgroundColor='';this.style.backgroundColor='#2DAF75'" onmouseout="this.style.color='white';this.style.backgroundColor=''" href="statistics" class="btn-meny" style="color:white;" >@Messages.get("main.statistics")</a>
+	                    </li>
+	                    <li>
+	                        <a onmouseover="this.style.backgroundColor='';this.style.backgroundColor='#2DAF75'" onmouseout="this.style.color='white';this.style.backgroundColor=''" href="profile" style="color:white;font-weight:900; text-transform: capitalize;">@user.name</a>
 	                    </li>
 	                    <li>
 	                        <a onmouseover="this.style.backgroundColor='';this.style.backgroundColor='#2DAF75'" onmouseout="this.style.color='white';this.style.backgroundColor=''" href="logout" class="btn-meny" style="color:white;" >@Messages.get("main.logout")</a>
@@ -142,6 +145,18 @@
 
                 	</div>
             	</div>
+            	
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-fire"></i> @Messages.get("main.calories") </h4>
+                    </div>
+                    <div class="panel-body">
+                        <p> 
+                        	Calories burned today goes here.
+                        </p>
+                    </div>
+                </div>
+ 
 				<div class="panel panel-default">
                 	<div class="panel-heading">
                    		<h4><i class="fa fa-fw fa-trophy"></i> @Messages.get("main.lboard") </h4>

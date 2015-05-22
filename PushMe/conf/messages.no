@@ -70,3 +70,5 @@ useract.stepmin=Skritt/min
 useract.add=Legg til
 useract.dur=Varighet
 leaderboard.rank=Rangering
+main.calories=Dagens Forbrente Kalorier
+main.statistics=Statistikk
