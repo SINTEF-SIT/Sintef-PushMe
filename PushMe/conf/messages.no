@@ -73,3 +73,5 @@ leaderboard.rank=Rangering
 main.calories=Dagens Forbrente Kalorier
 main.statistics=Statistikk
 mainadmin.survey=Undersøkelse
+dash.stepsmonth=Skritt de siste 30 dagene
+dash.stepsyear=Skritt det siste året

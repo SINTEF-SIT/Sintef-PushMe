@@ -73,3 +73,5 @@ leaderboard.rank=Rank
 main.calories=Calories Burned Today
 main.statistics=Statistics
 mainadmin.survey=Survey
+dash.stepsmonth=Steps last 30 days
+dash.stepsyear=Steps last year

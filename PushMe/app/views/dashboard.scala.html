@@ -55,6 +55,7 @@
 <hr>
 
 <!-- Step count progress bars -->
+<!--
 <div class ="container col-sm-12 col-md-12 col-lg-12">
 	<div id="monitor" class="panel panel-default tab-box">
 	    <div class="panel-heading" style="height: 60px">
@@ -62,11 +63,12 @@
 		        <i class="fa fa-flag"></i>
 		        @Messages.get("dash.stepsc")
 		    </h3>
-		    <ul class="nav nav-tabs" role="tablist">
+		    <ul class="nav nav-tabs" role="tablist"> 
+-->
 		        <!-- Month tab -->
-		        <li class="active"> <a href="#month-tab" role="tab" data-toggle="tab">@Messages.get("dash.month")</a></li>
+<!--	        <li class="active"> <a href="#month-tab" role="tab" data-toggle="tab">@Messages.get("dash.month")</a></li>
 	            <!-- Year -->
-	            <li> <a href="#year-tab" role="tab" data-toggle="tab">@Messages.get("dash.year")</a></li>
+<!--	            <li> <a href="#year-tab" role="tab" data-toggle="tab">@Messages.get("dash.year")</a></li>
 	        </ul>
 	    </div>
 	   
@@ -85,6 +87,51 @@
 	               		<div id="year_step-line" class = "graph" ></div>
 	                
 	               	</div>
+	            </div>
+	        </div>
+	</div>
+</div>
+-->
+
+<div class ="container col-sm-12 col-md-12 col-lg-12">
+	<div id="monitor" class="panel panel-default tab-box">
+	    <div class="panel-heading" style="height: 40px">
+		     <h3 class="panel-title" style = "margin-bottom: 5px">
+		        <i class="fa fa-flag"></i>
+		        @Messages.get("dash.stepsmonth")
+		    </h3>
+		    
+	    </div>
+	   
+	        <div class="tab-content">
+	            <div id="month-tab" role="tabpanel" class="tab-pane active">
+	                <div class="row" style="margin: 10px">
+	                
+	                <div id="month_step-line" class = "graph" ></div>
+	                
+	                </div>
+	            </div>
+	        </div>
+	</div>
+</div>
+
+<div class ="container col-sm-12 col-md-12 col-lg-12">
+	<div id="monitor" class="panel panel-default tab-box">
+	    <div class="panel-heading" style="height: 40px">
+		     <h3 class="panel-title" style = "margin-bottom: 5px">
+		        <i class="fa fa-flag"></i>
+		        @Messages.get("dash.stepsyear")
+		    </h3>
+		    
+	    </div>
+	   
+	        <div class="tab-content">
+	            <div id="year-tab" role="tabpanel" class="tab-pane active">
+	                <div class="row" style="margin: 10px">
+	                
+	                <div id="year_step-line" class = "graph" ></div>
+	                
+	                </div>
 	            </div>
 	        </div>
 	</div>
