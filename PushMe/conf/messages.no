@@ -1,5 +1,6 @@
 index.title=PushMe
 index.login=Logg inn
+index.forgotpassword=Glemt passordet?
 index.register=Registrer
 index.close=Lukk
 index.step1=Steg 1
