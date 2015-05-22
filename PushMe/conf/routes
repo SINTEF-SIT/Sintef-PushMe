@@ -41,3 +41,6 @@ GET		/leaderboard				controllers.LeaderboardController.leaderboard()
 
 #Change language
 POST	/lang/:lang					controllers.LanguageController.changeLanguage(lang:String)
+
+#Admin
+GET		/adminStatistics			controllers.AdminController.adminStatistics()
