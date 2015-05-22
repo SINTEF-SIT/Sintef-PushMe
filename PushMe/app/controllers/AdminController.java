@@ -11,7 +11,7 @@ import views.html.*;
 public class AdminController extends Controller {
 
 	@Security.Authenticated(Secured.class)
-	public static Result calendar() {
+	public static Result adminStatistics() {
         return ok(adminStatistics.render(ProfileController.findUser()));
     }
 	
