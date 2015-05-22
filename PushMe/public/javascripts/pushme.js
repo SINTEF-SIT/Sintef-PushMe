@@ -56,3 +56,8 @@ function deletePedo(id){
 		});
 	location.reload();
 }
+
+
+function forgotPassword(){
+	alert("Your password has been sent to your email.")
+}
