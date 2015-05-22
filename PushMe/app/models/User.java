@@ -22,6 +22,7 @@ public class User extends Model {
     public String gender;
     public String current_al;
     public String target_al;
+    public boolean isAdmin;
 
     public static Finder<String,User> find = new Finder<String,User>(
         String.class, User.class

@@ -25,6 +25,7 @@ public class SignupController extends Controller {
     
     public static Result createUser() {
         Form<User> userForm = Form.form(User.class).bindFromRequest();
+        userForm.get().isAdmin = false;
         if(userForm.hasErrors()) {
             return badRequest(
                     views.html.signup.render(userForm, ActivityLevel.all())

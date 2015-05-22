@@ -12,17 +12,29 @@ public class AdminController extends Controller {
 
 	@Security.Authenticated(Secured.class)
 	public static Result adminStatistics() {
-        return ok(adminStatistics.render(ProfileController.findUser()));
+		if(ProfileController.findUser().isAdmin == true){
+			return ok(adminStatistics.render(ProfileController.findUser()));
+		} else {
+			return IndexController.index();
+			}        
     }
 	
 	@Security.Authenticated(Secured.class)
 	public static Result survey() {
-        return ok(survey.render(ProfileController.findUser()));
+		if(ProfileController.findUser().isAdmin == true){
+			return ok(survey.render(ProfileController.findUser()));
+		} else {
+			return IndexController.index();
+			}        
     }
 	
 	@Security.Authenticated(Secured.class)
 	public static Result findUser() {
-        return ok(findUser.render(ProfileController.findUser()));
+		if(ProfileController.findUser().isAdmin == true){
+			return ok(findUser.render(ProfileController.findUser()));
+		} else {
+			return IndexController.index();
+			}        
     }
 	
 }
