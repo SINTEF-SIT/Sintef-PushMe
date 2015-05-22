@@ -44,3 +44,5 @@ POST	/lang/:lang					controllers.LanguageController.changeLanguage(lang:String)
 
 #Admin
 GET		/adminStatistics			controllers.AdminController.adminStatistics()
+GET		/survey						controllers.AdminController.survey()
+GET		/findUser					controllers.AdminController.findUser()

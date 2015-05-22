@@ -15,4 +15,14 @@ public class AdminController extends Controller {
         return ok(adminStatistics.render(ProfileController.findUser()));
     }
 	
+	@Security.Authenticated(Secured.class)
+	public static Result survey() {
+        return ok(survey.render(ProfileController.findUser()));
+    }
+	
+	@Security.Authenticated(Secured.class)
+	public static Result findUser() {
+        return ok(findUser.render(ProfileController.findUser()));
+    }
+	
 }
