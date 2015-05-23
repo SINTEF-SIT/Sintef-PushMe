@@ -45,3 +45,5 @@ GET 	/email 						controllers.MailController.sendEmail()
 
 #Admin
 GET		/adminStatistics			controllers.AdminController.adminStatistics()
+GET		/survey						controllers.AdminController.survey()
+GET		/findUser					controllers.AdminController.findUser()
