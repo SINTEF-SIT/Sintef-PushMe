@@ -1,10 +1,12 @@
 DELETE FROM user_activity;
 DELETE FROM user_steps;
+DELETE FROM module;
 DELETE FROM goal;
 DELETE FROM trophy;
 DELETE FROM user;
 DELETE FROM activity;
 DELETE FROM activity_level;
+DELETE FROM tips;
 DELETE FROM tips;
 
 INSERT INTO activity VALUES ("Aerobics",115,145,190);
@@ -128,3 +130,5 @@ INSERT INTO tips VALUES(4, "Pushups/situps(get up) during tv commercials.");
 INSERT INTO tips VALUES(5, "Go to the store if possible.");
 INSERT INTO tips VALUES(6, "Use your bike!");
 INSERT INTO tips VALUES(7, "Walk to work.");
+
+INSERT INTO module VALUES (1,"Dashboard", 0, "user@user");

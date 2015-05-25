@@ -47,3 +47,6 @@ GET 	/email 						controllers.MailController.sendEmail()
 GET		/adminStatistics			controllers.AdminController.adminStatistics()
 GET		/survey						controllers.AdminController.survey()
 GET		/findUser					controllers.AdminController.findUser()
+
+#Click tracker
+POST	/clickTracker/:module		controllers.AdminController.clickTracker(module:String)

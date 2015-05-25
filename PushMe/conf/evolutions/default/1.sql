@@ -28,6 +28,14 @@ create table goal (
   constraint pk_goal primary key (goal_number))
 ;
 
+create table module (
+  id                        bigint auto_increment not null,
+  description               varchar(255),
+  click_counter             integer,
+  belongs_to_email          varchar(255),
+  constraint pk_module primary key (id))
+;
+
 create table tips (
   tip_number                integer auto_increment not null,
   tip                       varchar(255),
@@ -77,14 +85,16 @@ create table user_steps (
 
 alter table goal add constraint fk_goal_activityLevel_1 foreign key (activity_level_id) references activity_level (id) on delete restrict on update restrict;
 create index ix_goal_activityLevel_1 on goal (activity_level_id);
-alter table trophy add constraint fk_trophy_user_2 foreign key (user_email) references user (email) on delete restrict on update restrict;
-create index ix_trophy_user_2 on trophy (user_email);
-alter table user_activity add constraint fk_user_activity_belongsTo_3 foreign key (belongs_to_email) references user (email) on delete restrict on update restrict;
-create index ix_user_activity_belongsTo_3 on user_activity (belongs_to_email);
-alter table user_activity add constraint fk_user_activity_activity_4 foreign key (activity_name) references activity (name) on delete restrict on update restrict;
-create index ix_user_activity_activity_4 on user_activity (activity_name);
-alter table user_steps add constraint fk_user_steps_belongsTo_5 foreign key (belongs_to_email) references user (email) on delete restrict on update restrict;
-create index ix_user_steps_belongsTo_5 on user_steps (belongs_to_email);
+alter table module add constraint fk_module_belongsTo_2 foreign key (belongs_to_email) references user (email) on delete restrict on update restrict;
+create index ix_module_belongsTo_2 on module (belongs_to_email);
+alter table trophy add constraint fk_trophy_user_3 foreign key (user_email) references user (email) on delete restrict on update restrict;
+create index ix_trophy_user_3 on trophy (user_email);
+alter table user_activity add constraint fk_user_activity_belongsTo_4 foreign key (belongs_to_email) references user (email) on delete restrict on update restrict;
+create index ix_user_activity_belongsTo_4 on user_activity (belongs_to_email);
+alter table user_activity add constraint fk_user_activity_activity_5 foreign key (activity_name) references activity (name) on delete restrict on update restrict;
+create index ix_user_activity_activity_5 on user_activity (activity_name);
+alter table user_steps add constraint fk_user_steps_belongsTo_6 foreign key (belongs_to_email) references user (email) on delete restrict on update restrict;
+create index ix_user_steps_belongsTo_6 on user_steps (belongs_to_email);
 
 
 
@@ -97,6 +107,8 @@ drop table activity;
 drop table activity_level;
 
 drop table goal;
+
+drop table module;
 
 drop table tips;
 
