@@ -5,39 +5,38 @@
     
 <!-- Container auto-aligns carousel -->
 
-<div class = "container col-sm-12 col-md-12 col-lg-12" style="margin-top: 20px">    
-	<div id="tip-carousel" class="carousel slide" data-ride="carousel">
-    	<div class="row">
-	        <div class="col-md-8 col-md-offset-4 col-xs-offset-3" style="text-align:center">
-	            <div class="carousel-inner">
-	                <div class="item active">
-	                	<div class="carousel-content"  style="height: 64px">
-	        	    		<div>
-	                    		<h4><b>@Messages.get("dash.welcome")</b></h4>
+<div class = "container col-sm-12 col-md-12 col-lg-12">    
+	<div id="tip-carousel" class="carousel slide" data-ride="carousel" style="margin-top: 3%">
+		<div class="carousel-inner">
+	    	<div class="item active" style="text-align:center">
+	        	<div class="carousel-content"  style="height: 120px">
+	        		<div class="carousel-caption">
+	                	<h4><b>@Messages.get("dash.welcome")</b></h4>
+	          		</div>
+	            </div>
+	        </div>	
+	        @for(t <- tips) {
+	        	<div class="item" style="text-align:center">
+	          	 	<div class="fill" >
+	            		<div class="carousel-content"  style="height: 120px">
+	            	    	<div class="carousel-caption">
+	        	    	    	<h5><b>@t.title</b></h5>
+	                    		<h4><i>@t.description</i></h4>
 	                    	</div>
-	                	</div>
+	                    </div>
 	                </div>
-	                @for(t <- tips) {
-	          	     	<div class="item">
-	            	       	<div class="carousel-content"  style="height: 64px">
-	        	    	       	<div>
-	        	    	       	
-	        	    	       		<h5><b>@t.title</b></h5>
-	                    	       	<h4><i>@t.description</i></h4>
-	                    	    
-	                    	   	</div>
-	                  		</div>
-	                  	</div>
-	                }
-            	</div>
-        	</div>
+	        	</div>
+	    	}
     	</div>
+    	
    		<!-- Controls -->
-   		<a class="left carousel-control" href="#tip-carousel" data-slide="prev">
-   			<span class="glyphicon glyphicon-chevron-left"></span>
+   		<a class="left carousel-control" href="#tip-carousel" role="button" data-slide="prev">
+   			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+   			<span class="sr-only">Next</span>
  		</a>
-		<a class="right carousel-control" href="#tip-carousel" data-slide="next">
-   			<span class="glyphicon glyphicon-chevron-right"></span>
+		<a class="right carousel-control" href="#tip-carousel" role="button" data-slide="next">
+   			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+   			<span class="sr-only">Prev</span>
  		</a>
 
 	</div>
