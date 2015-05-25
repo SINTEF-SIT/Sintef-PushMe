@@ -30,7 +30,8 @@ create table goal (
 
 create table tips (
   tip_number                integer auto_increment not null,
-  tip                       varchar(255),
+  title                     varchar(255),
+  description               varchar(255),
   constraint pk_tips primary key (tip_number))
 ;
 
