@@ -30,6 +30,7 @@ create table goal (
 
 create table module (
   id                        bigint auto_increment not null,
+  name                      varchar(255),
   description               varchar(255),
   click_counter             integer,
   belongs_to_email          varchar(255),
@@ -38,7 +39,8 @@ create table module (
 
 create table tips (
   tip_number                integer auto_increment not null,
-  tip                       varchar(255),
+  title                     varchar(255),
+  description               varchar(255),
   constraint pk_tips primary key (tip_number))
 ;
 

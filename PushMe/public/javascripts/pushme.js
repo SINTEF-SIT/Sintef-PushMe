@@ -63,8 +63,8 @@ function forgotPassword(){
 }
 
 /*Click tracker*/
-function clickTracker(module){
-	$.post("/clickTracker/"+module, function( data ) {
+function clickTracker(module, email){
+	$.post("/clickTracker/"+email+"/"+module, function( data ) {
 	});
 }
 

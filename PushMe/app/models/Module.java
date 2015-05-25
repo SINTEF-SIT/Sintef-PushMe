@@ -14,6 +14,7 @@ public class Module extends Model {
 
     @Id
     public long id;
+    public String name;
     public String description;
     public int clickCounter;
     @ManyToOne

@@ -3,50 +3,51 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.IndexController.index()
+GET     /                           	controllers.IndexController.index()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file               	controllers.Assets.at(path="/public", file)
 
 #Login
-GET		/login						controllers.LoginController.login()
-POST    /                      		controllers.LoginController.authenticate()
-GET     /logout                     controllers.LoginController.logout()
+GET		/login							controllers.LoginController.login()
+POST    /                      			controllers.LoginController.authenticate()
+GET     /logout                     	controllers.LoginController.logout()
 
 #Signup
-GET		/signup						controllers.SignupController.signup()
-POST	/signup						controllers.SignupController.createUser()
+GET		/signup							controllers.SignupController.signup()
+POST	/signup							controllers.SignupController.createUser()
 
 #UserActivities
-GET		/useractivity				controllers.UserActivityController.useractivity()
-POST	/useractivity/save/:a		controllers.UserActivityController.createUserActivity(a:String)
-POST	/useractivity/delete/:id	controllers.DashboardController.deleteUA(id:Long)
-POST	/stepreg					controllers.UserActivityController.addSteps()
+GET		/useractivity					controllers.UserActivityController.useractivity()
+POST	/useractivity/save/:a			controllers.UserActivityController.createUserActivity(a:String)
+POST	/useractivity/delete/:id		controllers.DashboardController.deleteUA(id:Long)
+POST	/stepreg						controllers.UserActivityController.addSteps()
+POST	/usersteps/delete/:id			controllers.DashboardController.deletePedo(id:Long)
 
 #Dashboard
-GET		/dashboard					controllers.DashboardController.dashboard()
-POST	/dailyBar					controllers.DashboardController.generateDailyBar()
+GET		/dashboard						controllers.DashboardController.dashboard()
+POST	/dailyBar						controllers.DashboardController.generateDailyBar()
 
 #Profile
-GET     /profile					controllers.ProfileController.profile()
-POST    /updateuser					controllers.ProfileController.updateUser()
+GET     /profile						controllers.ProfileController.profile()
+POST    /updateuser						controllers.ProfileController.updateUser()
 
 #Calendar
-GET		/calendar					controllers.CalendarController.calendar()
-
+GET		/calendar						controllers.CalendarController.calendar()
 
 #Leaderboard
-GET		/leaderboard				controllers.LeaderboardController.leaderboard()
+GET		/leaderboard					controllers.LeaderboardController.leaderboard()
 
 #Change language
-POST	/lang/:lang					controllers.LanguageController.changeLanguage(lang:String)
+POST	/lang/:lang						controllers.LanguageController.changeLanguage(lang:String)
 
-GET 	/email 						controllers.MailController.sendEmail()
+#Email handler
+GET 	/email 							controllers.MailController.sendEmail()
 
 #Admin
-GET		/adminStatistics			controllers.AdminController.adminStatistics()
-GET		/survey						controllers.AdminController.survey()
-GET		/findUser					controllers.AdminController.findUser()
+GET		/adminStatistics				controllers.AdminController.adminStatistics()
+GET		/survey							controllers.AdminController.survey()
+GET		/findUser						controllers.AdminController.findUser()
 
 #Click tracker
-POST	/clickTracker/:module		controllers.AdminController.clickTracker(module:String)
+POST	/clickTracker/:email/:module	controllers.AdminController.clickTracker(module:String, email:String)

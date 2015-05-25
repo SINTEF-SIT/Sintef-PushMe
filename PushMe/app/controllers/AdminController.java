@@ -40,17 +40,17 @@ public class AdminController extends Controller {
     }
 	
 	//Add a activity-point to the module when called
-	public static Result clickTracker(String description){
+	public static Result clickTracker(String name, String email){
 		Module module = null;
-		User loggedOnUser = ProfileController.findUser();
+		User loggedOnUser = User.find.byId(email);
 		List<Module> moduleList = Module.find.all();
 		for(int i=0;i<moduleList.size();i++){
-			if(moduleList.get(i).description.equals(description) && moduleList.get(i).belongsTo.equals(loggedOnUser)){
+			if(moduleList.get(i).name.equals(name) && moduleList.get(i).belongsTo.equals(loggedOnUser)){
 				module = moduleList.get(i);break;
 				}
 		}
 		module.clickCounter++;
 		Module.update(module.id, module);
-		return ok("Success");
+		return ok("Click count registered");
 	}
 }

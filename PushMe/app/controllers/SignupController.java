@@ -32,27 +32,13 @@ public class SignupController extends Controller {
             );
         } else {
             User.create(userForm.get());
+            generateUserModules(User.find.byId(userForm.get().email));
             return redirect(routes.IndexController.index());
         }
     }
- /*   
-    public void sendValidationEmail () {
-    	SimpleEmail email = new SimpleEmail();
-    	email.setFrom("pushMe@sintef.no");
-    	email.addTo("test@test.test");
-    	email.setSubject("Confirmation code");
+
+    /*Generate modules in the db where clicks and activity are registered*/
+    public static  void generateUserModules(User user){
     	
-    	char[5] code = createRandomCode();
-    	email.setMsg("Your confirmation PushMe confirmation code is: " + code + "\nYou can ignore this email if this don't consern you.");
-    	Mail.send(email);
     }
-    
-    private char[] createRandomCode() {
-    	char[5] code;
-        Random r = new Random();
-        String alphabet = "0123456789abcdefghijklmnopqrstuvxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        for (int i = 0; i < 5; i++) {
-            code[i] = alphabet.charAt(r.nextInt(alphabet.length()));
-        } return code;
-*/
 }

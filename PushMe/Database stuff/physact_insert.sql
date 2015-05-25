@@ -123,7 +123,10 @@ INSERT INTO goal VALUES (2, 90000, 20150401000000, 20150430000000, "month", 1);
 INSERT INTO goal VALUES (3, 45000, 20150501000000, 20150531000000, "month", 1);
 INSERT INTO goal VALUES (4, 55000, 20150410000000, 20150417000000, "week", 1);
 
-INSERT INTO module VALUES (1,"Dashboard", 0, "user@user");
+INSERT INTO module VALUES (1,"Dashboard","Navigation button to the dashboard page",0,"user@user");
+INSERT INTO module VALUES (2,"Useractivity","The navigation button to the activity registration page",0,"user@user");
+INSERT INTO module VALUES (3,"Profile", "The navigation button to the profile page",0,"user@user");
+INSERT INTO module VALUES (4,"Statistics","The navigation button to the statistics page",0,"user@user");
 
 INSERT INTO tips VALUES(1, "Pick the parking-spot the farthest away from the shop.", null);
 INSERT INTO tips VALUES(2, "Take a detour while walking to your buss.", null);
