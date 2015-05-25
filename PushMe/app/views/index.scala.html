@@ -14,7 +14,6 @@
     <title>@Messages.get("index.title")</title>
     <link rel="shortcut icon" href="@routes.Assets.at("images/sintef-logo.gif")" />    
     <!-- Script -->
-    <script src="@routes.Assets.at("javascripts/jquery.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/pushme.js")"></script>
 	<script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
     <!-- Bootstrap Core CSS -->
@@ -23,7 +22,7 @@
     <link href="@routes.Assets.at("stylesheets/pushme.css")" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="@routes.Assets.at("fonts/font-awesome/css/font-awesome.min.css")" rel="stylesheet" type="text/css">
-
+	<script src="@routes.Assets.at("javascripts/jquery-ui-1.9.2.custom.js")"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -305,7 +304,7 @@ sendEvent = function(sel, step) {
     <!-- Navbar end/ -->
 
     <!-- Header Carousel -->
-    <header id="myCarousel" class="carousel slide" style="margin-top: 50px">
+    <header id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 50px">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -315,24 +314,26 @@ sendEvent = function(sel, step) {
 
         <!-- Pictures for the carousel -->
         <div class="carousel-inner">
-            <div class="item active">
+            <div class="item active carousel-content">
                 <div class="fill" style="background-image:url('@routes.Assets.at("images/slideb2.jpg")');"></div>
             </div>
-            <div class="item">
+            <div class="item carousel-content">
                 <div class="fill" style="background-image:url('@routes.Assets.at("images/cross-country.jpg")');"></div>
             </div>
-            <div class="item">
+            <div class="item carousel-content">
                 <div class="fill" style="background-image:url('@routes.Assets.at("images/dsc_5091-recovered-recovered.jpg")');"></div>
             </div>
         </div>
 
         <!-- Controls for the picturecarousel -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+   			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+   			<span class="sr-only">Next</span>
+ 		</a>
+		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+   			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+   			<span class="sr-only">Prev</span>
+ 		</a>
     </header>
 
     <!-- Page Content -->
