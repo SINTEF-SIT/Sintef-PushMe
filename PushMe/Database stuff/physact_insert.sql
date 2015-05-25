@@ -146,10 +146,3 @@ outside of your bedroom.");
 INSERT INTO tips VALUES(12, "Walk to work.", "For many people, going to the gym just isn’t much fun, which makes it challenging to 
 sustain as a lifestyle choice. Find a sport or an active leisure pursuit that you can enjoy. You’ll find it easier to commit.");
 INSERT INTO tips VALUES(13, "Find something you enjoy.", "Going to the gym is for many a pain. Exercising should be fun, make sure it is!");
-INSERT INTO tips VALUES(14, "Walk to work.", null);
-INSERT INTO tips VALUES(15, "Walk to work.", null);
-INSERT INTO tips VALUES(16, "Walk to work.", null);
-INSERT INTO tips VALUES(17, "Walk to work.", null);
-INSERT INTO tips VALUES(18, "Walk to work.", null);
-INSERT INTO tips VALUES(19, "Walk to work.", null);
-INSERT INTO tips VALUES(20, "Walk to work.", null);
