@@ -31,6 +31,15 @@ public class AdminController extends Controller {
     }
 	
 	@Security.Authenticated(Secured.class)
+	public static Result createSurvey() {
+		if(ProfileController.findUser().isAdmin == true){
+			return ok(createSurvey.render(ProfileController.findUser()));
+		} else {
+			return IndexController.index();
+			}        
+    }
+	
+	@Security.Authenticated(Secured.class)
 	public static Result findUser() {
 		if(ProfileController.findUser().isAdmin == true){
 			return ok(findUser.render(ProfileController.findUser()));

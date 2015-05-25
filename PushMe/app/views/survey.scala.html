@@ -1,5 +1,34 @@
 @(user: User)
 @import play.i18n._
 @mainAdmin("Admin | Survey", user){
-	Survey Here
+
+<div class="panel panel-default" style="max-width:80%;">
+	<div class="panel-heading">
+		<h4><i class="fa fa-fw fa-bar-chart-o"></i> @Messages.get("survey.title") </h4>
+	</div>
+	<div class="container">
+      <div class="table-responsive">
+        <table class="table-striped table-condensed table-hover">
+          <thead>
+				<tr>
+					<th>@Messages.get("survey.name")</th>
+					<th>@Messages.get("survey.edit")</th>
+					<th>@Messages.get("survey.delete")</th>
+					<th>@Messages.get("survey.deploy")</th>
+	
+				</tr>
+          </thead>
+          <tbody id="myTable">
+					<tr>
+						<td style="width:30%"></td>
+						<td style="width:10%">@Messages.get("survey.edit")</td>
+						<td style="width:10%">@Messages.get("survey.delete")</td>
+						<td style="width:10%">@Messages.get("survey.deploy")</td>
+					</tr>
+          </tbody>
+        </table>   
+      </div>
+      	<div class="text-center" style="max-width:60%;padding-top:20px;"></div>
+	</div>
+</div>
 }
