@@ -1,5 +1,40 @@
 @(user: User)
 @import play.i18n._
 @mainAdmin("Admin | Statistics", user){
-	Statistics Here.
+	<div id="dataset" style="text-align: center;">
+  		<input class="typeahead" type="text" placeholder="Users" style="height: 30px; width: 200px;">
+  		<button type="button" class="btn btn-default" style="height: 30px">@Messages.get("admStat.dispAll")</button>
+	</div>
+	
+<hr>
+
+<div class="panel panel-default" style="max-width:80%;">
+	<div class="panel-heading">
+		<h4><i class="fa fa-fw fa-bar-chart-o"></i> @Messages.get("admStat.mtracker") </h4>
+	</div>
+	<div class="container">
+      <div class="table-responsive">
+        <table class="table-striped table-condensed table-hover">
+          <thead>
+				<tr>
+					<th>@Messages.get("admStat.name")</th>
+					<th>@Messages.get("admStat.desc")</th>
+					<th>@Messages.get("admStat.click")</th>
+	
+				</tr>
+          </thead>
+          <tbody id="myTable">
+					<tr>
+						<td style="width:30%"></td>
+						<td style="width:30%"></td>
+						<td style="width:10%"></td>
+					</tr>
+          </tbody>
+        </table>   
+      </div>
+      	<div class="text-center" style="max-width:60%;padding-top:20px;"></div>
+	</div>
+</div>
+	
+
 }
