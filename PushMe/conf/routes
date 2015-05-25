@@ -38,6 +38,9 @@ GET		/calendar						controllers.CalendarController.calendar()
 #Leaderboard
 GET		/leaderboard					controllers.LeaderboardController.leaderboard()
 
+#Statistics
+GET		/statistics						controllers.StatisticsController.statistics()
+
 #Change language
 POST	/lang/:lang						controllers.LanguageController.changeLanguage(lang:String)
 
