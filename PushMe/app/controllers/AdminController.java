@@ -2,6 +2,8 @@ package controllers;
 
 import static play.data.Form.form;
 
+import java.util.List;
+
 import play.*;
 import play.data.*;
 import play.mvc.*;
@@ -37,4 +39,18 @@ public class AdminController extends Controller {
 			}        
     }
 	
+	//Add a activity-point to the module when called
+	public static Result clickTracker(String description){
+		Module module = null;
+		User loggedOnUser = ProfileController.findUser();
+		List<Module> moduleList = Module.find.all();
+		for(int i=0;i<moduleList.size();i++){
+			if(moduleList.get(i).description.equals(description) && moduleList.get(i).belongsTo.equals(loggedOnUser)){
+				module = moduleList.get(i);break;
+				}
+		}
+		module.clickCounter++;
+		Module.update(module.id, module);
+		return ok("Success");
+	}
 }
