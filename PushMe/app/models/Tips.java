@@ -15,7 +15,8 @@ public class Tips extends Model {
 	
 	@Id
 	public int tip_number;
-	public String tip;
+	public String title;
+	public String description;
 	
     public static Finder<Long,Tips> find = new Finder<Long,Tips>(
             Long.class, Tips.class

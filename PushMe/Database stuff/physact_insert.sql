@@ -123,12 +123,30 @@ INSERT INTO goal VALUES (2, 90000, 20150401000000, 20150430000000, "month", 1);
 INSERT INTO goal VALUES (3, 45000, 20150501000000, 20150531000000, "month", 1);
 INSERT INTO goal VALUES (4, 55000, 20150410000000, 20150417000000, "week", 1);
 
-INSERT INTO tips VALUES(1, "Pick the parking-spot the farthest away from the shop.");
-INSERT INTO tips VALUES(2, "Take a detour while walking to your buss.");
-INSERT INTO tips VALUES(3, "Use the stairs!");
-INSERT INTO tips VALUES(4, "Pushups/situps(get up) during tv commercials.");
-INSERT INTO tips VALUES(5, "Go to the store if possible.");
-INSERT INTO tips VALUES(6, "Use your bike!");
-INSERT INTO tips VALUES(7, "Walk to work.");
-
 INSERT INTO module VALUES (1,"Dashboard", 0, "user@user");
+
+INSERT INTO tips VALUES(1, "Pick the parking-spot the farthest away from the shop.", null);
+INSERT INTO tips VALUES(2, "Take a detour while walking to your buss.", null);
+INSERT INTO tips VALUES(3, "Use the stairs!", null);
+INSERT INTO tips VALUES(4, "Pushups/situps(get up) during tv commercials.", null);
+INSERT INTO tips VALUES(5, "Go to the store if possible.", null);
+INSERT INTO tips VALUES(6, "Use your bike!", "If you live within five or ten miles of where you work, 
+take the opportunity to bike instead of drive to work. A thirty-minute bike ride will leave you feeling energized.");
+INSERT INTO tips VALUES(8, "Walk to work.", null);
+INSERT INTO tips VALUES(9, "Exercise with a friend.", "Another reason you may feel the need for a personal 
+trainer is to be motivated to workout. Find a gym buddy instead and make a pact to ensure workouts will be completed properly.");
+INSERT INTO tips VALUES(10, "Vigorous housekeeping.", "House chores like sweeping, mopping, gardening and washing the car can be 
+great calorie burners that help you complete the tasks you probably needed to do anyway.");
+INSERT INTO tips VALUES(11, "Body weight exercises.", "Some of the best muscle-toning workouts rely on only using your body weight. 
+You can do exercises like pull-ups, push-ups, crunches, squats and lunges without any specialized equipment — or even stepping a foot 
+outside of your bedroom.");
+INSERT INTO tips VALUES(12, "Walk to work.", "For many people, going to the gym just isn’t much fun, which makes it challenging to 
+sustain as a lifestyle choice. Find a sport or an active leisure pursuit that you can enjoy. You’ll find it easier to commit.");
+INSERT INTO tips VALUES(13, "Find something you enjoy.", "Going to the gym is for many a pain. Exercising should be fun, make sure it is!");
+INSERT INTO tips VALUES(14, "Walk to work.", null);
+INSERT INTO tips VALUES(15, "Walk to work.", null);
+INSERT INTO tips VALUES(16, "Walk to work.", null);
+INSERT INTO tips VALUES(17, "Walk to work.", null);
+INSERT INTO tips VALUES(18, "Walk to work.", null);
+INSERT INTO tips VALUES(19, "Walk to work.", null);
+INSERT INTO tips VALUES(20, "Walk to work.", null);
