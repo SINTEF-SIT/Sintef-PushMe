@@ -37,6 +37,7 @@ create table module (
 
 create table survey (
   id                        bigint auto_increment not null,
+  name                      varchar(255),
   question1                 varchar(255),
   option1_1                 varchar(255),
   option2_1                 varchar(255),

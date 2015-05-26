@@ -1,6 +1,8 @@
 DELETE FROM user_activity;
 DELETE FROM user_steps;
 DELETE FROM user_module;
+DELETE FROM survey_answer;
+DELETE FROM survey;
 DELETE FROM goal;
 DELETE FROM trophy;
 DELETE FROM module;
