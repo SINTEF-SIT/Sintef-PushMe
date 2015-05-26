@@ -6,11 +6,11 @@
 <!-- Fields to create a new Survey -->
     <h1>@Messages.get("creSurv.title")</h1>
 
-			@helper.form(routes.AdminController.createSurvey) {
+			@helper.form(routes.AdminController.createSurveyForm()) {
     		
 			<!-- Survey Title -->
 			<label class="control-label">@Messages.get("survey.name"):</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="name">
 			<br>
 			
 			<!-- Survey Question 1 -->

@@ -14,11 +14,13 @@ import com.avaje.ebean.*;
 import controllers.AdminController;
 import controllers.ProfileController;
 
+
 @Entity
 public class Survey extends Model {
 
     @Id
     public long id;
+    public String name;
     public String question1;
     public String option1_1;
     public String option2_1;
@@ -55,12 +57,5 @@ public class Survey extends Model {
     public static String update(Long id, Survey survey) {
         survey.update((Object)id);
         return ("Your profile has been updated");
-        }    
-    
-    public static Result createSurvey(){
-    	Form<Survey> form = Form.form(Survey.class).bindFromRequest();
-    	form.get().save();
-    	return AdminController.survey();
-        
-    }
+        }
 }

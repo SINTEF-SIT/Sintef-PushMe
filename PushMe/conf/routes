@@ -49,7 +49,7 @@ GET		/adminStatistics				controllers.AdminController.adminStatistics()
 GET		/survey							controllers.AdminController.survey()
 GET		/createSurvey					controllers.AdminController.createSurvey()
 GET		/findUser						controllers.AdminController.findUser()
-POST	/createSurvey					controllers.AdminController.createSurvey()
+POST	/createSurvey					controllers.AdminController.createSurveyForm()
 
 #Click tracker
 POST	/clickTracker/:email/:module	controllers.AdminController.clickTracker(module:String, email:String)
