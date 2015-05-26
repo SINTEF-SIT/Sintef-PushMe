@@ -92,3 +92,4 @@ creSurv.q2=Spørsmål 2
 creSurv.q3=Spørsmål 3
 creSurv.q4=Spørsmål 4
 creSurv.q5=Spørsmål 5
+survey.creSurvey=Lag Ny Undersøkelse

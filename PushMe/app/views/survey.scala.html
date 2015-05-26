@@ -2,13 +2,14 @@
 @import play.i18n._
 @mainAdmin("Admin | Survey", user){
 
-<div class="panel panel-default" style="max-width:80%;">
+<!-- List of Surveys -->
+<div class="panel panel-default">
 	<div class="panel-heading">
 		<h4><i class="fa fa-fw fa-bar-chart-o"></i> @Messages.get("survey.title") </h4>
 	</div>
 	<div class="container">
       <div class="table-responsive">
-        <table class="table-striped table-condensed table-hover">
+        <table class="table-striped table-condensed table-hover col-md-12">
           <thead>
 				<tr>
 					<th>@Messages.get("survey.name")</th>
@@ -17,18 +18,19 @@
 					<th>@Messages.get("survey.deploy")</th>
 	
 				</tr>
-          </thead>
+          </thead>          
           <tbody id="myTable">
 					<tr>
-						<td style="width:30%"></td>
-						<td style="width:10%">@Messages.get("survey.edit")</td>
-						<td style="width:10%">@Messages.get("survey.delete")</td>
-						<td style="width:10%">@Messages.get("survey.deploy")</td>
+						<td>Name of the Survey</td>
+						<td>@Messages.get("survey.edit")</td>
+						<td>@Messages.get("survey.delete")</td>
+						<td>@Messages.get("survey.deploy")</td>
 					</tr>
           </tbody>
         </table>   
       </div>
-      	<div class="text-center" style="max-width:60%;padding-top:20px;"></div>
 	</div>
+	<a href="/createSurvey"><button style="width:200px;" class="btn btn-primary">@Messages.get("survey.creSurvey")</button></a>
 </div>
+
 }
