@@ -87,9 +87,11 @@ INSERT INTO activity VALUES ("Wrestling",120,150,300);
 INSERT INTO activity VALUES ("Yoga",0,100,0);
 INSERT INTO activity VALUES ("Zumba",0,130,0);
 
-INSERT INTO activity_level VALUES (1,1,"Low");
-INSERT INTO activity_level VALUES (2,2,"Medium");
-INSERT INTO activity_level VALUES (3,3,"High");
+INSERT INTO activity_level VALUES (1,1,"Inactive (Mostly sitting)");
+INSERT INTO activity_level VALUES (2,2,"Minimum Activity (Doing the bare minimum of activity each day).");
+INSERT INTO activity_level VALUES (3,3,"The Walker (A lot of walking but no training sessions).");
+INSERT INTO activity_level VALUES (4,4,"Active Lifestyle (1-2 training sessions a week).");
+INSERT INTO activity_level VALUES (5,5,"The Athlete (3-5 training sessions each week and active the rest of the day).");
 
 INSERT INTO user VALUES ("test@test", "123", "Test", 20000101010101, 123, 123, "male", "Low", "Low", false);
 INSERT INTO user VALUES ("user@user", "123", "User", 20000102010101, 321, 321, "female", "Medium", "High", false);
@@ -117,12 +119,13 @@ INSERT INTO user VALUES ("admin@admin", "123", "Admin", 20000102010101, 0, 0, "m
 
 INSERT INTO trophy VALUES (1, 1, "Week trophy: 12.04.2015", 20150428000000, "test@test");
 INSERT INTO trophy VALUES (2, 2, "Month trophy: 12.04.2015", 20150228000000, "test@test");
-INSERT INTO trophy VALUES (3, 2, "Month trophy: 12.04.2015", 20150528000000, "user@user");
+#INSERT INTO trophy VALUES (3, 2, "Month trophy: 12.04.2015", 20150428000000, "user@user");
 
-INSERT INTO goal VALUES (1, 45000, 20150425000000, 20150502000000, "week", 1);
-INSERT INTO goal VALUES (2, 90000, 20150401000000, 20150430000000, "month", 1);
-INSERT INTO goal VALUES (3, 45000, 20150501000000, 20150531000000, "month", 1);
-INSERT INTO goal VALUES (4, 55000, 20150410000000, 20150417000000, "week", 1);
+INSERT INTO goal VALUES (1, 35000, 20150425000000, 20150502000000, "week", 1);
+INSERT INTO goal VALUES (2, 150000, 20150401000000, 20150430000000, "month", 1);
+INSERT INTO goal VALUES (3, 155000, 20150501000000, 20150531000000, "month", 1);
+INSERT INTO goal VALUES (4, 35000, 20150525000000, 20150531000000, "week", 1);
+INSERT INTO goal VALUES (5, 35000, 20150517000000, 20150524000000, "week", 1);
 
 INSERT INTO module VALUES (1,"Dashboard","Navigation button to the dashboard page");
 INSERT INTO module VALUES (2,"Useractivity","The navigation button to the activity registration page");
