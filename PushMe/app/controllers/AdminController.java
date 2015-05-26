@@ -25,7 +25,7 @@ public class AdminController extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result survey() {
 		if(ProfileController.findUser().isAdmin == true){
-			return ok(survey.render(ProfileController.findUser()));
+			return ok(survey.render(ProfileController.findUser(),  Survey.find.all()));
 		} else {
 			return IndexController.index();
 			}        
@@ -40,10 +40,30 @@ public class AdminController extends Controller {
 			}        
     }
 	
+	//Render editSurvey.scala.html
+	@Security.Authenticated(Secured.class)
+	public static Result editSurvey(Long id) {
+		Survey survey = Survey.find.byId(id);
+		if(ProfileController.findUser().isAdmin == true){
+			return ok(editSurvey.render(ProfileController.findUser(), survey));
+		} else {
+			return IndexController.index();
+			}        
+    }
+	
+	//Create a survey
 	@Security.Authenticated(Secured.class)
 	public static Result createSurveyForm(){
     	Form<Survey> form = Form.form(Survey.class).bindFromRequest();
     	form.get().save();
+    	return AdminController.survey();
+    }
+	
+	//Edit a survey
+	@Security.Authenticated(Secured.class)
+	public static Result editSurveyForm(Long id){
+    	Form<Survey> form = Form.form(Survey.class).bindFromRequest();
+    	Survey.update(id, form.get());
     	return AdminController.survey();
     }
 	

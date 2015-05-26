@@ -1,0 +1,100 @@
+@(user: User, survey: Survey)
+@import play.i18n._
+@mainAdmin("Admin | Edit Survey", user){
+<div class="container">
+
+<!-- Fields to create a new Survey -->
+    <h1>@Messages.get("editSurv.title")</h1>
+
+			@helper.form(routes.AdminController.editSurveyForm(survey.id)) {
+    		
+			<!-- Survey Title -->
+			<label class="control-label">@Messages.get("survey.name"):</label>
+            <input class="form-control" type="text" name="name" value="@survey.name">
+			<br>
+			
+			<!-- Survey Question 1 -->
+			<label class="control-label">@Messages.get("creSurv.q1"):</label>
+              <input class="form-control" type="text" name="question1" value="@survey.question1">
+              <br>
+              @Messages.get("creSurv.o1"):
+              <input type="text" name="option1_1" value="@survey.option1_1">
+              <br>
+              @Messages.get("creSurv.o2"):
+              <input type="text" name="option2_1" value="@survey.option2_1">
+              <br>
+              @Messages.get("creSurv.o3"):
+              <input type="text" name="option3_1" value="@survey.option3_1">              
+             <br>
+             <br>
+             
+			<!-- Survey Question 2 -->             
+             <label class="control-label">@Messages.get("creSurv.q2"):</label>
+              <input class="form-control" type="text" name="question2" value="@survey.question2">
+              <br>
+              @Messages.get("creSurv.o1"):
+              <input type="text" name="option1_2" value="@survey.option1_2">
+              <br>
+              @Messages.get("creSurv.o2"):
+              <input type="text" name="option2_2" value="@survey.option2_2">
+              <br>
+              @Messages.get("creSurv.o3"):
+              <input type="text" name="option3_2" value="@survey.option3_2">              
+             <br>
+             <br>
+             
+			<!-- Survey Question 3 -->             
+             <label class="control-label">@Messages.get("creSurv.q3"):</label>
+              <input class="form-control" type="text" name="question3" value="@survey.question3">
+              <br>   
+              @Messages.get("creSurv.o1"):
+              <input type="text" name="option1_3" value="@survey.option1_3">
+              <br>
+              @Messages.get("creSurv.o2"):
+              <input type="text" name="option2_3" value="@survey.option2_3">
+              <br>
+              @Messages.get("creSurv.o3"):
+              <input type="text" name="option3_3" value="@survey.option3_3">  
+             <br>          
+             <br>
+             
+			<!-- Survey Question 4 -->             
+             <label class="control-label">@Messages.get("creSurv.q4"):</label>
+              <input class="form-control" type="text" name="question4" value="@survey.question4">
+              <br>
+              @Messages.get("creSurv.o1"):
+              <input type="text" name="option1_4" value="@survey.option1_4">
+              <br>
+              @Messages.get("creSurv.o2"):
+              <input type="text" name="option2_4" value="@survey.option2_4">
+              <br>
+              @Messages.get("creSurv.o3"):
+              <input type="text" name="option3_4" value="@survey.option3_4"> 
+              <br>              
+             <br>
+             
+			<!-- Survey Question 5 -->             
+             <label class="control-label">@Messages.get("creSurv.q5"):</label>
+              <input class="form-control" type="text" name="question5" value="@survey.question5"> 
+              <br>
+              @Messages.get("creSurv.o1"):
+              <input type="text" name="option1_5" value="@survey.option1_5">
+              <br>
+              @Messages.get("creSurv.o2"):
+              <input type="text" name="option2_5" value="@survey.option2_5">
+              <br>
+              @Messages.get("creSurv.o3"):
+              <input type="text" name="option3_5" value="@survey.option3_5">
+  
+
+			<br>
+			<br>
+			
+			<!-- Buttons to SAVE/CANCEL new Survey -->
+            <label class="control-label"></label>
+              <button style="width:120px" class="btn btn-primary" type="submit">@Messages.get("profile.savechanges")</button>
+              <span></span>
+              <a href="/survey"><button style="width:120px" class="btn btn-default" >@Messages.get("profile.cancel")</button></a>
+			}
+</div>
+}

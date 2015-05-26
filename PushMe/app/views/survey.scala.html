@@ -1,4 +1,4 @@
-@(user: User)
+@(user: User, surveys:List[Survey])
 @import play.i18n._
 @mainAdmin("Admin | Survey", user){
 
@@ -19,12 +19,14 @@
 				</tr>
           </thead>          
           <tbody id="myTable">
+          	@for(survey <- surveys){
 					<tr>
-						<td>Name of the Survey</td>
-						<td>@Messages.get("survey.edit")</td>
-						<td>@Messages.get("survey.delete")</td>
-						<td>@Messages.get("survey.deploy")</td>
+						<td>@survey.name</td>
+						<td><a href="/editSurvey/@survey.id"><input type="button" class="btn btn-default" value="@Messages.get("survey.edit")"></a></td>
+						<td><a href=""><input type="button" class="btn btn-default" value="@Messages.get("survey.delete")"></a></td>
+						<td><a href=""><input type="button" class="btn btn-default" value="@Messages.get("survey.deploy")"></a></td>
 					</tr>
+					}
           </tbody>
         </table>   
       </div>

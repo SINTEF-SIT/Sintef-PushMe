@@ -23,10 +23,5 @@ public class Module extends Model {
     
     public static List<Module> all() {
         return find.all();
-    }
-    
-    public static String update(Long id, Module module) {
-        module.update((Object)id);
-        return ("Your profile has been updated");
-        }    
+    }  
 }

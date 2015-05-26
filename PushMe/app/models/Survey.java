@@ -56,6 +56,6 @@ public class Survey extends Model {
     
     public static String update(Long id, Survey survey) {
         survey.update((Object)id);
-        return ("Your profile has been updated");
+        return ("Survey is successfully updated");
         }
 }
