@@ -20,9 +20,9 @@ POST	/signup							controllers.SignupController.createUser()
 #UserActivities
 GET		/useractivity					controllers.UserActivityController.useractivity()
 POST	/useractivity/save/:a			controllers.UserActivityController.createUserActivity(a:String)
-POST	/useractivity/delete/:id		controllers.StatisticsController.deleteUA(id:Long)
+POST	/useractivity/delete/:id		controllers.UserActivityController.deleteUA(id:Long)
 POST	/stepreg						controllers.UserActivityController.addSteps()
-POST	/usersteps/delete/:id			controllers.StatisticsController.deletePedo(id:Long)
+POST	/usersteps/delete/:id			controllers.UserActivityController.deletePedo(id:Long)
 
 #Dashboard
 GET		/dashboard						controllers.DashboardController.dashboard()

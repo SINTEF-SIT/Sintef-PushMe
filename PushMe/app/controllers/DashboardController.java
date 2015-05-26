@@ -27,7 +27,7 @@ public class DashboardController extends Controller {
 	public static Result dashboard() {
 		User user = ProfileController.findUser();
 		TreeMap<User, Integer> leaderboard = StatisticsController.updateLeaderboards();
-        return ok(dashboard.render(user, Tips.all(), 0.0 , StatisticsController.getGoals(user), leaderboard, StatisticsController.getRecentUA(), UserActivityController.findPedoRecordings(), StatisticsController.getTopLeaderboard(leaderboard)));
+        return ok(dashboard.render(user, Tips.all(), 0.0 , StatisticsController.getGoals(user), leaderboard, UserActivityController.getRecentUA(), UserActivityController.findPedoRecordings(), StatisticsController.getTopLeaderboard(leaderboard)));
     }
 	
 }

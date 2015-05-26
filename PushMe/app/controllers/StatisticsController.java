@@ -30,7 +30,7 @@ public class StatisticsController extends Controller {
     	TreeMap<User, Integer> leaderboard = updateLeaderboards();
     	User user = ProfileController.findUser();
         return ok(statistics.render(User.find.byId(request().username()), 
-        		getRecentUA(),
+        		UserActivityController.getRecentUA(),
         		UserActivityController.findPedoRecordings(),
         		leaderboard,
         		getTopLeaderboard(leaderboard),
@@ -57,7 +57,7 @@ public class StatisticsController extends Controller {
 		} User user = User.find.byId(request().username());
 		TreeMap<User, Integer> leaderboard = updateLeaderboards();
 		return ok(statistics.render(User.find.byId(request().username()), 
-        		getRecentUA(),
+				UserActivityController.getRecentUA(),
         		UserActivityController.findPedoRecordings(),
         		leaderboard,
         		getTopLeaderboard(leaderboard),
@@ -67,17 +67,6 @@ public class StatisticsController extends Controller {
         		getGoals(user)
         		));
 	}
-	
-    @Security.Authenticated(Secured.class)
-    public static List<UserActivity> getUserActivities(){
-    	User user = User.find.byId(request().username());
-    	List<UserActivity> uas = UserActivity.all();
-    	List<UserActivity> userUas = new ArrayList<UserActivity>();
-    	for(UserActivity ua: uas){
-    		if(ua.belongsTo.email.equals(user.email))
-    			userUas.add(ua);
-    	} return userUas;
-    }
     
     @Security.Authenticated(Secured.class)
     public static List<UserActivity> getGlobalActivities(){
@@ -194,24 +183,9 @@ static class LeaderboardComparator implements Comparator<User> {
     	return userGoals;
     }
     
-    public static List<UserActivity> getRecentUA() {
-    	List<UserActivity> activities = UserActivityController.findUserActivities(); 	
-    	return activities;
-    }
-    
-    public static Result deleteUA(Long id) {
-    	UserActivity.find.ref(id).delete();
-    	return controllers.UserActivityController.useractivity();
-    }
-    
-    public static Result deletePedo(Long id) {
-    	UserSteps.find.ref(id).delete();
-    	return controllers.UserActivityController.useractivity();
-    }
-    
 	public static HashMap<String, Integer> updateMorris() {
 		HashMap<String, Integer> morris = new HashMap<String, Integer>();
-		List<UserActivity> userActivities = getUserActivities();
+		List<UserActivity> userActivities = UserActivityController.getUserActivities();
 		for (UserActivity userActivity: userActivities) {
 			Double steps = userActivity.steps;
 			if (morris.containsKey(userActivity.activity.name))
@@ -227,7 +201,7 @@ static class LeaderboardComparator implements Comparator<User> {
 		for (int i = 0; i < 30; i++) {
 			graphData.add(0);
 		}
-		List<UserActivity> userActivities = getUserActivities();
+		List<UserActivity> userActivities = UserActivityController.getUserActivities();
 		List<UserSteps> userSteps = UserActivityController.findPedoRecordings();
 		Calendar calendar = Calendar.getInstance();
 		for (int i = 0; i < 30; i++) {
@@ -254,7 +228,7 @@ static class LeaderboardComparator implements Comparator<User> {
 		for (int i = 0; i < 12; i++) {
 			graphData.add(0);
 		}
-		List<UserActivity> userActivities = getUserActivities();
+		List<UserActivity> userActivities = UserActivityController.getUserActivities();
 		List<UserSteps> userSteps = UserActivityController.findPedoRecordings();
 		Calendar calendar = Calendar.getInstance();
 		for (int i = 0; i < 12; i++) {

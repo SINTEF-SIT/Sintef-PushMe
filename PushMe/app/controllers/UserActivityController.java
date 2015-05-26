@@ -176,6 +176,32 @@ public class UserActivityController extends Controller {
     	return false;
     }
     
+    @Security.Authenticated(Secured.class)
+    public static List<UserActivity> getUserActivities(){
+    	User user = User.find.byId(request().username());
+    	List<UserActivity> uas = UserActivity.all();
+    	List<UserActivity> userUas = new ArrayList<UserActivity>();
+    	for(UserActivity ua: uas){
+    		if(ua.belongsTo.email.equals(user.email))
+    			userUas.add(ua);
+    	} return userUas;
+    }
+    
+    public static List<UserActivity> getRecentUA() {
+    	List<UserActivity> activities = UserActivityController.findUserActivities(); 	
+    	return activities;
+    }
+    
+    public static Result deleteUA(Long id) {
+    	UserActivity.find.ref(id).delete();
+    	return controllers.UserActivityController.useractivity();
+    }
+    
+    public static Result deletePedo(Long id) {
+    	UserSteps.find.ref(id).delete();
+    	return controllers.UserActivityController.useractivity();
+    }
+    
     public static void updateUserTrophies(User user) {
     	List<Goal> goals = Goal.all();
     	List<UserActivity> userActivities = findUserActivities();
