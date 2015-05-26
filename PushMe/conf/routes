@@ -32,9 +32,6 @@ POST	/dailyBar						controllers.DashboardController.generateDailyBar()
 GET     /profile						controllers.ProfileController.profile()
 POST    /updateuser						controllers.ProfileController.updateUser()
 
-#Calendar
-GET		/calendar						controllers.CalendarController.calendar()
-
 #Leaderboard
 GET		/leaderboard					controllers.LeaderboardController.leaderboard()
 
