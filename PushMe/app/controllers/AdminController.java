@@ -2,6 +2,7 @@ package controllers;
 
 import static play.data.Form.form;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import play.*;
@@ -48,18 +49,32 @@ public class AdminController extends Controller {
 			}        
     }
 	
+	//Find the modules belonging to the logged on user
+	public static List<UserModule> findUserModules(User user){
+		List<UserModule> userModuleList = new ArrayList<UserModule>();
+		List<UserModule> moduleList = UserModule.find.all();
+		for(UserModule i : moduleList){
+			if(i.user.equals(user)){
+				userModuleList.add(i);
+			}
+		}
+		return userModuleList;
+		
+	}
+	
 	//Add a activity-point to the module when called
 	public static Result clickTracker(String name, String email){
-		Module module = null;
+		UserModule module = null;
 		User loggedOnUser = User.find.byId(email);
-		List<Module> moduleList = Module.find.all();
-		for(int i=0;i<moduleList.size();i++){
-			if(moduleList.get(i).name.equals(name) && moduleList.get(i).belongsTo.equals(loggedOnUser)){
-				module = moduleList.get(i);break;
+		List<UserModule> moduleList = findUserModules(loggedOnUser);
+		for(UserModule i : moduleList){
+			if(i.module.name.equals(name)){
+				module = i;
+				break;
 				}
 		}
 		module.clickCounter++;
-		Module.update(module.id, module);
+		UserModule.update(module.id, module);
 		return ok("Click count registered");
 	}
 }

@@ -16,9 +16,6 @@ public class Module extends Model {
     public long id;
     public String name;
     public String description;
-    public int clickCounter;
-    @ManyToOne
-    public User belongsTo;
     
     public static Finder<Long,Module> find = new Finder<Long,Module>(
         Long.class, Module.class

@@ -32,13 +32,21 @@ public class SignupController extends Controller {
             );
         } else {
             User.create(userForm.get());
-            generateUserModules(User.find.byId(userForm.get().email));
+            generateUserModules(userForm.get().email);
             return redirect(routes.IndexController.index());
         }
     }
 
     /*Generate modules in the db where clicks and activity are registered*/
-    public static  void generateUserModules(User user){
-    	
+    @Security.Authenticated(Secured.class)
+    public static void generateUserModules(String email){
+    	List<Module> allModules = Module.find.all();
+    	for(Module i : allModules){
+    		UserModule module = new UserModule();
+    		module.clickCounter = 0;
+        	module.user = User.find.byId(email);
+        	module.module = i;
+        	module.save();
+    	}    	
     }
 }
