@@ -132,14 +132,17 @@ INSERT INTO module VALUES (2,"Useractivity","The navigation button to the activi
 INSERT INTO module VALUES (3,"Profile", "The navigation button to the profile page");
 INSERT INTO module VALUES (4,"Statistics","The navigation button to the statistics page");
 
-INSERT INTO tips VALUES(1, "Pick the parking-spot the farthest away from the shop.", null);
-INSERT INTO tips VALUES(2, "Take a detour while walking to your buss.", null);
-INSERT INTO tips VALUES(3, "Use the stairs!", null);
-INSERT INTO tips VALUES(4, "Pushups/situps(get up) during tv commercials.", null);
-INSERT INTO tips VALUES(5, "Go to the store if possible.", null);
+INSERT INTO tips VALUES(1, "Pick the parking-spot the farthest away from the shop.", "Statistically, using the first free parking lot is
+less time consuming the looking for a closer lot. And it's better for you!");
+INSERT INTO tips VALUES(2, "Take a detour while walking to your buss.", "If you have some free time, why not walk around the neighbourhood?");
+INSERT INTO tips VALUES(3, "Use the stairs!", "Stairs is a good way to tone the ass aswell as the legs.");
+INSERT INTO tips VALUES(4, "Pushups/situps(get up) during tv commercials.", "Fun fact: The worlds best female arm wrestler(2014)
+stated this was the trick who got her that far.");
+INSERT INTO tips VALUES(5, "Walk to the store if possible.", "Save the enviroment by using your own meat machine!");
 INSERT INTO tips VALUES(6, "Use your bike!", "If you live within five or ten miles of where you work, 
 take the opportunity to bike instead of drive to work. A thirty-minute bike ride will leave you feeling energized.");
-INSERT INTO tips VALUES(8, "Walk to work.", null);
+INSERT INTO tips VALUES(8, "Go visit friends/family.", "Surprise Your dear ones with a visit! A small detour while excersicing is a good
+way to make better connection between you and your loved ones(PS. not recomended if you have been sweating alot).");
 INSERT INTO tips VALUES(9, "Exercise with a friend.", "Another reason you may feel the need for a personal 
 trainer is to be motivated to workout. Find a gym buddy instead and make a pact to ensure workouts will be completed properly.");
 INSERT INTO tips VALUES(10, "Vigorous housekeeping.", "House chores like sweeping, mopping, gardening and washing the car can be 
@@ -147,6 +150,6 @@ great calorie burners that help you complete the tasks you probably needed to do
 INSERT INTO tips VALUES(11, "Body weight exercises.", "Some of the best muscle-toning workouts rely on only using your body weight. 
 You can do exercises like pull-ups, push-ups, crunches, squats and lunges without any specialized equipment — or even stepping a foot 
 outside of your bedroom.");
-INSERT INTO tips VALUES(12, "Walk to work.", "For many people, going to the gym just isn’t much fun, which makes it challenging to 
+INSERT INTO tips VALUES(12, "Walk/bike to work.", "For many people, going to the gym just isn’t much fun, which makes it challenging to 
 sustain as a lifestyle choice. Find a sport or an active leisure pursuit that you can enjoy. You’ll find it easier to commit.");
 INSERT INTO tips VALUES(13, "Find something you enjoy.", "Going to the gym is for many a pain. Exercising should be fun, make sure it is!");
