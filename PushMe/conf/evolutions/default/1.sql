@@ -35,6 +35,42 @@ create table module (
   constraint pk_module primary key (id))
 ;
 
+create table survey (
+  id                        bigint auto_increment not null,
+  question1                 varchar(255),
+  option1_1                 varchar(255),
+  option2_1                 varchar(255),
+  option3_1                 varchar(255),
+  question2                 varchar(255),
+  option1_2                 varchar(255),
+  option2_2                 varchar(255),
+  option3_2                 varchar(255),
+  question3                 varchar(255),
+  option1_3                 varchar(255),
+  option2_3                 varchar(255),
+  option3_3                 varchar(255),
+  question4                 varchar(255),
+  option1_4                 varchar(255),
+  option2_4                 varchar(255),
+  option3_4                 varchar(255),
+  question5                 varchar(255),
+  option1_5                 varchar(255),
+  option2_5                 varchar(255),
+  option3_5                 varchar(255),
+  constraint pk_survey primary key (id))
+;
+
+create table survey_answer (
+  id                        bigint auto_increment not null,
+  name                      varchar(255),
+  question1                 integer,
+  question2                 integer,
+  question3                 integer,
+  question4                 integer,
+  question5                 integer,
+  constraint pk_survey_answer primary key (id))
+;
+
 create table tips (
   tip_number                integer auto_increment not null,
   title                     varchar(255),
@@ -119,6 +155,10 @@ drop table activity_level;
 drop table goal;
 
 drop table module;
+
+drop table survey;
+
+drop table survey_answer;
 
 drop table tips;
 

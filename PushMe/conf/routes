@@ -20,13 +20,13 @@ POST	/signup							controllers.SignupController.createUser()
 #UserActivities
 GET		/useractivity					controllers.UserActivityController.useractivity()
 POST	/useractivity/save/:a			controllers.UserActivityController.createUserActivity(a:String)
-POST	/useractivity/delete/:id		controllers.DashboardController.deleteUA(id:Long)
+POST	/useractivity/delete/:id		controllers.StatisticsController.deleteUA(id:Long)
 POST	/stepreg						controllers.UserActivityController.addSteps()
-POST	/usersteps/delete/:id			controllers.DashboardController.deletePedo(id:Long)
+POST	/usersteps/delete/:id			controllers.StatisticsController.deletePedo(id:Long)
 
 #Dashboard
 GET		/dashboard						controllers.DashboardController.dashboard()
-POST	/dailyBar						controllers.DashboardController.generateDailyBar()
+POST	/dailyBar						controllers.StatisticsController.generateDailyBar()
 
 #Profile
 GET     /profile						controllers.ProfileController.profile()
@@ -49,6 +49,7 @@ GET		/adminStatistics				controllers.AdminController.adminStatistics()
 GET		/survey							controllers.AdminController.survey()
 GET		/createSurvey					controllers.AdminController.createSurvey()
 GET		/findUser						controllers.AdminController.findUser()
+POST	/createSurvey					controllers.AdminController.createSurvey()
 
 #Click tracker
 POST	/clickTracker/:email/:module	controllers.AdminController.clickTracker(module:String, email:String)
