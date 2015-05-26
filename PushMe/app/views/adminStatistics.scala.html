@@ -5,8 +5,9 @@
 <!-- Searchfield Users -->
 
 <div id="dataset col-md-12" style="text-align: center;">
-  	<input class="typeahead" type="text" placeholder="Users" style="height: 30px; width: 200px; border: solid;">
-  		<button type="button" class="btn btn-primary" style="height: 30px">@Messages.get("admStat.dispAll")</button>
+	@Messages.get("admStat.sUser"):
+  	<input class="typeahead" type="text" placeholder="@Messages.get("admStat.User")" style="height: 30px; width: 200px;">
+  		<a href="/findUser"><button type="button" class="btn btn-primary" style="height: 30px">@Messages.get("admStat.dispAll")</button></a>
 </div>
 	
 <hr>
