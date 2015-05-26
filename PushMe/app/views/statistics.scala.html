@@ -1,5 +1,147 @@
-@(user: User, activities: List[UserActivity], userSteps: List[UserSteps], leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer])
+@(user: User, activities: List[UserActivity], userSteps: List[UserSteps], leaderboard: Map[User, Integer], topLeaderboard: Map[User, Integer], monthLineData: List[Integer], yearLineData: List[Integer], morrisDonut: Map[String, Integer], goals: List[Goal])
 @import play.i18n._
 @main(user, "Dashboard | PushMe", activities, userSteps, leaderboard, topLeaderboard){
-	Statistics Here.
+	
+
+<!-- Morris donut -->
+<div class = "container col-sm-12 col-md-12 col-lg-12">
+		    <h3>@Messages.get("dash.youract")!</h3>
+
+			<div id="user_activity-donut" class = "graph" ></div>
+</div>
+	
+<hr>
+
+<!-- Step count progress bars -->
+<!--
+<div class ="container col-sm-12 col-md-12 col-lg-12">
+	<div id="monitor" class="panel panel-default tab-box">
+	    <div class="panel-heading" style="height: 60px">
+		     <h3 class="panel-title" style = "margin-bottom: 5px">
+		        <i class="fa fa-flag"></i>
+		        @Messages.get("dash.stepsc")
+		    </h3>
+		    <ul class="nav nav-tabs" role="tablist"> 
+-->
+		        <!-- Month tab -->
+<!--	        <li class="active"> <a href="#month-tab" role="tab" data-toggle="tab">@Messages.get("dash.month")</a></li>
+	            <!-- Year -->
+<!--	            <li> <a href="#year-tab" role="tab" data-toggle="tab">@Messages.get("dash.year")</a></li>
+	        </ul>
+	    </div>
+	   
+	        <div class="tab-content">
+	            <div id="month-tab" role="tabpanel" class="tab-pane active">
+	                <div class="row" style="margin: 10px">
+	                
+	                <div id="month_step-line" class = "graph" ></div>
+	                
+	                </div>
+	            </div>
+	            
+	            <div id="year-tab" role="tabpanel" class="tab-pane active">
+	                <div class="row" style="margin: 10px">
+	               
+	               		<div id="year_step-line" class = "graph" ></div>
+	                
+	               	</div>
+	            </div>
+	        </div>
+	</div>
+</div>
+-->
+
+<!-- Monthly Graph -->
+<div class ="container col-sm-12 col-md-12 col-lg-12">
+	<div id="monitor" class="panel panel-default tab-box">
+	    <div class="panel-heading" style="height: 40px">
+		     <h3 class="panel-title" style = "margin-bottom: 5px">
+		        <i class="fa fa-flag"></i>
+		        @Messages.get("dash.stepsmonth")
+		    </h3>
+		    
+	    </div>
+	   
+	        <div class="tab-content">
+	            <div id="month-tab" role="tabpanel" class="tab-pane active">
+	                <div class="row" style="margin: 10px">
+	                
+	                <div id="month_step-line" class = "graph" ></div>
+	                
+	                </div>
+	            </div>
+	        </div>
+	</div>
+</div>
+
+<!-- Yearly Graph -->
+<div class ="container col-sm-12 col-md-12 col-lg-12">
+	<div id="monitor" class="panel panel-default tab-box">
+	    <div class="panel-heading" style="height: 40px">
+		     <h3 class="panel-title" style = "margin-bottom: 5px">
+		        <i class="fa fa-flag"></i>
+		        @Messages.get("dash.stepsyear")
+		    </h3>
+		    
+	    </div>
+	   
+	        <div class="tab-content">
+	            <div id="year-tab" role="tabpanel" class="tab-pane active">
+	                <div class="row" style="margin: 10px">
+	                
+	                <div id="year_step-line" class = "graph" ></div>
+	                
+	                </div>
+	            </div>
+	        </div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$.getScript('/assets/javascripts/raphael-min.js',function(){
+$.getScript('/assets/javascripts/morris.min.js',function(){
+
+	var donutData = [];
+	var monthLineData = [];
+	var yearLineData = [];
+	
+	@for((activity, steps) <- morrisDonut) {
+		donutData.push({label: '@activity', value: @steps});
+	}
+	
+	@for(steps <- monthLineData) {
+		monthLineData.push({ y: '@monthLineData.indexOf(steps)', a: @steps, b: @{goals(0).steps/7} });
+	}
+	
+	@for(steps <- yearLineData) {
+		yearLineData.push({ y: '@yearLineData.indexOf(steps)', a: @steps, b: @goals(1).steps });
+	}
+		Morris.Donut({
+	        element: 'user_activity-donut',
+	        data: donutData
+	    });
+ 
+		Morris.Line({
+			element: 'month_step-line',
+			  data: monthLineData,
+			  xkey: 'y',
+			  ykeys: ['a', 'b'],
+			  labels: ['Steps achieved', 'Goal'],
+			  lineColors: ['#f660ab', '#4b0082'],
+			  parseTime: false
+		});
+ 
+		Morris.Line({
+			element: 'year_step-line',
+			  data: yearLineData,
+			  xkey: 'y',
+			  ykeys: ['a', 'b'],
+			  labels: ['Steps achieved', 'Goal'],
+			  lineColors: ['#f660ab', '#4b0082'],
+			  parseTime: false
+		});
+});
+});
+</script>
+
 }

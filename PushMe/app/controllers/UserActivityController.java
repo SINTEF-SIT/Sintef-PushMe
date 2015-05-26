@@ -31,8 +31,8 @@ public class UserActivityController extends Controller {
     			Form.form(UserSteps.class),
     			Form.form(UserActivity.class), 
     			stepCounter(),
-    			DashboardController.updateLeaderboards(),
-    			DashboardController.getTopLeaderboard(DashboardController.updateLeaderboards())
+    			StatisticsController.updateLeaderboards(),
+    			StatisticsController.getTopLeaderboard(StatisticsController.updateLeaderboards())
     			));
     }
 
@@ -112,8 +112,8 @@ public class UserActivityController extends Controller {
                 			newSteps,
                 			Form.form(UserActivity.class), 
                 			stepCounter(),
-                			DashboardController.updateLeaderboards(),
-                			DashboardController.getTopLeaderboard(DashboardController.updateLeaderboards())));
+                			StatisticsController.updateLeaderboards(),
+                			StatisticsController.getTopLeaderboard(StatisticsController.updateLeaderboards())));
         }else{
         	Timestamp date = new Timestamp(newSteps.get().date.getTime());
         	newSteps.get().date = date;

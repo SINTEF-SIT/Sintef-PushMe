@@ -20,10 +20,10 @@ public class LeaderboardController extends Controller {
 	public static Result leaderboard() {
 		User loggedOnUser = User.find.byId(request().username());
         return ok(leaderboard.render(loggedOnUser,
-       		 DashboardController.updateLeaderboards(),
-    		 DashboardController.getUserActivities(),
+        	 StatisticsController.updateLeaderboards(),
+        	 StatisticsController.getUserActivities(),
     		 UserActivityController.findPedoRecordings(),
-    		 DashboardController.getTopLeaderboard(DashboardController.updateLeaderboards()),
+    		 StatisticsController.getTopLeaderboard(StatisticsController.updateLeaderboards()),
     		 getAverageSteps()));
     }
 	
