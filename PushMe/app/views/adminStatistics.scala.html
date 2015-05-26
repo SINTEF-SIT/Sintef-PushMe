@@ -5,8 +5,8 @@
 <!-- Searchfield Users -->
 
 <div id="dataset col-md-12" style="text-align: center;">
-  	<input class="typeahead" type="text" placeholder="Users" style="height: 30px; width: 200px;">
-  		<button type="button" class="btn btn-default" style="height: 30px">@Messages.get("admStat.dispAll")</button>
+  	<input class="typeahead" type="text" placeholder="Users" style="height: 30px; width: 200px; border: solid;">
+  		<button type="button" class="btn btn-primary" style="height: 30px">@Messages.get("admStat.dispAll")</button>
 </div>
 	
 <hr>
@@ -17,9 +17,9 @@
 	<div class="panel-heading">
 		<h4><i class="fa fa-fw fa-bar-chart-o"></i> @Messages.get("admStat.mtracker") </h4>
 	</div>
-	<div class="container">
-      <div class="table-responsive">
-        <table class="table-striped table-condensed table-hover">
+
+      <div class="table-responsive" style="padding:10px;">
+        <table class="table-striped table-condensed table-hover col-md-12">
           <thead>
 				<tr>
 					<th>@Messages.get("admStat.name")</th>
@@ -30,14 +30,13 @@
           </thead>
           <tbody id="myTable">
 					<tr>
-						<td style="width:30%"></td>
-						<td style="width:30%"></td>
-						<td style="width:10%"></td>
+						<td>Name of the Module</td>
+						<td>Description of the Module</td>
+						<td>Amount of Clicks on the Module</td>
 					</tr>
           </tbody>
-        </table>   
+        </table> 
       </div>
-	</div>
 </div>
 	
 
