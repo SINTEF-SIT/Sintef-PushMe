@@ -21,7 +21,7 @@ public class LeaderboardController extends Controller {
 		User loggedOnUser = User.find.byId(request().username());
         return ok(leaderboard.render(loggedOnUser,
         	 StatisticsController.updateLeaderboards(),
-        	 UserActivityController.getUserActivities(),
+        	 UserActivityController.findUserActivities(),
     		 UserActivityController.findPedoRecordings(),
     		 StatisticsController.getTopLeaderboard(StatisticsController.updateLeaderboards()),
     		 getAverageSteps()));

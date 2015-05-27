@@ -3,11 +3,19 @@
 @main(user, "Dashboard | PushMe", activities, userSteps, leaderboard, topLeaderboard){
 	
 
+<br>
 <!-- Morris donut -->
 <div class = "container col-sm-12 col-md-12 col-lg-12">
-		    <h3>@Messages.get("dash.youract")!</h3>
-
-			<div id="user_activity-donut" class = "graph" ></div>
+	<div id="monitor" class="panel panel-default tab-box">
+	    <div class="panel-heading" style="height: 40px">
+		     <h3 class="panel-title" style = "margin-bottom: 5px">
+		        <i class="fa fa-sun-o fa-spin"></i>
+		        @Messages.get("dash.youract")!
+		    </h3>
+		    
+	    </div>
+		<div id="user_activity-donut" class = "graph" ></div>
+	</div>
 </div>
 	
 <hr>
@@ -127,7 +135,7 @@ $.getScript('/assets/javascripts/morris.min.js',function(){
 			  xkey: 'y',
 			  ykeys: ['a', 'b'],
 			  labels: ['Steps achieved', 'Goal'],
-			  lineColors: ['#f660ab', '#4b0082'],
+			  lineColors: ['#004080', '#0060B0'],
 			  parseTime: false
 		});
  
@@ -137,7 +145,7 @@ $.getScript('/assets/javascripts/morris.min.js',function(){
 			  xkey: 'y',
 			  ykeys: ['a', 'b'],
 			  labels: ['Steps achieved', 'Goal'],
-			  lineColors: ['#f660ab', '#4b0082'],
+			  lineColors: ['#004080', '#0080B0'],
 			  parseTime: false
 		});
 });

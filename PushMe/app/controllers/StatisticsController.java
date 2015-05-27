@@ -96,7 +96,6 @@ public class StatisticsController extends Controller {
     	
     	Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -7);
-//        Timestamp todate1 = cal.getTime().; 
     	for(int i=0;i<us.size();i++){
     		if(user_us.get(i).date.getDate() == date.getDate()){
     			user_us.add(us.get(i));
@@ -154,6 +153,7 @@ static class LeaderboardComparator implements Comparator<User> {
 }
     
     public static List<Goal> getGoals(User user) {
+    	autoCreateGoals();
     	List<Goal> goals = Goal.all();
     	List<Goal> userGoals = new ArrayList<Goal>();
     	for (Goal goal: goals) {
@@ -183,9 +183,35 @@ static class LeaderboardComparator implements Comparator<User> {
     	return userGoals;
     }
     
+    public static void autoCreateGoals() {
+		//Checks if there are a goal for this period, creates new if not!
+    	boolean weekCheck = false, monthCheck = false;
+    	List<Goal> goals = Goal.find.all();
+    	Calendar weekCal = Calendar.getInstance();
+    	weekCal.set(Calendar.DAY_OF_WEEK, weekCal.getActualMaximum(Calendar.DAY_OF_WEEK));
+    	Calendar monthCal = Calendar.getInstance();
+    	monthCal.set(Calendar.DAY_OF_MONTH, monthCal.getActualMaximum(Calendar.DAY_OF_MONTH));
+    	SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
+		for (Goal g: goals) {
+			if (g.type.equals("week") && fmt.format(g.end).equals(fmt.format(weekCal.getTime())))
+				weekCheck = true;
+			else if (g.type.equals("month") && fmt.format(g.end).equals(fmt.format(monthCal.getTime())))
+				monthCheck = true;
+		}
+		if (weekCheck == false) {
+			for (ActivityLevel al: ActivityLevel.find.all()) {
+				Goal.createWeekGoal(al.description);
+			}
+		} if (monthCheck == false) {
+			for (ActivityLevel al: ActivityLevel.find.all()) {
+				Goal.createMonthGoal(al.description);
+			}
+		}
+    }
+    
 	public static HashMap<String, Integer> updateMorris() {
 		HashMap<String, Integer> morris = new HashMap<String, Integer>();
-		List<UserActivity> userActivities = UserActivityController.getUserActivities();
+		List<UserActivity> userActivities = UserActivityController.findUserActivities();
 		for (UserActivity userActivity: userActivities) {
 			Double steps = userActivity.steps;
 			if (morris.containsKey(userActivity.activity.name))
@@ -201,7 +227,7 @@ static class LeaderboardComparator implements Comparator<User> {
 		for (int i = 0; i < 30; i++) {
 			graphData.add(0);
 		}
-		List<UserActivity> userActivities = UserActivityController.getUserActivities();
+		List<UserActivity> userActivities = UserActivityController.findUserActivities();
 		List<UserSteps> userSteps = UserActivityController.findPedoRecordings();
 		Calendar calendar = Calendar.getInstance();
 		for (int i = 0; i < 30; i++) {
@@ -228,7 +254,7 @@ static class LeaderboardComparator implements Comparator<User> {
 		for (int i = 0; i < 12; i++) {
 			graphData.add(0);
 		}
-		List<UserActivity> userActivities = UserActivityController.getUserActivities();
+		List<UserActivity> userActivities = UserActivityController.findUserActivities();
 		List<UserSteps> userSteps = UserActivityController.findPedoRecordings();
 		Calendar calendar = Calendar.getInstance();
 		for (int i = 0; i < 12; i++) {
