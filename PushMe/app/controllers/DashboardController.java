@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -27,7 +26,33 @@ public class DashboardController extends Controller {
 	public static Result dashboard() {
 		User user = ProfileController.findUser();
 		TreeMap<User, Integer> leaderboard = StatisticsController.updateLeaderboards();
-        return ok(dashboard.render(user, Tips.all(), 0.0 , StatisticsController.getGoals(user), leaderboard, UserActivityController.getRecentUA(), UserActivityController.findPedoRecordings(), StatisticsController.getTopLeaderboard(leaderboard)));
+        return ok(dashboard.render(user, 
+        		Tips.all(), 
+        		0.0 , 
+        		StatisticsController.getGoals(user), 
+        		leaderboard, UserActivityController.getRecentUA(), 
+        		UserActivityController.findPedoRecordings(), 
+        		StatisticsController.getTopLeaderboard(leaderboard), 
+        		surveyChecker(user)));
     }
 	
+	//Check if there are any surveys deployed for the user
+	public static List<Survey> surveyChecker(User user){
+		List<Survey> surveys = new ArrayList<>();
+		List<SurveyAnswer> allSurveys = SurveyAnswer.find.all();
+		for(SurveyAnswer i : allSurveys){
+			if(i.user.equals(user) && i.answered == false){
+				surveys.add(i.survey);
+			}
+		}
+		return surveys;
+	}
+	
+	//Register a survey answer
+	@Security.Authenticated(Secured.class)
+	public static Result answerSurvey(Long id){
+		Form<SurveyAnswer> form = Form.form(SurveyAnswer.class).bindFromRequest();
+		SurveyAnswer.update(id, form.get());
+		return redirect("/dashboard");
+	}
 }

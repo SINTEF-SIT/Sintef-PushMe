@@ -22,6 +22,7 @@ public class SurveyAnswer extends Model {
     public int question3;    
     public int question4;    
     public int question5;
+    public boolean answered;
     @ManyToOne
     public User user;
     @ManyToOne

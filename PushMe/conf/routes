@@ -27,6 +27,7 @@ POST	/usersteps/delete/:id			controllers.UserActivityController.deletePedo(id:Lo
 #Dashboard
 GET		/dashboard						controllers.DashboardController.dashboard()
 POST	/dailyBar						controllers.StatisticsController.generateDailyBar()
+POST	/answerSurvey/:id				controllers.DashboardController.answerSurvey(id:Long)
 
 #Profile
 GET     /profile						controllers.ProfileController.profile()

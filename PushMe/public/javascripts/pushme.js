@@ -46,15 +46,15 @@ $(function () {
 /*Call on function to delete user-activity*/
 function deleteUA(id){
 	$.post("/useractivity/delete/"+id, function( data ) {
-		location.reload();
 		});
+	location.reload();
 }
 
 /*Call on function to delete pedometer recording*/
 function deletePedo(id){
 	$.post("/usersteps/delete/"+id, function( data ) {
-		location.reload();
 		});
+	location.reload();
 }
 
 /*Send password to email*/

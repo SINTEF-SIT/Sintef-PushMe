@@ -68,6 +68,7 @@ create table survey_answer (
   question3                 integer,
   question4                 integer,
   question5                 integer,
+  answered                  tinyint(1) default 0,
   user_email                varchar(255),
   survey_id                 bigint,
   constraint pk_survey_answer primary key (id))
