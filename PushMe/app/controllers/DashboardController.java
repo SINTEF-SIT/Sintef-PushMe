@@ -22,6 +22,8 @@ import views.html.*;
 
 public class DashboardController extends Controller {
 	
+	private static List<Long> surveyIds;
+	
 	@Security.Authenticated(Secured.class)
 	public static Result dashboard() {
 		User user = ProfileController.findUser();
@@ -33,16 +35,19 @@ public class DashboardController extends Controller {
         		leaderboard, UserActivityController.getRecentUA(), 
         		UserActivityController.findPedoRecordings(), 
         		StatisticsController.getTopLeaderboard(leaderboard), 
-        		surveyChecker(user)));
+        		surveyChecker(user),
+        		surveyIds));
     }
 	
 	//Check if there are any surveys deployed for the user
 	public static List<Survey> surveyChecker(User user){
 		List<Survey> surveys = new ArrayList<>();
+		surveyIds = new ArrayList<Long>();
 		List<SurveyAnswer> allSurveys = SurveyAnswer.find.all();
 		for(SurveyAnswer i : allSurveys){
 			if(i.user.equals(user) && i.answered == false){
 				surveys.add(i.survey);
+				surveyIds.add(i.id);
 			}
 		}
 		return surveys;
@@ -52,6 +57,10 @@ public class DashboardController extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result answerSurvey(Long id){
 		Form<SurveyAnswer> form = Form.form(SurveyAnswer.class).bindFromRequest();
+		SurveyAnswer oldSurvey = SurveyAnswer.find.byId(id);
+		form.get().answered = true;
+		form.get().user = oldSurvey.user;
+		form.get().survey = oldSurvey.survey;
 		SurveyAnswer.update(id, form.get());
 		return redirect("/dashboard");
 	}

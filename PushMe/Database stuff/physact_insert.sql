@@ -123,6 +123,12 @@ INSERT INTO trophy VALUES (1, 1, "Week trophy: 12.04.2015", 20150428000000, "tes
 INSERT INTO trophy VALUES (2, 2, "Month trophy: 12.04.2015", 20150228000000, "test@test");
 #INSERT INTO trophy VALUES (3, 2, "Month trophy: 12.04.2015", 20150428000000, "user@user");
 
+INSERT INTO survey VALUES(1, 'System survey', 'Do you like the system?', 'Yes', 'No', 
+'I don\'t know yet', 'Are you sure?', 'Yes', 'No', '*sigh*', 'From 1 to 3, what would you rate PushMe?', 
+'1', '2', '9001', 'Do you like the color theme?', 'Yes', 'No', 'I\'m blind.', 
+'Would you like more surveys inthe future?', 'No', 'No.', 'Noooooooooo!');
+
+
 INSERT INTO goal VALUES (1, 35000, 20150425000000, 20150502000000, "week", 1);
 INSERT INTO goal VALUES (2, 150000, 20150401000000, 20150430000000, "month", 1);
 INSERT INTO goal VALUES (3, 155000, 20150501000000, 20150531000000, "month", 1);
