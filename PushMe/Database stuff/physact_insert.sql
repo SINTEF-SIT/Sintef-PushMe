@@ -117,7 +117,7 @@ INSERT INTO user VALUES ("q@bruker", "123", "Mr. Q", 20000102010101, 321, 321, "
 INSERT INTO user VALUES ("r@bruker", "123", "Mr. R", 20000102010101, 321, 321, "female", "The Athlete (3-5 training sessions each week and active the rest of the day).", false);
 INSERT INTO user VALUES ("s@bruker", "123", "Mr. S", 20000102010101, 321, 321, "female", "Active Lifestyle (1-2 training sessions a week).", false);
 INSERT INTO user VALUES ("t@bruker", "123", "Mr. T", 20000102010101, 321, 321, "female", "Active Lifestyle (1-2 training sessions a week).", false);
-INSERT INTO user VALUES ("admin@admin", "123", "Admin", null, null, null, null, null, true);
+INSERT INTO user VALUES ("admin@admin", "123", "Admin", null, 0, 0, null, null, true);
 
 INSERT INTO trophy VALUES (1, 1, "Week trophy: 12.04.2015", 20150428000000, "test@test");
 INSERT INTO trophy VALUES (2, 2, "Month trophy: 12.04.2015", 20150228000000, "test@test");
