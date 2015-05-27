@@ -1,8 +1,9 @@
-@(user: User, surveys:List[Survey])
+@(user: User, users: List[User], surveys:List[Survey])
 @import play.i18n._
 @mainAdmin("Admin | Survey", user){
 
 <!-- List of Surveys -->
+
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h4><i class="fa fa-fw fa-bar-chart-o"></i> @Messages.get("survey.title") </h4>
@@ -24,15 +25,44 @@
 						<td>@survey.name</td>
 						<td><a href="/editSurvey/@survey.id"><input type="button" class="btn btn-default" value="@Messages.get("survey.edit")"></a></td>
 						<td><input type="button" onclick="deleteSurvey(@survey.id)" class="btn btn-default" value="@Messages.get("survey.delete")"></td>
-						<td><a href=""><input type="button" class="btn btn-default" value="@Messages.get("survey.deploy")"></a></td>
+						<td><button type="button" onclick="setSurveyIdForDeployment(@survey.id)" class="btn btn-default" data-toggle="modal" data-target="#deploy">Deploy</button></td>
 					</tr>
 					}
           </tbody>
         </table>   
       </div>
-	<div style="text-align:center;padding:10px">
+      <hr>
+	<div style="text-align:center;padding-bottom:15px">
 	<a href="/createSurvey"><button style="width:200px;" class="btn btn-primary">@Messages.get("survey.creSurvey")</button></a>
 	</div>
+</div>
+
+<!-- Deployment Modal -->
+
+<div class="modal fade" id="deploy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  
+  <!-- Form to deploy a survey to a user -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Deployment</h3>
+      </div>
+      <div class="modal-body">
+      <h1>Choose a user:</h1>
+      		<input  type="text" id="formSurvey" value="0">
+			<select id="formUser">
+			   @for(u <- users){
+			   <option selected>@u.email</option>
+			  }
+			</select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" onclick="deploySurvey()" type="submit" class="btn btn-primary">Deploy</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 }

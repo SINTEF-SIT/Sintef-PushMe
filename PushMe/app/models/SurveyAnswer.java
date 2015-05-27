@@ -17,14 +17,15 @@ public class SurveyAnswer extends Model {
 
     @Id
     public long id;
-    public String name;
     public int question1;    
     public int question2;    
     public int question3;    
     public int question4;    
     public int question5;
-    
+    @ManyToOne
     public User user;
+    @ManyToOne
+    public Survey survey;
     
     public static Finder<Long,SurveyAnswer> find = new Finder<Long,SurveyAnswer>(
         Long.class, SurveyAnswer.class
@@ -36,7 +37,7 @@ public class SurveyAnswer extends Model {
     
     public static String update(Long id, SurveyAnswer survey) {
         survey.update((Object)id);
-        return ("Your profile has been updated");
+        return ("Survey answer is successfully updated");
         }
     
     public static Result createSurveyAnswer(){

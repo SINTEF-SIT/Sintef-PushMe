@@ -170,3 +170,18 @@ function deleteSurvey(id){
 		location.reload();
 	});
 }
+
+//Deploy survey
+function deploySurvey(){
+	user = $( "#formUser option:selected" ).val();
+	id = $( "#formSurvey" ).val();
+	$.post("/deploySurvey/"+id+'/'+user, function( data ) {
+		location.reload();
+	});
+}
+
+//Set ID of survey to be deployed
+function setSurveyIdForDeployment(id){
+	$('#formSurvey').val(id);
+}
+

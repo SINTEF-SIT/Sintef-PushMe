@@ -25,7 +25,7 @@ public class AdminController extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result survey() {
 		if(ProfileController.findUser().isAdmin == true){
-			return ok(survey.render(ProfileController.findUser(),  Survey.find.all()));
+			return ok(survey.render(ProfileController.findUser(), User.find.all(), Survey.find.all()));
 		} else {
 			return IndexController.index();
 			}        
@@ -71,6 +71,16 @@ public class AdminController extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result deleteSurvey(Long id){
 		Survey.find.ref(id).delete();
+    	return redirect("/survey");
+    }
+	
+	//Deploy a survey
+	@Security.Authenticated(Secured.class)
+	public static Result deploySurvey(Long id, String user){
+		SurveyAnswer survey = new SurveyAnswer();
+		survey.survey = Survey.find.byId(id);
+		survey.user = User.find.byId(user);
+		survey.save();
     	return redirect("/survey");
     }
 	

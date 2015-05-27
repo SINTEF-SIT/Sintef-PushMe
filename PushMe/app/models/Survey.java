@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+
 import play.data.Form;
 import play.db.ebean.*;
 import play.db.ebean.Model.Finder;
@@ -45,6 +46,9 @@ public class Survey extends Model {
     public String option1_5;
     public String option2_5;
     public String option3_5;
+    
+    @OneToMany(cascade=CascadeType.ALL, orphanRemoval=true)
+    public List<SurveyAnswer> answers;
     
     public static Finder<Long,Survey> find = new Finder<Long,Survey>(
         Long.class, Survey.class

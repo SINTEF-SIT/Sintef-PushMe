@@ -63,12 +63,13 @@ create table survey (
 
 create table survey_answer (
   id                        bigint auto_increment not null,
-  name                      varchar(255),
   question1                 integer,
   question2                 integer,
   question3                 integer,
   question4                 integer,
   question5                 integer,
+  user_email                varchar(255),
+  survey_id                 bigint,
   constraint pk_survey_answer primary key (id))
 ;
 
@@ -130,18 +131,22 @@ create table user_steps (
 
 alter table goal add constraint fk_goal_activityLevel_1 foreign key (activity_level_id) references activity_level (id) on delete restrict on update restrict;
 create index ix_goal_activityLevel_1 on goal (activity_level_id);
-alter table trophy add constraint fk_trophy_user_2 foreign key (user_email) references user (email) on delete restrict on update restrict;
-create index ix_trophy_user_2 on trophy (user_email);
-alter table user_activity add constraint fk_user_activity_belongsTo_3 foreign key (belongs_to_email) references user (email) on delete restrict on update restrict;
-create index ix_user_activity_belongsTo_3 on user_activity (belongs_to_email);
-alter table user_activity add constraint fk_user_activity_activity_4 foreign key (activity_name) references activity (name) on delete restrict on update restrict;
-create index ix_user_activity_activity_4 on user_activity (activity_name);
-alter table user_module add constraint fk_user_module_user_5 foreign key (user_email) references user (email) on delete restrict on update restrict;
-create index ix_user_module_user_5 on user_module (user_email);
-alter table user_module add constraint fk_user_module_module_6 foreign key (module_id) references module (id) on delete restrict on update restrict;
-create index ix_user_module_module_6 on user_module (module_id);
-alter table user_steps add constraint fk_user_steps_belongsTo_7 foreign key (belongs_to_email) references user (email) on delete restrict on update restrict;
-create index ix_user_steps_belongsTo_7 on user_steps (belongs_to_email);
+alter table survey_answer add constraint fk_survey_answer_user_2 foreign key (user_email) references user (email) on delete restrict on update restrict;
+create index ix_survey_answer_user_2 on survey_answer (user_email);
+alter table survey_answer add constraint fk_survey_answer_survey_3 foreign key (survey_id) references survey (id) on delete restrict on update restrict;
+create index ix_survey_answer_survey_3 on survey_answer (survey_id);
+alter table trophy add constraint fk_trophy_user_4 foreign key (user_email) references user (email) on delete restrict on update restrict;
+create index ix_trophy_user_4 on trophy (user_email);
+alter table user_activity add constraint fk_user_activity_belongsTo_5 foreign key (belongs_to_email) references user (email) on delete restrict on update restrict;
+create index ix_user_activity_belongsTo_5 on user_activity (belongs_to_email);
+alter table user_activity add constraint fk_user_activity_activity_6 foreign key (activity_name) references activity (name) on delete restrict on update restrict;
+create index ix_user_activity_activity_6 on user_activity (activity_name);
+alter table user_module add constraint fk_user_module_user_7 foreign key (user_email) references user (email) on delete restrict on update restrict;
+create index ix_user_module_user_7 on user_module (user_email);
+alter table user_module add constraint fk_user_module_module_8 foreign key (module_id) references module (id) on delete restrict on update restrict;
+create index ix_user_module_module_8 on user_module (module_id);
+alter table user_steps add constraint fk_user_steps_belongsTo_9 foreign key (belongs_to_email) references user (email) on delete restrict on update restrict;
+create index ix_user_steps_belongsTo_9 on user_steps (belongs_to_email);
 
 
 
