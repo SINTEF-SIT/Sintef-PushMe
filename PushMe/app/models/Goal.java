@@ -31,7 +31,7 @@ public class Goal extends Model {
     
     public static List<Goal> all() {
     	List<Goal> goals = find.all();
-        return goals;
+    	return goals;
     }
     
     public static void addGoal(Goal goal) {
@@ -43,9 +43,10 @@ public class Goal extends Model {
 		Goal goal = new Goal();
 		goal.type = "week";
 		Calendar cal = Calendar.getInstance();
-		goal.start = cal.getTime();
-		cal.add(Calendar.DATE, 7);
+		cal.set(Calendar.DAY_OF_WEEK, cal.getActualMaximum(Calendar.DAY_OF_WEEK));
 		goal.end = cal.getTime();
+		cal.add(Calendar.DATE, -6);
+		goal.start = cal.getTime();
 		for (ActivityLevel al: ActivityLevel.all()) {
 			if(al.description.equals(activityLevel)) {
 				goal.activityLevel =  al;
@@ -60,10 +61,10 @@ public class Goal extends Model {
 		Goal goal = new Goal();
 		goal.type = "month";
 		Calendar cal = Calendar.getInstance();
-		cal.set(cal.YEAR, cal.MONTH, 1);
-		goal.start = cal.getTime();
-		cal.set(cal.YEAR, cal.MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+		cal.set(cal.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
 		goal.end = cal.getTime();
+		cal.add(cal.DAY_OF_MONTH, -(cal.getActualMaximum(Calendar.DAY_OF_MONTH) - 1));
+		goal.start = cal.getTime();
 		for (ActivityLevel al: ActivityLevel.all()) {
 			if(al.description.equals(activityLevel)) {
 				goal.activityLevel =  al;

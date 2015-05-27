@@ -80,18 +80,6 @@
               </select>
            </div>
         </div>
-        <br>
-		<div class="control-group">
-		  <label class="control-label" for="target_al">@Messages.get("index.taract")</label>
-		      <div class="controls">
-		        <select name="target_al" class="input-medium" id="target_al">
-				   @for(level <- al){
-				   @if(level.description==user.target_al){<option selected>@level.description</option>}
-				   @if(level.description!=user.target_al){<option>@level.description</option>}                 
-				  }
-				</select>
-			</div>
-		</div>
 
 			<br>
 			<br>
