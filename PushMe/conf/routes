@@ -46,7 +46,8 @@ POST	/lang/:lang						controllers.LanguageController.changeLanguage(lang:String)
 GET 	/email 							controllers.MailController.sendEmail()
 
 #Admin
-GET		/adminStatistics				controllers.AdminController.adminStatistics()
+GET		/adminDashboard					controllers.AdminController.adminDashboard()
+GET		/admin/statistics/:email		controllers.AdminController.userStatistics(email:String)
 GET		/survey							controllers.AdminController.survey()
 GET		/createSurvey					controllers.AdminController.createSurvey()
 GET		/editSurvey/:id					controllers.AdminController.editSurvey(id:Long)

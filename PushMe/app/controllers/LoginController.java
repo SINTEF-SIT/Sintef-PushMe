@@ -44,7 +44,7 @@ public class LoginController extends Controller {
             if(User.find.byId(loginForm.get().email).isAdmin == false){
             	return redirect(routes.DashboardController.dashboard());
             	} else {
-            		return redirect(routes.AdminController.adminStatistics());
+            		return redirect(routes.AdminController.adminDashboard());
             	}
         }
     }

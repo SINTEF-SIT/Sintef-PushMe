@@ -185,3 +185,8 @@ function setSurveyIdForDeployment(id){
 	$('#formSurvey').val(id);
 }
 
+//Show correct survey in userStatistics.scala.html
+function showSurvey(id){
+        $(".surveyModal").hide();
+        $("#"+id).show();        
+}

@@ -1,0 +1,141 @@
+@(admin: User, user: User, surveys: List[SurveyAnswer], modules: List[UserModule])
+@import play.i18n._
+@mainAdmin("Admin | User statistics", admin){
+
+<!-- Searchfield Users -->
+
+<div id="dataset col-md-12" style="text-align: center;">
+	@Messages.get("admStat.sUser"):
+  	<input class="typeahead" type="text" placeholder="@Messages.get("admStat.User")" style="height: 30px; width: 200px;">
+  		<a href="/findUser"><button type="button" class="btn btn-primary" style="height: 30px">@Messages.get("admStat.dispAll")</button></a>
+</div>
+	
+<hr>
+
+<!-- Moduletracker -->
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4><i class="fa fa-fw fa-bar-chart-o"></i> @Messages.get("admStat.mtracker") </h4>
+	</div>
+
+      <div class="table-responsive" style="padding:10px;">
+        <table class="table-striped table-condensed table-hover col-md-12">
+          <thead>
+				<tr>
+					<th>@Messages.get("admStat.name")</th>
+					<th>@Messages.get("admStat.desc")</th>
+					<th>@Messages.get("admStat.click")</th>
+	
+				</tr>
+          </thead>
+          <tbody id="myTable">
+          @for(i <- modules){
+					<tr>
+						<td>@i.module.name</td>
+						<td>@i.module.description</td>
+						<td>@i.clickCounter</td>
+					</tr>
+					}
+          </tbody>
+        </table> 
+      </div>
+</div>
+
+<!-- Surveys -->
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4><i class="fa fa-fw fa-bar-chart-o"></i> Surveys </h4>
+	</div>
+
+      <div class="table-responsive" style="padding:10px;">
+        <table class="table-striped table-condensed table-hover col-md-12">
+          <thead>
+				<tr>
+					<th>Survey</th>
+					<th>Look at answer</th>
+	
+				</tr>
+          </thead>
+          <tbody id="myTable">
+          @for(i <- surveys){
+					<tr>
+						<td>@i.survey.name</td>
+						<td><button type="button" onclick="showSurvey('survey@i.id')" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open</button></td>
+					</tr>
+					}
+          </tbody>
+        </table> 
+      </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    @for(i <- surveys){
+      <div id="survey@i.id" class="surveyModal">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">@i.survey.name</h4>
+      </div>
+      <div class="modal-body">
+		      <h3>@i.survey.question1</h3><br>
+		      @if(i.question1==1){
+		      <label>@i.survey.option1_1</label><br>
+		      }
+		      @if(i.question1==2){
+		      <label>@i.survey.option2_1</label><br>
+		      }
+		      @if(i.question1==3){
+		      <label>@i.survey.option3_1</label><br>
+		      }
+		      <h3>@i.survey.question2</h3><br>
+		      @if(i.question2==1){
+		      <label>@i.survey.option1_2</label><br>
+		      }
+		      @if(i.question2==2){
+		      <label>@i.survey.option2_2</label><br>
+		      }
+		      @if(i.question2==3){
+		      <label>@i.survey.option3_2</label><br>
+		      }
+		      <h3>@i.survey.question3</h3><br>
+		      @if(i.question3==1){
+		      <label>@i.survey.option1_3</label><br>
+		      }
+		      @if(i.question3==2){
+		      <label>@i.survey.option2_3</label><br>
+		      }
+		      @if(i.question3==3){
+		      <label>@i.survey.option3_3</label><br>
+		      }
+		      <h3>@i.survey.question4</h3><br>
+		      @if(i.question4==1){
+		      <label>@i.survey.option1_4</label><br>
+		      }
+		      @if(i.question4==2){
+		      <label>@i.survey.option2_4</label><br>
+		      }
+		      @if(i.question4==3){
+		      <label>@i.survey.option3_4</label><br>
+		      }
+		      <h3>@i.survey.question5</h3><br>
+		      @if(i.question5==1){
+		      <label>@i.survey.option1_5</label><br>
+		      }
+		      @if(i.question5==2){
+		      <label>@i.survey.option2_5</label><br>
+		      }
+		      @if(i.question5==3){
+		      <label>@i.survey.option3_5</label><br>
+		      }
+      </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
+
+}

@@ -14,13 +14,38 @@ import views.html.*;
 public class AdminController extends Controller {
 
 	@Security.Authenticated(Secured.class)
-	public static Result adminStatistics() {
+	public static Result adminDashboard() {
 		if(ProfileController.findUser().isAdmin == true){
-			return ok(adminStatistics.render(ProfileController.findUser()));
+			return ok(adminDashboard.render(ProfileController.findUser(), User.all()));
 		} else {
 			return IndexController.index();
 			}        
     }
+	
+	@Security.Authenticated(Secured.class)
+	public static Result userStatistics(String email) {
+		if(ProfileController.findUser().isAdmin == true){
+			User user = User.find.byId(email);
+			return ok(userStatistics.render(ProfileController.findUser(), 
+					user,
+					findSurveyAnswers(user),
+					findUserModules(user)));
+		} else {
+			return IndexController.index();
+			}        
+    }
+	
+	//Find all surveys deployed to a spesific user
+	public static List<SurveyAnswer> findSurveyAnswers(User user){
+		List<SurveyAnswer> surveys = new ArrayList<SurveyAnswer>();
+		List<SurveyAnswer> allSurveys = SurveyAnswer.find.all();
+		for(SurveyAnswer i : allSurveys){
+			if(i.user.equals(user)){
+				surveys.add(i);
+			}
+		}
+		return surveys;
+	}
 	
 	@Security.Authenticated(Secured.class)
 	public static Result survey() {
@@ -93,7 +118,7 @@ public class AdminController extends Controller {
 			}        
     }
 	
-	//Find the modules belonging to the logged on user
+	//Find the modules belonging to a user
 	public static List<UserModule> findUserModules(User user){
 		List<UserModule> userModuleList = new ArrayList<UserModule>();
 		List<UserModule> moduleList = UserModule.find.all();

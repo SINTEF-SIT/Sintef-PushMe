@@ -122,7 +122,6 @@
     	<!-- Survey module -->
     	
     	<div class="col-md-12 text-center">
-    	
     	@if(surveys.isEmpty()){
     	<div class="wrapper" title="You have @surveys.size() survey(s) waiting"><button class="btn btn-default btn-lg" disabled title="No new surveys">SURVEY</button></div>
     	}else{
@@ -142,19 +141,19 @@
 		      <h3>@surveys.get(0).question1</h3><br><input type="radio" name="question1" value="1">@surveys.get(0).option1_1<br>
 		      <input type="radio" name="question1" value="2">@surveys.get(0).option2_1<br>
 		      <input type="radio" name="question1" value="3">@surveys.get(0).option3_1<br>
-		      <h3>@surveys.get(0).question2</h3><br>
+		      <hr><h3>@surveys.get(0).question2</h3><br>
 		      <input type="radio" name="question2" value="1">@surveys.get(0).option1_2<br>
 		      <input type="radio" name="question2" value="2">@surveys.get(0).option2_2<br>
 		      <input type="radio" name="question2" value="3">@surveys.get(0).option3_2<br>
-		      <h3>@surveys.get(0).question3</h3><br>
+		      <hr><h3>@surveys.get(0).question3</h3><br>
 		      <input type="radio" name="question3" value="1">@surveys.get(0).option1_3<br>
 		      <input type="radio" name="question3" value="2">@surveys.get(0).option2_3<br>
 		      <input type="radio" name="question3" value="3">@surveys.get(0).option3_3<br>
-		      <h3>@surveys.get(0).question4</h3><br>
+		      <hr><h3>@surveys.get(0).question4</h3><br>
 		      <input type="radio" name="question4" value="1">@surveys.get(0).option1_4<br>
 		      <input type="radio" name="question4" value="2">@surveys.get(0).option2_4<br>
 		      <input type="radio" name="question4" value="3">@surveys.get(0).option3_4<br>
-		      <h3>@surveys.get(0).question5</h3><br>
+		      <hr><h3>@surveys.get(0).question5</h3><br>
 		      <input type="radio" name="question5" value="1">@surveys.get(0).option1_5<br>
 		      <input type="radio" name="question5" value="2">@surveys.get(0).option2_5<br>
 		      <input type="radio" name="question5" value="3">@surveys.get(0).option3_5<br>
