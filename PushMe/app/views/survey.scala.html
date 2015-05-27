@@ -23,7 +23,7 @@
 					<tr>
 						<td>@survey.name</td>
 						<td><a href="/editSurvey/@survey.id"><input type="button" class="btn btn-default" value="@Messages.get("survey.edit")"></a></td>
-						<td><a href=""><input type="button" class="btn btn-default" value="@Messages.get("survey.delete")"></a></td>
+						<td><input type="button" onclick="deleteSurvey(@survey.id)" class="btn btn-default" value="@Messages.get("survey.delete")"></td>
 						<td><a href=""><input type="button" class="btn btn-default" value="@Messages.get("survey.deploy")"></a></td>
 					</tr>
 					}

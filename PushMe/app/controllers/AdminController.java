@@ -56,7 +56,7 @@ public class AdminController extends Controller {
 	public static Result createSurveyForm(){
     	Form<Survey> form = Form.form(Survey.class).bindFromRequest();
     	form.get().save();
-    	return AdminController.survey();
+    	return redirect("/survey");
     }
 	
 	//Edit a survey
@@ -64,7 +64,14 @@ public class AdminController extends Controller {
 	public static Result editSurveyForm(Long id){
     	Form<Survey> form = Form.form(Survey.class).bindFromRequest();
     	Survey.update(id, form.get());
-    	return AdminController.survey();
+    	return redirect("/survey");
+    }
+	
+	//Delete a survey
+	@Security.Authenticated(Secured.class)
+	public static Result deleteSurvey(Long id){
+		Survey.find.ref(id).delete();
+    	return redirect("/survey");
     }
 	
 	@Security.Authenticated(Secured.class)

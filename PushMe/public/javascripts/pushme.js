@@ -46,15 +46,15 @@ $(function () {
 /*Call on function to delete user-activity*/
 function deleteUA(id){
 	$.post("/useractivity/delete/"+id, function( data ) {
+		location.reload();
 		});
-	location.reload();
 }
 
 /*Call on function to delete pedometer recording*/
 function deletePedo(id){
 	$.post("/usersteps/delete/"+id, function( data ) {
+		location.reload();
 		});
-	location.reload();
 }
 
 /*Send password to email*/
@@ -160,3 +160,13 @@ $.fn.pageMe = function(opts){
 $(document).ready(function(){
   $('#myTable').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:20});
 });
+
+
+/*Admin POST links*/
+
+//Delete Survey
+function deleteSurvey(id){
+	$.post("/deleteSurvey/"+id, function( data ) {
+		location.reload();
+	});
+}

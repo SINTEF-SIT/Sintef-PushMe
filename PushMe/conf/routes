@@ -52,6 +52,7 @@ GET		/editSurvey/:id					controllers.AdminController.editSurvey(id:Long)
 GET		/findUser						controllers.AdminController.findUser()
 POST	/createSurvey					controllers.AdminController.createSurveyForm()
 POST	/editSurvey						controllers.AdminController.editSurveyForm(id:Long)
+POST	/deleteSurvey/:id				controllers.AdminController.deleteSurvey(id:Long)
 
 #Click tracker
 POST	/clickTracker/:email/:module	controllers.AdminController.clickTracker(module:String, email:String)
