@@ -107,9 +107,9 @@
 					  	</tr>
 					    @for(a <- userSteps) {
 					    	<tr>
-					    		<td style="width:20%"><div class="pedo-@a.date.format("yyyy-MM-dd") daily-pedo">@a.date.format("dd MMM")</div></td>
+					    		<td style="width:20%">@a.date.format("dd MMM")</td>
 					    		<td style="width:40%">Walking</td>
-					    		<td style="width:30%">@a.steps</td>
+					    		<td style="width:30%"><div class="pedo-@a.date.format("yyyy-MM-dd") daily-pedo">@a.steps</div></td>
 					    		<td>
 					    		<button style="background-color:#FF6666" onclick="deletePedo(@a.id)"><i class="fa fa-trash-o"></i></button>
 					    		</td>
@@ -130,9 +130,9 @@
 					  	</tr>
 					    @for(a <- activities) {
 					    	<tr>
-					    		<td style="width:20%"><div class="@a.date.format("yyyy-MM-dd") daily-activity">@a.date.format("dd MMM")</div></td>
+					    		<td style="width:20%">@a.date.format("dd MMM")</td>
 					    		<td style="width:40%">@a.activity.name</td>
-					    		<td style="width:30%">@a.steps</td>
+					    		<td style="width:30%"><div class="@a.date.format("yyyy-MM-dd") daily-activity">@a.steps</div></td>
 					    		<td>
 					    		<button style="background-color:#FF6666" onclick="deleteUA(@a.id)"><i class="fa fa-trash-o"></i></button>
 					    		</td>
@@ -149,9 +149,7 @@
                         <h4><i class="fa fa-fw fa-fire"></i> @Messages.get("main.calories") </h4>
                     </div>
                     <div class="panel-body">
-                        <p> 
-                        	Over 9000!
-                        </p>
+                    	You have burned <label class="calories"></label> calories this day.
                     </div>
                 </div>
  

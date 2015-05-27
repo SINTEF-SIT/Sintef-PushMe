@@ -15,6 +15,24 @@ $(document).ready(function(year, month, day) {
 	 var output = d.getFullYear() + '-' +
 	     (month<10 ? '0' : '') + month + '-' +
 	     (day<10 ? '0' : '') + day;
+	 	//Calculate burned calories
+		sum = 0,
+		$(".pedo-"+output).each(function() {
+		    var value = $(this).text();
+		    // add only if the value is number
+		    if(!isNaN(value) && value.length != 0) {
+		        sum += parseFloat(value);
+		    }
+		}),
+		$("."+output).each(function() {
+		    var value = $(this).text();
+		    // add only if the value is number
+		    if(!isNaN(value) && value.length != 0) {
+		        sum += parseFloat(value);
+		    }
+		}),
+		//values taken from http://www.livestrong.com/article/238020-how-to-convert-pedometer-steps-to-calories/
+		$('.calories').text(Math.round((sum/2100)*99.75));;
 	 
 		$('.date').val(output),
 		$('tbody tr:has(div.daily-activity)').hide(),
@@ -34,7 +52,25 @@ $(function () {
 			$('tbody tr:has(div.daily-activity)').hide(),
 			$('tbody tr:has(div.'+ date +')').show(),
 			$('tbody tr:has(div.daily-pedo)').hide(),
-			$('tbody tr:has(div.pedo-'+ date +')').show();
+			$('tbody tr:has(div.pedo-'+ date +')').show(),
+			sum = 0,
+			//Calculate burned calories
+			$("."+date).each(function() {
+			    var value = $(this).text();
+			    // add only if the value is number
+			    if(!isNaN(value) && value.length != 0) {
+			        sum += parseFloat(value);
+			    }
+			}),
+			$(".pedo-"+date).each(function() {
+			    var value = $(this).text();
+			    // add only if the value is number
+			    if(!isNaN(value) && value.length != 0) {
+			        sum += parseFloat(value);
+			    }
+			}),
+			//values taken from http://www.livestrong.com/article/238020-how-to-convert-pedometer-steps-to-calories/
+			$('.calories').text(Math.round((sum/2100)*99.75));;
 			totalRow = $('#daily-activity-table tr:visible').length;
 			if(totalRow == 1){
 				//TODO: Hide table header when all rows are hidden
