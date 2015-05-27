@@ -99,7 +99,6 @@ create table user (
   height                    integer,
   gender                    varchar(255),
   current_al                varchar(255),
-  target_al                 varchar(255),
   is_admin                  tinyint(1) default 0,
   constraint pk_user primary key (email))
 ;
