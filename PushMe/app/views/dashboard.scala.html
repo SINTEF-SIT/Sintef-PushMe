@@ -123,9 +123,9 @@
     	
     	<div class="col-md-12 text-center">
     	@if(surveys.isEmpty()){
-    	<div class="wrapper" title="You have @surveys.size() survey(s) waiting"><button class="btn btn-default btn-lg" disabled title="No new surveys">SURVEY</button></div>
+    	<div class="wrapper" title="@Messages.get("dash.survwaiting")"><button class="btn btn-default btn-lg" disabled title="No new surveys">SURVEY</button></div>
     	}else{
-    	<div class="wrapper" title="You have @surveys.size() survey(s) waiting"><button class="btn btn-info btn-lg" data-toggle="modal" data-target="#SurveyModal">SURVEY</button></div>
+    	<div class="wrapper" title="@Messages.get("dash.survwaiting")"><button class="btn btn-info btn-lg" data-toggle="modal" data-target="#SurveyModal">SURVEY</button></div>
     	
     	
 		<div class="modal fade" id="SurveyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

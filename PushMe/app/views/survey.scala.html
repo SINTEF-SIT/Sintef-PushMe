@@ -46,10 +46,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title" id="myModalLabel">Deployment</h3>
+        <h3 class="modal-title" id="myModalLabel">@Messages.get("survey.dep")</h3>
       </div>
       <div class="modal-body">
-      <h1>Choose a user:</h1>
+      <h1>@Messages.get("survey.choose")</h1>
       		<input hidden type="text" id="formSurvey" value="0">
 			<select id="formUser">
 			   @for(u <- users){
@@ -58,8 +58,8 @@
 			</select>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" onclick="deploySurvey()" type="submit" class="btn btn-primary">Deploy</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">@Messages.get("survey.close")</button>
+        <button type="button" onclick="deploySurvey()" type="submit" class="btn btn-primary">@Messages.get("survey.deploy")</button>
       </div>
     </div>
   </div>
