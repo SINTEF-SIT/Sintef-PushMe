@@ -3,58 +3,56 @@
 @import java.math.BigInteger
 @main(user, "Dashboard | PushMe", activities, userSteps, leaderboard, topLeaderboard) {
 
-    	<!-- Survey module -->
-    	
-    	<div class="col-md-12 text-center">
-    	@if(!surveys.isEmpty()){
-    	<div class="wrapper" style="padding:20px;border-radius:25px;background:#269966;margin-top:5px">
-    	<h1 style="color:white">You have a survey waiting for you!</h1>
-    	<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#SurveyModal">Go to survey</button></div>
-    	
-    	
-		<div class="modal fade" id="SurveyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		  
-			@helper.form(routes.DashboardController.answerSurvey(surveyIDs.get(0))){
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">@surveys.get(0).name</h4>
-		      </div>
-		      <div class="modal-body text-left">
-		      <h3>@surveys.get(0).question1</h3><br><input type="radio" name="question1" value="1">@surveys.get(0).option1_1<br>
-		      <input type="radio" name="question1" value="2">@surveys.get(0).option2_1<br>
-		      <input type="radio" name="question1" value="3">@surveys.get(0).option3_1<br>
-		      <hr><h3>@surveys.get(0).question2</h3><br>
-		      <input type="radio" name="question2" value="1">@surveys.get(0).option1_2<br>
-		      <input type="radio" name="question2" value="2">@surveys.get(0).option2_2<br>
-		      <input type="radio" name="question2" value="3">@surveys.get(0).option3_2<br>
-		      <hr><h3>@surveys.get(0).question3</h3><br>
-		      <input type="radio" name="question3" value="1">@surveys.get(0).option1_3<br>
-		      <input type="radio" name="question3" value="2">@surveys.get(0).option2_3<br>
-		      <input type="radio" name="question3" value="3">@surveys.get(0).option3_3<br>
-		      <hr><h3>@surveys.get(0).question4</h3><br>
-		      <input type="radio" name="question4" value="1">@surveys.get(0).option1_4<br>
-		      <input type="radio" name="question4" value="2">@surveys.get(0).option2_4<br>
-		      <input type="radio" name="question4" value="3">@surveys.get(0).option3_4<br>
-		      <hr><h3>@surveys.get(0).question5</h3><br>
-		      <input type="radio" name="question5" value="1">@surveys.get(0).option1_5<br>
-		      <input type="radio" name="question5" value="2">@surveys.get(0).option2_5<br>
-		      <input type="radio" name="question5" value="3">@surveys.get(0).option3_5<br>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">@Messages.get("profile.cancel")</button>
-		        <button class="btn btn-primary" type="submit">@Messages.get("profile.savechanges")</button>
-		      </div>
-		    </div>
-		    }
-		    
-		  </div>
-		</div>
-		}
-    	
-    	</div>
+  	<!-- Survey module -->
+  	
+
+@if(!surveys.isEmpty()){
+<div class="wrapper col-md-12 text-center" style="padding:20px;border-radius:25px;background:#269966;margin-top:5px">
+<h1 style="color:white">You have a survey waiting for you!</h1>
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#SurveyModal">Go to survey</button>
+</div>
+  	
+  	
+<div class="modal fade" id="SurveyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  
+	@helper.form(routes.DashboardController.answerSurvey(surveyIDs.get(0))){
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">@surveys.get(0).name</h4>
+      </div>
+      <div class="modal-body text-left">
+      <h3>@surveys.get(0).question1</h3><br><input type="radio" name="question1" value="1">@surveys.get(0).option1_1<br>
+      <input type="radio" name="question1" value="2">@surveys.get(0).option2_1<br>
+      <input type="radio" name="question1" value="3">@surveys.get(0).option3_1<br>
+      <hr><h3>@surveys.get(0).question2</h3><br>
+      <input type="radio" name="question2" value="1">@surveys.get(0).option1_2<br>
+      <input type="radio" name="question2" value="2">@surveys.get(0).option2_2<br>
+      <input type="radio" name="question2" value="3">@surveys.get(0).option3_2<br>
+      <hr><h3>@surveys.get(0).question3</h3><br>
+      <input type="radio" name="question3" value="1">@surveys.get(0).option1_3<br>
+      <input type="radio" name="question3" value="2">@surveys.get(0).option2_3<br>
+      <input type="radio" name="question3" value="3">@surveys.get(0).option3_3<br>
+      <hr><h3>@surveys.get(0).question4</h3><br>
+      <input type="radio" name="question4" value="1">@surveys.get(0).option1_4<br>
+      <input type="radio" name="question4" value="2">@surveys.get(0).option2_4<br>
+      <input type="radio" name="question4" value="3">@surveys.get(0).option3_4<br>
+      <hr><h3>@surveys.get(0).question5</h3><br>
+      <input type="radio" name="question5" value="1">@surveys.get(0).option1_5<br>
+      <input type="radio" name="question5" value="2">@surveys.get(0).option2_5<br>
+      <input type="radio" name="question5" value="3">@surveys.get(0).option3_5<br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">@Messages.get("profile.cancel")</button>
+        <button class="btn btn-primary" onclick="alert('@Messages.get("dash.thanks")')" type="submit">@Messages.get("index.submit")</button>
+      </div>
+    </div>
+    }
     
+  </div>
+</div>
+}
 <!-- Container auto-aligns carousel -->
 
 <div class = "container col-sm-12 col-md-12 col-lg-12">    
