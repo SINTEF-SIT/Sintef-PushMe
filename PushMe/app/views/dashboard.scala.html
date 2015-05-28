@@ -2,130 +2,14 @@
 @import play.i18n._
 @import java.math.BigInteger
 @main(user, "Dashboard | PushMe", activities, userSteps, leaderboard, topLeaderboard) {
-    
-<!-- Container auto-aligns carousel -->
 
-<div class = "container col-sm-12 col-md-12 col-lg-12">    
-	<div id="tip-carousel" class="carousel slide" data-ride="carousel" style="margin-top: 3%; margin-bottom:3%;">
-		<div class="carousel-inner">
-	    	<div class="item active" style="text-align:center">
-	        	<div class="carousel-content"  style="height: 200px">
-	        		<div class="carousel-caption">
-	                	<h1><b>@Messages.get("dash.welcome") !</b></h1>
-	          		</div>
-	            </div>
-	        </div>	
-	        @for(t <- tips) {
-	        	<div class="item" style="text-align:center">
-	          	 	<div class="fill" >
-	            		<div class="carousel-content"  style="height: 200px">
-	            	    	<div class="carousel-caption">
-	        	    	    	<h5><b>@t.title</b></h5>
-	                    		<h4><i>@t.description</i></h4>
-	                    	</div>
-	                    </div>
-	                </div>
-	        	</div>
-	    	}
-    	</div>
-    	
-   		<!-- Controls -->
-   		<a class="left carousel-control" href="#tip-carousel" role="button" data-slide="prev">
-   			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-   			<span class="sr-only">Next</span>
- 		</a>
-		<a class="right carousel-control" href="#tip-carousel" role="button" data-slide="next">
-   			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-   			<span class="sr-only">Prev</span>
- 		</a>
-
-	</div>
-</div>
-<br>
-
-<hr>
-
-<!-- Overview panels -->
-<div class = "container col-sm-12 col-md-12 col-lg-12">
-<!-- Goal Panel -->	
-           <div class="col-md-4">
-               <div class="panel panel-default">
-                   <div class="panel-heading">
-                       <h4><i class="fa fa-fw fa-bullseye"></i> @Messages.get("dash.goals") </h4>
-                   </div>
-                   <div class="panel-body"> 
-                   @for(goal <- goals) {
-                  		<p>@Messages.get("dash.goalperiod") @goal.start.format("dd MMM") @Messages.get("dash.to") @goal.end.format("dd MMM") @Messages.get("dash.is") <label>@goal.steps</label></p>
-                   }
-                   <br>
-                   </div>
-               </div>
-           </div>
-   			<!-- Recent activities -->	
-           <div class="col-md-4">
-               <div class="panel panel-default">
-                   <div class="panel-heading">
-                       <h4><i class="fa fa-fw fa-bicycle"></i> @Messages.get("main.dayact") </h4>
-                   </div>
-                   <div class="panel-body">
-                   
-						<table class="table-striped table-condensed table-hover">
-							<tr>
-								<th>@Messages.get("main.date")</th>
-						    	<th>@Messages.get("main.act")</th>
-						    	<th>@Messages.get("main.steps")</th>
-						    	<th></th>
-						  	</tr>
-						    @for(a <- activities) {
-						    	<tr>
-						    		<td style="width:30%">@a.date.format("dd MMM")</td>
-						    		<td style="width:30%">@a.activity.name</td>
-						    		<td style="width:30%">@a.steps</td>
-						    		<td>
-						    		<button onclick="deleteUA(@a.id)" style="background-color:#FF6666"><i class="fa fa-trash-o"></i></button>
-						    		</td>
-						    		</tr>
-						    }
-						</table>
-
-                       </p>
-                   </div>
-               </div>
-			</div>
-   			<!-- Leaderboard -->	 
-			<div class="col-md-4">
-            	<div class="panel panel-default">
-                	<div class="panel-heading">
-                   		<h4><i class="fa fa-fw fa-trophy"></i> @Messages.get("main.lboard") </h4>
-                	</div>
-                	<div class="panel-body" >                	
-                		<table class="table-striped table-condensed table-hover">
-							<tr>
-								<th>@Messages.get("main.uname")</th>
-						    	<th>@Messages.get("dash.trophies")</th>
-						  	</tr>
-						    @for((leaderboardUser, score) <- topLeaderboard) {
-						    	<tr>
-						    		<td style="width:30%">@leaderboardUser.name</td>
-						    		<td style="width:30%">@score x<i class="fa fa-fw fa-trophy"></i></td>
-						    		</tr>
-						    }
-						</table>
-						<br>
-						<form action="/leaderboard">
-    							<button type="submit" style="height: 30px; text-align: center; margin-left: auto; margin-right: auto; display: block;">@Messages.get("dash.comprank")</button>
-    					</form>
-                	</div>
-            	</div>
-        	</div>
-    	</div>
     	<!-- Survey module -->
     	
     	<div class="col-md-12 text-center">
-    	@if(surveys.isEmpty()){
-    	<div class="wrapper" title="@Messages.get("dash.survwaiting")"><button class="btn btn-default btn-lg" disabled title="No new surveys">SURVEY</button></div>
-    	}else{
-    	<div class="wrapper" title="@Messages.get("dash.survwaiting")"><button class="btn btn-info btn-lg" data-toggle="modal" data-target="#SurveyModal">SURVEY</button></div>
+    	@if(!surveys.isEmpty()){
+    	<div class="wrapper" style="padding:20px;border-radius:25px;background:#269966;margin-top:5px">
+    	<h1 style="color:white">You have a survey waiting for you!</h1>
+    	<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#SurveyModal">Go to survey</button></div>
     	
     	
 		<div class="modal fade" id="SurveyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -170,5 +54,46 @@
 		}
     	
     	</div>
+    
+<!-- Container auto-aligns carousel -->
+
+<div class = "container col-sm-12 col-md-12 col-lg-12">    
+	<div id="tip-carousel" class="carousel slide" data-ride="carousel" style="margin-top: 3%; margin-bottom:3%;">
+		<div class="carousel-inner">
+	    	<div class="item active" style="text-align:center">
+	        	<div class="carousel-content"  style="height: 200px">
+	        		<div class="carousel-caption">
+	                	<h1><b>@Messages.get("dash.welcome") !</b></h1>
+	          		</div>
+	            </div>
+	        </div>	
+	        @for(t <- tips) {
+	        	<div class="item" style="text-align:center">
+	          	 	<div class="fill" >
+	            		<div class="carousel-content"  style="height: 200px">
+	            	    	<div class="carousel-caption">
+	        	    	    	<h5><b>@t.title</b></h5>
+	                    		<h4><i>@t.description</i></h4>
+	                    	</div>
+	                    </div>
+	                </div>
+	        	</div>
+	    	}
+    	</div>
     	
+   		<!-- Controls -->
+   		<a class="left carousel-control" href="#tip-carousel" role="button" data-slide="prev">
+   			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+   			<span class="sr-only">Next</span>
+ 		</a>
+		<a class="right carousel-control" href="#tip-carousel" role="button" data-slide="next">
+   			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+   			<span class="sr-only">Prev</span>
+ 		</a>
+
+	</div>
+</div>
+<br>
+
+<hr>    	
 }
