@@ -9,7 +9,7 @@
 	<div id="monitor" class="panel panel-default tab-box">
 	    <div class="panel-heading" style="height: 40px">
 		     <h3 class="panel-title" style = "margin-bottom: 5px">
-		        <i class="fa fa-sun-o fa-spin"></i>
+		        <i class="fa fa-sun-o"></i>
 		        @Messages.get("dash.youract")!
 		    </h3>
 		    
@@ -118,7 +118,13 @@ $.getScript('/assets/javascripts/morris.min.js',function(){
 	}
 	
 	@for(steps <- monthLineData) {
-		monthLineData.push({ y: '@monthLineData.indexOf(steps)', a: @steps, b: @{goals(0).steps/7} });
+		if(@monthLineData.indexOf(steps) > 0) {
+			monthLineData.push({ y: 
+				'@{var day = Calendar.getInstance(); day.add(Calendar.DATE, -(30 - yearLineData.indexOf(steps))); day.getTime().format("EEEE");}',
+				a: @steps, b: @{goals(0).steps/7} });
+		} else {
+			monthLineData.push({ y: '0', a: @steps, b: @{goals(0).steps/7} });
+		}
 	}
 	
 	@for(steps <- yearLineData) {
