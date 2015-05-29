@@ -101,14 +101,14 @@
                       	<table id="daily-pedo-table" class="table-striped table-condensed table-hover">
 						<tr>
 							<th>@Messages.get("main.date")</th>							
-					    	<th>@Messages.get("main.act")</th>
+					    	<th></th>
 					    	<th>@Messages.get("main.steps")</th>
 					    	<th></th>
 					  	</tr>
 					    @for(a <- userSteps) {
 					    	<tr>
 					    		<td style="width:20%">@a.date.format("dd MMM")</td>
-					    		<td style="width:40%">Walking</td>
+					    		<td style="width:40%"></td>
 					    		<td style="width:30%"><div class="pedo-@a.date.format("yyyy-MM-dd") daily-pedo">@a.steps</div></td>
 					    		<td>
 					    		<button style="background-color:#FF6666" onclick="deletePedo(@a.id)"><i class="fa fa-trash-o"></i></button>

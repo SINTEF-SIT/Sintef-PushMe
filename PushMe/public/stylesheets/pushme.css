@@ -693,8 +693,8 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #fff;
-  text-decoration: underline;
+  color: #68C59C;
+  text-decoration: none;
 }
 
 .cd-pagination {

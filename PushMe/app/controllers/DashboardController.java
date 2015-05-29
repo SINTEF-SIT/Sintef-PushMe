@@ -36,7 +36,8 @@ public class DashboardController extends Controller {
         		UserActivityController.findPedoRecordings(), 
         		StatisticsController.getTopLeaderboard(leaderboard), 
         		surveyChecker(user),
-        		surveyIds));
+        		surveyIds,
+        		StatisticsController.updateMonthLine()));
     }
 	
 	//Check if there are any surveys deployed for the user
