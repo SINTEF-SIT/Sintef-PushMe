@@ -76,6 +76,7 @@ dash.goSurv=Go to survey
 dash.daily=Daily Progress
 dash.weekly=Weekly Progress
 dash.monthly=Monthly Progress
+dash.progbar=Progressbars
 useract.regact=Register your activities
 useract.min=Minutes
 useract.int=Intensity

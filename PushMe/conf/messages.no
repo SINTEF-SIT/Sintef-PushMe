@@ -76,6 +76,7 @@ dash.goSurv=Gå til undersøkelsen
 dash.daily=Daglig Fremgang
 dash.weekly=Ukentlig Fremgang
 dash.monthly=Månedlig Fremgang
+dash.progbar=Progresjonsbar
 useract.regact=Registrer dine aktiviteter
 useract.min=Minutter
 useract.int=Intensitet
