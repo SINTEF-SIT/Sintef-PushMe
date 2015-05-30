@@ -24,6 +24,7 @@ index.free2useinfo=PushMe er et kostnadsfritt program, laget for å hjelpe manne
 index.easy=Enkelt å bruke
 index.easyinfo=Vårt konsept er basert på skritt i den hensikt å gjøre målet ditt enklere å nå. Vi konverterer dine aktiviteter til skritt og legger dem til din daglige sum for å gjøre det målbart.
 index.submit=Send
+index.devby=Utviklet av:
 main.actconv=Aktivitetskonverterer
 main.stats=Dashbord
 main.logout=Logg ut
