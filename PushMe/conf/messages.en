@@ -34,6 +34,7 @@ main.nopedo=No pedometer-recordings registered
 main.date=Date
 main.act=Activity
 main.steps=Steps
+main.isteps=steps
 main.lboard=Leaderboard
 main.uname=Username
 main.calories=Calories Burned Today

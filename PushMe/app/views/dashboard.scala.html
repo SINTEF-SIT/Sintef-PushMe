@@ -102,21 +102,21 @@
 <h1>@Messages.get("dash.daily")</h1>
 <div class="progress" style="height:100px;margin-top:10px;background:grey;margin-left:10px;margin-right:10px;">
   <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="@{goals.get(0).steps/7}" style="width:@{val today = Calendar.getInstance().getTime().format("dd"); val i = today.toInt; (monthlySteps.last/(goals.get(0).steps/7))*100}%;">
-    <div style="margin-top:40px;margin-left:50px;text-align:left;font-size:20px;">@monthlySteps.get(29) / @{math round(goals.get(0).steps/7)} steps - @{math round(monthlySteps.last/(goals.get(0).steps/7))*100}%</div>
+    <div style="margin-top:40px;margin-left:50px;text-align:left;font-size:20px;">@monthlySteps.get(29) / @{math round(goals.get(0).steps/7)} @Messages.get("main.isteps") - @{math round(monthlySteps.last/(goals.get(0).steps/7))*100}%</div>
   </div>
 </div>
 
 <h1>@Messages.get("dash.weekly")</h1>
 <div class="progress" style="height:100px;margin-top:10px;background:grey;margin-left:10px;margin-right:10px;">
   <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="@{goals.get(0).steps}" style="width:@{val today = Calendar.getInstance().getTime().format("dd"); val i = today.toInt; (weekStats/(goals.get(0).steps))*100}%;">
-    <div style="margin-top:40px;margin-left:50px;text-align:left;font-size:20px;">@weekStats / @{math round(goals.get(0).steps)} steps - @{math round(weekStats/(goals.get(0).steps))*100}%</div>
+    <div style="margin-top:40px;margin-left:50px;text-align:left;font-size:20px;">@weekStats / @{math round(goals.get(0).steps)} @Messages.get("main.isteps") - @{math round(weekStats/(goals.get(0).steps))*100}%</div>
   </div>
 </div>
 
 <h1>@Messages.get("dash.monthly")</h1>
 <div class="progress" style="height:100px;margin-top:10px;background:grey;margin-left:10px;margin-right:10px;">
   <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="@{goals.get(1).steps}" style="width:@{val today = Calendar.getInstance().getTime().format("dd"); val i = today.toInt; (yearlySteps.last/(goals.get(1).steps))*100}%;">
-    <div style="margin-top:40px;margin-left:50px;text-align:left;font-size:20px;">@yearlySteps.get(11) / @{math round(goals.get(1).steps)} steps - @{math round(yearlySteps.last/(goals.get(1).steps))*100}%</div>
+    <div style="margin-top:40px;margin-left:50px;text-align:left;font-size:20px;">@yearlySteps.get(11) / @{math round(goals.get(1).steps)} @Messages.get("main.isteps") - @{math round(yearlySteps.last/(goals.get(1).steps))*100}%</div>
   </div>
 </div>
 </div>

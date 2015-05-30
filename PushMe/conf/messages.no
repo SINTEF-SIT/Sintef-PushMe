@@ -34,6 +34,7 @@ main.nopedo=Ingen pedometermålinger registrert
 main.date=Dato
 main.act=Aktivitet
 main.steps=Skritt
+main.isteps=skritt
 main.lboard=Toppliste
 main.uname=Brukernavn
 main.calories=Dagens Forbrente Kalorier
