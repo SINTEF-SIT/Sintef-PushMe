@@ -109,6 +109,19 @@ public class AdminController extends Controller {
     	return redirect("/survey");
     }
 	
+	//Deploy all
+	@Security.Authenticated(Secured.class)
+	public static Result deployAll(Long id){
+		List<User> users = User.find.all();
+		for(User u : users){
+			SurveyAnswer survey = new SurveyAnswer();
+			survey.survey = Survey.find.byId(id);
+			survey.user = u;
+			survey.save();
+		}
+		return redirect("/survey");
+	}
+	
 	@Security.Authenticated(Secured.class)
 	public static Result findUser() {
 		if(ProfileController.findUser().isAdmin == true){

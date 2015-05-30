@@ -56,10 +56,12 @@
 			   <option value="@u.email">@u.email - @u.name</option>
 			  }
 			</select>
+			<br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">@Messages.get("survey.close")</button>
         <button type="button" onclick="deploySurvey()" type="submit" class="btn btn-primary">@Messages.get("survey.deploy")</button>
+        <button type="button" onclick="deployAll()" type="submit" class="btn btn-primary">Deploy All</button>
       </div>
     </div>
   </div>

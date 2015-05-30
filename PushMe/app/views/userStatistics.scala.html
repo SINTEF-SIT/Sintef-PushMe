@@ -2,7 +2,7 @@
 @import play.i18n._
 @mainAdmin("Admin | User statistics", admin){
 
-<!-- Searchfield Users -->
+<!-- Searchfield Users
 
 <div id="dataset col-md-12" style="text-align: center;">
 	@Messages.get("admStat.sUser"):
@@ -11,6 +11,7 @@
 </div>
 	
 <hr>
+ -->
 
 <!-- Moduletracker -->
 
@@ -23,18 +24,18 @@
         <table class="table-striped table-condensed table-hover col-md-12">
           <thead>
 				<tr>
-					<th>@Messages.get("admStat.name")</th>
-					<th>@Messages.get("admStat.desc")</th>
-					<th>@Messages.get("admStat.click")</th>
+					<th class="moduleName col-md-4">@Messages.get("admStat.name"):</th>
+					<th class="moduleDesc col-md-4">@Messages.get("admStat.desc"):</th>
+					<th class="moduleClick col-md-4" style="float: right;">@Messages.get("admStat.click"):</th>
 	
 				</tr>
           </thead>
           <tbody id="myTable">
           @for(i <- modules){
 					<tr>
-						<td>@i.module.name</td>
-						<td>@i.module.description</td>
-						<td>@i.clickCounter</td>
+						<td class="moduleName col-md-4">@i.module.name</td>
+						<td class="moduleDesc col-md-4">@i.module.description</td>
+						<td class="moduleClick col-md-4" style="float: right;">@i.clickCounter</td>
 					</tr>
 					}
           </tbody>
@@ -53,19 +54,19 @@
         <table class="table-striped table-condensed table-hover col-md-12">
           <thead>
 				<tr>
-					<th>Survey</th>
-					<th>Look at answer</th>
+					<th class="surveyName col-md-6">Survey:</th>
+					<th class="lookAnswer col-md-6" style="float: right;">Look at answer:</th>
 	
 				</tr>
           </thead>
           <tbody id="myTable">
           @for(i <- surveys){
 					<tr>
-						<td>@i.survey.name</td>
+						<td class="survey col-md-6">@i.survey.name</td>
 						@if(i.answered){
-						<td><button type="button" onclick="showSurvey('survey@i.id')" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open</button></td>
+						<td class="lookAnswer col-md-6" style="float: right;"><button type="button" onclick="showSurvey('survey@i.id')" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open</button></td>
 						}else{
-						<td><div title="@Messages.get("admStat.notans")"><button type="button" disabled class="btn btn-primary">Open</button></div>}</td>
+						<td class="lookAnswerDisabled col-md-6" style="float: right;"><div title="@Messages.get("admStat.notans")"><button type="button" disabled class="btn btn-primary">Open</button></div>}</td>
 						
 					</tr>
 					}

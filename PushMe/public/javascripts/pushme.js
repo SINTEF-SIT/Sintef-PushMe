@@ -216,6 +216,14 @@ function deploySurvey(){
 	});
 }
 
+//Deploy survey
+function deployAll(){
+	id = $( "#formSurvey" ).val();
+	$.post("/deployAll/"+id, function( data ) {
+		location.reload();
+	});
+}
+
 //Set ID of survey to be deployed
 function setSurveyIdForDeployment(id){
 	$('#formSurvey').val(id);
