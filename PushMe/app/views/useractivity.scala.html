@@ -4,7 +4,7 @@
 
 <!-- 	<br><p style="font-weight:bold;">Total step count: <div style="color:red; font-size:2em;">@stepCounter</div></p>  -->
 
-	<h1><a data-toggle="popover" data-trigger="hover" data-content="@Messages.get("useract.stepReg")">Register your steps</a></h1>
+	<h1><a data-toggle="popover" data-trigger="hover" data-content="@Messages.get("useract.stepReg")">@Messages.get("useract.regsteps")</a></h1>
 	@helper.form(routes.UserActivityController.addSteps()){
 	<input type="hidden" name="date" class="date" style="height:30px;" />
 	<input type ="number" name="steps" style="height:30px;" placeholder="@Messages.get("main.steps")" required />
