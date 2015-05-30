@@ -1,8 +1,4 @@
+This is your new Play application
+=====================================
 
- For information about the system please visit our wiki site 
-
-  =========================================================
-
- https://github.com/IT2901PhysicalActivity/Sintef-PushMe/wiki
-
-  =========================================================
+This file will be packaged with your application, when using `play dist`.
