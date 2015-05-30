@@ -84,105 +84,107 @@
 			</nav>
 
 	    <!-- /.container -->
-	    <div class="col-sm-3 col-md-3 col-lg-3" style="margin-top:70px;">
-	    
-				<div id="datepicker"></div>		
-						
-				<br>
-				
-            	<div class="panel panel-default">
-                	<div class="panel-heading">
-                   		<h4><i class="fa fa-fw fa-bicycle"></i> @Messages.get("main.dayact") </h4>
-                	</div>
-                	<div class="panel-body">
-                	@if(userSteps.isEmpty) {
-					  @Messages.get("main.nopedo") <i class="fa fa-smile-o fa-spin"></i><br><hr>
-					} else {
-                      	<table id="daily-pedo-table" class="table-striped table-condensed table-hover">
-						<tr>
-							<th>@Messages.get("main.date")</th>							
-					    	<th></th>
-					    	<th>@Messages.get("main.steps")</th>
-					    	<th></th>
-					  	</tr>
-					    @for(a <- userSteps) {
-					    	<tr>
-					    		<td style="width:20%">@a.date.format("dd MMM")</td>
-					    		<td style="width:40%"></td>
-					    		<td style="width:30%"><div class="pedo-@a.date.format("yyyy-MM-dd") daily-pedo">@a.steps</div></td>
-					    		<td>
-					    		<button style="background-color:#FF6666" onclick="deletePedo(@a.id)"><i class="fa fa-trash-o"></i></button>
-					    		</td>
-					    		</tr>
-					    }
-					</table>
-					<hr>
-					}
-                	@if(activities.isEmpty) {
-					  @Messages.get("main.noact") <i class="fa fa-smile-o fa-spin"></i>
-					} else {
-                      	<table id="daily-activity-table" class="table-striped table-condensed table-hover">
-						<tr>
-							<th>@Messages.get("main.date")</th>
-					    	<th>@Messages.get("main.act")</th>
-					    	<th>@Messages.get("main.steps")</th>
-					    	<th></th>
-					  	</tr>
-					    @for(a <- activities) {
-					    	<tr>
-					    		<td style="width:20%">@a.date.format("dd MMM")</td>
-					    		<td style="width:40%">@a.activity.name</td>
-					    		<td style="width:30%"><div class="@a.date.format("yyyy-MM-dd") daily-activity">@a.steps</div></td>
-					    		<td>
-					    		<button style="background-color:#FF6666" onclick="deleteUA(@a.id)"><i class="fa fa-trash-o"></i></button>
-					    		</td>
-					    		</tr>
-					    }
-					</table>
-					}
-
-                	</div>
-            	</div>
-            	
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-fire"></i> @Messages.get("main.calories") </h4>
-                    </div>
-                    <div class="panel-body">
-                    	@Messages.get("main.caloriesFirst") <label class="calories"></label> @Messages.get("main.caloriesSecond")
-                    </div>
-                </div>
- 
-				<div class="panel panel-default">
-                	<div class="panel-heading">
-                   		<h4><i class="fa fa-fw fa-trophy"></i> @Messages.get("main.lboard") </h4>
-                	</div>
-                	<div class="panel-body">
-                		<table class="table-striped table-condensed table-hover">
+		<div class="col-md-12">    
+		    <div class="col-sm-3 col-md-3 col-lg-3" style="margin-top:70px;">
+		    
+					<div id="datepicker"></div>		
+							
+					<br>
+					
+	            	<div class="panel panel-default">
+	                	<div class="panel-heading">
+	                   		<h4><i class="fa fa-fw fa-bicycle"></i> @Messages.get("main.dayact") </h4>
+	                	</div>
+	                	<div class="panel-body">
+	                	@if(userSteps.isEmpty) {
+						  @Messages.get("main.nopedo") <i class="fa fa-smile-o fa-spin"></i><br><hr>
+						} else {
+	                      	<table id="daily-pedo-table" class="table-striped table-condensed table-hover">
 							<tr>
-								<th>@Messages.get("main.uname")</th>
-						    	<th>@Messages.get("dash.trophies")</th>
+								<th>@Messages.get("main.date")</th>							
+						    	<th></th>
+						    	<th>@Messages.get("main.steps")</th>
+						    	<th></th>
 						  	</tr>
-						    @for((leaderboardUser, score) <- topLeaderboard) {
+						    @for(a <- userSteps) {
 						    	<tr>
-						    		<td style="width:30%">@leaderboardUser.name</td>
-						    		<td style="width:30%">@score x<i class="fa fa-fw fa-trophy"></i></td>
+						    		<td style="width:20%">@a.date.format("dd MMM")</td>
+						    		<td style="width:40%"></td>
+						    		<td style="width:30%"><div class="pedo-@a.date.format("yyyy-MM-dd") daily-pedo">@a.steps</div></td>
+						    		<td>
+						    		<button style="background-color:#FF6666" onclick="deletePedo(@a.id)"><i class="fa fa-trash-o"></i></button>
+						    		</td>
 						    		</tr>
 						    }
 						</table>
-						<br>
-						<form action="leaderboard">
-    							<button type="submit" style="height: 30px; text-align: center; margin-left: auto; margin-right: auto; display: block;">@Messages.get("dash.comprank")</button>
-						</form>
-                	</div>
-            	</div>
-		</div>
-		
-		
-
-	    <div class="col-sm-7 col-md-7 col-lg-7 col-lg-offset-1" style="margin-top:50px">
-			@content
-      	</div>
+						<hr>
+						}
+	                	@if(activities.isEmpty) {
+						  @Messages.get("main.noact") <i class="fa fa-smile-o fa-spin"></i>
+						} else {
+	                      	<table id="daily-activity-table" class="table-striped table-condensed table-hover">
+							<tr>
+								<th>@Messages.get("main.date")</th>
+						    	<th>@Messages.get("main.act")</th>
+						    	<th>@Messages.get("main.steps")</th>
+						    	<th></th>
+						  	</tr>
+						    @for(a <- activities) {
+						    	<tr>
+						    		<td style="width:20%">@a.date.format("dd MMM")</td>
+						    		<td style="width:40%">@a.activity.name</td>
+						    		<td style="width:30%"><div class="@a.date.format("yyyy-MM-dd") daily-activity">@a.steps</div></td>
+						    		<td>
+						    		<button style="background-color:#FF6666" onclick="deleteUA(@a.id)"><i class="fa fa-trash-o"></i></button>
+						    		</td>
+						    		</tr>
+						    }
+						</table>
+						}
+	
+	                	</div>
+	            	</div>
+	            	
+	                <div class="panel panel-default">
+	                    <div class="panel-heading">
+	                        <h4><i class="fa fa-fw fa-fire"></i> @Messages.get("main.calories") </h4>
+	                    </div>
+	                    <div class="panel-body">
+	                    	@Messages.get("main.caloriesFirst") <label class="calories"></label> @Messages.get("main.caloriesSecond")
+	                    </div>
+	                </div>
+	 
+					<div class="panel panel-default">
+	                	<div class="panel-heading">
+	                   		<h4><i class="fa fa-fw fa-trophy"></i> @Messages.get("main.lboard") </h4>
+	                	</div>
+	                	<div class="panel-body">
+	                		<table class="table-striped table-condensed table-hover">
+								<tr>
+									<th>@Messages.get("main.uname")</th>
+							    	<th>@Messages.get("dash.trophies")</th>
+							  	</tr>
+							    @for((leaderboardUser, score) <- topLeaderboard) {
+							    	<tr>
+							    		<td style="width:30%">@leaderboardUser.name</td>
+							    		<td style="width:30%">@score x<i class="fa fa-fw fa-trophy"></i></td>
+							    		</tr>
+							    }
+							</table>
+							<br>
+							<form action="leaderboard">
+	    							<button type="submit" style="height: 30px; text-align: center; margin-left: auto; margin-right: auto; display: block;">@Messages.get("dash.comprank")</button>
+							</form>
+	                	</div>
+	            	</div>
+			</div>
+			
+			
+	
+		    <div class="col-sm-8 col-md-8 col-lg-8 col-lg-offset-1" style="margin-top:50px">
+				@content
+	      	</div>
+	    </div>
       	<!-- Footer -->
         <div id="footer">
       		<div class="container col-md-12" style="text-align: center;">

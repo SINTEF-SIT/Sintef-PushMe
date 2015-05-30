@@ -120,7 +120,7 @@ $.getScript('/assets/javascripts/morris.min.js',function(){
 	@for(steps <- monthLineData) {
 		if(@monthLineData.indexOf(steps) > 0) {
 			monthLineData.push({ y: 
-				'@{var day = Calendar.getInstance(); day.add(Calendar.DATE, -(30 - yearLineData.indexOf(steps))); day.getTime().format("EEEE");}',
+				'@{var day = Calendar.getInstance(); day.add(Calendar.DATE, -(29 - yearLineData.indexOf(steps))); day.getTime().format("EEEE");}',
 				a: @steps, b: @{goals(0).steps/7} });
 		} else {
 			monthLineData.push({ y: '0', a: @steps, b: @{goals(0).steps/7} });

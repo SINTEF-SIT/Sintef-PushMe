@@ -139,7 +139,7 @@ INSERT INTO tips VALUES(1, "Pick the parking-spot the farthest away from the sho
 less time consuming the looking for a closer lot. And it's better for you!");
 INSERT INTO tips VALUES(2, "Take a detour while walking to your buss.", "If you have some free time, why not walk around the neighbourhood?");
 INSERT INTO tips VALUES(3, "Use the stairs!", "Stairs is a good way to tone the ass aswell as the legs.");
-INSERT INTO tips VALUES(4, "Pushups/situps(get up) during tv commercials.", "Fun fact: The worlds best female arm wrestler(2014)
+INSERT INTO tips VALUES(4, "Pushups/situps(get up) during tv commercials.", "Fun fact: The worlds best female arm wrestler(2012)
 stated this was the trick who got her that far.");
 INSERT INTO tips VALUES(5, "Walk to the store if possible.", "Save the enviroment by using your own meat machine!");
 INSERT INTO tips VALUES(6, "Use your bike!", "If you live within five or ten miles of where you work, 
