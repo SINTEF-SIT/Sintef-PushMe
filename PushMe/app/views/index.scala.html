@@ -171,7 +171,7 @@
 							<i class="glyphicon glyphicon-lock"></i>
 						</span>
 
-						<input class="form-control" placeholder="@Messages.get("profile.pass")" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" type="password" value="" required onchange="form.re-enter password.pattern = this.value;">
+						<input class="form-control" placeholder="@Messages.get("profile.pass")" name="password" type="password" value="" required />
 
 					</div>
 				</div>
@@ -181,7 +181,7 @@
 							<i class="glyphicon glyphicon-lock"></i>
 						</span>
 
-						<input class="form-control" placeholder="@Messages.get("profile.repass")"   name=" re-enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Please enter the same Password as above" type="password" value="" required />
+						<input class="form-control" placeholder="@Messages.get("profile.repass")"   name=" re-enter password" type="password" value="" required />
 
 					</div>
 				</div>
@@ -381,7 +381,7 @@ sendEvent = function(sel, step) {
         <div id="footer">
       		<div class="container" style="text-align: center">
         		<p class="text-muted credit">&copy;PushMe 2015</p>
-        		<p>Developed by: NTNU, IT2901. Emil, Erik, Itishree, Ivar and Robin.</p>
+        		<p>@Messages.get("index.devby") NTNU, IT2901. Emil, Erik, Itishree, Ivar and Robin.</p>
         		<p>
         		<!-- Insert links to twitter, facebook, instagram and email -->
         		<i class="fa fa-fw fa-twitter fa-2x"></i>
@@ -402,3 +402,7 @@ sendEvent = function(sel, step) {
 </body>
 
 </html>
+
+<!-- Password html validation
+ 						<input class="form-control" placeholder="@Messages.get("profile.pass")" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" type="password" value="" required onchange="form.re-enter password.pattern = this.value;">
+ -->

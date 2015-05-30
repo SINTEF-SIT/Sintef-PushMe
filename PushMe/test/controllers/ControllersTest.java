@@ -15,12 +15,13 @@ public class ControllersTest extends WithApplication {
 
     //User authentication test: Checks if email and password authentication works
     @Test
-    public void tryAuthenticateUser() {
-        new User("bob@hotmail.com", "Bob", "secret").save();
-        
-        assertNotNull(User.authenticate("bob@hotmail.com", "secret"));
-        assertNull(User.authenticate("bob@hotmail.com", "badpassword"));
-        assertNull(User.authenticate("wrong@gmail.com", "secret"));
+    public void authenticateUser() {
+    	User user = new User();
+    	user.email = "bob@gmail.com";
+    	user.password = "secret";
+    	user.save();
+        assertNotNull(User.authenticate("bob@gmail.com", "secret"));
+        assertNull(User.authenticate("bob@gmail.com", "badpassword"));
     }
     
 }
