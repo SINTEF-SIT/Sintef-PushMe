@@ -1,9 +1,9 @@
 @(form: Form[LoginController.Login])
-
+@import play.i18n._
 
 <html>
     <head>
-        <title>PushMe | Log in</title>
+        <title>@Messages.get("login.title")</title>
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
         <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
         <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
@@ -15,7 +15,7 @@
 			<div class="col-sm-6 col-md-4 col-md-offset-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<strong> Sign in to continue</strong>
+						<strong> @Messages.get("login.signCon")Sign in to continue</strong>
 									@if(form.hasGlobalErrors) {
 					    <p style="color:red;" class="error">
 					        @form.globalError.message
@@ -37,7 +37,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-user"></i>
 												</span> 
-												<input class="form-control" placeholder="Email" name="email" type="email" autofocus required>
+												<input class="form-control" placeholder="@Messages.get("login.email")" name="email" type="email" autofocus required>
 											</div>
 										</div>
 										<div class="form-group">
@@ -45,7 +45,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-lock"></i>
 												</span>
-												<input class="form-control" placeholder="Password" name="password" type="password" value="" required>
+												<input class="form-control" placeholder="@Messages.get("login.pass")" name="password" type="password" value="" required>
 											</div>
 										</div>
 										<div class="form-group">
@@ -57,7 +57,7 @@
 						}
 					</div>
 					<div class="panel-footer ">
-						Don't have an account? <a href="/signup" onClick=""> Sign Up Here </a>
+						@Messages.get("login.dont") <a href="/signup" onClick=""> @Messages.get("login.sign") </a>
 					</div>
                 </div>
 			</div>
