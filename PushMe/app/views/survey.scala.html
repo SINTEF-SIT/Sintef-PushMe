@@ -12,20 +12,20 @@
         <table class="table-striped table-condensed table-hover col-md-12">
           <thead>
 				<tr>
-					<th>@Messages.get("survey.name")</th>
-					<th>@Messages.get("survey.edit")</th>
-					<th>@Messages.get("survey.delete")</th>
-					<th>@Messages.get("survey.deploy")</th>
+					<th class="name col-md-3">@Messages.get("survey.name"):</th>
+					<th class="edit col-md-3">@Messages.get("survey.edit"):</th>
+					<th class="delete col-md-3">@Messages.get("survey.delete"):</th>
+					<th class="deploy col-md-3" style="float:right;">@Messages.get("survey.deploy"):</th>
 	
 				</tr>
           </thead>          
           <tbody id="myTable">
           	@for(survey <- surveys){
 					<tr>
-						<td>@survey.name</td>
-						<td><a href="/editSurvey/@survey.id"><input type="button" class="btn btn-default" value="@Messages.get("survey.edit")"></a></td>
-						<td><input type="button" onclick="deleteSurvey(@survey.id)" class="btn btn-default" value="@Messages.get("survey.delete")"></td>
-						<td><button type="button" onclick="setSurveyIdForDeployment(@survey.id)" class="btn btn-default" data-toggle="modal" data-target="#deploy">Deploy</button></td>
+						<td class="name col-md-3">@survey.name</td>
+						<td class="edit col-md-3"><a href="/editSurvey/@survey.id"><input type="button" class="btn btn-default" value="@Messages.get("survey.edit")"></a></td>
+						<td class="delete col-md-3"><input type="button" onclick="deleteSurvey(@survey.id)" class="btn btn-default" value="@Messages.get("survey.delete")"></td>
+						<td class="deploy col-md-3" style="float:right;"><button type="button" onclick="setSurveyIdForDeployment(@survey.id)" class="btn btn-default" data-toggle="modal" data-target="#deploy">Deploy</button></td>
 					</tr>
 					}
           </tbody>
@@ -53,7 +53,7 @@
       		<input hidden type="text" id="formSurvey" value="0">
 			<select id="formUser">
 			   @for(u <- users){
-			   <option selected>@u.email</option>
+			   <option value="@u.email">@u.email - @u.name</option>
 			  }
 			</select>
       </div>

@@ -63,7 +63,7 @@ public class Goal extends Model {
 		Calendar cal = Calendar.getInstance();
 		cal.set(cal.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
 		goal.end = cal.getTime();
-		cal.add(cal.DAY_OF_MONTH, -(cal.getActualMaximum(Calendar.DAY_OF_MONTH) - 1));
+		cal.set(cal.DAY_OF_MONTH, 1);
 		goal.start = cal.getTime();
 		for (ActivityLevel al: ActivityLevel.all()) {
 			if(al.description.equals(activityLevel)) {

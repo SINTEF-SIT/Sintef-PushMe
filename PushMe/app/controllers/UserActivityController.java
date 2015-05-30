@@ -167,13 +167,13 @@ public class UserActivityController extends Controller {
         return totalSteps;
     }
     
-    public static boolean trophyGained(User user, Date date) {
+    public static boolean trophyNotGained(User user, Date date) {
     	List<Trophy> trophies = Trophy.userTrophies(user);
     	for (Trophy trophy: trophies) {
     		if(DateUtils.isSameDay(trophy.endDate, date))
-    			return true;
+    			return false;
     	}
-    	return false;
+    	return true;
     }
     
     
@@ -198,42 +198,43 @@ public class UserActivityController extends Controller {
     	List<UserSteps> userSteps = findPedoRecordings();
     	Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
-    	Date monthCheckDate = cal.getTime();
+    	Date lastMonthDate = cal.getTime();
+    	cal.set(Calendar.DAY_OF_MONTH, 1);
+    	Date firstMonthDate = cal.getTime();
+    	cal.clear();
     	cal = Calendar.getInstance();
-    	while (cal.get(Calendar.DAY_OF_WEEK) > cal.getFirstDayOfWeek()) {
-    	    cal.add(Calendar.DATE, -1);
-    	}
+    	cal.set(Calendar.DAY_OF_WEEK, 1);
     	double weekSteps = 0;
     	double monthSteps = 0;
     	for(UserActivity ua: userActivities) {
 			if (ua.date.after(cal.getTime())) {
-				cal.add(Calendar.DATE, 7);
+				cal.set(Calendar.DAY_OF_WEEK, cal.getActualMaximum(Calendar.DAY_OF_WEEK));
 				if (ua.date.before(cal.getTime())) 
 					weekSteps += ua.steps;
-				cal.add(Calendar.DATE, -7);
-			} if (DateUtils.isSameDay(ua.date, monthCheckDate))
+				cal.set(Calendar.DAY_OF_WEEK, 1);
+			} if (ua.date.after(firstMonthDate) && ua.date.before(lastMonthDate))
 				monthSteps += ua.steps;
 		}
     	for(UserSteps us: userSteps) {
     		if (us.date.after(cal.getTime())) {
-				cal.add(Calendar.DATE, 7);
+    			cal.set(Calendar.DAY_OF_WEEK, cal.getActualMaximum(Calendar.DAY_OF_WEEK));
 				if (us.date.before(cal.getTime())) 
 					weekSteps += us.steps;
-				cal.add(Calendar.DATE, -7);
-			} if (DateUtils.isSameDay(us.date, monthCheckDate))
+				cal.set(Calendar.DAY_OF_WEEK, 1);
+			} if (us.date.after(firstMonthDate) && us.date.before(lastMonthDate))
 				monthSteps += us.steps;
 		}
     	for (Goal g: goals) {
     		if (g.activityLevel.description.trim().equals(user.current_al.trim())) {
     			if (g.type.equals("week")) {
-    				cal.add(Calendar.DATE, 7);
-    				if (g.steps <= weekSteps && !trophyGained(user, cal.getTime())) {
+    				cal.set(Calendar.DAY_OF_WEEK, cal.getActualMaximum(Calendar.DAY_OF_WEEK));
+    				if (g.steps <= weekSteps && trophyNotGained(user, cal.getTime())) {
     					Trophy.createTrophy(1, "Week trophy: " + cal.getTime().toString(), cal.getTime(), user);
     				}
     			} if (g.type.equals("month") ) {
     				cal = Calendar.getInstance();
 					cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
-    				if (g.steps <= monthSteps && !trophyGained(user, cal.getTime())) {
+    				if (g.steps <= monthSteps && trophyNotGained(user, cal.getTime())) {
     					Trophy.createTrophy(2, "Month trophy: " + cal.getTime().toString(), cal.getTime(), user);
     				}
     			} 
