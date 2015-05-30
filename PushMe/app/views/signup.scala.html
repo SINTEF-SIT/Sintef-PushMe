@@ -1,9 +1,10 @@
 @(form: Form[User], al:List[ActivityLevel])
+@import play.i18n._
 
 
 <html>
     <head>
-        <title>PushMe | Sign up</title>
+        <title>@Messages.get("signup.title")</title>
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
         <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
         <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
@@ -15,7 +16,7 @@
 			<div class="col-sm-6 col-md-4 col-md-offset-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<strong> Sign up</strong>
+						<strong> @Messages.get("signup.signup")</strong>
 									@if(form.hasGlobalErrors) {
 					    <p style="color:red;" class="error">
 					        @form.globalError.message
@@ -37,7 +38,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-envelope"></i>
 												</span> 
-												<input class="form-control" placeholder="Email" name="email" type="email" autofocus />
+												<input class="form-control" placeholder="@Messages.get("signup.email")" name="email" type="email" autofocus />
 											</div>
 										</div>										
 										<div class="form-group">
@@ -45,7 +46,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-lock"></i>
 												</span>
-												<input class="form-control" placeholder="Password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" type="password" value="" required 
+												<input class="form-control" placeholder="@Messages.get("signup.pass")" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" type="password" value="" required 
 												onchange="form.re-enter password.pattern = this.value;" />
 											</div>
 										</div>
@@ -54,7 +55,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-lock"></i>
 												</span>
-												<input class="form-control" placeholder="Re-enter password" name=" re-enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Please enter the same Password as above" type="password" value="" required />
+												<input class="form-control" placeholder="@Messages.get("profile.repass")" name=" re-enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Please enter the same Password as above" type="password" value="" required />
 											</div>
 										</div>
 									</div>
@@ -65,7 +66,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-user"></i>
 												</span> 
-												<input class="form-control" placeholder="Full name" name="name" type="text" autofocus required />
+												<input class="form-control" placeholder="@Messages.get("profile.fname")" name="name" type="text" autofocus required />
 											</div>
 										</div>										
 										<div class="form-group">
@@ -73,7 +74,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-calendar"></i>
 												</span>
-												<input class="form-control" placeholder="Date of birth(yyyy-MM-dd)" name="dob" type="date" pattern="\d{4}-\d{1,2}-\d{1,2}" value="" required />
+												<input class="form-control" placeholder="@Messages.get("signup.dob")" name="dob" type="date" pattern="\d{4}-\d{1,2}-\d{1,2}" value="" required />
 											</div>
 										</div>
 										<div class="form-group">
@@ -81,7 +82,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-text-height"></i>
 												</span>
-												<input class="form-control" placeholder="Weight in kg" name="weight" type="text" value="" required />
+												<input class="form-control" placeholder="@Messages.get("profile.weight")" name="weight" type="text" value="" required />
 											</div>
 										</div>
 										<div class="form-group">
@@ -89,13 +90,13 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-text-height"></i>
 												</span>
-												<input class="form-control" placeholder="Height in cm" name="height" type="text" value="" required/>
+												<input class="form-control" placeholder="@Messages.get("profile.height")" name="height" type="text" value="" required/>
 											</div>
 										</div>
-										Gender<br>
+										@Messages.get("profile.gender")<br>
 										<div id="gender">
-										<input type="radio" name="gender" value="male" checked="checked"/>male<br />
-                        				<input type="radio" name="gender" value="female" />female<br />
+										<input type="radio" name="gender" value="male" checked="checked"/>@Messages.get("profile.male")<br />
+                        				<input type="radio" name="gender" value="female" />@Messages.get("profile.female")<br />
 										</div>
 									</div>
 									

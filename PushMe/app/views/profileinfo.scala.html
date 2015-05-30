@@ -51,12 +51,12 @@
 			  <div class="controls">
 			    <select name="gender" class="input-medium" id="current_al">
 			    @if(user.gender=="male"){
-			    <option selected>male</option>
-			    <option>female</option>
+			    <option selected>@Messages.get("profile.male")</option>
+			    <option>@Messages.get("profile.female")</option>
 			    }
 			    @if(user.gender=="female"){
-			    <option>male</option>
-			    <option selected>female</option>
+			    <option>@Messages.get("profile.male")</option>
+			    <option selected>@Messages.get("profile.female")</option>
 			    }
 			  	</select>
 			  </div>
@@ -65,7 +65,7 @@
 			<div class="control-group">
 			  <label class="control-label" for="Birth Date">@Messages.get("profile.dob")</label>
 			  <div class="controls">
-			    <input name="dob" class="input-medium" id="Birth date" type="date" placeholder="YYYY-MM-DD" value="@user.dob.format("yyyy-MM-dd")">			    
+			    <input name="dob" class="input-medium" id="Birth date" type="date" placeholder="@Messages.get("profile.yyyy")" value="@user.dob.format("yyyy-MM-dd")">			    
 			  </div>
 			</div>
 			<br>
