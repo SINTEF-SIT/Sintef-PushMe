@@ -34,7 +34,7 @@ public class Trophy extends Model {
     	List<Trophy> trophies = all();
     	List<Trophy> userTrophies = new ArrayList<Trophy>();
     	for (Trophy ut: trophies) {
-    		if (ut.user == user)
+    		if (ut.user.equals(user))
     			userTrophies.add(ut);
     	}
         return userTrophies;
