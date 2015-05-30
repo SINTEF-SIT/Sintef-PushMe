@@ -6,7 +6,7 @@ public class LanguageController extends Controller {
 
 	public static Result changeLanguage(String lang){
 		Controller.changeLang(lang);
-		return IndexController.index();
+		return redirect("/");
 	}
 	
 }
