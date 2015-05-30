@@ -2,7 +2,7 @@
 @import play.i18n._
 @mainAdmin("Admin | Dashboard", user){
 
-<!-- Searchfield Users -->
+<!-- Searchfield Users 
 
 <div id="dataset col-md-12" style="text-align: center;">
 	@Messages.get("admStat.sUser"):
@@ -11,6 +11,7 @@
 </div>
 	
 <hr>
+-->
 
 <!-- Users -->
 
@@ -23,8 +24,10 @@
         <table class="table-striped table-condensed table-hover col-md-12">
           <thead>
 				<tr>
-					<th>Username</th>
-					<th>Statistics page</th>
+					<th class="username col-md-3">Username:</th>
+					<th class="email col-md-3">Email:</th>
+					<th class="activityLevel col-md-3">Activity Level:</th>
+					<th class="statistics col-md-3" style="float: right;">Statistics:</th>
 	
 				</tr>
           </thead>
@@ -32,8 +35,10 @@
           @for(u <- users){
           @if(u.isAdmin==false){
 					<tr>
-						<td>@u.name</td>
-						<td>@helper.form(routes.AdminController.userStatistics(u.email)){<input type="submit" class="btn btn-default" value="Go to">}</td>
+						<td class="user col-md-3">@u.name</td>
+						<td class="email col-md-3">@u.email</td>
+						<td class="activityLevel col-md-3">@u.current_al</td>
+						<td class="goTo" style="float: right;">@helper.form(routes.AdminController.userStatistics(u.email)){<input type="submit" class="btn btn-default" value="Go to">}</td>
 					</tr>
 					}}
           </tbody>
