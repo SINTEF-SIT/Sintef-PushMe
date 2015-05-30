@@ -157,28 +157,8 @@ static class LeaderboardComparator implements Comparator<User> {
     	List<Goal> goals = Goal.all();
     	List<Goal> userGoals = new ArrayList<Goal>();
     	for (Goal goal: goals) {
-    		if (user.current_al.trim().equals(goal.activityLevel.description.trim()));
+    		if (user.current_al.trim().equals(goal.activityLevel.description.trim()))
     			userGoals.add(goal);
-    	}
-    	int monthGoalIndex = -1;
-    	int weekGoalIndex = -1;
-    	for (Goal goal: userGoals) {
-    		if (goal.type.equals("week")) {
-    			if (weekGoalIndex < 0 || userGoals.get(weekGoalIndex).end.before(goal.end))
-    				weekGoalIndex = userGoals.indexOf(goal);
-    		} else {
-    			if (monthGoalIndex < 0 || userGoals.get(monthGoalIndex).end.before(goal.end))
-    				monthGoalIndex = userGoals.indexOf(goal);
-    		}
-    	}
-    	if (weekGoalIndex > 0) {
-    		Goal g = userGoals.get(0);
-    		userGoals.set(0, userGoals.get(weekGoalIndex));
-    		userGoals.set(weekGoalIndex, g);
-    	} if (monthGoalIndex != 1) {
-    		Goal g = userGoals.get(1);
-    		userGoals.set(1, userGoals.get(monthGoalIndex));
-    		userGoals.set(monthGoalIndex, g);
     	}
     	return userGoals;
     }

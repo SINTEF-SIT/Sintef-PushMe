@@ -203,7 +203,7 @@ public class UserActivityController extends Controller {
     	Date firstMonthDate = cal.getTime();
     	cal.clear();
     	cal = Calendar.getInstance();
-    	cal.set(Calendar.DAY_OF_WEEK, 1);
+    	cal.set(Calendar.DAY_OF_WEEK, cal.getActualMinimum(Calendar.DAY_OF_WEEK));
     	double weekSteps = 0;
     	double monthSteps = 0;
     	for(UserActivity ua: userActivities) {
@@ -211,7 +211,7 @@ public class UserActivityController extends Controller {
 				cal.set(Calendar.DAY_OF_WEEK, cal.getActualMaximum(Calendar.DAY_OF_WEEK));
 				if (ua.date.before(cal.getTime())) 
 					weekSteps += ua.steps;
-				cal.set(Calendar.DAY_OF_WEEK, 1);
+				cal.set(Calendar.DAY_OF_WEEK, cal.getActualMinimum(Calendar.DAY_OF_WEEK));
 			} if (ua.date.after(firstMonthDate) && ua.date.before(lastMonthDate))
 				monthSteps += ua.steps;
 		}
@@ -220,7 +220,7 @@ public class UserActivityController extends Controller {
     			cal.set(Calendar.DAY_OF_WEEK, cal.getActualMaximum(Calendar.DAY_OF_WEEK));
 				if (us.date.before(cal.getTime())) 
 					weekSteps += us.steps;
-				cal.set(Calendar.DAY_OF_WEEK, 1);
+				cal.set(Calendar.DAY_OF_WEEK, cal.getActualMinimum(Calendar.DAY_OF_WEEK));
 			} if (us.date.after(firstMonthDate) && us.date.before(lastMonthDate))
 				monthSteps += us.steps;
 		}
@@ -229,16 +229,19 @@ public class UserActivityController extends Controller {
     			if (g.type.equals("week")) {
     				cal.set(Calendar.DAY_OF_WEEK, cal.getActualMaximum(Calendar.DAY_OF_WEEK));
     				if (g.steps <= weekSteps && trophyNotGained(user, cal.getTime())) {
-    					Trophy.createTrophy(1, "Week trophy: " + cal.getTime().toString(), cal.getTime(), user);
+    					SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+    					Trophy.createTrophy(1, "Week trophy: " + sdf.format(cal.getTime()).toString(), cal.getTime(), user);
     				}
     			} if (g.type.equals("month") ) {
     				cal = Calendar.getInstance();
 					cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
     				if (g.steps <= monthSteps && trophyNotGained(user, cal.getTime())) {
-    					Trophy.createTrophy(2, "Month trophy: " + cal.getTime().toString(), cal.getTime(), user);
+        				SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+    					Trophy.createTrophy(2, "Month trophy: " + sdf.format(cal.getTime()).toString(), cal.getTime(), user);
     				}
     			} 
     		}
     	}
     }
 }
+
