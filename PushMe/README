@@ -1,4 +1,10 @@
-This is your new Play application
-=====================================
+ 
+For more information about the system please visit our wiki page
 
-This file will be packaged with your application, when using `play dist`.
+=============================================================
+
+https://github.com/IT2901PhysicalActivity/Sintef-PushMe/wiki
+
+
+
+To deploy PushMe locate and run \pushme-1.0\bin\pushme.bat
