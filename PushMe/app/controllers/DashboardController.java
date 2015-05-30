@@ -37,7 +37,9 @@ public class DashboardController extends Controller {
         		StatisticsController.getTopLeaderboard(leaderboard), 
         		surveyChecker(user),
         		surveyIds,
-        		StatisticsController.updateMonthLine()));
+        		StatisticsController.updateMonthLine(),
+        		StatisticsController.updateYearLine(),
+        		updateWeekBar()));
     }
 	
 	//Check if there are any surveys deployed for the user
@@ -64,5 +66,15 @@ public class DashboardController extends Controller {
 		form.get().survey = oldSurvey.survey;
 		SurveyAnswer.update(id, form.get());
 		return redirect("/dashboard");
+	}
+	
+	public static Integer updateWeekBar() {
+		List<Integer> monthStats = StatisticsController.updateMonthLine();
+		Calendar cal = Calendar.getInstance();
+		int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+		int steps = 0;
+		for (int i = 0; i < dayOfWeek; i++) {
+			steps += monthStats.get(29 - i);
+		} return steps;
 	}
 }
